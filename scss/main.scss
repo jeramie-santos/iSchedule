@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import "./variables";
+@import "./resets";
+
+html{
+    font-size: 15px;
+}
+
+body{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+
+// HEADER
+.header{
+    background-color: $primary-color;
+    margin: -2vw;
+    padding: 2vw 5vw;  
+    position: sticky;
+    top: 0;
+    height: 100px;
+
+    #{&}__wrapper{
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        max-width: 1920px;
+    }
+}
+
+.header__logo-container{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1vw;
+    justify-content: center;
+    align-items: center;
+
+    .header__logo{
+        height: 70px;
+        width: 70px;
+        font-weight: 60px;
+    }
+    
+    .header__text-logo{
+        color: white;
+        text-shadow: 5px 5px #312d2df2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        font-weight: 1000;
+        font-size: 2.1rem;
+        cursor: pointer;
+    }
+    
+    .header__sub{
+        font-size: 1rem;
+        font-weight: 400;
+        color: rgb(247, 235, 0);
+        text-shadow: 5px 5px #312d2df2;
+    }
+}
+
+.header__nav-mobile{
+    position: relative;
+
+    .menu-btn{
+        align-self: flex-end;
+    }
+
+    .header__nav-mobile--links{
+        width: 300px;
+        background-color: $secondary-color;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 20px;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        z-index: 1;
+        border-radius: 5px;
+        padding: 2vw;
+        box-shadow: 0 0 3px 3px rgba(22, 94, 237, 0.347);
+        text-transform: uppercase;
+
+        .header__links-logo{
+            width: 30px;
+        }
+
+        .header__dropdown-item{
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 2vw;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 1000;
+            text-decoration: none;
+            color: lighten($color: $primary-color, $amount: 30);
+        }
+
+        .header__dropdown-item:hover{
+            color: lighten($color: $primary-color, $amount: 40);
+        }
+    }
+}
+
+.header__nav-desktop{
+    display: none;
+}
+
+// AYUSIN MAIN KINAKAIN NUNG HEADER NA STICKY NATATAKPAN
+
+@media only screen and (min-width: 1200px) {
+
+    html{
+        font-size: 20px;
+    }
+
+    header{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        .header__text-logo{
+            font-size: 1.5rem;
+        }
+
+        .header__nav-desktop--links{
+            text-decoration: none;
+            color: white;
+        }
+        .header__nav-desktop--links:link, .header__nav-desktop--links:visited, .header__nav-desktop--links:active{
+            text-decoration: none;
+        }
+    
+        .header__nav-desktop--links:hover{
+    
+            color: rgb(192, 192, 192);
+        }
+    
+        .header__sub{
+            font-size: 1rem !important;
+        }
+
+        .header__nav-desktop{
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 5vw;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header__nav-mobile{
+            display: none;
+        }
+    }
+}
+
+
+
+
+
