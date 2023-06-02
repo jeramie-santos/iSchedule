@@ -10,7 +10,7 @@ body{
     display: flex;
     flex-flow: column;
     justify-content: space-between;
-    overflow-x: hidden;
+    //overflow-x: hidden;
     // background-image: url(../imgs/bg.jpg);
     // background-repeat: no-repeat;
     // background-size:cover;
@@ -22,12 +22,12 @@ body{
 // HEADER
 .header{
     background-color: $primary-color;
-    margin: -2vw;
     padding: 2vw 5vw;  
     position: sticky;
     top: 0;
     height: 70px;
     z-index: 2;
+    width: 100%;
 
     #{&}__wrapper{
         margin: 0 auto;
@@ -133,7 +133,6 @@ body{
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-
         .header__logo-container{
             gap: 0.5vw;
 
