@@ -14,16 +14,17 @@ body {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  gap: 40px;
+  overflow-x: hidden;
 }
 
 .header {
-  background-color: rgb(8, 44, 116);
+  background-color: rgb(7, 62, 157);
   margin: -2vw;
   padding: 2vw 5vw;
   position: sticky;
   top: 0;
-  height: 100px;
+  height: 70px;
+  z-index: 2;
 }
 .header .header__wrapper {
   margin: 0 auto;
@@ -44,26 +45,25 @@ body {
   align-items: center;
 }
 .header__logo-container .header__logo {
-  height: 70px;
-  width: 70px;
-  font-weight: 60px;
+  height: 50px;
+  width: 50px;
 }
 .header__logo-container .header__text-logo {
   color: white;
-  text-shadow: 5px 5px rgba(49, 45, 45, 0.9490196078);
+  text-shadow: 4px 4px #000000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   font-weight: 1000;
-  font-size: 2.1rem;
+  font-size: 1.7rem;
   cursor: pointer;
 }
 .header__logo-container .header__sub {
   font-size: 1rem;
   font-weight: 400;
   color: rgb(247, 235, 0);
-  text-shadow: 5px 5px rgba(49, 45, 45, 0.9490196078);
+  text-shadow: 4px 4px #000000;
 }
 
 .header__nav-mobile {
@@ -100,10 +100,10 @@ body {
   font-size: 0.9rem;
   font-weight: 1000;
   text-decoration: none;
-  color: #2569f0;
+  color: #4687f7;
 }
 .header__nav-mobile .header__nav-mobile--links .header__dropdown-item:hover {
-  color: #558af3;
+  color: #77a7f9;
 }
 
 .header__nav-desktop {
@@ -119,21 +119,29 @@ body {
     flex-flow: row nowrap;
     align-items: center;
   }
+  header .header__logo-container {
+    gap: 0.5vw;
+  }
+  header .header__logo-container .header__logo {
+    height: 60px;
+    width: 60px;
+  }
   header .header__text-logo {
-    font-size: 1.5rem;
+    font-size: 1.4rem !important;
   }
   header .header__nav-desktop--links {
     text-decoration: none;
     color: white;
+    font-weight: 500;
   }
   header .header__nav-desktop--links:link, header .header__nav-desktop--links:visited, header .header__nav-desktop--links:active {
     text-decoration: none;
   }
   header .header__nav-desktop--links:hover {
-    color: rgb(192, 192, 192);
+    color: #e1e1dd;
   }
   header .header__sub {
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
   }
   header .header__nav-desktop {
     display: flex;

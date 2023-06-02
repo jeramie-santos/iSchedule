@@ -8,14 +8,14 @@
     justify-content: center;
     align-items: center;
     width: fit-content;
-    height: 80px;
+    height: 70px;
     cursor: pointer;
     transition: all .5s ease-in-out;
     border: 3px solid #ffffff00; 
 }
 
 .menu-btn__burger {
-    width: 40px;
+    width: 30px;
     height: 3px;
     background: #ffffff;
     border-radius: 5px;
@@ -27,18 +27,19 @@
 .menu-btn__burger::after {
   content: '';
   position: absolute;
-  width: 40px;
+  width: 30px;
   height: 3px;
   background: #ffffff;
   border-radius: 5px;
   box-shadow: 0 2px 5px #312d2dac;
   transition: all .5s ease-in-out;
 }
+
 .menu-btn__burger::before {
-  transform: translateY(-16px);
+  transform: translateY(-11px);
 }
 .menu-btn__burger::after {
-  transform: translateY(16px);
+  transform: translateY(11px);
 }
 .menu-btn.open .menu-btn__burger {
     transform: translateX(-50px);
