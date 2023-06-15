@@ -176,7 +176,7 @@ body {
   font-weight: 700;
   color: rgb(7, 62, 157);
   text-align: center;
-  margin: 1.5vw 0;
+  margin: 5vw 0 2vw 0;
 }
 .landing-page .landing-page__text {
   font-size: 1.2rem;
@@ -188,7 +188,7 @@ body {
   display: flex;
   flex-flow: row nowrap;
   gap: 5vw;
-  margin-top: 7vw;
+  margin-top: 50px;
   justify-content: center;
   align-items: center;
 }
