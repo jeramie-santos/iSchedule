@@ -124,9 +124,25 @@ body{
 
 // AYUSIN MAIN KINAKAIN NUNG HEADER NA STICKY NATATAKPAN
 
+.move{
+    display: none;
+}
+
+
 @media only screen and (min-width: 1200px) {
     html{
         font-size: 20px;
+    }
+
+    .spacer{
+        background-color:#073E9D;
+        width: 100%;
+        height: 150px;
+    }
+
+    .move{
+        display: block;
+        margin-top: 200px;
     }
     
     header{
@@ -179,7 +195,83 @@ body{
     }
 }
 
+.landing-page{
+    margin: 5vw;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
 
+    .landing-page__title{
+        font-size: 2rem;
+        font-weight: 700;
+        color: $primary-color;
+        text-align: center;
+        margin: 2vw 0;
+        // text-shadow: 3px 3px 3px rgb(190, 190, 188);
+    }
 
+    .landing-page__text{
+        font-size: 1.3rem;
+        color: rgb(51, 51, 51);
+        font-weight: 500;
+        text-align: justify;
+    }
+
+    .landing-page__buttons{
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 5vw;
+        margin-top: 10vw;
+        justify-content: center;
+        align-items: center;
+
+        .btn{
+            border: 1px solid $primary-color;
+            background-color: $primary-color;
+            color: white;
+            box-shadow: 4px 4px rgb(186, 185, 185);
+            width: 40vw;
+            height: 70px;
+            font-size: 1.2rem;
+            transition-duration: 1000ms;
+        }
+
+        .btn:hover{
+            transform: translateY(-10px);
+        }
+
+        .btn--how{
+            background-color: white;
+            color: $primary-color;
+        }
+    }
+
+    .landing-page__img{
+        width: 300px;
+        height: 300px;
+    }
+}
+
+.custom-shape-divider-top-1686826773 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1686826773 svg {
+    position: relative;
+    display: block;
+    width: calc(156% + 1.3px);
+    height: 500px;
+}
+
+.custom-shape-divider-top-1686826773 .shape-fill {
+    fill: #073E9D;
+}
 
 
