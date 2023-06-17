@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import "./variables";
 @import "./resets";
 
@@ -26,7 +26,7 @@ body{
     position: sticky;
     top: 0;
     height: 70px;
-    z-index: 2;
+    z-index: 7;
     width: 100%;
 
     #{&}__wrapper{
@@ -123,10 +123,6 @@ body{
 }
 
 // AYUSIN MAIN KINAKAIN NUNG HEADER NA STICKY NATATAKPAN
-main{
-    margin: auto;
-    max-width: 1900px;
-}
 
 .svg{
     display: none;
@@ -197,6 +193,15 @@ main{
             display: none;
         }
     }
+}
+
+main{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1900px;
 }
 
 .landing-page{
@@ -344,6 +349,79 @@ main{
         }
     }
 }
+
+.announcement{
+    max-width: 1900px;
+    margin: 10vw 5vw;
+    padding: 3vw;
+    background-color: white;
+    max-height: 700px;
+    width: 90%;
+    z-index: 2;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px $primary-color;
+    overflow-y: scroll;
+
+    .announcement__header{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5vw;
+        margin-bottom: 2vw;
+    }
+
+    .announcement__logo{
+        width: 40px;
+        margin-bottom: 20px;
+    }
+
+    .announcement__title{
+        font-size: 2rem;
+        color: $primary-alt;
+        text-align: center;
+        //margin:5vw 0 2vw 0;
+    }
+}
+
+.announcement__content{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 5vw 2vw;
+    border-top: 2px solid $fontbase-color;
+
+    .announcement__news-header{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+
+        .announcement__news-title{
+            color: $fontbase-color;
+            font-weight: 500;
+        }
+
+        .announcement__news-metadata{
+            display: flex;
+            flex-flow: row nowrap;
+            width: 100%;
+            gap: 2vw;
+            color: rgb(120, 119, 119);
+            font-style: italic;
+            font-size: 0.8rem;
+        }
+    }
+}
+
+.announcement__news-body{
+    color: $fontbase-color;
+}
+
+
 
 
 
