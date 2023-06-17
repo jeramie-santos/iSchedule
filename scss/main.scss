@@ -218,8 +218,8 @@ body{
 
     .landing-page__buttons{
         display: flex;
-        flex-flow: row nowrap;
-        gap: 5vw;
+        flex-flow: column;
+        gap: 30px;
         margin-top: 50px;
         justify-content: center;
         align-items: center;
@@ -229,8 +229,8 @@ body{
             background-color: $primary-color;
             color: white;
             box-shadow: 4px 4px rgb(186, 185, 185);
-            width: 40vw;
-            height:90px;
+            width: 90vw;
+            height:70px;
             font-size: 1.1rem;
             font-weight: 500;
             transition-duration: 1000ms;
