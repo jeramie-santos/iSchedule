@@ -351,14 +351,14 @@ main{
 }
 
 .announcement{
-    max-width: 1900px;
     margin: 10vw 5vw;
     padding: 3vw;
     background-color: white;
     max-height: 700px;
+    max-width: 1200px;
     width: 90%;
     z-index: 2;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 0px 0px 10px $primary-color;
     overflow-y: scroll;
 
@@ -378,7 +378,7 @@ main{
 
     .announcement__title{
         font-size: 2rem;
-        color: $primary-alt;
+        color: rgb(234, 116, 116);
         text-align: center;
         //margin:5vw 0 2vw 0;
     }
