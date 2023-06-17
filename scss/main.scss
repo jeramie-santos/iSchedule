@@ -9,7 +9,7 @@ html{
 body{
     display: flex;
     flex-flow: column;
-    justify-content: space-between;
+    justify-content: space-between; 
     //overflow-x: hidden;
     // background-image: url(../imgs/bg.jpg);
     // background-repeat: no-repeat;
@@ -108,6 +108,8 @@ body{
             font-weight: 1000;
             text-decoration: none;
             color: lighten($color: $primary-color, $amount: 30);
+            width: 100%;
+            padding: 7px;
         }
 
         .header__dropdown-item:hover{
@@ -121,10 +123,15 @@ body{
 }
 
 // AYUSIN MAIN KINAKAIN NUNG HEADER NA STICKY NATATAKPAN
+main{
+    margin: auto;
+    max-width: 1900px;
+}
 
-.move{
+.svg{
     display: none;
 }
+
 
 
 @media only screen and (min-width: 1200px) {
@@ -138,9 +145,8 @@ body{
         height: 150px;
     }
 
-    .move{
+    .svg{
         display: block;
-        margin-top: 200px;
     }
     
     header{
@@ -199,6 +205,7 @@ body{
     flex-flow: column;
     align-items: center;
     justify-content: center;
+    max-width: 1900px;
 
     .landing-page__title{
         font-size: 2rem;
@@ -211,22 +218,26 @@ body{
 
     .landing-page__text{
         font-size: 1.2rem;
-        color: rgb(51, 51, 51);
-        font-weight: 500;
+        color: $fontbase-color;
+        font-weight: 550;
         text-align: justify;
+
+        .highlight{
+            // color: $primary-color;
+        }
     }
 
     .landing-page__buttons{
         display: flex;
         flex-flow: column;
         gap: 30px;
-        margin-top: 50px;
+        margin-top: 30px;
         justify-content: center;
         align-items: center;
 
         .btn{
             border: 1px solid $primary-color;
-            background-color: $primary-color;
+            background-color: $primary-alt;
             color: white;
             box-shadow: 4px 4px rgb(186, 185, 185);
             width: 90vw;
@@ -251,7 +262,7 @@ body{
     }
 }
 
-.custom-shape-divider-top-1686826773 {
+.svg {
     position: absolute;
     top: 0;
     left: 0;
@@ -259,17 +270,80 @@ body{
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
+    z-index: -1 !important;
 }
 
-.custom-shape-divider-top-1686826773 svg {
+.svg svg {
     position: relative;
     display: block;
     width: calc(156% + 1.3px);
-    height: 500px;
+    height: 550px;
 }
 
-.custom-shape-divider-top-1686826773 .shape-fill {
+.svg .shape-fill {
     fill: #073E9D;
 }
+
+@media only screen and (min-width: 900px) {
+
+    svg{
+        height: 50vw !important;
+        max-height: 1000px;
+    }
+
+    .svg{
+        display: block;
+        z-index: -1;
+    }
+
+    .landing-page{
+        z-index: 2;
+        display: flex;
+        flex-flow: row-reverse;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        margin-top: 0;
+        
+        .landing-page__img-container{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 500px;
+        }
+
+        .landing-page__img{
+            
+            width: 370px;
+
+        }
+
+        .landing-page__content{
+            width: 50vw;
+            .landing-page__title{
+                color: $sub-color;
+                text-align: left;
+            }
+
+            .landing-page__text{
+                color: white;
+                font-size: 1rem;
+                width: 80%;
+            }
+
+            .landing-page__buttons{
+                flex-flow: row nowrap;
+                justify-content: flex-start;
+                .btn{
+                    width: 20vw;
+                    font-size: 1rem;
+                    border: 2px solid rgb(182, 180, 180);
+                    padding: 10px;
+                    height: 80px;
+                }
+            }
+        }
+    }
+}
+
 
 
