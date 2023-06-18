@@ -205,7 +205,7 @@ main{
 }
 
 .landing-page{
-    margin: 5vw;
+    margin: 0 5vw 10vw 5vw;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -235,7 +235,7 @@ main{
     .landing-page__buttons{
         display: flex;
         flex-flow: column;
-        gap: 30px;
+        gap: 20px;
         margin-top: 30px;
         justify-content: center;
         align-items: center;
@@ -338,6 +338,7 @@ main{
             .landing-page__buttons{
                 flex-flow: row nowrap;
                 justify-content: flex-start;
+                
                 .btn{
                     width: 20vw;
                     font-size: 1rem;
@@ -354,7 +355,7 @@ main{
     margin: 10vw 5vw;
     padding: 3vw;
     background-color: white;
-    max-height: 700px;
+    max-height: 600px;
     max-width: 1200px;
     width: 85%;
     z-index: 2;
