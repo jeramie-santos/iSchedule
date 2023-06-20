@@ -16,12 +16,13 @@
     <link rel="stylesheet" href="./css/burger.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script defer src="./js/burger.js"></script>
+    <script defer src="./js//index.js"></script>
     <title>iSchedule</title>
 </head>
 <body>
     <header class="header">
         <div class="header__wrapper">
-            <div class="header__logo-container">
+            <div class="header__logo-container btn-link" data-page="home">
                 <img class="header__logo" src="./imgs/BMC-logo.png" alt="BMC Logo">
                 <h1 class="header__text-logo">iSchedule <span class="header__sub">Bulacan Medical Center</span></h1>
             </div>
@@ -30,17 +31,17 @@
                     <div class="menu-btn__burger"></div>
                 </div>
                 <div class="header__nav-mobile--links" id="links" style="display: none;">
-                    <a class="header__dropdown-item" href="#"><img class="header__links-logo" src="./imgs/house.png" alt="home">Home</a>
-                    <a class="header__dropdown-item" href="#"><img class="header__links-logo" src="./imgs/schedule.png" alt="schedule">Schedule An Appointment</a>
-                    <a class="header__dropdown-item" href="#"><img class="header__links-logo" src="./imgs/loudspeaker.png" alt="announcement">Announcement</a>
-                    <a class="header__dropdown-item" href="#"><img class="header__links-logo" src="./imgs/info.png" alt="info">About Us</a>
+                    <button class="header__dropdown-item btn-link" data-page="home"><img class="header__links-logo" src="./imgs/house.png" alt="home">Home</button>
+                    <button class="header__dropdown-item btn-link" data-page=""><img class="header__links-logo" src="./imgs/schedule.png" alt="schedule">Schedule An Appointment</button>
+                    <button class="header__dropdown-item btn-link" data-page="announcement"><img class="header__links-logo" src="./imgs/loudspeaker.png" alt="announcement">Announcement</button>
+                    <button class="header__dropdown-item btn-link" data-page="about"><img class="header__links-logo" src="./imgs/info.png" alt="info">About Us</button>
                 </div>
             </nav>
             <nav class="header__nav-desktop">
-                <a class="header__nav-desktop--links" href="#">Home</a>
-                <a class="header__nav-desktop--links" href="#">Schedule An Appointment</a>
-                <a class="header__nav-desktop--links" href="#">Announcement</a>
-                <a class="header__nav-desktop--links" href="#">About Us</a>
+                <button class="header__nav-desktop--links btn-link" data-page="home">Home</button>
+                <button class="header__nav-desktop--links btn-link" data-page="">Schedule An Appointment</button>
+                <button class="header__nav-desktop--links btn-link"data-page="announcement"> Announcement</button>
+                <button class="header__nav-desktop--links btn-link" data-page="about" >About Us</button>
             </nav> 
         </div>
     </header>
@@ -70,7 +71,7 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div> -->
-          <section class="landing-page">
+          <section id="home" class="landing-page">
             <div class="landing-page__img-container"><img class="landing-page__img" src="./imgs/mediclogo.png" alt="wecare logo" srcset="">
             </div>
             <div class="landing-page__content">
@@ -88,7 +89,7 @@
             </div>
           </section>
           <!-- Lagyan limit makikita na characters sa body tapos merong see more pag kinclick ma reveal yung the rest ng body -->
-          <section class="announcement">
+          <section id="announcement" class="announcement">
             <div class="announcement__header">
               <img class="announcement__logo" src="./imgs/loudspeaker.png" alt="">
               <h2 class="announcement__title">Announcements</h2>

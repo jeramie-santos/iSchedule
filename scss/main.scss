@@ -4,6 +4,7 @@
 
 html{
     font-size: 15px;
+    // scroll-behavior:smooth;
 }
 
 body{
@@ -94,6 +95,7 @@ body{
         padding: 2vw;
         box-shadow: 0 0 3px 3px rgba(22, 94, 237, 0.347);
         text-transform: uppercase;
+        user-select: none;
 
         .header__links-logo{
             width: 30px;
@@ -104,16 +106,19 @@ body{
             flex-flow: row nowrap;
             gap: 2vw;
             align-items: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 1000;
             text-decoration: none;
             color: lighten($color: $primary-color, $amount: 30);
             width: 100%;
             padding: 7px;
+            background: transparent;
+            border: none;
         }
 
         .header__dropdown-item:hover{
             color: lighten($color: $primary-color, $amount: 40);
+            cursor: pointer !important;
         }
     }
 }
@@ -149,8 +154,11 @@ body{
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
+
         .header__logo-container{
             gap: 0.5vw;
+            cursor: pointer;
+            text-decoration: none;
 
             .header__logo{
                 height: 60px;
@@ -166,6 +174,9 @@ body{
             text-decoration: none;
             color: white;
             font-weight: 500;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
             // transition-duration: 200ms;
         }
         .header__nav-desktop--links:link, .header__nav-desktop--links:visited, .header__nav-desktop--links:active{
@@ -250,6 +261,8 @@ main{
             font-size: 1.1rem;
             font-weight: 500;
             transition-duration: 1000ms;
+
+            border-radius: 20px;
         }
 
         .btn:hover{
@@ -286,7 +299,7 @@ main{
 }
 
 .svg .shape-fill {
-    fill: #073E9D;
+    fill: $primary-color;
 }
 
 @media only screen and (min-width: 900px) {
@@ -359,7 +372,7 @@ main{
     max-width: 1200px;
     width: 85%;
     z-index: 2;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0px 0px 5px rgba(81, 84, 90, 0.539);
     overflow-y: scroll;
 
@@ -370,6 +383,10 @@ main{
         align-items: center;
         gap: 0.5vw;
         margin-bottom: 2vw;
+        // position: sticky;
+        // top: 0;
+        // background-color: rgb(255, 255, 255);
+        // padding-top: 3vw;
     }
 
     .announcement__logo{
