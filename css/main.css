@@ -58,6 +58,7 @@ body {
   gap: 1vw;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 }
 .header__logo-container .header__logo {
   height: 50px;
@@ -72,6 +73,7 @@ body {
   font-weight: 1000;
   font-size: 1.7rem;
   cursor: pointer;
+  text-decoration: none;
 }
 .header__logo-container .header__sub {
   font-size: 1rem;
@@ -202,7 +204,7 @@ main {
 }
 
 .landing-page {
-  margin: 0 5vw 10vw 5vw;
+  margin: 0 5vw 5vw 5vw;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -237,13 +239,10 @@ main {
   box-shadow: 4px 4px rgb(186, 185, 185);
   width: 90vw;
   height: 70px;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 500;
   transition-duration: 1000ms;
   border-radius: 20px;
-}
-.landing-page .landing-page__buttons .btn:hover {
-  transform: translateY(-10px);
 }
 .landing-page .landing-page__buttons .btn--how {
   background-color: white;
@@ -323,6 +322,9 @@ main {
     border: 2px solid rgb(182, 180, 180);
     padding: 10px;
     height: 80px;
+  }
+  .landing-page .landing-page__content .landing-page__buttons .btn:hover {
+    transform: translateY(-10px);
   }
 }
 .announcement {
