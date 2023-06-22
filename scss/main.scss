@@ -622,7 +622,6 @@ main{
             iframe{
                 border-radius: 20px;
                 //border: 3px solid $primary-color;
-                box-shadow: 10px 10px rgb(186, 185, 185);
             }
         }
     
@@ -714,6 +713,12 @@ main{
             gap: 3vw;
         }
     }
+
+    .tutorial__video-container{
+        iframe{
+            box-shadow: 10px 10px rgb(186, 185, 185);
+        }
+    }
   
 }
 
@@ -726,7 +731,7 @@ main{
             width: 100%;
             gap: 3vw;
             align-items: flex-start;
-    
+            
             .tutorial__procedure{
                 width: 50vw;
             }
