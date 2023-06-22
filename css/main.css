@@ -508,7 +508,7 @@ main {
 }
 @media only screen and (min-width: 700px) {
   .benefit {
-    width: 100vw;
+    width: 90vw;
   }
   .benefit__card-container {
     display: flex;
@@ -535,7 +535,6 @@ main {
   font-size: 2rem;
   text-align: center;
   margin: 2vw;
-  min-width: 330px;
 }
 .tutorial .tutorial__content {
   display: flex;
