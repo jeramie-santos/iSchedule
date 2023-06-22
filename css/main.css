@@ -664,9 +664,6 @@ footer .about {
   flex-flow: column;
   gap: 10px;
   z-index: 2;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
 }
 footer .about .about__header {
   text-align: center;
