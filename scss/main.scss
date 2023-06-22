@@ -377,7 +377,7 @@ main{
 }
 
 .announcement{
-    margin: 10vw 5vw;
+    margin: 10vw 5vw 5vw 5vw;
     padding: 3vw;
     background-color: white;
     max-height: 600px;
@@ -592,7 +592,7 @@ main{
 .tutorial{
     display: flex;
     flex-flow: column;
-    margin: 5vw;
+    margin: 3vw 5vw;
     padding: 0 5vw;
     justify-content: center;
     align-items: center;
