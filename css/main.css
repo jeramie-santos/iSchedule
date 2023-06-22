@@ -201,7 +201,7 @@ body {
   display: none;
 }
 
-.svg {
+.landing-page__wave {
   display: none;
 }
 
@@ -214,7 +214,7 @@ body {
     width: 100%;
     height: 150px;
   }
-  .svg {
+  .landing-page__wave {
     display: block;
   }
   header {
@@ -373,7 +373,7 @@ main {
   width: 250px;
 }
 
-.svg {
+.landing-page__wave {
   position: absolute;
   top: 0;
   left: 0;
@@ -385,14 +385,14 @@ main {
   z-index: -1 !important;
 }
 
-.svg svg {
+.landing-page__wave svg {
   position: relative;
   display: block;
   width: calc(156% + 1.3px);
   height: 450px;
 }
 
-.svg .shape-fill {
+.landing-page__wave .shape-fill {
   fill: #073e9d;
 }
 
@@ -401,7 +401,7 @@ main {
     height: 60vw !important;
     max-height: 1000px;
   }
-  .svg {
+  .landing-page__wave {
     display: block;
     z-index: -1;
   }
@@ -642,7 +642,7 @@ main {
   text-align: justify;
 }
 
-.custom-shape-divider-top-1687228029 {
+.benefit__svg-upper {
   position: absolute;
   top: 0;
   left: 0;
@@ -651,34 +651,32 @@ main {
   line-height: 0;
 }
 
-.custom-shape-divider-top-1687228029 svg {
+.benefit__svg-upper svg {
   position: relative;
   display: block;
   width: calc(168% + 1.3px);
   height: 327px !important;
 }
 
-.custom-shape-divider-top-1687228029 .shape-fill {
+.benefit__svg-upper .shape-fill {
   fill: #FFFFFF;
 }
 
-/** For tablet devices **/
 @media (min-width: 768px) and (max-width: 1023px) {
-  .custom-shape-divider-top-1687228029 svg {
+  .benefit__svg-upper svg {
     width: calc(146% + 1.3px);
     height: 315px !important;
   }
 }
 
-/** For mobile devices **/
 @media (max-width: 767px) {
-  .custom-shape-divider-top-1687228029 svg {
+  .benefit__svg-upper svg {
     width: calc(160% + 1.3px);
     height: 165px !important;
   }
 }
 
-.custom-shape-divider-bottom-1687228088 {
+.benefit__svg-lower {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -689,28 +687,26 @@ main {
           transform: rotate(180deg);
 }
 
-.custom-shape-divider-bottom-1687228088 svg {
+.benefit__svg-lower svg {
   position: relative;
   display: block;
   width: calc(168% + 1.3px);
   height: 327px !important;
 }
 
-.custom-shape-divider-bottom-1687228088 .shape-fill {
+.benefit__svg-lower .shape-fill {
   fill: #FFFFFF;
 }
 
-/** For tablet devices **/
 @media (min-width: 768px) and (max-width: 1023px) {
-  .custom-shape-divider-bottom-1687228088 svg {
+  .benefit__svg-lower svg {
     width: calc(146% + 1.3px);
     height: 315px !important;
   }
 }
 
-/** For mobile devices **/
 @media (max-width: 767px) {
-  .custom-shape-divider-bottom-1687228088 svg {
+  .benefit__svg-lower svg {
     width: calc(160% + 1.3px);
     height: 165px !important;
   }

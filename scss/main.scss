@@ -133,7 +133,7 @@ body{
 
 // AYUSIN MAIN KINAKAIN NUNG HEADER NA STICKY NATATAKPAN
 
-.svg{
+.landing-page__wave{
     display: none;
 }
 
@@ -150,7 +150,7 @@ body{
         height: 150px;
     }
 
-    .svg{
+    .landing-page__wave{
         display: block;
     }
     
@@ -281,7 +281,7 @@ main{
     }
 }
 
-.svg {
+.landing-page__wave {
     position: absolute;
     top: 0;
     left: 0;
@@ -292,14 +292,14 @@ main{
     z-index: -1 !important;
 }
 
-.svg svg {
+.landing-page__wave svg {
     position: relative;
     display: block;
     width: calc(156% + 1.3px);
     height: 450px;
 }
 
-.svg .shape-fill {
+.landing-page__wave .shape-fill {
     fill: $primary-color;
 }
 
@@ -310,7 +310,7 @@ main{
         max-height: 1000px;
     }
 
-    .svg{
+    .landing-page__wave{
         display: block;
         z-index: -1;
     }
@@ -498,7 +498,7 @@ main{
     }
 }
 
-.custom-shape-divider-top-1687228029 {
+.benefit__svg-upper {
     position: absolute;
     top: 0;
     left: 0;
@@ -507,34 +507,33 @@ main{
     line-height: 0;
 }
 
-.custom-shape-divider-top-1687228029 svg {
+.benefit__svg-upper svg {
     position: relative;
     display: block;
     width: calc(168% + 1.3px);
     height: 327px !important;
 }
 
-.custom-shape-divider-top-1687228029 .shape-fill {
+.benefit__svg-upper .shape-fill {
     fill: #FFFFFF;
 }
 
-/** For tablet devices **/
+
 @media (min-width: 768px) and (max-width: 1023px) {
-    .custom-shape-divider-top-1687228029 svg {
+    .benefit__svg-upper svg {
         width: calc(146% + 1.3px);
         height: 315px !important;
     }
 }
 
-/** For mobile devices **/
 @media (max-width: 767px) {
-    .custom-shape-divider-top-1687228029 svg {
+    .benefit__svg-upper svg {
         width: calc(160% + 1.3px);
         height: 165px !important;
     }
 }
 
-.custom-shape-divider-bottom-1687228088 {
+.benefit__svg-lower {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -544,28 +543,26 @@ main{
     transform: rotate(180deg);
 }
 
-.custom-shape-divider-bottom-1687228088 svg {
+.benefit__svg-lower svg {
     position: relative;
     display: block;
     width: calc(168% + 1.3px);
     height: 327px !important;
 }
 
-.custom-shape-divider-bottom-1687228088 .shape-fill {
+.benefit__svg-lower .shape-fill {
     fill: #FFFFFF;
 }
 
-/** For tablet devices **/
 @media (min-width: 768px) and (max-width: 1023px) {
-    .custom-shape-divider-bottom-1687228088 svg {
+    .benefit__svg-lower svg {
         width: calc(146% + 1.3px);
         height: 315px !important;
     }
 }
 
-/** For mobile devices **/
 @media (max-width: 767px) {
-    .custom-shape-divider-bottom-1687228088 svg {
+    .benefit__svg-lower svg {
         width: calc(160% + 1.3px);
         height: 165px !important;
     }
@@ -649,7 +646,6 @@ main{
             min-width: 70px;
             width: 70px;
             height: 70px;
-            //border: 1px solid black;
             background-color: pink;
             border-radius: 50px;
             z-index: 1;
@@ -661,13 +657,11 @@ main{
             box-shadow: 0 0 10px 3px rgba(20, 87, 195, 0.41);
             transition-duration: 500ms;
             user-select: none;
-            
         }   
+
         .circle:hover{
-            //scale: 1.1;
             cursor:pointer;
             transform: rotate(360deg);
-            //background-color: rgb(135, 131, 131);
         }
         
         .step1{
@@ -717,11 +711,7 @@ main{
             gap: 3vw;
         }
     }
-    
-
-    
-
-    
+  
 }
 
 @media only screen and (min-width: 1600px){
