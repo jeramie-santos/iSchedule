@@ -535,6 +535,7 @@ main {
   font-size: 2rem;
   text-align: center;
   margin: 2vw;
+  width: 100%;
 }
 .tutorial .tutorial__content {
   display: flex;
