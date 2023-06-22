@@ -704,35 +704,42 @@ main{
 
 @media only screen and (min-width: 900px){
 
-    .tutorial__content{
-        gap: 10px !important;
-    }
-
-    .tutorial__circle-container{
-        gap: 3vw !important;
+    .tutorial{
+        .tutorial__content{
+            gap: 10px;
+        }
     }
 
     .tutorial__procedure{
         width: 80%;
+
+        .tutorial__circle-container{
+            gap: 3vw;
+        }
     }
+    
+
+    
+
+    
 }
 
 @media only screen and (min-width: 1600px){
 
     .tutorial{
         width: 100%;
-    }
-    .tutorial__content{
-        flex-flow: row nowrap !important;
-        width: 100%;
-        gap: 2vw !important;
-        align-items: flex-start !important;
-
-        .tutorial__procedure{
-            width: 50vw;
+        .tutorial__content{
+            flex-flow: row nowrap;
+            width: 100%;
+            gap: 3vw;
+            align-items: flex-start;
+    
+            .tutorial__procedure{
+                width: 50vw;
+            }
         }
     }
-    
+
     .tutorial__circle-container{
         gap: 1vw !important;
     }

@@ -895,14 +895,14 @@ main {
 }
 
 @media only screen and (min-width: 900px) {
-  .tutorial__content {
-    gap: 10px !important;
-  }
-  .tutorial__circle-container {
-    gap: 3vw !important;
+  .tutorial .tutorial__content {
+    gap: 10px;
   }
   .tutorial__procedure {
     width: 80%;
+  }
+  .tutorial__procedure .tutorial__circle-container {
+    gap: 3vw;
   }
 }
 
@@ -910,18 +910,18 @@ main {
   .tutorial {
     width: 100%;
   }
-  .tutorial__content {
-    -webkit-box-orient: horizontal !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-flow: row nowrap !important;
-            flex-flow: row nowrap !important;
+  .tutorial .tutorial__content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
     width: 100%;
-    gap: 2vw !important;
-    -webkit-box-align: start !important;
-        -ms-flex-align: start !important;
-            align-items: flex-start !important;
+    gap: 3vw;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
-  .tutorial__content .tutorial__procedure {
+  .tutorial .tutorial__content .tutorial__procedure {
     width: 50vw;
   }
   .tutorial__circle-container {
