@@ -12,6 +12,7 @@ body{
     flex-flow: column;
     justify-content: space-between; 
     overflow-x: hidden;
+    color: $fontbase-color;
     // background-image: url(../imgs/bg.jpg);
     // background-repeat: no-repeat;
     // background-size:cover;
@@ -236,7 +237,6 @@ main{
 
     .landing-page__text{
         font-size: 1.2rem;
-        color: $fontbase-color;
         font-weight: 550;
         text-align: justify;
 
@@ -257,7 +257,7 @@ main{
             border: 1px solid $primary-color;
             background-color: $primary-alt;
             color: white;
-            box-shadow: 4px 4px rgb(186, 185, 185);
+            box-shadow: 5px 5px rgb(186, 185, 185);
             width: 90vw;
             height:70px;
             font-size: 1.3rem;
@@ -267,9 +267,13 @@ main{
             border-radius: 20px;
         }
 
-        .btn--how{
+        .btn-how{
             background-color: white;
             color: $primary-color;
+        }
+
+        .btn-link{
+            text-decoration: none;
         }
     }
 
@@ -422,7 +426,6 @@ main{
         width: 100%;
 
         .announcement__news-title{
-            color: $fontbase-color;
             font-weight: 500;
         }
 
@@ -436,10 +439,6 @@ main{
             font-size: 0.8rem;
         }
     }
-}
-
-.announcement__news-body{
-    color: $fontbase-color;
 }
 
 @media only screen and (min-width: 1200px){
@@ -582,5 +581,136 @@ main{
         .benefit__card{
             width: 30vw;
         }
+    }
+}
+
+.tutorial{
+    display: flex;
+    flex-flow: column;
+    margin: 5vw;
+    padding: 0 5vw;
+    justify-content: center;
+    align-items: center;
+
+    .tutorial__header{
+        font-weight: 700;
+        color:$primary-color;
+        font-size: 2rem;
+        text-align: center;
+        margin: 5vw;
+    }
+
+    .tutorial__content{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3vw;
+
+        .tutorial__video-container{
+            margin-bottom: 5vw;
+            width: 100%;
+            height: 60vw;
+            max-width: 900px;
+            max-height: 505px;
+
+            iframe{
+                border-radius: 20px;
+                //border: 3px solid $primary-color;
+                box-shadow: 10px 10px rgb(186, 185, 185);
+            }
+            
+        }
+    
+        .tutorial__procedure{
+            display: flex;
+            flex-flow: row nowrap;
+        }
+    }
+}
+
+.tutorial__steps{
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    gap: 30px;
+    .tutorial__circle-container{
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 5vw;
+
+        .circle{
+            min-width: 70px;
+            width: 70px;
+            height: 70px;
+            //border: 1px solid black;
+            background-color: pink;
+            border-radius: 50px;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $secondary-color;
+            font-size: 1.5rem;
+            box-shadow: 0 0 10px 3px rgba(90, 87, 87, 0.41);
+            
+        }   
+        
+        .step1{
+            background-color: rgb(17, 136, 234);
+        }
+        .step2{
+            background-color: rgb(2, 175, 137);
+        }
+        .step3{
+            background-color: rgb(233, 89, 116);
+        }
+        .step4{
+            background-color: rgb(151, 89, 233);
+        }
+        .step5{
+            background-color: rgb(233, 89, 199);
+        }
+    }
+        
+    .line{
+        background-color: $fontbase-color;
+        width: 5px;
+        height: 90%;
+        position: absolute;
+        z-index: -1;
+        left: 32px;
+    }
+}
+
+@media only screen and (min-width: 900px){
+    .tutorial__circle-container{
+        gap: 3vw !important;
+    }
+
+    .tutorial__procedure{
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 1600px){
+
+    .tutorial{
+        width: 100%;
+    }
+    .tutorial__content{
+        flex-flow: row nowrap !important;
+        width: 100%;
+        gap: 2vw;
+        justify-content: center;
+        align-items: center;
+
+        .tutorial__procedure{
+            width: 50vw;
+        }
+    }
+    
+    .tutorial__circle-container{
+        gap: 1vw !important;
     }
 }

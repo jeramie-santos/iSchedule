@@ -13,11 +13,12 @@
 
 *::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(82, 111, 189, 0);
+  background-color: rgba(160, 159, 159, 0.73);
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: rgb(7, 62, 157);
-  outline: 1px solid white;
+  outline: 1px solid rgba(204, 202, 202, 0.69);
   border-radius: 50px !important;
 }
 
@@ -30,6 +31,7 @@ body {
   flex-flow: column;
   justify-content: space-between;
   overflow-x: hidden;
+  color: rgb(80, 78, 78);
 }
 
 .header {
@@ -220,7 +222,6 @@ main {
 }
 .landing-page .landing-page__text {
   font-size: 1.2rem;
-  color: rgb(80, 78, 78);
   font-weight: 550;
   text-align: justify;
 }
@@ -236,7 +237,7 @@ main {
   border: 1px solid rgb(7, 62, 157);
   background-color: rgb(1, 81, 221);
   color: white;
-  box-shadow: 4px 4px rgb(186, 185, 185);
+  box-shadow: 5px 5px rgb(186, 185, 185);
   width: 90vw;
   height: 70px;
   font-size: 1.3rem;
@@ -244,9 +245,12 @@ main {
   transition-duration: 1000ms;
   border-radius: 20px;
 }
-.landing-page .landing-page__buttons .btn--how {
+.landing-page .landing-page__buttons .btn-how {
   background-color: white;
   color: rgb(7, 62, 157);
+}
+.landing-page .landing-page__buttons .btn-link {
+  text-decoration: none;
 }
 .landing-page .landing-page__img {
   width: 250px;
@@ -375,7 +379,6 @@ main {
   width: 100%;
 }
 .announcement__content .announcement__news-header .announcement__news-title {
-  color: rgb(80, 78, 78);
   font-weight: 500;
 }
 .announcement__content .announcement__news-header .announcement__news-metadata {
@@ -386,10 +389,6 @@ main {
   color: rgb(120, 119, 119);
   font-style: italic;
   font-size: 0.8rem;
-}
-
-.announcement__news-body {
-  color: rgb(80, 78, 78);
 }
 
 @media only screen and (min-width: 1200px) {
@@ -517,5 +516,118 @@ main {
   }
   .benefit__card-container .benefit__card {
     width: 30vw;
+  }
+}
+.tutorial {
+  display: flex;
+  flex-flow: column;
+  margin: 5vw;
+  padding: 0 5vw;
+  justify-content: center;
+  align-items: center;
+}
+.tutorial .tutorial__header {
+  font-weight: 700;
+  color: rgb(7, 62, 157);
+  font-size: 2rem;
+  text-align: center;
+  margin: 5vw;
+}
+.tutorial .tutorial__content {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+}
+.tutorial .tutorial__content .tutorial__video-container {
+  margin-bottom: 5vw;
+  width: 100%;
+  height: 60vw;
+  max-width: 900px;
+  max-height: 505px;
+}
+.tutorial .tutorial__content .tutorial__video-container iframe {
+  border-radius: 20px;
+  box-shadow: 10px 10px rgb(186, 185, 185);
+}
+.tutorial .tutorial__content .tutorial__procedure {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.tutorial__steps {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  gap: 30px;
+}
+.tutorial__steps .tutorial__circle-container {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 5vw;
+}
+.tutorial__steps .tutorial__circle-container .circle {
+  min-width: 70px;
+  width: 70px;
+  height: 70px;
+  background-color: pink;
+  border-radius: 50px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  box-shadow: 0 0 10px 3px rgba(90, 87, 87, 0.41);
+}
+.tutorial__steps .tutorial__circle-container .step1 {
+  background-color: rgb(17, 136, 234);
+}
+.tutorial__steps .tutorial__circle-container .step2 {
+  background-color: rgb(2, 175, 137);
+}
+.tutorial__steps .tutorial__circle-container .step3 {
+  background-color: rgb(233, 89, 116);
+}
+.tutorial__steps .tutorial__circle-container .step4 {
+  background-color: rgb(151, 89, 233);
+}
+.tutorial__steps .tutorial__circle-container .step5 {
+  background-color: rgb(233, 89, 199);
+}
+.tutorial__steps .line {
+  background-color: rgb(80, 78, 78);
+  width: 5px;
+  height: 90%;
+  position: absolute;
+  z-index: -1;
+  left: 32px;
+}
+
+@media only screen and (min-width: 900px) {
+  .tutorial__circle-container {
+    gap: 3vw !important;
+  }
+  .tutorial__procedure {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .tutorial {
+    width: 100%;
+  }
+  .tutorial__content {
+    flex-flow: row nowrap !important;
+    width: 100%;
+    gap: 2vw;
+    justify-content: center;
+    align-items: center;
+  }
+  .tutorial__content .tutorial__procedure {
+    width: 50vw;
+  }
+  .tutorial__circle-container {
+    gap: 1vw !important;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -12,10 +12,11 @@
    
   *::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(82, 111, 189, 0);
+    background-color: rgba(160, 159, 159, 0.73);
   } 
    
   *::-webkit-scrollbar-thumb {
     background-color: $primary-color;
-    outline: 1px solid white;
+    outline: 1px solid rgba(204, 202, 202, 0.69);
     border-radius: 50px !important;
   }
