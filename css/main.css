@@ -860,7 +860,6 @@ main {
 
 .tutorial__steps .tutorial__circle-container .circle:hover {
   cursor: pointer;
-  font-size: 2rem;
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg);
 }
@@ -895,6 +894,9 @@ main {
 }
 
 @media only screen and (min-width: 900px) {
+  .tutorial__content {
+    gap: 10px !important;
+  }
   .tutorial__circle-container {
     gap: 3vw !important;
   }

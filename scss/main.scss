@@ -666,7 +666,6 @@ main{
         .circle:hover{
             //scale: 1.1;
             cursor:pointer;
-            font-size: 2rem;
             transform: rotate(360deg);
             //background-color: rgb(135, 131, 131);
         }
@@ -704,6 +703,11 @@ main{
 }
 
 @media only screen and (min-width: 900px){
+
+    .tutorial__content{
+        gap: 10px !important;
+    }
+
     .tutorial__circle-container{
         gap: 3vw !important;
     }
