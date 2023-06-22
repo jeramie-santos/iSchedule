@@ -263,8 +263,6 @@ main{
             height:70px;
             font-size: 1.3rem;
             font-weight: 500;
-            transition-duration: 1000ms;
-
             border-radius: 20px;
         }
 
@@ -361,10 +359,11 @@ main{
                     border: 2px solid rgb(182, 180, 180);
                     padding: 10px;
                     height: 80px;
+                    transition-duration: 1000ms !important;
                 }
 
                 .btn:hover{
-                    transform: translateY(-10px);
+                    transform: translateY(-5px);
                 }
             }
         }
