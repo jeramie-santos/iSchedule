@@ -508,7 +508,7 @@ main {
 }
 @media only screen and (min-width: 700px) {
   .benefit {
-    width: 90vw;
+    width: 100vw;
   }
   .benefit__card-container {
     display: flex;
