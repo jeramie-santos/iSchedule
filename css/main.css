@@ -531,7 +531,7 @@ main {
   font-size: 2rem;
   text-align: center;
   margin: 3vw;
-  min-width: 350px;
+  min-width: 330px;
 }
 .tutorial .tutorial__content {
   display: flex;
@@ -639,5 +639,40 @@ main {
   }
   .tutorial__circle-container {
     gap: 1vw !important;
+  }
+}
+footer {
+  padding: 5vw;
+  background-color: rgb(7, 62, 157);
+  color: #fff;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 7vw;
+}
+footer .about {
+  width: 90%;
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+footer .about .about__header {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  color: rgb(247, 235, 0);
+}
+footer .about .about__content {
+  text-align: justify;
+}
+@media only screen and (min-width: 900px) {
+  footer .about {
+    width: 70%;
+  }
+  footer .about .about__mobile-break {
+    display: none;
   }
 }/*# sourceMappingURL=main.css.map */
