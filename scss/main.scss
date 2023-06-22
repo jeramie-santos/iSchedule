@@ -624,7 +624,6 @@ main{
                 //border: 3px solid $primary-color;
                 box-shadow: 10px 10px rgb(186, 185, 185);
             }
-            
         }
     
         .tutorial__procedure{
@@ -645,7 +644,6 @@ main{
         flex-flow: row nowrap;
         gap: 5vw;
         
-
         .circle{
             min-width: 70px;
             width: 70px;
@@ -662,6 +660,7 @@ main{
             box-shadow: 0 0 10px 3px rgba(20, 87, 195, 0.41);
             transition-duration: 500ms;
             user-select: none;
+            
         }   
         .circle:hover{
             //scale: 1.1;
