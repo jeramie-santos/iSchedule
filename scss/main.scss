@@ -616,8 +616,8 @@ main{
             margin-bottom: 5vw;
             width: 100%;
             height: 50vw;
-            max-width: 900px;
-            max-height: 505px;
+            max-width: 800px;
+            max-height: 455px;
 
             iframe{
                 border-radius: 20px;
@@ -696,7 +696,7 @@ main{
     .line{
         background-color: $fontbase-color;
         width: 5px;
-        height: 90%;
+        height: 85%;
         position: absolute;
         z-index: -1;
         left: 33px;
@@ -722,8 +722,7 @@ main{
         flex-flow: row nowrap !important;
         width: 100%;
         gap: 2vw;
-        justify-content: center;
-        align-items: center;
+        align-items: flex-start !important;
 
         .tutorial__procedure{
             width: 50vw;
