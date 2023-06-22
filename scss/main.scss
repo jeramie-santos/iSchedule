@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import "./variables";
 @import "./resets";
 
@@ -363,11 +364,12 @@ main{
                     border: 2px solid rgb(182, 180, 180);
                     padding: 10px;
                     height: 80px;
-                    transition-duration: 1000ms !important;
+                    transition-duration: 500ms !important;
                 }
 
                 .btn:hover{
                     transform: translateY(-5px);
+                    cursor: pointer;
                 }
             }
         }
@@ -505,6 +507,7 @@ main{
     width: 100%;
     overflow: hidden;
     line-height: 0;
+    z-index: -1;
 }
 
 .benefit__svg-upper svg {
@@ -764,15 +767,54 @@ footer{
             text-align: justify;
         }
     }
+}
 
-    .contact{
+.contact{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10vw;
+    color: $secondary-color;
+
+    .contact__social{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 10px;
+        transition-duration: 500ms;
+        //text-shadow: 2px 2px rgb(66, 64, 64);
         
+        .contact__img{
+            width: 30px;
+        }
+    }
+
+    .contact__social:hover{
+        transform: translateY(-5px);
+        cursor: pointer;
+    }
+
+    .contact__social-facebook{  
+        a{
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 10px;
+            text-decoration: none;
+            color: $secondary-color;
+        }
+    }
+
+    .contact__social-landline{
+        z-index: 9 !important;
     }
 }
 
 @media only screen and (min-width: 900px){
 
     footer{
+        .contact{
+            gap: 3vw;
+        }
+
         .about{
             width: 70%;
     
