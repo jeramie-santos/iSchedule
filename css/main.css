@@ -303,6 +303,7 @@ main {
   }
   .landing-page .landing-page__img {
     width: 370px;
+    transition-duration: 100ms;
   }
   .landing-page .landing-page__content {
     width: 50vw;

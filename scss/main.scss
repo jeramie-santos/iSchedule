@@ -331,10 +331,14 @@ main{
         }
 
         .landing-page__img{
-            
             width: 370px;
-
+            transition-duration: 100ms;
         }
+
+        // .landing-page__img:hover{
+        //     cursor: pointer;
+        //     transform: translateY(-10px);
+        // }
 
         .landing-page__content{
             width: 50vw;
