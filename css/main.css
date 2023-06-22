@@ -916,7 +916,7 @@ main {
         -ms-flex-flow: row nowrap !important;
             flex-flow: row nowrap !important;
     width: 100%;
-    gap: 2vw;
+    gap: 2vw !important;
     -webkit-box-align: start !important;
         -ms-flex-align: start !important;
             align-items: flex-start !important;

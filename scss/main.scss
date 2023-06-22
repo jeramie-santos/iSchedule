@@ -725,7 +725,7 @@ main{
     .tutorial__content{
         flex-flow: row nowrap !important;
         width: 100%;
-        gap: 2vw;
+        gap: 2vw !important;
         align-items: flex-start !important;
 
         .tutorial__procedure{
