@@ -413,6 +413,7 @@ main {
   color: rgb(247, 235, 0);
   font-weight: 700;
   font-size: 2rem;
+  z-index: 2;
 }
 .benefit .benefit__card-container {
   display: flex;
@@ -446,7 +447,7 @@ main {
   width: 100%;
   overflow: hidden;
   line-height: 0;
-  z-index: -1;
+  z-index: 2;
 }
 
 .benefit__svg-upper svg {
@@ -533,7 +534,7 @@ main {
   color: rgb(7, 62, 157);
   font-size: 2rem;
   text-align: center;
-  margin: 3vw;
+  margin: 2vw;
   min-width: 330px;
 }
 .tutorial .tutorial__content {
@@ -655,13 +656,17 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 50px;
-  margin-top: 7vw;
+  margin-top: 5vw;
 }
 footer .about {
   width: 90%;
   display: flex;
   flex-flow: column;
   gap: 10px;
+  z-index: 2;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 footer .about .about__header {
   text-align: center;
@@ -688,6 +693,9 @@ footer .about .about__content {
 }
 .contact .contact__social .contact__img {
   width: 30px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .contact .contact__social:hover {
   transform: translateY(-5px);
@@ -700,10 +708,39 @@ footer .about .about__content {
   text-decoration: none;
   color: #fff;
 }
-.contact .contact__social-landline {
-  z-index: 9 !important;
+.footer__svg-upper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
 }
 
+.footer__svg-upper svg {
+  position: relative;
+  display: block;
+  width: calc(168% + 1.3px);
+  height: 327px !important;
+}
+
+.footer__svg-upper .shape-fill {
+  fill: #FFFFFF;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footer__svg-upper svg {
+    width: calc(146% + 1.3px);
+    height: 315px !important;
+  }
+}
+@media (max-width: 767px) {
+  .footer__svg-upper svg {
+    width: calc(160% + 1.3px);
+    height: 165px !important;
+  }
+}
 @media only screen and (min-width: 900px) {
   footer .contact {
     gap: 3vw;

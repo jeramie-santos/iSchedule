@@ -466,7 +466,7 @@ main{
         color: $sub-color;
         font-weight: 700;
         font-size: 2rem;
-        
+        z-index: 2;
     }
 
     .benefit__card-container{
@@ -507,7 +507,7 @@ main{
     width: 100%;
     overflow: hidden;
     line-height: 0;
-    z-index: -1;
+    z-index: 2;
 }
 
 .benefit__svg-upper svg {
@@ -602,7 +602,7 @@ main{
         color:$primary-color;
         font-size: 2rem;
         text-align: center;
-        margin: 3vw;
+        margin: 2vw;
         min-width: 330px;
     }
 
@@ -749,13 +749,15 @@ footer{
     align-items: center;
     justify-content: center;
     gap: 50px;
-    margin-top: 7vw;
+    margin-top: 5vw;
 
     .about{
         width: 90%;
         display: flex;
         flex-flow: column;
         gap: 10px;
+        z-index: 2;
+        user-select: none;
 
         .about__header{
             text-align: center;
@@ -763,7 +765,6 @@ footer{
             font-size: 2rem;
             color: $sub-color;
         }
-
         .about__content{
             text-align: justify;
         }
@@ -786,6 +787,7 @@ footer{
         
         .contact__img{
             width: 30px;
+            user-select: none;
         }
     }
 
@@ -805,7 +807,43 @@ footer{
     }
 
     .contact__social-landline{
-        z-index: 9 !important;
+
+    }
+}
+
+.footer__svg-upper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 2;
+}
+
+.footer__svg-upper svg {
+    position: relative;
+    display: block;
+    width: calc(168% + 1.3px);
+    height: 327px !important;
+}
+
+.footer__svg-upper .shape-fill {
+    fill: #FFFFFF;
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .footer__svg-upper svg {
+        width: calc(146% + 1.3px);
+        height: 315px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer__svg-upper svg {
+        width: calc(160% + 1.3px);
+        height: 165px !important;
     }
 }
 
