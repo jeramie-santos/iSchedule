@@ -569,6 +569,7 @@ main {
   display: flex;
   flex-flow: row nowrap;
   gap: 5vw;
+  text-align: justify;
 }
 .tutorial__steps .tutorial__circle-container .circle {
   min-width: 70px;

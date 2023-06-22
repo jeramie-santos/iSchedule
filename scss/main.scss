@@ -644,6 +644,7 @@ main{
         display: flex;
         flex-flow: row nowrap;
         gap: 5vw;
+        text-align: justify;
         
         .circle{
             min-width: 70px;
