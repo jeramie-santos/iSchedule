@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 0.3rem;
+  margin-right: 20px !important;
+}
+
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(82, 111, 189, 0);
+  background-color: rgba(160, 159, 159, 0.73);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(7, 62, 157);
+  outline: 1px solid rgba(204, 202, 202, 0.69);
+  border-radius: 50px !important;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+  cursor: default;
+  color: rgb(80, 78, 78);
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  background-color: rgb(7, 62, 157);
+  padding: 2vw 5vw;
+  position: sticky;
+  top: 0;
+  height: 70px;
+  z-index: 7;
+  width: 100%;
+}
+.header .header__wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1920px;
+}
+
+.header__logo-container {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1vw;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.header__logo-container .header__logo {
+  height: 50px;
+  width: 50px;
+}
+.header__logo-container .header__text-logo {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: 1000;
+  font-size: 1.7rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+.header__logo-container .header__sub {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(247, 235, 0);
+}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
+  header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+  header .header__logo-container {
+    gap: 0.5vw;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  header .header__logo-container .header__logo {
+    height: 60px;
+    width: 60px;
+  }
+  header .header__text-logo {
+    font-size: 1.4rem !important;
+  }
+  header .header__sub {
+    font-size: 0.9rem !important;
+  }
+}
+main {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+main .main__form {
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  max-height: 900px;
+  background-color: pink;
+}
+
+@media only screen and (min-width: 1400px) {
+  main .main__form {
+    height: 90%;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.483);
+  }
+}/*# sourceMappingURL=schedule.css.map */
