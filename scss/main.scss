@@ -620,6 +620,9 @@ main{
             max-width: 800px;
             max-height: 455px;
 
+            // width: 50vw;
+            // height: calc(50vw * (9/16));
+
             iframe{
                 border-radius: 20px;
                 //border: 3px solid $primary-color;
@@ -867,4 +870,3 @@ footer{
         }
     }
 }
-
