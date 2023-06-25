@@ -3,16 +3,18 @@ const announcement = document.querySelector('#announcement');
 
 try {
     let goTo = sessionStorage.getItem("goTo");
-    let topPosition = document.getElementById(goTo).offsetTop - 100;
-    if(goTo == 'home') topPosition -= 130;
-    window.scrollTo({
-        top: topPosition,
-        left: 0,
-        behavior: 'smooth',
-    }); 
-     console.log('goods');
+
+    if(goTo){
+        let topPosition = document.getElementById(goTo).offsetTop - 100;
+        if(goTo == 'home') topPosition -= 130;
+        window.scrollTo({
+            top: topPosition,
+            left: 0,
+            behavior: 'smooth',
+        }); 
+    }
 } catch (error) {
-    console.log('nope');
+    alert('errur');
 }
 
 // announcementLink.forEach((item) => {
