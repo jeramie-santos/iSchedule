@@ -8,13 +8,13 @@
 }
 
 *::-webkit-scrollbar {
-  width: 0.3rem;
+  width: 0.7rem;
   margin-right: 20px !important;
 }
 
 *::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(82, 111, 189, 0);
-  background-color: rgba(160, 159, 159, 0.73);
+  background-color: white;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -209,7 +209,7 @@ main {
 
 .form-container {
   width: 95vw;
-  height: 90vh;
+  height: 85vh;
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
@@ -240,7 +240,7 @@ form input {
 
 .progression {
   width: 100%;
-  height: 30px;
+  height: 60px;
   display: flex;
   flex-flow: row nowrap;
   gap: 0.2vw;
@@ -248,6 +248,7 @@ form input {
   align-items: flex-end;
 }
 .progression .progression__step {
+  margin-top: 10px;
   background-color: rgb(184, 183, 183);
   /* box-shadow: 0 0 5px rgba(33, 32, 32, 0.585); */
   height: 20%;
@@ -255,6 +256,7 @@ form input {
   /* border-radius: 5px; */
   position: relative;
   transition-duration: 500ms;
+  min-height: 10px;
 }
 
 .progression__title {
@@ -266,7 +268,7 @@ form input {
 .form__btn-container {
   display: flex;
   flex-flow: row nowrap;
-  margin: 2vw;
+  margin: 1vw;
   gap: 2vw;
 }
 .form__btn-container .btn {
@@ -286,11 +288,6 @@ form input {
   background-color: rgb(3, 93, 247);
 }
 
-.form-part {
-  display: flex;
-  flex-flow: column;
-}
-
 .second, .third, .fourth {
   display: none;
 }
@@ -304,4 +301,55 @@ form input {
   .progression__title {
     display: flex;
   }
+}
+.first {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 5vw;
+  padding: 5vw;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  max-height: 800px;
+}
+.first .form__card {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 35vw;
+  height: 30vh;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(104, 104, 104, 0.631);
+}
+.first .form__card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(73, 72, 72, 0.631);
+}
+.first .form__img-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.first .form__dept-img {
+  width: 80%;
+  border-radius: 10px;
+}
+.first .form__dept-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: rgb(7, 62, 157);
+  width: 100%;
+  height: 80px;
+  border-radius: 0 0 10px 10px;
 }/*# sourceMappingURL=schedule.css.map */

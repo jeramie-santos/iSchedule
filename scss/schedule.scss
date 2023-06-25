@@ -217,12 +217,13 @@ main{
 
 .form-container{
     width: 95vw;
-    height: 90vh;
+    height: 85vh;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
     max-width: 1600px; 
+    //min-height: 900px;
 
     form{
         /* border: 1px solid black; */
@@ -252,14 +253,14 @@ form{
 
 .progression{
     width: 100%;
-    height: 30px;
+    height: 60px;
     display: flex;
     flex-flow: row nowrap;
     gap: 0.2vw;
     justify-content: center;
     align-items: flex-end;
-
     .progression__step{
+        margin-top: 10px;
         background-color: rgb(184, 183, 183);
         /* box-shadow: 0 0 5px rgba(33, 32, 32, 0.585); */
         height: 20%;
@@ -267,6 +268,7 @@ form{
         /* border-radius: 5px; */
         position: relative;
         transition-duration: 500ms;
+        min-height: 10px;
     }
 }
 
@@ -279,7 +281,7 @@ form{
 .form__btn-container{
     display: flex;
     flex-flow: row nowrap;
-    margin: 2vw;
+    margin: 1vw;
     gap: 2vw;
 
     .btn{
@@ -303,10 +305,6 @@ form{
     }
 }
 
-.form-part{
-    display: flex;
-    flex-flow: column;
-}
 
 .second, .third, .fourth{
     display: none;
@@ -326,4 +324,71 @@ form{
         display: flex;
     }
     
+}
+
+.first{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5vw;
+    padding: 5vw;
+    align-items: flex-start;
+    justify-content:center;
+    overflow-y: auto;
+    max-height: 800px;
+    // LIITAN GAP AND PADDING SA DESKTOP MODE 
+
+    .form__card{
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center;
+        //border: 2px solid gray;
+        width: 35vw;
+        height: 30vh;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 0 5px rgba(104, 104, 104, 0.631);
+    }
+
+    .form__card:hover{
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(73, 72, 72, 0.631);
+    }
+
+    .form__img-container{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // background-position: center;
+        // background-repeat: no-repeat;
+        // background-image: url('./../imgs/dummyimg.png');
+        // background-size: cover;
+        // background-origin: content-box;
+        // padding: 20px;
+    }
+
+    .form__dept-img{
+        width: 80%;
+        //border: 1px solid rgb(123, 123, 123);
+        border-radius: 10px;
+    }
+
+    .form__dept-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $secondary-color;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        background-color: $primary-color;
+        width: 100%;
+        height: 80px;
+        border-radius: 0 0 10px 10px;
+    }
 }
