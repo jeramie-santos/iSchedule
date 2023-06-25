@@ -4,6 +4,7 @@ const next = document.querySelector('.btn-next');
 const forms = document.querySelectorAll('.form-part');
 const progression = document.querySelectorAll('.progression__step');
 const logo = document.querySelector('.header__logo-container');
+const mobileLabel = document.querySelector('.mobile-label');
 
 logo.addEventListener('click', ()=>{
     window.location.href = './../index.html';
@@ -33,12 +34,14 @@ function proceed(){
     forms.forEach((item)=>{
         item.style.display = 'none'
     });
-
     // progression.forEach((item)=>{
     //     item.classList.remove('active');
     // });
-
     progression[stepStatus].classList.add('answered');
     forms[stepStatus].style.display = 'flex';
-    
+
+    if(stepStatus == 0) mobileLabel.innerHTML = 'Pumili ng Department';
+    else if(stepStatus == 1) mobileLabel.innerHTML = 'Personal na Impormasyon';
+    else if(stepStatus == 2) mobileLabel.innerHTML = 'Iskedyul ng Appointment';
+    else if(stepStatus == 3) mobileLabel.innerHTML = 'Review ng Impormasyon';
 }
