@@ -1,6 +1,19 @@
 const announcementLink = document.querySelectorAll('.announcement-link');
 const announcement = document.querySelector('#announcement');
 
+try {
+    let goTo = sessionStorage.getItem("goTo");
+    let topPosition = document.getElementById(goTo).offsetTop - 100;
+    if(goTo == 'home') topPosition -= 130;
+    window.scrollTo({
+        top: topPosition,
+        left: 0,
+        behavior: 'smooth',
+    }); 
+     console.log('goods');
+} catch (error) {
+    console.log('nope');
+}
 
 // announcementLink.forEach((item) => {
 //     item.addEventListener('click', ()=>{

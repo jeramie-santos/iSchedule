@@ -11,7 +11,6 @@ html{
 body{
     display: flex;
     flex-flow: column;
-    justify-content: space-between; 
     overflow-x: hidden;
     cursor: default;
     color: $fontbase-color;
@@ -21,7 +20,6 @@ body{
     width: 100vw;
     height: 100vh;
 }
-
 .header{
     background-color: $primary-color;
     padding: 2vw 5vw;  
@@ -35,20 +33,13 @@ body{
         margin: 0 auto;
         display: flex;
         flex-flow: row nowrap;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         height: 100%;
         width: 100%;
         max-width: 1920px;
     }
 }
-
-// .header__btn-back{
-//     text-decoration: none;
-//     background-color: transparent;
-//     border: none;
-//     color: white;
-// }
 
 .header__logo-container{
     display: flex;
@@ -82,12 +73,84 @@ body{
     }
 }
 
-@media only screen and (min-width: 1200px){
+.header__nav-mobile{
+    position: relative;
 
+    .menu-btn{
+        align-self: flex-end;
+    }
+
+    .header__nav-mobile--links{
+        width: 300px;
+        background-color: $secondary-color;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 20px;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        z-index: 1;
+        border-radius: 5px;
+        padding: 2vw;
+        box-shadow: 0 0 3px 3px rgba(22, 94, 237, 0.347);
+        text-transform: uppercase;
+        user-select: none;
+
+        .header__links-logo{
+            width: 30px;
+        }
+
+        .header__dropdown-item{
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 2vw;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: 1000;
+            text-decoration: none;
+            color: lighten($color: $primary-color, $amount: 30);
+            width: 100%;
+            padding: 7px;
+            background: transparent;
+            border: none;
+        }
+
+        .header__dropdown-item:hover{
+            color: lighten($color: $primary-color, $amount: 40);
+            cursor: pointer !important;
+        }
+    }
+}
+
+.header__nav-desktop{
+    display: none;
+}
+
+// AYUSIN MAIN KINAKAIN NUNG HEADER NA STICKY NATATAKPAN
+
+.landing-page__wave{
+    display: none;
+}
+
+
+
+@media only screen and (min-width: 1200px) {
     html{
         font-size: 20px;
     }
 
+    .spacer{
+        background-color:#073E9D;
+        width: 100%;
+        height: 150px;
+    }
+
+    .landing-page__wave{
+        display: block;
+    }
+    
     header{
         display: flex;
         flex-flow: row nowrap;
@@ -107,41 +170,154 @@ body{
         .header__text-logo{
             font-size: 1.4rem !important;
         }
+
+        .header__nav-desktop--links{
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            // transition-duration: 200ms;
+        }
+        .header__nav-desktop--links:link, .header__nav-desktop--links:visited, .header__nav-desktop--links:active{
+            text-decoration: none;
+        }
+    
+        .header__nav-desktop--links:hover{
+             color: #e1e1dd;
+            //  scale: 1.1;
+        }
     
         .header__sub{
             font-size: 0.9rem !important;
+        }
+
+        .header__nav-desktop{
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 5vw;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header__nav-mobile{
+            display: none;
         }
     }
 }
 
 main{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-container{
+    width: 95vw;
+    height: 90vh;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    max-width: 1600px; 
 
-    .main__form{
+    form{
+        /* border: 1px solid black; */
+        background-color: whitesmoke;
+        border-radius: 5px;
         width: 100%;
         height: 100%;
-        max-width: 1400px;
+        max-width: 1600px;
         max-height: 900px;
-        background-color: pink;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.569);
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+form{
+
+    input{
+        width: 200px;
+        border-radius: 15px;
+        padding: 5px;
+        margin: 0 0.5vw;
+    }
+}
+
+.progression{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0.2vw;
+    justify-content: center;
+    align-items: flex-end;
+
+    .progression__step{
+        background-color: rgb(184, 183, 183);
+        /* box-shadow: 0 0 5px rgba(33, 32, 32, 0.585); */
+        height: 20%;
+        flex-grow: 1;
+        /* border-radius: 5px; */
+        position: relative;
+        transition-duration: 500ms;
+    }
+}
+
+.progression__title{
+    display: none;
+    position: absolute;
+    bottom: 5px;
+}
+
+.form__btn-container{
+    display: flex;
+    flex-flow: row nowrap;
+
+    .btn{
+        background-color: aquamarine;
+        border: none;
+        border-radius: 15px;
+        padding: 10px 20px;
+        margin: 10px;
+        color: rgb(95, 92, 92);
     }
 
+    .btn:hover{
+        cursor: pointer;
+        background-color: rgb(22, 230, 161);
+    }
 }
+
+.progression{
+    .answered{
+        background-color: rgb(3, 93, 247);
+    }
+}
+
+
+.second, .third, .fourth{
+    display: none;
+}
+
+
 
 @media only screen and (min-width: 1400px){
 
-    main{
-        .main__form{
-            height: 90%;
-            border-radius: 15px;
-            background-color: whitesmoke;
+    .form-container{
+        height: 85vh;
+        margin-top: 30px;
+        font-weight: 600;
+    }
 
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.483);
-        }
+    .progression__title{
+        display: flex;
     }
     
 }
