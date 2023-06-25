@@ -14,7 +14,7 @@ try {
                 behavior: 'smooth',
             }); 
         }
-    }, 5000);
+    }, 500);
     
 } catch (error) {
     alert('errur');
