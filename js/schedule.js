@@ -3,14 +3,10 @@ const back = document.querySelector('.btn-back');
 const next = document.querySelector('.btn-next');
 const forms = document.querySelectorAll('.form-part');
 const progression = document.querySelectorAll('.progression__step');
-const navs = document.querySelectorAll('.btn-link');
+const logo = document.querySelector('.header__logo-container');
 
-navs.forEach((item)=>{
-    item.addEventListener('click', ()=>{
-        let goTo = item.dataset.page;
-        sessionStorage.setItem("goTo", goTo);
-        window.location.href = './../index.html';
-    });
+logo.addEventListener('click', ()=>{
+    window.location.href = './../index.html';
 });
 
 

@@ -2,7 +2,7 @@ const announcementLink = document.querySelectorAll('.announcement-link');
 const announcement = document.querySelector('#announcement');
 
 try {
-    let goTo = sessionStorage.getItem("goTo");
+     let goTo = location.search.substring(1);
 
     if(goTo){
         let topPosition = document.getElementById(goTo).offsetTop - 100;
@@ -13,6 +13,7 @@ try {
             behavior: 'smooth',
         }); 
     }
+    
 } catch (error) {
     alert('errur');
 }
