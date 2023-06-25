@@ -235,7 +235,7 @@ form input {
   width: 200px;
   border-radius: 15px;
   padding: 5px;
-  margin: 0 0.5vw;
+  margin: 0.5vw;
 }
 
 .progression {
@@ -275,6 +275,7 @@ form input {
   border: none;
   border-radius: 15px;
   color: rgb(95, 92, 92);
+  min-width: 100px;
 }
 .form__btn-container .btn:hover {
   cursor: pointer;
@@ -283,6 +284,11 @@ form input {
 
 .progression .answered {
   background-color: rgb(3, 93, 247);
+}
+
+.form-part {
+  display: flex;
+  flex-flow: column;
 }
 
 .second, .third, .fourth {

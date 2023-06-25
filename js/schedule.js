@@ -25,7 +25,6 @@ back.addEventListener('click', ()=>{
         progression[stepStatus].classList.remove('answered');
         stepStatus--;
     }
-    
     proceed();
 });
 

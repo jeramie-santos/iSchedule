@@ -246,7 +246,7 @@ form{
         width: 200px;
         border-radius: 15px;
         padding: 5px;
-        margin: 0 0.5vw;
+        margin: 0.5vw;
     }
 }
 
@@ -288,6 +288,7 @@ form{
         border: none;
         border-radius: 15px;
         color: rgb(95, 92, 92);
+        min-width: 100px;
     }
 
     .btn:hover{
@@ -302,6 +303,10 @@ form{
     }
 }
 
+.form-part{
+    display: flex;
+    flex-flow: column;
+}
 
 .second, .third, .fourth{
     display: none;
