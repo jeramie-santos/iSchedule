@@ -212,7 +212,7 @@ main {
   height: 90vh;
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   max-width: 1600px;
 }
@@ -266,13 +266,14 @@ form input {
 .form__btn-container {
   display: flex;
   flex-flow: row nowrap;
+  margin: 2vw;
+  gap: 2vw;
 }
 .form__btn-container .btn {
+  width: 10vw;
   background-color: aquamarine;
   border: none;
   border-radius: 15px;
-  padding: 10px 20px;
-  margin: 10px;
   color: rgb(95, 92, 92);
 }
 .form__btn-container .btn:hover {
