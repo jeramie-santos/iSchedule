@@ -30,6 +30,8 @@ html {
 body {
   display: flex;
   flex-flow: column;
+  justify-content: center;
+  align-items: center;
   overflow-x: hidden;
   cursor: default;
   color: rgb(80, 78, 78);
@@ -201,10 +203,11 @@ body {
 }
 main {
   width: 100%;
-  height: 90%;
+  height: 100%;
   display: flex;
+  flex-flow: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .form-container {
@@ -239,16 +242,15 @@ form input {
 }
 
 .progression {
-  width: 100%;
-  height: 60px;
+  width: 95vw;
+  height: 30px;
   display: flex;
   flex-flow: row nowrap;
-  gap: 0.2vw;
+  gap: 0.5vw;
   justify-content: center;
   align-items: flex-end;
 }
 .progression .progression__step {
-  margin-top: 10px;
   background-color: rgb(184, 183, 183);
   /* box-shadow: 0 0 5px rgba(33, 32, 32, 0.585); */
   height: 20%;
