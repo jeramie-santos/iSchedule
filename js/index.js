@@ -2,17 +2,20 @@ const announcementLink = document.querySelectorAll('.announcement-link');
 const announcement = document.querySelector('#announcement');
 
 try {
-     let goTo = location.search.substring(1);
 
-    if(goTo){
-        let topPosition = document.getElementById(goTo).offsetTop - 100;
-        if(goTo == 'home') topPosition -= 130;
-        window.scrollTo({
-            top: topPosition,
-            left: 0,
-            behavior: 'smooth',
-        }); 
-    }
+    setTimeout(()=>{
+        let goTo = location.search.substring(1);
+
+        if(goTo){
+            let topPosition = document.getElementById(goTo).offsetTop - 100;
+            if(goTo == 'home') topPosition -= 130;
+            window.scrollTo({
+                top: topPosition,
+                left: 0,
+                behavior: 'smooth',
+            }); 
+        }
+    }, 1000);
     
 } catch (error) {
     alert('errur');
