@@ -2,7 +2,6 @@ const announcementLink = document.querySelectorAll('.announcement-link');
 const announcement = document.querySelector('#announcement');
 
 try {
-
     setTimeout(()=>{
         let goTo = location.search.substring(1);
 
@@ -15,7 +14,7 @@ try {
                 behavior: 'smooth',
             }); 
         }
-    }, 1000);
+    }, 5000);
     
 } catch (error) {
     alert('errur');
