@@ -446,7 +446,7 @@ main{
 @media only screen and (min-width: 1200px){
 
     .first{
-        gap: 2vw;
+        gap: 3vw;
         padding: 1vw 1vw;
         align-content:flex-start;
 
@@ -479,5 +479,24 @@ main{
     .mobile-label{
         display: none;
     }
-    
+}
+
+@media only screen and (min-width: 2000px){
+
+    .first{
+        gap: 3vw;
+        padding: 1vw 1vw;
+        align-content:flex-start;
+        max-height: unset;
+
+        .form__card{
+            width: 270px;
+            height: 400px;
+        }
+
+        .form__dept-title{
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+    }
 }
