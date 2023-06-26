@@ -218,13 +218,7 @@ main{
     align-items: center;
 }
 
-form{
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    height: 95vh;
-    width: 95vw;
-}
+
 
 .form-container{
     width: 95vw;
@@ -233,32 +227,34 @@ form{
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
-    max-width: 1600px; 
+    // max-width: 1600px; 
     //min-height: 900px;
+
+    form{
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        height: 100%;
+        width: 100%;
+    }
 
     .form__form-parts{
         /* border: 1px solid black; */
-        background-color: whitesmoke;
+        background-color: rgb(255, 255, 255);
         border-radius: 5px;
         width: 100%;
-        max-width: 1600px;
-        max-height: 900px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.569);
+        // max-width: 1600px;
+        // max-height: 900px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.303);
         display: flex;
         flex-flow: column;
         justify-content: center;
         align-items: center;
+        min-height: 350px;
+        height: 60vh; 
     }
 }
 
-.form__form-parts{
-    input{
-        width: 200px;
-        border-radius: 15px;
-        padding: 5px;
-        margin: 0.5vw;
-    }
-}
 
 .progression{
     width: 95vw;
@@ -269,6 +265,7 @@ form{
     justify-content: center;
     align-items: flex-end;
     position: relative;
+    margin-bottom: 2vw;
     
     .progression__step{
         background-color: rgb(184, 183, 183);
@@ -288,6 +285,7 @@ form{
         font-weight: 700;
         font-size: 1.5rem;
         transition-duration: 500ms;
+        color: $primary-alt;
     }
 }
 
@@ -295,6 +293,7 @@ form{
     display: none;
     position: absolute;
     bottom: 5px;
+    transition-duration: 500ms;
 }
 
 .form__btn-container{
@@ -351,39 +350,14 @@ form{
 }
 
 
-
-@media only screen and (min-width: 1400px){
-
-    .form-container{
-        height: 85vh;
-        margin-top: 30px;
-        font-weight: 600;
-    }
-
-    .progression__title{
-        display: flex;
-    }
-
-    .mobile-label{
-        display: none;
-    }
-    
-}
-
-.form__form-parts{
-    min-height: 350px;
-    height: 60vh;
-    
-}
-
 .first{
     height: 100%;
     width: 100%;
     display: flex;
     flex-flow: row wrap;
     gap: 5vw;
-    padding: 5vw;
-    align-items: flex-start;
+    padding: 3vw;
+    align-items: flex-start ;
     justify-content:center;
     overflow-y: auto;
     max-height: 800px;
@@ -395,9 +369,9 @@ form{
         justify-content: space-between;
         align-items: center;
         //border: 2px solid gray;
-        width: 35vw;
-        height: 30vh;
-        border-radius: 10px;
+        width: 150px;
+        height: 200px;
+        border-radius: 5px;
         background-color: white;
         box-shadow: 0 0 5px rgba(104, 104, 104, 0.631);
     }
@@ -432,13 +406,78 @@ form{
         display: flex;
         justify-content: center;
         align-items: center;
-        color: $secondary-color;
         text-align: center;
-        font-size: 1.2rem;
-        font-weight: 600;
-        background-color: $primary-color;
+        font-size: 1.1rem;
+        font-weight: 700;
+        background-color: $secondary-color;
         width: 100%;
-        height: 80px;
+        height: 70px;
         border-radius: 0 0 10px 10px;
+        // position: absolute;
+        // top: 50px;
     }
+}
+
+.active{
+    color: $primary-alt;
+}
+
+@media only screen and (min-width: 900px){
+    .form__btn-container{
+        flex-flow: row-reverse nowrap;
+        justify-content: flex-start;
+
+        .btn{
+            min-width: none;
+            max-width: 200px;
+            width: 15%;
+        }
+    }
+
+    .form-container{
+        .form__form-parts{
+            height: 75vh;
+        }
+    }
+}
+
+
+
+@media only screen and (min-width: 1200px){
+
+    .first{
+        gap: 2vw;
+        padding: 1vw 1vw;
+        align-content:flex-start;
+
+        .form__card{
+            width: 170px;
+            height: 200px;
+        }
+
+        .form__dept-title{
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+    }
+
+    .form-container{
+        height: 85vh;
+        font-weight: 600;
+    }
+
+    .progression{
+        gap: 0.3vw;
+        margin-bottom: 1vw;
+
+        .progression__title{
+            display: flex;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+    }
+    .mobile-label{
+        display: none;
+    }
+    
 }
