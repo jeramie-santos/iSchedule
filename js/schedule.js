@@ -45,10 +45,14 @@ function proceed(){
 }
 
 function getPatientType(type) {
-
     
     if(type == 'oldPatient'){
         caseNo.style.display = 'unset';
+    }
+    else if(type == 'newPatient'){
+
+        
+        caseNo.style.display = 'none';
     }
     else{
         caseNo.style.display = 'none';
