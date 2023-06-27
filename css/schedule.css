@@ -25,7 +25,6 @@
 
 html {
   font-size: 15px;
-  overflow-x: hidden;
 }
 
 body {
@@ -509,7 +508,6 @@ main {
     font-size: 12px;
   }
   .header {
-    padding: 0 10vw;
     height: 50px;
   }
   .header .header__logo {
