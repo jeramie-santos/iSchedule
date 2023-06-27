@@ -585,7 +585,7 @@ main{
 
 }
 
-@media only screen and (max-width: 350px){
+@media only screen and (max-width: 400px){
     html{
         font-size: 13px;
     }
@@ -611,6 +611,10 @@ main{
 
             .form__dept-img{
                 width: 80px;
+            }
+
+            .form__dept-title{
+                font-size: 0.9rem;
             }
         }
     }

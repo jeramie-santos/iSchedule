@@ -495,7 +495,7 @@ main {
     margin-bottom: unset;
   }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 400px) {
   html {
     font-size: 13px;
   }
@@ -515,5 +515,8 @@ main {
   }
   .first .form__card .form__dept-img {
     width: 80px;
+  }
+  .first .form__card .form__dept-title {
+    font-size: 0.9rem;
   }
 }/*# sourceMappingURL=schedule.css.map */
