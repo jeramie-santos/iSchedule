@@ -31,7 +31,6 @@ body {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  overflow-x: hidden;
   cursor: default;
   color: rgb(80, 78, 78);
 }

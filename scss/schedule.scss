@@ -11,15 +11,12 @@ html{
 body{
     display: flex;
     flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden;
+    justify-content: space-between;
     cursor: default;
     color: $fontbase-color;
     // background-image: url(../imgs/bg.jpg);
     // background-repeat: no-repeat;
     // background-size:cover;
-    width: 100vw;
     // overflow-x:hidden;
 }
 

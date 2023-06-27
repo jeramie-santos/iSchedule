@@ -30,12 +30,9 @@ html {
 body {
   display: flex;
   flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  overflow-x: hidden;
+  justify-content: space-between;
   cursor: default;
   color: rgb(80, 78, 78);
-  width: 100vw;
 }
 
 .header {
