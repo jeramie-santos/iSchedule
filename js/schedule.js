@@ -6,17 +6,12 @@ const progression = document.querySelectorAll('.progression__step');
 const progressionTitle = document.querySelectorAll('.progression__title');
 const logo = document.querySelector('.header__logo-container');
 const mobileLabel = document.querySelector('.mobile-label');
+const caseNo = document.querySelector('.caseNo-container');
+const patientType = document.querySelector('#patientType');
 
 logo.addEventListener('click', ()=>{
     window.location.href = './../index.html';
 });
-
-
-// let favoritemovie = "Shrek";
-// sessionStorage.setItem("favoriteMovie", favoritemovie);
-// var favoritemovie = sessionStorage.getItem("favoriteMovie");
-// alert(favoritemovie);
-
 
 back.addEventListener('click', ()=>{
     if(stepStatus > 0) {
@@ -47,4 +42,15 @@ function proceed(){
     else if(stepStatus == 1) mobileLabel.innerHTML = 'Personal na Impormasyon';
     else if(stepStatus == 2) mobileLabel.innerHTML = 'Iskedyul ng Appointment';
     else if(stepStatus == 3) mobileLabel.innerHTML = 'Review ng Impormasyon';
+}
+
+function getPatientType(type) {
+
+    
+    if(type == 'oldPatient'){
+        caseNo.style.display = 'unset';
+    }
+    else{
+        caseNo.style.display = 'none';
+    }
 }
