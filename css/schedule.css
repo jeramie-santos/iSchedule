@@ -25,6 +25,7 @@
 
 html {
   font-size: 15px;
+  overflow-x: hidden;
 }
 
 body {
@@ -208,7 +209,7 @@ main {
 }
 
 .form-container {
-  width: 95vw;
+  width: 90vw;
   height: 75vh;
   display: flex;
   flex-flow: column;
@@ -237,7 +238,7 @@ main {
 }
 
 .progression {
-  width: 95vw;
+  width: 90vw;
   height: 60px;
   display: flex;
   flex-flow: row nowrap;
