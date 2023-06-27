@@ -28,7 +28,6 @@ html {
 }
 
 body {
-  width: 100vw;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
