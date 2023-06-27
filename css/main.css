@@ -759,7 +759,7 @@ footer .about .about__content {
     display: none;
   }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 350px) {
   html {
     font-size: 12px;
   }
