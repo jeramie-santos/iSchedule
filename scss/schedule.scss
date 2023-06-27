@@ -357,10 +357,11 @@ main{
         align-items: center;
         //border: 2px solid gray;
         width: 150px;
-        height: 200px;
+        height: 250px;
         border-radius: 5px;
         background-color: white;
         box-shadow: 0 0 5px rgba(104, 104, 104, 0.631);
+        padding: 5px;
     }
 
     .form__card:hover{
@@ -439,7 +440,7 @@ main{
 
         .form__card{
             width: 170px;
-            height: 200px;
+            height: 250px;
         }
 
         .form__dept-title{
@@ -615,6 +616,23 @@ main{
 
             .form__dept-title{
                 font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 390px){
+    .first{
+        .form__card{
+            width: 100px;
+            height: 130px;
+
+            .form__dept-img{
+                width: 80px;
+            }
+
+            .form__dept-title{
+                font-size: 0.7rem;
             }
         }
     }

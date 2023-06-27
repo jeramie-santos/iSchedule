@@ -328,10 +328,11 @@ main {
   justify-content: space-between;
   align-items: center;
   width: 150px;
-  height: 200px;
+  height: 250px;
   border-radius: 5px;
   background-color: white;
   box-shadow: 0 0 5px rgba(104, 104, 104, 0.631);
+  padding: 5px;
 }
 .first .form__card:hover {
   cursor: pointer;
@@ -387,7 +388,7 @@ main {
   }
   .first .form__card {
     width: 170px;
-    height: 200px;
+    height: 250px;
   }
   .first .form__dept-title {
     font-size: 0.9rem;
@@ -518,5 +519,17 @@ main {
   }
   .first .form__card .form__dept-title {
     font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .first .form__card {
+    width: 100px;
+    height: 130px;
+  }
+  .first .form__card .form__dept-img {
+    width: 80px;
+  }
+  .first .form__card .form__dept-title {
+    font-size: 0.7rem;
   }
 }/*# sourceMappingURL=schedule.css.map */
