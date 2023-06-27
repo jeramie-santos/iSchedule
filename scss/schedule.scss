@@ -21,6 +21,7 @@ body{
     // background-size:cover;
     width: 100vw;
     height: 100vh;
+    // overflow-x:hidden;
 }
 .header{
     background-color: $primary-color;
@@ -610,7 +611,7 @@ main{
         }
     
         .header{
-    
+            padding: 2vw;
             .header__logo{
                 width: 40px;
                 height: 40px;
@@ -621,22 +622,6 @@ main{
         .header__nav-mobile{
             .header__nav-mobile--links{
                 width: 200px;
-            }
-        }
-    
-        .landing-page{
-            .landing-page__img{
-                width: 150px;
-            }
-    
-            .landing-page__buttons{
-                gap: 10px;
-                margin-top: 15px;
-    
-                .btn{
-                    height: 50px;
-                    font-size: 1.2rem;
-                }
             }
         }
     
