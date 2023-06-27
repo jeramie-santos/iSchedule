@@ -23,6 +23,7 @@ body{
     height: 100vh;
     // overflow-x:hidden;
 }
+
 .header{
     background-color: $primary-color;
     padding: 2vw 5vw;  
@@ -136,13 +137,6 @@ body{
 
 // AYUSIN MAIN KINAKAIN NUNG HEADER NA STICKY NATATAKPAN
 
-.landing-page__wave{
-    display: none;
-}
-
-
-
-
 @media only screen and (min-width: 1200px) {
     html{
         font-size: 20px;
@@ -221,6 +215,8 @@ main{
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
+    max-width: 1900px;
+    min-width: 320px
 }
 
 

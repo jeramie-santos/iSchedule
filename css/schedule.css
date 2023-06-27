@@ -143,10 +143,6 @@ body {
   display: none;
 }
 
-.landing-page__wave {
-  display: none;
-}
-
 @media only screen and (min-width: 1200px) {
   html {
     font-size: 20px;
@@ -211,6 +207,8 @@ main {
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
+  max-width: 1900px;
+  min-width: 320px;
 }
 
 .form-container {
