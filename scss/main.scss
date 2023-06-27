@@ -32,6 +32,7 @@ body{
     height: 70px;
     z-index: 7;
     width: 100%;
+    min-width: 320px;
 
     #{&}__wrapper{
         margin: 0 auto;
@@ -148,6 +149,7 @@ main{
     align-items: center;
     margin: 0 auto;
     max-width: 1900px;
+    min-width: 320px
 }
 
 .landing-page{
@@ -400,6 +402,7 @@ main{
         // top: 0;
         // background-color: rgb(255, 255, 255);
         // padding-top: 3vw;
+        
     }
 
     .announcement__logo{
@@ -480,7 +483,7 @@ main{
 }
 
 .benefit__card{
-    padding: 2vw;
+    padding: 1vw;
     display: flex;
     flex-flow: column;
     gap: 2vw;
@@ -759,6 +762,7 @@ footer{
     justify-content: center;
     gap: 50px;
     margin-top: 5vw;
+    min-width: 320px;
 
     .about{
         width: 90%;
@@ -871,3 +875,51 @@ footer{
         }
     }
 }
+
+
+@media only screen and (max-width: 400px){
+    html{
+        font-size: 10px;
+    }
+
+    .header{
+
+        .header__logo{
+            width: 40px;
+            height: 40px;
+        }
+        height: 50px;
+    }
+
+    .header__nav-mobile{
+        .header__nav-mobile--links{
+            width: 200px;
+        }
+    }
+
+    .landing-page{
+        .landing-page__img{
+            width: 150px;
+        }
+
+        .landing-page__buttons{
+            gap: 10px;
+            margin-top: 15px;
+
+            .btn{
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .announcement{
+        .announcement__logo{
+            width: 40px;
+        }
+    }
+}
+
+
+
+
