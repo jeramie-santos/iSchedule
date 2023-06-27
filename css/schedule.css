@@ -506,12 +506,12 @@ main {
     margin-bottom: unset;
   }
 }
-@media only screen and (max-width: 400px) and (max-width: 400px) {
+@media only screen and (max-width: 400px) {
   html {
-    font-size: 10px;
+    font-size: 12px;
   }
   .header {
-    padding: 2vw;
+    padding: 0 10vw;
     height: 50px;
   }
   .header .header__logo {
@@ -521,11 +521,6 @@ main {
   .header__nav-mobile .header__nav-mobile--links {
     width: 200px;
   }
-  .announcement .announcement__logo {
-    width: 40px;
-  }
-}
-@media only screen and (max-width: 400px) {
   .first .form__card {
     width: 100px;
     height: 130px;

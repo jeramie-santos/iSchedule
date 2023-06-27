@@ -599,31 +599,22 @@ main{
 }
 
 @media only screen and (max-width: 400px){
-
-    @media only screen and (max-width: 400px){
-        html{
-            font-size: 10px;
-        }
+    html{
+        font-size: 12px;
+    }
     
-        .header{
-            padding: 2vw;
-            .header__logo{
-                width: 40px;
-                height: 40px;
-            }
-            height: 50px;
+    .header{
+        padding: 0 10vw;
+        height: 50px;
+        .header__logo{
+            width: 40px;
+            height: 40px;
         }
+    }
     
-        .header__nav-mobile{
-            .header__nav-mobile--links{
-                width: 200px;
-            }
-        }
-    
-        .announcement{
-            .announcement__logo{
-                width: 40px;
-            }
+    .header__nav-mobile{
+        .header__nav-mobile--links{
+            width: 200px;
         }
     }
     
@@ -634,10 +625,6 @@ main{
 
             .form__dept-img{
                 width: 80px;
-            }
-
-            .form__dept-title{
-
             }
         }
     }

@@ -879,16 +879,16 @@ footer{
 
 @media only screen and (max-width: 400px){
     html{
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .header{
+        height: 50px;
 
         .header__logo{
             width: 40px;
             height: 40px;
         }
-        height: 50px;
     }
 
     .header__nav-mobile{
