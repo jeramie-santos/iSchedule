@@ -9,6 +9,7 @@ html{
 }
 
 body{
+    width: 100vw;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
@@ -136,16 +137,6 @@ body{
 @media only screen and (min-width: 1200px) {
     html{
         font-size: 20px;
-    }
-
-    .spacer{
-        background-color:#073E9D;
-        width: 100%;
-        height: 150px;
-    }
-
-    .landing-page__wave{
-        display: block;
     }
     
     header{
