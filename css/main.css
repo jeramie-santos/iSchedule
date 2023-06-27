@@ -445,6 +445,72 @@ main {
   text-align: justify;
 }
 
+.benefit__svg-upper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
+}
+
+.benefit__svg-upper svg {
+  position: relative;
+  display: block;
+  width: calc(168% + 1.3px);
+  height: 327px !important;
+}
+
+.benefit__svg-upper .shape-fill {
+  fill: #FFFFFF;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .benefit__svg-upper svg {
+    width: calc(146% + 1.3px);
+    height: 315px !important;
+  }
+}
+@media (max-width: 767px) {
+  .benefit__svg-upper svg {
+    width: calc(160% + 1.3px);
+    height: 165px !important;
+  }
+}
+.benefit__svg-lower {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.benefit__svg-lower svg {
+  position: relative;
+  display: block;
+  width: calc(168% + 1.3px);
+  height: 327px !important;
+}
+
+.benefit__svg-lower .shape-fill {
+  fill: #FFFFFF;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .benefit__svg-lower svg {
+    width: calc(146% + 1.3px);
+    height: 315px !important;
+  }
+}
+@media (max-width: 767px) {
+  .benefit__svg-lower svg {
+    width: calc(160% + 1.3px);
+    height: 165px !important;
+  }
+}
 @media only screen and (min-width: 700px) {
   .benefit__card-container {
     display: flex;
