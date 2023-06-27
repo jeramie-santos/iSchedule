@@ -436,4 +436,53 @@ main {
     font-size: 1.2rem;
     font-weight: 600;
   }
+}
+.form__form-parts {
+  overflow: auto;
+}
+
+.second {
+  padding: 5vw;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  gap: 1vw;
+  max-height: 800px;
+}
+.second input {
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  font-weight: 600;
+  border-radius: 30px;
+  margin-bottom: 5vw;
+  border: unset;
+  border-radius: 0;
+  border-bottom: 2px solid rgb(186, 182, 182);
+}
+.second input:focus {
+  outline: unset;
+  border-bottom: 3px solid rgb(77, 76, 76);
+}
+.second select {
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 100px;
+  background-color: transparent;
+  margin-bottom: 5vw;
+  border: unset;
+  border-radius: 0;
+  border-bottom: 2px solid rgb(186, 182, 182);
+}
+.second select:focus {
+  outline: unset;
+  border-bottom: 3px solid rgb(77, 76, 76);
+}
+.second label {
+  width: 100%;
+  font-weight: 700;
 }/*# sourceMappingURL=schedule.css.map */

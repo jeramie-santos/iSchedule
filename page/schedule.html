@@ -1,9 +1,6 @@
 <!-- TODO
-*ilabas yung button group pero hindi need nasa loob pa rin ng form. Wag gumamit ng absolute. gumawa bagong html
-element and dun ilagay yung laman tapos sa baba nun yung button group. Yung pareho is nasa loob ng form 
-*Need pa ayusin yung desktop mode sa department
-*ilabas na rin yung progression di naman kasi need asa loob para same size lagi yung form
--->
+AYUSIN BIRTHDATE GAWA CUSTOM FROM YOUTUBE
+AYUSIN DESKTOP MODE NG SECOND FORM -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,9 +53,16 @@ element and dun ilagay yung laman tapos sa baba nun yung button group. Yung pare
             <div class="progression__step progression__step4"><span class="progression__title">Review ng Impormasyon</span></div>
         </div>
         <div class="form-container">
+
             <form action="">
                 <div class="form__form-parts">
                     <div class="form-part first">
+                        <!-- kung ano pindutin na department siya magiging value ni input department
+                        bawal mag proceed sa next part ng form hanggat di nakaka pili
+                        naka highlight dapat yung pinili -->
+                        <div style="display: none;" class="form__input-container">
+                            <input type="text" name="department" id="department">
+                        </div>
                         <div id="dept_0" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
@@ -161,9 +165,50 @@ element and dun ilagay yung laman tapos sa baba nun yung button group. Yung pare
                             <span class="form__dept-title">Neurology</span>
                         </div> 
                     </div>
-                    <div class="form-part second">
-                        <input type="text" placeholder="Address">
-                        <input type="text" placeholder="Age">
+                    <div class="form-part second" style="display: none;">
+
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" id="middleName" name="middleName">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName">
+
+                        <label for="test">Sex</label>
+                        <select name="sex" id="test">
+                            <option disabled="disabled" selected="selected">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+
+                        <label for="birthdate">Birthdate</label>
+                        <input type="date" id="birthdate" name="birthdate">
+
+                        <label for="phone">Contact Number</label>
+                        <input type="text" id="phone" name="phone">
+
+                        <label for="municipality">Municipality</label>
+                        <select name="municipality" id="municipality">
+                            <option disabled="disabled" selected="selected">Select</option>
+                            <option value="angat">Angat</option>
+                            <option value="balagtas">Balagtas</option>
+                            <option value="baliwag">Baliwag</option>
+                        </select>
+
+                        <label for="barangay">Barangay</label>
+                        <select name="barangay" id="barangay" disabled="disabled">
+                            <option disabled="disabled" selected="selected">Select</option>
+                        </select>
+
+                        <label for="zipCode">Zip Code</label>
+                        <input type="text" id="zipCode" name="zipCode">
+
+                        <label for="patientType">Patient Type</label>
+                        <select name="patientType" id="patientType">
+                            <option disabled="disabled" selected="selected">Select</option>
+                            <option value="oldPatient">Old Patient</option>
+                            <option value="newPatient">New Patient</option>
+                        </select>
                     </div>
                     <div class="form-part third">
                         <input type="text" placeholder="Nationality">
