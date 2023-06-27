@@ -801,6 +801,12 @@ footer{
             width: 30px;
             user-select: none;
         }
+
+        a{
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
     }
 
     .contact__social:hover{

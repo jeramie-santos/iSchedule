@@ -701,6 +701,11 @@ footer .about .about__content {
      -moz-user-select: none;
           user-select: none;
 }
+.contact .contact__social a {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
 .contact .contact__social:hover {
   transform: translateY(-5px);
   cursor: pointer;
