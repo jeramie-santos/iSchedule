@@ -58,3 +58,4 @@ function getPatientType(type) {
         caseNo.style.display = 'none';
     }
 }
+
