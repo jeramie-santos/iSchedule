@@ -201,8 +201,6 @@ main{
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
-    max-width: 1900px;
-    min-width: 320px
 }
 
 
@@ -654,6 +652,116 @@ main{
             .form__dept-title{
                 font-size: 0.7rem;
             }
+        }
+    }
+}
+
+
+.third{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1vw;
+
+    .calendar-container{
+        width: fit-content;
+        display: flex;
+        flex-flow: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slot-container{
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+    }
+}
+
+.calendar-container{
+    .calendar-row{
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .box{
+        border: 2px solid $fontbase-color;
+        width: 7vw;
+        height: 7vw;
+        flex-grow: 1;
+        max-width: 80px;
+        min-width: 30px;
+
+        max-height: 80px;
+        min-height: 30px;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    .box:hover{
+        background-color: rgb(235, 233, 233);
+        cursor: pointer;
+    }
+        
+    .day{
+        text-align: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+        border: unset;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .day:hover{
+        background-color: unset;
+        cursor: unset;
+    }
+    
+}
+
+.slot-container{
+    overflow-y: auto;
+    padding: 3vw;
+
+    .slot{
+        padding: 1vw;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        border-bottom: 1px solid $fontbase-color;
+    }
+
+    .slot:hover{
+        cursor: pointer;
+        background-color: rgb(235, 233, 233);
+    }
+
+    .time{
+        font-style: italic;
+    }
+
+    .slotAvail{
+        font-weight: 700;
+    }
+}
+
+@media only screen and (min-width: 500px){
+
+    .calendar-container{
+        .box{
+            min-width: 50px;
+            min-height: 50px;
         }
     }
 }

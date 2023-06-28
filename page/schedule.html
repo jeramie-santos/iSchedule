@@ -15,7 +15,8 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
     <script defer src="https:/cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script defer src="./../js/burger.js"></script>
     <script defer src="./../js/schedule.js"></script>
-    <script src="./../js/barangaySelector.js"></script>
+    <script defer src="./../js/barangaySelector.js"></script>
+    <script defer src="./../js/calendarGenerator.js"></script>
     <title>iSchedule</title>
 </head>
 <body>
@@ -227,9 +228,81 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                             <input type="text" name="caseNo" id="caseNo">
                         </div>
                     </div>
-                    <div class="form-part third">
-                        <input type="text" placeholder="Testing multiform 3">
-                        <input type="text" placeholder="Testing multiform 3">
+                    <div class="form-part third" style="display: none;">
+                        <div class="calendar-container">
+                            <div class="calendar-row firstRow">
+                                <div data-dayCode="0" class="box day">Sun</div>
+                                <div data-dayCode="1" class="box day">Mon</div>
+                                <div data-dayCode="2" class="box day">Tue</div>
+                                <div data-dayCode="3" class="box day">Wed</div>
+                                <div data-dayCode="4" class="box day">Thu</div>
+                                <div data-dayCode="5" class="box day">Fri</div>
+                                <div data-dayCode="6" class="box day">Sat</div>
+                            </div>
+                            <div class="calendar-row firstRow">
+                                <div class="box"></div>
+                                <div class="box"></div>
+                                <div class="box"></div>
+                                <div class="box"></div>
+                                <div class="box"></div>
+                                <div class="box"></div>
+                                <div class="box"></div>
+                            </div>
+                            <div class="calendar-row secondRow">
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                            </div>
+                            <div class="calendar-row thirdRow">
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                            </div>
+                            <div class="calendar-row fourthRow">
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                            </div>
+                            <div class="calendar-row fifthRow">
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                            </div>
+                        </div>
+                        <div class="slot-container">
+                            <div class="slot" id="slot_1">
+                                <div class="time">8:00 AM - 10:00 AM</div>
+                                <div class="slotAvail">5</div>
+                            </div>
+                            <div class="slot" id="slot_2">
+                                <div class="time">10:00 AM - 11:00 AM</div>
+                                <div class="slotAvail">7</div>
+                            </div>
+                            <div class="slot" id="slot_3">
+                                <div class="time">1:00 PM - 2:00 PM</div>
+                                <div class="slotAvail">4</div>
+                            </div>
+                            <div class="slot" id="slot_4">
+                                <div class="time">2:00 PM - 4:00 PM</div>
+                                <div class="slotAvail">9</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-part fourth">
                         <input type="text" placeholder="Testing multiform 4">
