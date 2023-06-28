@@ -656,13 +656,14 @@ main{
     }
 }
 
+// pag isa na lang kita sa sched gawin nang desktop mode/ row
 
 .third{
     width: 100%;
     height: 100%;
     display: flex;
     flex-flow: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 1vw;
 
