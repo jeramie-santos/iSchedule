@@ -223,7 +223,7 @@ main {
   justify-content: center;
   align-items: center;
   height: 60vh;
-  min-height: 400px;
+  min-height: 500px;
 }
 
 .progression {
@@ -557,17 +557,18 @@ input[type=date]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-flow: column;
   align-items: center;
-  justify-content: flex-start;
   overflow-y: auto;
   padding: 2vw;
   gap: 2vw;
 }
 .third .calendar-container {
-  width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  width: -moz-fit-content;
   width: fit-content;
   display: flex;
   flex-flow: column;
@@ -584,7 +585,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  max-width: 900px;
+  max-width: 800px;
 }
 .third .calendar__color-indicator {
   width: 100%;
@@ -639,7 +640,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 .calendar-container .box {
   border: 2px solid rgb(80, 78, 78);
-  width: 7vw;
+  width: 9vw;
   height: 5vh;
   flex-grow: 1;
   max-width: 80px;
@@ -727,8 +728,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 @media only screen and (min-width: 500px) {
   .calendar-container .box {
-    min-width: 40px;
-    min-height: 40px;
+    width: 7vw;
+    min-width: 50px;
+    min-height: 50px;
   }
   .calendar-container .calendar__header {
     height: 5vh;
