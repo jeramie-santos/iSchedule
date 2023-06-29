@@ -744,10 +744,6 @@ main{
             transition-duration: 400ms;
         }
 
-        .calendar__btn:hover{
-            cursor: pointer;
-            scale: 1.5;
-        }
     }
 
     .calendar__arrow{
@@ -904,6 +900,11 @@ main{
 
 @media only screen and (min-width: 1200px ){
 
+    .calendar__btn:hover{
+        cursor: pointer;
+        scale: 1.5;
+    }
+    
     .slot{
         .time{
             width: unset;
