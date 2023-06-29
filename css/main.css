@@ -202,6 +202,21 @@ main {
 }
 .landing-page .landing-page__img {
   width: 210px;
+  animation-name: floating;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
 }
 
 .landing-page__wave {
@@ -242,6 +257,17 @@ main {
     align-items: flex-start;
     justify-content: space-evenly;
     margin-top: 8vw;
+  }
+  @keyframes floating {
+    0% {
+      transform: translate(0, 0px);
+    }
+    50% {
+      transform: translate(0, 40px);
+    }
+    100% {
+      transform: translate(0, 0px);
+    }
   }
   .landing-page .landing-page__img-container {
     display: flex;
@@ -591,10 +617,6 @@ main {
      -moz-user-select: none;
           user-select: none;
 }
-.tutorial__steps .tutorial__circle-container .circle:hover {
-  cursor: pointer;
-  transform: rotate(360deg);
-}
 .tutorial__steps .tutorial__circle-container .step1 {
   background-color: rgb(17, 136, 234);
 }
@@ -609,6 +631,26 @@ main {
 }
 .tutorial__steps .tutorial__circle-container .step5 {
   background-color: rgb(233, 89, 199);
+}
+.tutorial__steps .tutorial__circle-container .tutorial__step1:hover {
+  color: rgb(17, 136, 234);
+  cursor: pointer;
+}
+.tutorial__steps .tutorial__circle-container .tutorial__step2:hover {
+  color: rgb(2, 175, 137);
+  cursor: pointer;
+}
+.tutorial__steps .tutorial__circle-container .tutorial__step3:hover {
+  color: rgb(233, 89, 116);
+  cursor: pointer;
+}
+.tutorial__steps .tutorial__circle-container .tutorial__step4:hover {
+  color: rgb(151, 89, 233);
+  cursor: pointer;
+}
+.tutorial__steps .tutorial__circle-container .tutorial__step5:hover {
+  color: rgb(233, 89, 199);
+  cursor: pointer;
 }
 .tutorial__steps .line {
   background-color: rgb(80, 78, 78);
