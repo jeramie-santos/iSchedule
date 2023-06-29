@@ -168,19 +168,19 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                     </div>
                     <div class="form-part second" style="display: none;">
                         <div class="field-container">
-                            <label for="firstName">First Name</label>
+                            <label for="firstName">Pangalan / First Name</label>
                             <input type="text" id="firstName" name="firstName">
                         </div>
                         <div class="field-container">
-                            <label for="middleName">Middle Name</label>
+                            <label for="middleName">Gitnang Pangalan / Middle Name</label>
                             <input type="text" id="middleName" name="middleName">
                         </div>
                         <div class="field-container">
-                            <label for="lastName">Last Name</label>
+                            <label for="lastName">Apelido / Last Name</label>
                             <input type="text" id="lastName" name="lastName">
                         </div>
                         <div class="field-container">
-                            <label for="sex">Sex</label>
+                            <label for="sex">Kasarian / Sex</label>
                             <select name="sex" id="sex">
                                 <option disabled="disabled" selected="selected"></option>
                                 <option value="male">Male</option>
@@ -188,16 +188,16 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                             </select>
                         </div>
                         <div class="field-container">
-                            <label for="birthdate">Birthdate</label>
+                            <label for="birthdate">Petsa ng Kapanganakan / Birthdate</label>
                             <input type="date" name="birthdate" id="birthdate">
                         </div>
 
                         <div class="field-container">
-                            <label for="phone">Contact Number</label>
+                            <label for="phone">Numero ng Telepono / Phone Number</label>
                             <input type="text" id="phone" name="phone">
                         </div>
                         <div class="field-container">
-                            <label for="municipality">Municipality</label>
+                            <label for="municipality">Munisipalidad / Municipality</label>
                             <select name="municipality" id="municipality" onchange="getBarangayList(this.value)">
                                 <option disabled="disabled" selected="selected"></option>
                                 <option value="angat">Angat</option>
@@ -216,11 +216,11 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                             <input type="text" id="zipCode" name="zipCode">
                         </div> -->
                         <div class="field-container">
-                            <label for="patientType">Patient Type</label>
+                            <label for="patientType">Klase ng Pasyente / Patient Type</label>
                             <select name="patientType" id="patientType" onchange="getPatientType(this.value)">
                                 <option disabled="disabled" selected="selected"></option>
-                                <option value="oldPatient">Old Patient</option>
-                                <option value="newPatient">New Patient</option>
+                                <option value="oldPatient">Dati nang Pasyente / Old Patient</option>
+                                <option value="newPatient">Bagong Pasyente / New Patient</option>
                             </select>
                         </div>
                         <div class="field-container caseNo-container">
@@ -230,7 +230,12 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                     </div>
                     <div class="form-part third" style="display: none;">
                         <div class="calendar-container">
-                            <div class="calendar-row firstRow">
+                            <div class="calendar__header">
+                                <div class="calendar__btn"><img draggable="false" class="calendar__arrow" src="./../imgs/arrow-back.png" alt="" srcset=""></div>
+                                <div class="calendar__month"></div>
+                                <div class="calendar__btn"><img draggable="false" class="calendar__arrow" src="./../imgs/arrow-forward.png" alt="" srcset=""></div>
+                            </div>
+                            <div class="calendar-row zeroRow">
                                 <div data-dayCode="0" class="box day">Sun</div>
                                 <div data-dayCode="1" class="box day">Mon</div>
                                 <div data-dayCode="2" class="box day">Tue</div>
@@ -240,67 +245,79 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                                 <div data-dayCode="6" class="box day">Sat</div>
                             </div>
                             <div class="calendar-row firstRow">
-                                <div class="box"></div>
-                                <div class="box"></div>
-                                <div class="box"></div>
-                                <div class="box"></div>
-                                <div class="box"></div>
-                                <div class="box"></div>
-                                <div class="box"></div>
+                                <div class="box block"></div>
+                                <div class="box date"></div>
+                                <div class="box date"></div>
+                                <div class="box date">1</div>
+                                <div class="box date">2</div>
+                                <div class="box date">3</div>
+                                <div class="box date">4</div>
                             </div>
                             <div class="calendar-row secondRow">
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
+                                <div class="box block">5</div>
+                                <div class="box date">6</div>
+                                <div class="box date">7</div>
+                                <div class="box date">8</div>
+                                <div class="box date">9</div>
+                                <div class="box date">10</div>
+                                <div class="box date">11</div>
                             </div>
                             <div class="calendar-row thirdRow">
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
+                                <div class="box block">12</div>
+                                <div class="box date">13</div>
+                                <div class="box date">14</div>
+                                <div class="box date">15</div>
+                                <div class="box date">16</div>
+                                <div class="box date">17</div>
+                                <div class="box date">18</div>
                             </div>
                             <div class="calendar-row fourthRow">
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
+                                <div class="box block">19</div>
+                                <div class="box date">20</div>
+                                <div class="box date">21</div>
+                                <div class="box date">22</div>
+                                <div class="box date">23</div>
+                                <div class="box date">24</div>
+                                <div class="box date">25</div>
                             </div>
                             <div class="calendar-row fifthRow">
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
-                                    <div class="box"></div>
+                                <div class="box block">26</div>
+                                <div class="box date">27</div>
+                                <div class="box date">28</div>
+                                <div class="box date">29</div>
+                                <div class="box date">30</div>
+                                <div class="box date"></div>
+                                <div class="box date"></div>
+                            </div>
+                            <div class="calendar__color-indicator">
+                                <div class="calendar__desc">
+                                    <div class="green"></div>
+                                    <div class="calendar__color-green">Slots Available</div>
+                                </div>
+                                <div class="calendar__desc">
+                                    <div class="red"></div>
+                                    <div class="calendar__color-red">No Slots Available</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="slot-container">
-                            <div class="slot" id="slot_1">
-                                <div class="time">8:00 AM - 10:00 AM</div>
-                                <div class="slotAvail">5</div>
-                            </div>
-                            <div class="slot" id="slot_2">
-                                <div class="time">10:00 AM - 11:00 AM</div>
-                                <div class="slotAvail">7</div>
-                            </div>
-                            <div class="slot" id="slot_3">
-                                <div class="time">1:00 PM - 2:00 PM</div>
-                                <div class="slotAvail">4</div>
-                            </div>
-                            <div class="slot" id="slot_4">
-                                <div class="time">2:00 PM - 4:00 PM</div>
-                                <div class="slotAvail">9</div>
+                        <div class="calendar__info">
+                            <div class="slot-container">
+                                <div class="slot" id="slot_1">
+                                    <div class="time">8:00 AM - 10:00 AM</div>
+                                    <div class="slotAvail">5 Slots Available</div>
+                                </div>
+                                <div class="slot" id="slot_2">
+                                    <div class="time">10:00 AM - 11:00 AM</div>
+                                    <div class="slotAvail">7 Slots Available</div>
+                                </div>
+                                <div class="slot" id="slot_3">
+                                    <div class="time">1:00 PM - 2:00 PM</div>
+                                    <div class="slotAvail">4 Slots Available</div>
+                                </div>
+                                <div class="slot" id="slot_4">
+                                    <div class="time">2:00 PM - 4:00 PM</div>
+                                    <div class="slotAvail">9 Slots Available</div>
+                                </div>
                             </div>
                         </div>
                     </div>

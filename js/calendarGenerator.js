@@ -1,5 +1,9 @@
 const container = document.querySelector('.calendar-container');
+const monthContainer = document.querySelector('.calendar__month');
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const date = new Date();
 
+monthContainer.innerHTML = months[date.getMonth()];
 
 
 // const d = new Date('October 17, 2001');
