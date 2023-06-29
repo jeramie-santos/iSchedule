@@ -21,7 +21,7 @@ body{
 }
 
 .header{
-    background-color: red;
+    background-color: $primary-color;
     padding: 2vw 5vw;  
     position: sticky;
     top: 0;
@@ -235,7 +235,7 @@ main{
         flex-flow: column;
         justify-content: center;
         align-items: center;
-        min-height: 450px;
+        min-height: 700px;
         height: 60vh; 
     }
 }
@@ -655,13 +655,6 @@ main{
     }
 }
 
-// TEST SAMPLE MUST BE REMOVE LATER
-
-.firstRow .box:nth-child(6){
-    background-color: $unavail-color;
-}
-
-
 // pag isa na lang kita sa sched gawin nang desktop mode/ row
 
 .third{
@@ -745,6 +738,12 @@ main{
             display: flex;
             align-items: center;
             justify-content: center;
+            transition-duration: 400ms;
+        }
+
+        .calendar__btn:hover{
+            cursor: pointer;
+            scale: 1.5;
         }
     }
 
@@ -779,14 +778,16 @@ main{
     }
 
     .date:hover{
-       border: 5px solid rgb(0, 0, 0);
+       border: 5px solid $primary-alt;
     //    box-shadow: 2px 2px rgb(72, 98, 193);
         cursor: pointer;
     }
 
     .block{
-        background-color: rgb(217, 216, 216);
+        background-color: rgb(134, 136, 134);
         user-select: none;
+        border: 2px solid black !important;
+        cursor: unset !important;
     }
     
     .day{
