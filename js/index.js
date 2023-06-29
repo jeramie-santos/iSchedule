@@ -47,61 +47,15 @@ document.querySelectorAll('.btn-link').forEach((item)=>{
 });
 
 
+tutorialStep.forEach((item, index) => {
+    item.addEventListener('mouseover', () => {
+        circles[index].style.transform = 'rotate(360deg)';
+    });
 
-// Code A
-// This Works
-tutorialStep[0].addEventListener('mouseover',()=>{
-    circles[0].style.transform = 'rotate(360deg)';
+    item.addEventListener('mouseleave', () => {
+        circles[index].style.transform = 'rotate(0deg)';
+    });
 });
-
-tutorialStep[0].addEventListener('mouseleave',()=>{
-    circles[0].style.transform = 'rotate(0)';
-});
-tutorialStep[1].addEventListener('mouseover',()=>{
-    circles[1].style.transform = 'rotate(360deg)';
-});
-
-tutorialStep[1].addEventListener('mouseleave',()=>{
-    circles[1].style.transform = 'rotate(0)';
-});
-tutorialStep[2].addEventListener('mouseover',()=>{
-    circles[2].style.transform = 'rotate(360deg)';
-});
-
-tutorialStep[2].addEventListener('mouseleave',()=>{
-    circles[2].style.transform = 'rotate(0)';
-});
-tutorialStep[3].addEventListener('mouseover',()=>{
-    circles[3].style.transform = 'rotate(360deg)';
-});
-
-tutorialStep[3].addEventListener('mouseleave',()=>{
-    circles[3].style.transform = 'rotate(0)';
-});
-tutorialStep[4].addEventListener('mouseover',()=>{
-    circles[4].style.transform = 'rotate(360deg)';
-});
-
-tutorialStep[4].addEventListener('mouseleave',()=>{
-    circles[4].style.transform = 'rotate(0)';
-});
-
-
-
-// Code B
-// Does not work
-// let circleCounter = 0;
-// tutorialStep.forEach((item)=>{
-//     tutorialStep[circleCounter].addEventListener('mouseover',()=>{
-//         circles[circleCounter].style.transform = 'rotate(360deg)';
-//     });
-    
-//     tutorialStep[circleCounter].addEventListener('mouseleave',()=>{
-//         circles[circleCounter].style.transform = 'rotate(0)';
-//     });
-//     circleCounter++;
-// });
-
 
 
 
