@@ -30,6 +30,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -226,7 +227,6 @@ main {
           align-items: center;
   margin: 0 auto;
   width: 100%;
-  max-width: 1900px;
   min-width: 320px;
 }
 
@@ -304,14 +304,6 @@ main {
 
 .landing-page .landing-page__img {
   width: 210px;
-  -webkit-animation-name: floating;
-          animation-name: floating;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
 }
 
 @-webkit-keyframes floating {
@@ -435,8 +427,16 @@ main {
   }
   .landing-page .landing-page__img {
     width: 370px;
-    -webkit-transition-duration: 100ms;
-            transition-duration: 100ms;
+    -webkit-animation-name: floating;
+            animation-name: floating;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    -webkit-animation-delay: 1.5s;
+            animation-delay: 1.5s;
   }
   .landing-page .landing-page__content {
     width: 50vw;

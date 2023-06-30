@@ -13,8 +13,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Burger -->
     <link rel="stylesheet" href="./css/burger.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Bootstrap -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <!-- AOS -->
+    <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    </script>
+    <!-- Burger -->
     <script defer src="./js/burger.js"></script>
     <script defer src="./js/index.js"></script>
     <title>iSchedule</title>
@@ -48,9 +55,9 @@
     <!-- <div class="spacer"></div> -->
     <main>
           <section id="home" class="landing-page">
-            <div class="landing-page__img-container"><img draggable="false" class="landing-page__img" src="./imgs/mediclogo.png" alt="wecare logo" srcset="">
+            <div class="landing-page__img-container" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="200"><img draggable="false" class="landing-page__img" src="./imgs/mediclogo.png" alt="wecare logo" srcset="">
             </div>
-            <div class="landing-page__content">
+            <div class="landing-page__content" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="200">
               <h2 class="landing-page__title">Creating Appointments Made Easy</h2>
               <div class="landing-page__text">Welcome to <span class="highlight">Bulacan Medical Center</span>'s OPD appointment scheduling website! We are delighted to introduce a hassle-free way for you to schedule your healthcare appointments conveniently with just a few clicks.</div>
               <div class="landing-page__buttons">
@@ -67,7 +74,7 @@
             </div>
           </section>
           <!-- Lagyan limit makikita na characters sa body tapos merong see more pag kinclick ma reveal yung the rest ng body -->
-          <section id="announcement" class="announcement">
+          <section id="announcement" class="announcement" data-aos="fade-up" data-aos-duration="1000">
             <div class="announcement__header">
               <img class="announcement__logo" src="./imgs/loudspeaker.png" alt="">
               <h2 class="announcement__title">Announcements</h2>
@@ -146,14 +153,14 @@
             </div>
           </section>
           <section id="tutorial" class="tutorial">
-              <div class="tutorial__header">
+              <div class="tutorial__header"  data-aos="fade-up" data-aos-duration="1000">
                 Paano Mag Schedule ng Appointment?
               </div>
               <div class="tutorial__content">
-                <div class="tutorial__video-container">
+                <div class="tutorial__video-container" data-aos="fade-right" data-aos-duration="1000">
                   <iframe width="100%" height="100%" src="https://www.youtube.com/embed/lhUXVfEQiRM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <div class="tutorial__procedure">
+                <div class="tutorial__procedure" data-aos="fade-left" data-aos-duration="1000">
                   <div class="tutorial__steps">
                     <div class="line"></div>
                     <!-- On hover sa tutorial step maexecute dapat yung hover effect din sa circle(yungm rotate360) -->

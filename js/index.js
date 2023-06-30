@@ -5,14 +5,7 @@ const tutorialStep = document.querySelectorAll('.tutorial__step');
 const circles = document.querySelectorAll('.circle');
 let landingImgUp = false;
 
-setInterval(()=>{
-    if(!landingImgUp){
-        landingImg.style.transform = "translate(0, -70px)"
-    }
-    else{
-        landingImg.style.transform = "translate(0, +10px)"
-    }
-}, 2000);
+AOS.init();
 
 
 try {
