@@ -252,6 +252,10 @@ main{
     position: relative;
     margin-top: 10px;
     
+    .initial{
+        color: $primary-alt;
+    }
+
     .progression__step{
         background-color: rgb(184, 183, 183);
         /* box-shadow: 0 0 5px rgba(33, 32, 32, 0.585); */
