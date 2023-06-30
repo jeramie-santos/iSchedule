@@ -705,7 +705,6 @@ footer {
   gap: 50px;
   margin-top: 5vw;
   min-width: 320px;
-  overflow-x: hidden;
 }
 footer .about {
   width: 90%;
