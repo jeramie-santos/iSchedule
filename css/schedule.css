@@ -202,7 +202,7 @@ main {
   height: 75vh;
   display: flex;
   flex-flow: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
 }
 .form-container form {
@@ -228,14 +228,14 @@ main {
 
 .progression {
   width: 90vw;
-  height: 60px;
+  height: 50px;
   display: flex;
   flex-flow: row nowrap;
   gap: 0.5vw;
   justify-content: center;
   align-items: flex-end;
   position: relative;
-  margin-bottom: 2vw;
+  margin-top: 10px;
 }
 .progression .progression__step {
   background-color: rgb(184, 183, 183);
@@ -270,12 +270,11 @@ main {
   justify-content: center;
   align-items: center;
   gap: 2vw;
-  margin: 10px 0;
+  margin-top: 10px;
 }
 .form__btn-container .btn {
   width: 100%;
   padding: 15px;
-  background-color: aquamarine;
   border: none;
   border-radius: 10px;
   color: rgb(95, 92, 92);
@@ -750,6 +749,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   }
 }
 @media only screen and (min-width: 1200px) {
+  body {
+    overflow-y: hidden;
+  }
   .calendar__btn:hover {
     cursor: pointer;
     scale: 1.5;
