@@ -5,9 +5,8 @@ const tutorialStep = document.querySelectorAll('.tutorial__step');
 const circles = document.querySelectorAll('.circle');
 let landingImgUp = false;
 
+//Initializes AOS
 AOS.init();
-
-
 try {
     setTimeout(()=>{
         let goTo = location.search.substring(1);
