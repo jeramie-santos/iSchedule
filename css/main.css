@@ -424,7 +424,6 @@ main {
         -ms-flex-align: start;
             align-items: flex-start;
     height: 500px;
-    overflow-x: hidden;
   }
   .landing-page .landing-page__img {
     width: 370px;
@@ -441,7 +440,6 @@ main {
   }
   .landing-page .landing-page__content {
     width: 50vw;
-    overflow-x: hidden;
   }
   .landing-page .landing-page__content .landing-page__title {
     color: #f7eb00;
@@ -563,7 +561,6 @@ main {
   -webkit-box-shadow: 0px 0px 5px rgba(81, 84, 90, 0.539);
           box-shadow: 0px 0px 5px rgba(81, 84, 90, 0.539);
   overflow-y: scroll;
-  overflow-x: hidden;
 }
 
 .announcement .announcement__header {
@@ -839,7 +836,6 @@ main {
   text-align: center;
   margin: 2vw;
   width: 100%;
-  overflow-x: hidden;
 }
 
 .tutorial .tutorial__content {
@@ -860,7 +856,6 @@ main {
 }
 
 .tutorial .tutorial__content .tutorial__video-container {
-  overflow-x: hidden;
   margin-bottom: 5vw;
   width: 100%;
   height: 50vw;
@@ -880,7 +875,6 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
-  overflow-x: hidden;
 }
 
 .tutorial__steps {
@@ -1217,6 +1211,17 @@ footer .about .about__content {
   }
   .announcement .announcement__logo {
     width: 40px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .aos-animate {
+    -webkit-transition-property: none !important;
+    transition-property: none !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    -webkit-animation: none !important;
+    animation: none !important;
   }
 }
 /*# sourceMappingURL=main.css.map */
