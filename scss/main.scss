@@ -5,8 +5,7 @@
 
 html{
     font-size: 15px;
-    overflow-x: hidden;
-    // scroll-behavior:smooth;
+    overflow-x: hidden; // Fix to AOS fade left breaking mobile layout
 }
 
 body{
@@ -282,7 +281,7 @@ main{
             animation-duration: 2s;
             animation-iteration-count: infinite;
             animation-timing-function: ease-in-out;
-            animation-delay: 1.5s;
+            animation-delay: 2s;
         }
 
         // .landing-page__img:hover{
