@@ -45,17 +45,23 @@ function proceed(){
 }
 
 function getPatientType(type) {
-    
     if(type == 'oldPatient'){
-        caseNo.style.display = 'unset';
-    }
-    else if(type == 'newPatient'){
+        let temp = document.createElement('input');
+        temp.setAttribute('type', 'text');
+        temp.setAttribute('name', 'caseNo');
+        temp.setAttribute('id', 'caseNo');
+        temp.classList.add('caseNo');
+        caseNo.appendChild(temp);
 
-        
-        caseNo.style.display = 'none';
+        caseNo.style.display = 'flex';
     }
     else{
-        caseNo.style.display = 'none';
+        try {
+            document.getElementById('caseNo').remove();
+            caseNo.style.display = 'none';
+        } catch (error) {
+            
+        }  
     }
 }
 
