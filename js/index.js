@@ -5,7 +5,7 @@ const tutorialStep = document.querySelectorAll('.tutorial__step');
 const circles = document.querySelectorAll('.circle');
 let landingImgUp = false;
 
-AOS.init({disable: 'mobile'});
+AOS.init();
 
 
 try {

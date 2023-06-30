@@ -30,7 +30,7 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1211,17 +1211,6 @@ footer .about .about__content {
   }
   .announcement .announcement__logo {
     width: 40px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .aos-animate {
-    -webkit-transition-property: none !important;
-    transition-property: none !important;
-    -webkit-transform: none !important;
-    transform: none !important;
-    -webkit-animation: none !important;
-    animation: none !important;
   }
 }
 /*# sourceMappingURL=main.css.map */
