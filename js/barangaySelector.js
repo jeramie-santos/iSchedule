@@ -3,7 +3,7 @@ const barangay = document.querySelector('#barangay');
 
 
 
-const municipalityList = ['angat', 'balagtas', 'baliwag', 'bocaue', 'bulakan', 'bustos', 'calumpit', 'doña remedios trinidad', 'guiguinto', 'hagonoy', 'malolos', 'marilao', 'meycauayan', 'norzagaray', 'obando', 'pandi', 'paombong', 'plaridel', 'pulilan', 'san ildefonso', 'san jose del monte', 'san miguel', 'san rafael', 'santa maria'];
+const municipalityList = ['angat', 'balagtas', 'baliwag', 'bocaue', 'bulakan', 'bustos', 'calumpit', 'doña remedios trinidad', 'guiguinto', 'hagonoy', 'malolos', 'marilao', 'meycauayan', 'norzagaray', 'obando', 'pandi', 'paombong', 'plaridel', 'pulilan', 'san ildefonso', 'san jose del monte', 'san miguel', 'san rafael', 'santa maria', 'other'];
 
 municipalityList.forEach((item)=>{
 
@@ -42,6 +42,38 @@ municipalityList.forEach((item)=>{
 
 
 function getBarangayList(municipality){
-    if(municipality == 'baliwag') alert('ey yo');
+    removeAllChildNodes(barangay);
+    barangay.removeAttribute('disabled');
+    document.querySelector('.other-container').style.display = 'none';
+
+    try {
+        document.querySelector('#other').remove();
+    } catch (error) {
+        
+    }
+
+
+    if(municipality == 'other'){
+        let temp = document.createElement('option');
+        temp.innerHTML = 'Other';
+        barangay.appendChild(temp);
+
+        barangay.setAttribute('disabled', 'disabled');
+        
+        let newField = document.createElement('input');
+        newField.setAttribute('selected', 'selected');
+        newField.setAttribute('id', 'other');
+        newField.setAttribute('input', 'text');
+        newField.setAttribute('placeholder', 'Probinsya, Munisipyo, Barangay');
+        
+        document.querySelector('.other-label').appendChild(newField);
+        document.querySelector('.other-container').style.display = 'flex';
+    }
+}
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
 

@@ -205,13 +205,11 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                         <div class="field-container">
                             <label for="barangay">Barangay</label>
                             <select name="barangay" id="barangay" disabled="disabled">
-                                <option disabled="disabled" selected="selected"></option>
                             </select>
                         </div>
-                        <!-- <div class="field-container">
-                            <label for="zipCode">Zip Code</label>
-                            <input type="text" id="zipCode" name="zipCode">
-                        </div> -->
+                        <div class="field-container other-container" style="display: none;" >
+                            <label for="other" class="other-label">Lokasyon / Address</label>
+                        </div>
                         <div class="field-container">
                             <label for="patientType">Klase ng Pasyente / Patient Type</label>
                             <select name="patientType" id="patientType" onchange="getPatientType(this.value)">
@@ -222,7 +220,7 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                         </div>
                         <div class="field-container caseNo-container">
                             <label for="caseNo">Case Number</label>
-                            <input type="text" name="caseNo" id="caseNo">
+                            <input type="text" name="caseNo" id="caseNo" value="">
                         </div>
                     </div>
                     <div class="form-part third" style="display: none;">
