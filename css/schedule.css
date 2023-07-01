@@ -316,7 +316,7 @@ main {
   display: flex;
   flex-flow: row wrap;
   gap: 5vw;
-  padding: 3vw;
+  padding: 5vw;
   align-items: flex-start;
   justify-content: center;
   overflow-y: auto;
@@ -454,6 +454,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-flow: row wrap;
   gap: 10vw;
+  max-width: 1920px;
   overflow: auto;
   justify-content: center;
   align-items: center;
@@ -503,10 +504,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
   font-weight: 900;
   font-size: 1.2rem;
 }
-.second .caseNo-container {
-  display: none;
-}
-
 @media only screen and (min-width: 1200px) {
   .second {
     gap: 2vw;

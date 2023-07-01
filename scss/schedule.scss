@@ -344,7 +344,7 @@ main{
     display: flex;
     flex-flow: row wrap;
     gap: 5vw;
-    padding: 3vw;
+    padding: 5vw;
     align-items: flex-start ;
     justify-content:center;
     overflow-y: auto;
@@ -516,7 +516,7 @@ main{
     display: flex;
     flex-flow: row wrap;
     gap: 10vw;
-    // max-height: 800px;
+    max-width: 1920px;
     overflow: auto;
     justify-content: center;
     align-items: center;
@@ -588,7 +588,7 @@ main{
     }
 
     .caseNo-container{
-        display: none;
+        // display: none;
     }
 }
 

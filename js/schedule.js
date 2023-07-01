@@ -51,7 +51,7 @@ function proceed(){
     } 
     else if(stepStatus == 3){
         mobileLabel.innerHTML = 'Review ng Impormasyon';
-        next.value = 'gawing showOTPModal() na yung function nitong button'
+        next.value = 'gawing showOTPModal() na yung function nitong button '
         // alert('stepStatus 3');
     }
 }
@@ -66,6 +66,8 @@ function showOTPModal(){
 
 function getPatientType(type) {
     if(type == 'oldPatient'){
+        caseOn = true;
+
         let temp = document.createElement('input');
         temp.setAttribute('type', 'text');
         temp.setAttribute('name', 'caseNo');
@@ -74,11 +76,32 @@ function getPatientType(type) {
         caseNo.appendChild(temp);
 
         caseNo.style.display = 'flex';
+
+        if(otherOn && !dummyOn){
+            document.querySelector('.dummyElement').style.display = 'flex';
+            dummyOn = true;
+        }
+        else if(!otherOn && dummyOn){
+            document.querySelector('.dummyElement').style.display = 'none';
+            dummyOn = false;
+        }
+        
     }
     else{
         try {
             document.getElementById('caseNo').remove();
             caseNo.style.display = 'none';
+
+            if(caseOn && !otherOn){
+                document.querySelector('.dummyElement').style.display = 'flex';
+                dummyOn = true;
+            }
+
+            if(caseOn && otherOn){
+                document.querySelector('.dummyElement').style.display = 'none';
+                dummyOn = false;
+            }
+            
         } catch (error) {
             
         }  
