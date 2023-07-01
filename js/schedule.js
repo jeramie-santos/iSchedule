@@ -31,11 +31,11 @@ function proceed(){
     forms.forEach((item)=>{
         item.style.display = 'none'
     });
-    // progression.forEach((item)=>{
-    //     item.classList.remove('active');
-    // });
+
     progression[stepStatus].classList.add('answered');
-    forms[stepStatus].style.display = 'flex';
+
+    if(stepStatus == 0 || stepStatus == 1) forms[stepStatus].style.display = 'grid';
+    else forms[stepStatus].style.display = 'flex';
     progressionTitle[stepStatus].classList.add('active');
 
     if(stepStatus == 0) mobileLabel.innerHTML = 'Pumili ng Department';
@@ -78,51 +78,51 @@ function getPatientType(type) {
         caseNo.style.display = 'flex';
 
         // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-        if(otherOn && !dummyOn){
-            document.querySelector('.dummyElement').style.display = 'flex';
-            dummyOn = true;
-        }
-        else if(!otherOn && dummyOn){
-            document.querySelector('.dummyElement').style.display = 'none';
-            dummyOn = false;
-        }
+        // if(otherOn && !dummyOn){
+        //     document.querySelector('.dummyElement').style.display = 'flex';
+        //     dummyOn = true;
+        // }
+        // else if(!otherOn && dummyOn){
+        //     document.querySelector('.dummyElement').style.display = 'none';
+        //     dummyOn = false;
+        // }
 
-        if(dummyOn && !otherOn){
-            document.querySelector('.dummyElement').style.display = 'none';
-            dummyOn = false;
-        }
-        else if(!dummyOn && otherOn){
-            document.querySelector('.dummyElement').style.display = 'flex';
-            dummyOn = true;
-        }
-        else if(!dummyOn && !otherOn){
-            document.querySelector('.dummyElement').style.display = 'none';
-            dummyOn = false;
-        }
-        else if(dummyOn && otherOn){
-            document.querySelector('.dummyElement').style.display = 'none';
-            dummyOn = false;
-        }
+        // if(dummyOn && !otherOn){
+        //     document.querySelector('.dummyElement').style.display = 'none';
+        //     dummyOn = false;
+        // }
+        // else if(!dummyOn && otherOn){
+        //     document.querySelector('.dummyElement').style.display = 'flex';
+        //     dummyOn = true;
+        // }
+        // else if(!dummyOn && !otherOn){
+        //     document.querySelector('.dummyElement').style.display = 'none';
+        //     dummyOn = false;
+        // }
+        // else if(dummyOn && otherOn){
+        //     document.querySelector('.dummyElement').style.display = 'none';
+        //     dummyOn = false;
+        // }
 
-        if(caseOn && !otherOn){
-            document.querySelector('.dummyElement').style.display = 'none';
-            dummyOn = false;
-        }
-        else if(!caseOn && otherOn){
-            document.querySelector('.dummyElement').style.display = 'none';
-            dummyOn = false;
-        }
-        else if(!caseOn && !otherOn){
-            document.querySelector('.dummyElement').style.display = 'flex';
-            dummyOn = true;
-        }
-        else if(caseOn && otherOn){
-            document.querySelector('.dummyElement').style.display = 'flex';
-            dummyOn = none;
-        }
+        // if(caseOn && !otherOn){
+        //     document.querySelector('.dummyElement').style.display = 'none';
+        //     dummyOn = false;
+        // }
+        // else if(!caseOn && otherOn){
+        //     document.querySelector('.dummyElement').style.display = 'none';
+        //     dummyOn = false;
+        // }
+        // else if(!caseOn && !otherOn){
+        //     document.querySelector('.dummyElement').style.display = 'flex';
+        //     dummyOn = true;
+        // }
+        // else if(caseOn && otherOn){
+        //     document.querySelector('.dummyElement').style.display = 'flex';
+        //     dummyOn = none;
+        // }
 
         // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-        caseOn = true;
+        // caseOn = true;
         
     }
     else{
@@ -132,41 +132,41 @@ function getPatientType(type) {
             document.getElementById('caseNo').remove();
             caseNo.style.display = 'none';
 
-            if(dummyOn && !otherOn){
-                document.querySelector('.dummyElement').style.display = 'flex';
-                dummyOn = true;
-            }
-            else if(!dummyOn && otherOn){
-                document.querySelector('.dummyElement').style.display = 'none';
-                dummyOn = false;
-            }
-            else if(!dummyOn && !otherOn){
-                document.querySelector('.dummyElement').style.display = 'flex';
-                dummyOn = true;
-            }
-            else if(dummyOn && otherOn){
-                document.querySelector('.dummyElement').style.display = 'flex';
-                dummyOn = true;
-            }
-            else if(caseOn && !otherOn){
-                document.querySelector('.dummyElement').style.display = 'none';
-                dummyOn = false;
-            }
-            else if(!caseOn && otherOn){
-                document.querySelector('.dummyElement').style.display = 'none';
-                dummyOn = false;
-            }
-            else if(!caseOn && !otherOn){
-                document.querySelector('.dummyElement').style.display = 'flex';
-                dummyOn = true;
-            }
-            else if(caseOn && otherOn){
-                document.querySelector('.dummyElement').style.display = 'flex';
-                dummyOn = none;
-            }
+            // if(dummyOn && !otherOn){
+            //     document.querySelector('.dummyElement').style.display = 'flex';
+            //     dummyOn = true;
+            // }
+            // else if(!dummyOn && otherOn){
+            //     document.querySelector('.dummyElement').style.display = 'none';
+            //     dummyOn = false;
+            // }
+            // else if(!dummyOn && !otherOn){
+            //     document.querySelector('.dummyElement').style.display = 'flex';
+            //     dummyOn = true;
+            // }
+            // else if(dummyOn && otherOn){
+            //     document.querySelector('.dummyElement').style.display = 'flex';
+            //     dummyOn = true;
+            // }
+            // else if(caseOn && !otherOn){
+            //     document.querySelector('.dummyElement').style.display = 'none';
+            //     dummyOn = false;
+            // }
+            // else if(!caseOn && otherOn){
+            //     document.querySelector('.dummyElement').style.display = 'none';
+            //     dummyOn = false;
+            // }
+            // else if(!caseOn && !otherOn){
+            //     document.querySelector('.dummyElement').style.display = 'flex';
+            //     dummyOn = true;
+            // }
+            // else if(caseOn && otherOn){
+            //     document.querySelector('.dummyElement').style.display = 'flex';
+            //     dummyOn = none;
+            // }
 
             // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-            caseOn = false;
+            // caseOn = false;
 
         } catch (error) {
             

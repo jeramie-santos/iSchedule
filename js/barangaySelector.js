@@ -196,45 +196,45 @@ function getBarangayList(municipality){
     }
 
     // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-    if(dummyOn && !caseOn){
-      document.querySelector('.dummyElement').style.display = 'flex';
-      dummyOn = true;
-    }
-    else if(!dummyOn && caseOn){
-      document.querySelector('.dummyElement').style.display = 'none';
-      dummyOn = false;
-    }
-    else if(dummyOn && caseOn){
-      document.querySelector('.dummyElement').style.display = 'none';
-      dummyOn = false;
-    }
-    else if(!dummyOn && !caseOn){
-      document.querySelector('.dummyElement').style.display = 'flex';
-      dummyOn = true;
-    }
+    // if(dummyOn && !caseOn){
+    //   document.querySelector('.dummyElement').style.display = 'flex';
+    //   dummyOn = true;
+    // }
+    // else if(!dummyOn && caseOn){
+    //   document.querySelector('.dummyElement').style.display = 'none';
+    //   dummyOn = false;
+    // }
+    // else if(dummyOn && caseOn){
+    //   document.querySelector('.dummyElement').style.display = 'none';
+    //   dummyOn = false;
+    // }
+    // else if(!dummyOn && !caseOn){
+    //   document.querySelector('.dummyElement').style.display = 'flex';
+    //   dummyOn = true;
+    // }
 
     if(municipality == 'other'){
 
         // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-        if(dummyOn && !caseOn){
-          document.querySelector('.dummyElement').style.display = 'none';
-          dummyOn = false;
-        }
-        else if(!dummyOn && caseOn){
-          document.querySelector('.dummyElement').style.display = 'flex';
-          dummyOn = true;
-        }
-        else if(dummyOn && caseOn){
-          document.querySelector('.dummyElement').style.display = 'flex';
-          dummyOn = true;
-        }
-        else if(!dummyOn && !caseOn){
-          document.querySelector('.dummyElement').style.display = 'none';
-          dummyOn = false;
-        }
+        // if(dummyOn && !caseOn){
+        //   document.querySelector('.dummyElement').style.display = 'none';
+        //   dummyOn = false;
+        // }
+        // else if(!dummyOn && caseOn){
+        //   document.querySelector('.dummyElement').style.display = 'flex';
+        //   dummyOn = true;
+        // }
+        // else if(dummyOn && caseOn){
+        //   document.querySelector('.dummyElement').style.display = 'flex';
+        //   dummyOn = true;
+        // }
+        // else if(!dummyOn && !caseOn){
+        //   document.querySelector('.dummyElement').style.display = 'none';
+        //   dummyOn = false;
+        // }
 
         // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-        otherOn = true;
+        // otherOn = true;
 
         let temp = document.createElement('option');
         temp.innerHTML = 'Other';
