@@ -351,8 +351,8 @@ main{
     // max-height: 800px;
     // LIITAN GAP AND PADDING SA DESKTOP MODE 
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(110px,1fr));
-    row-gap: 5vw;
+    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+    row-gap: 3vw;
     justify-items: center;
     overflow-y: auto;
 
@@ -361,7 +361,7 @@ main{
         flex-flow: column;
         justify-content: space-between;
         align-items: center;
-        width: 100px;
+        width: 140px;
         height: 150px;
         border-radius: 20px;
         background-color: white;
