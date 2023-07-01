@@ -8,24 +8,170 @@ const logo = document.querySelector('.header__logo-container');
 const mobileLabel = document.querySelector('.mobile-label');
 const caseNo = document.querySelector('.caseNo-container');
 const patientType = document.querySelector('#patientType');
+const deptCards = document.querySelectorAll('.form__card');
 
-logo.addEventListener('click', ()=>{
-    window.location.href = './../index.html';
-});
+const patient = {
+    'department': '',
+    'schedule': '',
+    'firstName': '',
+    'middleName': '',
+    'lastName': '',
+    'sex': '',
+    'birthdate': '',
+    'phone': '',
+    'barangay': '',
+    'municipality': '',
+    'province': '',
+    'typeOfPatient': '',
+    'caseNo': '',
+}
 
-back.addEventListener('click', ()=>{
-    if(stepStatus > 0) {
-        progression[stepStatus].classList.remove('answered');
-        progressionTitle[stepStatus].classList.remove('active');
-        stepStatus--;
+createScheduleNav();
+addLinkToLogo();
+insertListenerDept();
+
+function insertListenerDept(){
+    deptCards.forEach((item)=>{
+        item.addEventListener('click', ()=>{
+            deptCards.forEach((itemRemove)=>{
+                itemRemove.classList.remove('dept__selected');
+            });
+            document.querySelector('#department').value = item.querySelector('.form__dept-title').innerHTML;
+            item.classList.add('dept__selected');
+
+            // lagay modal info
+            alert('Labas modal na may info nung department');
+        });
+    });
+}
+
+function addLinkToLogo(){
+    logo.addEventListener('click', ()=>{
+        window.location.href = './../index.html';
+    });
+}
+
+function grabFirstForm(){
+
+    // nilalagay laman ni input field department kay patient[department] then returns true pero 
+    // if empty return true ibigsabihin di mag proceed next form
+    patient["department"] = document.querySelector('#department').value;
+    if(patient['department'] != "") return true;
+    else return false;
+}
+
+function grabSecondForm(){
+    
+    patient["firstName"] = document.querySelector('#firstName').value;
+    
+    // Bali ang mangyayari is top to bottom checking ng input fields sa unang makitang error yun muna sasabihin kay user then pag nag submit ulit
+    // first match ulit pakita
+    // bigyan code mga error para malinis tingnan
+    if(patient['firstName'] == "") errorHandler('1');
+
+
+    patient["middleName"] = document.querySelector('#middleName').value;
+    patient["lastName"] = document.querySelector('#lastName').value;
+    patient["sex"] = document.querySelector('#sex').value;
+    patient["birthdate"] = document.querySelector('#birthdate').value;
+
+    // Lagyan validator para masure na phone
+    let phoneTemp = document.querySelector('#phone').value;
+    phoneTemp = phoneTemp.replaceAll(' ', '');
+
+    if(phoneTemp.length != 11 && !isNaN(phoneTemp)){
+        alert('invalid phone pakita modal chuchu');
+    }else{
+        patient["phone"] = phoneTemp;
     }
-    proceed();
-});
+     
+    if(document.querySelector('#municipality').value != 'other'){
+        patient["barangay"] = document.querySelector('#barangay').value;
+        patient["municipality"] = document.querySelector('#municipality').value;
+        patient["province"] = 'Bulacan';
+    }
+    else{
+        // If others young selected kay municipality
+        let other = document.querySelector('#other').value;
+        other = other.split(", ");
+        patient["barangay"] = other[0];
+        patient["municipality"] = other[1];
+        patient["province"] = other[2];
+    }
+    
+    patient["typeOfPatient"] = document.querySelector('#patientType').value;
 
-next.addEventListener('click', ()=>{
-    if(stepStatus < 3) stepStatus++;
-    proceed();
-});
+    if(patient["typeOfPatient"] == 'oldPatient'){
+        patient["caseNo"] = document.querySelector('#caseNo').value;
+    }
+    else{
+        patient["caseNo"] = "";
+    }
+
+    if(patient['firstName'] != "" && patient['middleName'] != "" && patient['lastName']
+    && patient['sex'] != "" && patient['birthdate'] != "" && patient['phone'] != "" && patient['barangay'] != ""
+    && patient['municipaliyu'] != "" && patient['province'] != "" && patient['typeOfPatient'] != ""){
+        if(patient[typeOfPatient] == 'newPatient'){
+            return true
+        }
+        else{
+            if(patient['caseNo'] != ""){
+                return true
+            }
+            else{
+                return false
+            }
+        }
+    }    
+}
+
+function errorHandler(code){
+    // eto example ng mangyayari
+    if(code == '1'){
+        alert('First Name is Empty!');
+    }
+}
+
+
+function createScheduleNav(){
+    back.addEventListener('click', ()=>{
+        if(stepStatus > 0) {
+            progression[stepStatus].classList.remove('answered');
+            progressionTitle[stepStatus].classList.remove('active');
+            stepStatus--;
+        }
+        proceed();
+    });
+    
+    next.addEventListener('click', ()=>{
+        // Used to increment index for multiform parts
+        if(stepStatus < 4) stepStatus++;
+        
+        if(stepStatus == 1){
+            if(grabFirstForm()){
+                proceed();
+            }else{
+                alert('please choose a department');
+                stepStatus--;
+            }
+        }
+        else if(stepStatus == 2){
+            if(grabSecondForm()){
+                proceed();
+            }else{
+                alert('show ano mali');
+                stepStatus--;
+            }
+        }
+        else if(stepStatus == 3){
+            alert('getting form 3 data');
+            proceed();
+        }
+        else if(stepStatus == 4){
+            alert('show OTP');
+        }
+    });
+}
 
 function proceed(){
     forms.forEach((item)=>{
@@ -41,27 +187,21 @@ function proceed(){
     if(stepStatus == 0) mobileLabel.innerHTML = 'Pumili ng Department';
     else if(stepStatus == 1){
         mobileLabel.innerHTML = 'Personal na Impormasyon';
-        
-        // alert('stepStatus 1');
     }
     else if(stepStatus == 2){
         mobileLabel.innerHTML = 'Schedule ng Appointment';
         next.value = 'Next'
-        // alert('stepStatus 2');
     } 
     else if(stepStatus == 3){
         mobileLabel.innerHTML = 'Review ng Impormasyon';
         next.value = 'gawing showOTPModal() na yung function nitong button '
-        // alert('stepStatus 3');
     }
 }
 
 function removeOTPModal(){
-
 }
 
 function showOTPModal(){
-
 }
 
 function getPatientType(type) {

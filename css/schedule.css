@@ -425,8 +425,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   .first .form__card:hover {
     cursor: pointer;
     transform: translateY(-30px);
-    transform: translateX(20px);
-    transform: rotate(3deg);
+    transform: translateX(-10px);
     box-shadow: 25px 25px rgba(4, 4, 4, 0.251);
   }
   .first .form__dept-title {
@@ -866,5 +865,16 @@ input[type=date]::-webkit-calendar-picker-indicator {
   }
   .fourth .review {
     width: 80%;
+  }
+}
+.first .dept__selected {
+  border-width: 5px;
+  border-color: rgb(1, 81, 221);
+}
+
+@media only screen and (min-width: 1200px) {
+  .dept__selected {
+    border-width: 10px;
+    border-color: rgb(1, 81, 221);
   }
 }/*# sourceMappingURL=schedule.css.map */

@@ -1,23 +1,11 @@
 // If other yung value ni barangay and municipality ang gawin sa back end is kunin lang directly yung address other wise pagdugtungin 
 // yung barangay municipality bulacan
-
-
-// Used to determine if patay ba or bukas yung display ni dummyElement.
-//dummyElement is para sa left mag start yung new row field sa .first
-let otherOn = false;
-let caseOn =  false;
-let dummyOn = true;
-//possible solution din sa dept para mag pantay is same logic pero fix dapat yung width nung .first
-
-
 const municipality = document.querySelector('#municipality');
 const barangay = document.querySelector('#barangay');
 
-municipality.setAttribute('type', 'text');
 
-
-
-const municipalityList = ['angat', 'balagtas', 'baliwag', 'bocaue', 'bulakan', 'bustos', 'calumpit', 'doña remedios trinidad', 'guiguinto', 'hagonoy', 'malolos', 'marilao', 'meycauayan', 'norzagaray', 'obando', 'pandi', 'paombong', 'plaridel', 'pulilan', 'san ildefonso', 'san jose del monte', 'san miguel', 'san rafael', 'santa maria', 'other'];
+const municipalityList = ['angat', 'balagtas', 'baliwag', 'bocaue', 'bulakan', 'bustos', 'calumpit', 'doña remedios trinidad', 'guiguinto', 'hagonoy', 'malolos', 'marilao', 
+'meycauayan', 'norzagaray', 'obando', 'pandi', 'paombong', 'plaridel', 'pulilan', 'san ildefonso', 'san jose del monte', 'san miguel', 'san rafael', 'santa maria', 'other'];
 
 const barangaylist = {
     'angat': [
@@ -195,46 +183,7 @@ function getBarangayList(municipality){
         
     }
 
-    // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-    // if(dummyOn && !caseOn){
-    //   document.querySelector('.dummyElement').style.display = 'flex';
-    //   dummyOn = true;
-    // }
-    // else if(!dummyOn && caseOn){
-    //   document.querySelector('.dummyElement').style.display = 'none';
-    //   dummyOn = false;
-    // }
-    // else if(dummyOn && caseOn){
-    //   document.querySelector('.dummyElement').style.display = 'none';
-    //   dummyOn = false;
-    // }
-    // else if(!dummyOn && !caseOn){
-    //   document.querySelector('.dummyElement').style.display = 'flex';
-    //   dummyOn = true;
-    // }
-
     if(municipality == 'other'){
-
-        // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-        // if(dummyOn && !caseOn){
-        //   document.querySelector('.dummyElement').style.display = 'none';
-        //   dummyOn = false;
-        // }
-        // else if(!dummyOn && caseOn){
-        //   document.querySelector('.dummyElement').style.display = 'flex';
-        //   dummyOn = true;
-        // }
-        // else if(dummyOn && caseOn){
-        //   document.querySelector('.dummyElement').style.display = 'flex';
-        //   dummyOn = true;
-        // }
-        // else if(!dummyOn && !caseOn){
-        //   document.querySelector('.dummyElement').style.display = 'none';
-        //   dummyOn = false;
-        // }
-
-        // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-        // otherOn = true;
 
         let temp = document.createElement('option');
         temp.innerHTML = 'Other';
@@ -252,9 +201,6 @@ function getBarangayList(municipality){
         document.querySelector('.other-container').style.display = 'flex';
         return;
     }
-
-    // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-    otherOn = false;
     generateBarangays(municipality);
 }
 
