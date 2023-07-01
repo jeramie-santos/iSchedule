@@ -351,7 +351,7 @@ main{
     // max-height: 800px;
     // LIITAN GAP AND PADDING SA DESKTOP MODE 
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(110px,1fr));
     row-gap: 5vw;
     justify-items: center;
     overflow-y: auto;
@@ -361,15 +361,13 @@ main{
         flex-flow: column;
         justify-content: space-between;
         align-items: center;
-        //border: 2px solid gray;
-        width: 150px;
-        height: 200px;
+        width: 100px;
+        height: 150px;
         border-radius: 20px;
         background-color: white;
         box-shadow: 5px 5px rgba(61, 61, 61, 0.282);
         border: 3px solid rgb(163, 163, 163);
-        // border: $fontbase-color 2px solid;
-        padding: 5px;
+        padding: 0 1vw;
         transition-duration: 500ms;
     }
 
@@ -393,7 +391,7 @@ main{
     }
 
     .form__dept-img{
-        width: 80%;
+        width: 70%;
         //border: 1px solid rgb(123, 123, 123);
         border-radius: 10px;
     }
@@ -403,11 +401,11 @@ main{
         justify-content: center;
         align-items: center;
         text-align: center;
-        font-size: 1.1rem;
-        font-weight: 700;
+        font-size: 1rem;
+        font-weight: 1000;
         background-color: transparent;
         width: 100%;
-        height: 70px;
+        height: 100px;
         border-radius: 0 0 10px 10px;
         // position: absolute;
         // top: 50px;
@@ -416,6 +414,17 @@ main{
 
 .active{
     color: $primary-alt;
+}
+
+@media only screen and (min-width: 370px){
+    .first{
+        grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+
+        .form__card{
+            width: 150px;
+            height: 200px;
+        }
+    }
 }
 
 @media only screen and (min-width: 900px){
