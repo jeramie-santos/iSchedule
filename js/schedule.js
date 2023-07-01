@@ -39,9 +39,29 @@ function proceed(){
     progressionTitle[stepStatus].classList.add('active');
 
     if(stepStatus == 0) mobileLabel.innerHTML = 'Pumili ng Department';
-    else if(stepStatus == 1) mobileLabel.innerHTML = 'Personal na Impormasyon';
-    else if(stepStatus == 2) mobileLabel.innerHTML = 'Iskedyul ng Appointment';
-    else if(stepStatus == 3) mobileLabel.innerHTML = 'Review ng Impormasyon';
+    else if(stepStatus == 1){
+        mobileLabel.innerHTML = 'Personal na Impormasyon';
+        
+        // alert('stepStatus 1');
+    }
+    else if(stepStatus == 2){
+        mobileLabel.innerHTML = 'Schedule ng Appointment';
+        next.value = 'Next'
+        // alert('stepStatus 2');
+    } 
+    else if(stepStatus == 3){
+        mobileLabel.innerHTML = 'Review ng Impormasyon';
+        next.value = 'gawing showOTPModal() na yung function nitong button'
+        // alert('stepStatus 3');
+    }
+}
+
+function removeOTPModal(){
+
+}
+
+function showOTPModal(){
+
 }
 
 function getPatientType(type) {

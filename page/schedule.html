@@ -50,7 +50,7 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
             <div class="mobile-label">Pumili ng Department</div>
             <div class="progression__step progression__step1 answered"><span class="progression__title initial">Pumili ng Department</span></div>
             <div class="progression__step progression__step2"><span class="progression__title">Personal na Impormasyon</span></div>
-            <div class="progression__step progression__step3"><span class="progression__title">Iskedyul ng Appointment</span></div>
+            <div class="progression__step progression__step3"><span class="progression__title">Schedule ng Appointment</span></div>
             <div class="progression__step progression__step4"><span class="progression__title">Review ng Impormasyon</span></div>
         </div>
         <div class="form-container">
@@ -214,7 +214,7 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                             <label for="patientType">Klase ng Pasyente / Patient Type</label>
                             <select name="patientType" id="patientType" onchange="getPatientType(this.value)">
                                 <option disabled="disabled" selected="selected"></option>
-                                <option value="oldPatient">Dati nang Pasyente / Old Patient</option>
+                                <option value="oldPatient">Dating Pasyente / Old Patient</option>
                                 <option value="newPatient">Bagong Pasyente / New Patient</option>
                             </select>
                         </div>
@@ -325,10 +325,52 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                             </div>
                         </div>
                     </div>
-                    <div class="form-part fourth">
-                        <input type="text" placeholder="Testing multiform 4">
-                        <input type="text" placeholder="Testing multiform 4">
+                    <div class="form-part fourth" style="display: none;">
+                        <span>PAALALA: Suriin ng mabuti ang impormasyon at palitan kung merong maling impormasyon.</span>
+                        <div class="review">
+                            <div class="review-field review__schedule">
+                                <div class="review__title">Schedule:</div>
+                                <div class="review__input">July 13, 2023 (8:00 AM - 9:00 AM)</div>
+                            </div>
+                            <div class="review-field review__dept">
+                                <div class="review__title">Department:</div>
+                                <div class="review__input">Internal Medicine</div>
+                            </div>
+                            <div class="review-field review__full-name">
+                                <div class="review__title">Buong Pangalan:</div>
+                                <div class="review__input">Clarence Reyes Coronel</div>
+                            </div>
+                            <div class="review-field review__sex">
+                                <div class="review__title">Kasarian:</div>
+                                <div class="review__input">Lalaki</div>
+                            </div>
+                            <div class="review-field review__birthdate">
+                                <div class="review__title">Petsa ng Kapanganakan:</div>
+                                <div class="review__input">17 October 2009</div>
+                            </div>
+                            <div class="review-field review__phone">
+                                <div class="review__title">Numero ng Telepono:</div>
+                                <div class="review__input">09574991236</div>
+                            </div>
+                            <div class="review-field review__address">
+                                <div class="review__title">Lokasyon:</div>
+                                <div class="review__input">Tabang, Plaridel, Bulacan</div>
+                            </div>
+                            <div class="review-field review__patient-type">
+                                <div class="review__title">Klase ng Pasyente:</div>
+                                <div class="review__input">Dating Pasyente</div>
+                            </div>
+                            <div class="review-field review__case-no">
+                                <div class="review__title">Case No:</div>
+                                <div class="review__input">2314</div>
+                            </div>
+
+                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                Launch static backdrop modal
+                            </button> -->
+                        </div>
                     </div> 
+                    
                 </div>
                 <!-- <input id="input" type="text">
                 <div onclick="boom()" id="test"> test</div>
@@ -340,5 +382,23 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
             </form>
         </div>
     </main>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+        </div>
+    </div>
 </body>
 </html>
