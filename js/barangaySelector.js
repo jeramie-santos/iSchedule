@@ -195,16 +195,27 @@ function getBarangayList(municipality){
         
     }
 
-    otherOn = false;
-    if(caseOn && otherOn){
-        document.querySelector('.dummyElement').style.display = 'none';
-        dummyOn = false;
+    // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
+    if(dummyOn && !caseOn){
+      document.querySelector('.dummyElement').style.display = 'flex';
+      dummyOn = true;
     }
-    
+    else if(!dummyOn && caseOn){
+      document.querySelector('.dummyElement').style.display = 'none';
+      dummyOn = false;
+    }
+    else if(dummyOn && caseOn){
+      document.querySelector('.dummyElement').style.display = 'none';
+      dummyOn = false;
+    }
+    else if(!dummyOn && !caseOn){
+      document.querySelector('.dummyElement').style.display = 'flex';
+      dummyOn = true;
+    }
 
     if(municipality == 'other'){
-        otherOn = true;
 
+        // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
         if(dummyOn && !caseOn){
           document.querySelector('.dummyElement').style.display = 'none';
           dummyOn = false;
@@ -213,6 +224,17 @@ function getBarangayList(municipality){
           document.querySelector('.dummyElement').style.display = 'flex';
           dummyOn = true;
         }
+        else if(dummyOn && caseOn){
+          document.querySelector('.dummyElement').style.display = 'flex';
+          dummyOn = true;
+        }
+        else if(!dummyOn && !caseOn){
+          document.querySelector('.dummyElement').style.display = 'none';
+          dummyOn = false;
+        }
+
+        // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
+        otherOn = true;
 
         let temp = document.createElement('option');
         temp.innerHTML = 'Other';
@@ -230,6 +252,9 @@ function getBarangayList(municipality){
         document.querySelector('.other-container').style.display = 'flex';
         return;
     }
+
+    // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
+    otherOn = false;
     generateBarangays(municipality);
 }
 
