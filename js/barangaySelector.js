@@ -178,7 +178,9 @@ function getBarangayList(municipality){
     barangay.removeAttribute('disabled');
     document.querySelector('.other-container').style.display = 'none';
     try {
-        document.querySelector('#other').remove();
+        document.querySelector('#barangay-other').remove();
+        document.querySelector('#municipality-other').remove();
+        document.querySelector('#province-other').remove();
     } catch (error) {
         
     }
@@ -191,13 +193,24 @@ function getBarangayList(municipality){
 
         barangay.setAttribute('disabled', 'disabled');
         
-        let newField = document.createElement('input');
-        newField.setAttribute('selected', 'selected');
-        newField.setAttribute('id', 'other');
-        newField.setAttribute('input', 'text');
-        newField.setAttribute('placeholder', 'Barangay, Munisipalidad, Probinsya');
+        let newBarangay = document.createElement('input');
+        newBarangay.setAttribute('id', 'barangay-other');
+        newBarangay.setAttribute('input', 'text');
+        newBarangay.setAttribute('placeholder', 'Barangay');
+
+        let newMunicipality = document.createElement('input');
+        newMunicipality.setAttribute('id', 'municipality-other');
+        newMunicipality.setAttribute('input', 'text');
+        newMunicipality.setAttribute('placeholder', 'Munisipalidad');
+
+        let newProvince = document.createElement('input');
+        newProvince.setAttribute('id', 'province-other');
+        newProvince.setAttribute('input', 'text');
+        newProvince.setAttribute('placeholder', 'Probinsya');
         
-        document.querySelector('.other-label').appendChild(newField);
+        document.querySelector('.address-container').appendChild(newBarangay);
+        document.querySelector('.address-container').appendChild(newMunicipality);
+        document.querySelector('.address-container').appendChild(newProvince);
         document.querySelector('.other-container').style.display = 'flex';
         return;
     }
@@ -257,6 +270,11 @@ function generateMunicipalities(){
         const newMunicipality = document.createElement('option');
         newMunicipality.innerHTML = processedItem;
         newMunicipality.setAttribute('value', item);
+
+        // change innerHTML of other para di lang 'other' nakalagay
+        if(item == 'other'){
+          newMunicipality.innerHTML = 'Other (Please specify)'
+        }
     
         municipality.appendChild(newMunicipality);
     });

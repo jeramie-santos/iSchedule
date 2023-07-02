@@ -169,19 +169,19 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                     <div class="form-part second" style="display: none;">
                         <div class="field-container">
                             <label for="firstName">Pangalan / First Name</label>
-                            <input type="text" id="firstName" name="firstName">
+                            <input type="text" id="firstName" name="firstName" onclick="revertBorder(this.id)">
                         </div>
                         <div class="field-container">
                             <label for="middleName">Gitnang Pangalan / Middle Name</label>
-                            <input type="text" id="middleName" name="middleName">
+                            <input type="text" id="middleName" name="middleName" onclick="revertBorder(this.id)">
                         </div>
                         <div class="field-container">
                             <label for="lastName">Apelido / Last Name</label>
-                            <input type="text" id="lastName" name="lastName">
+                            <input type="text" id="lastName" name="lastName" onclick="revertBorder(this.id)">
                         </div>
                         <div class="field-container">
                             <label for="sex">Kasarian / Sex</label>
-                            <select name="sex" id="sex">
+                            <select name="sex" id="sex" onclick="revertBorder(this.id)">
                                 <option disabled="disabled" selected="selected"></option>
                                 <option value="male">Lalaki / Male</option>
                                 <option value="female">Babae / Female</option>
@@ -189,30 +189,32 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                         </div>
                         <div class="field-container">
                             <label for="birthdate">Petsa ng Kapanganakan / Birthdate</label>
-                            <input type="date" name="birthdate" id="birthdate">
+                            <input type="date" name="birthdate" id="birthdate" onclick="revertBorder(this.id)">
                         </div>
 
                         <div class="field-container">
                             <label for="phone">Numero ng Telepono / Phone Number</label>
-                            <input type="text" id="phone" name="phone">
+                            <input type="text" id="phone" name="phone" onclick="revertBorder(this.id)">
                         </div>
                         <div class="field-container">
                             <label for="municipality">Munisipalidad / Municipality</label>
-                            <select name="municipality" id="municipality" onchange="getBarangayList(this.value)">
+                            <select name="municipality" id="municipality" onchange="getBarangayList(this.value)" onclick="revertBorder(this.id)">
                                 <option disabled="disabled" selected="selected"></option>
                             </select>
                         </div>
                         <div class="field-container">
                             <label for="barangay">Barangay</label>
-                            <select name="barangay" id="barangay" disabled="disabled">
+                            <select name="barangay" id="barangay" disabled="disabled" onclick="revertBorder(this.id)">
                             </select>
                         </div>
                         <div class="field-container other-container" style="display: none;" >
-                            <label for="other" class="other-label">Lokasyon / Address</label>
+                            <label for="other" class="other-label">Lokasyon / Address (Other)</label>
+                            <div class="address-container">
+                            </div>
                         </div>
                         <div class="field-container">
                             <label for="patientType">Klase ng Pasyente / Patient Type</label>
-                            <select name="patientType" id="patientType" onchange="getPatientType(this.value)">
+                            <select name="patientType" id="patientType" onchange="getPatientType(this.value)" onclick="revertBorder(this.id)">
                                 <option disabled="disabled" selected="selected"></option>
                                 <option value="oldPatient">Dating Pasyente / Old Patient</option>
                                 <option value="newPatient">Bagong Pasyente / New Patient</option>
