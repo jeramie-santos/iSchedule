@@ -912,13 +912,20 @@ main{
     
 }
 
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 900px){
     .third{
         flex-flow: row nowrap;
         justify-content: center;
 
         .calendar__info{
             justify-content: center;
+        }
+
+        .slot-container{
+            width: 100%;
+            height: 50%;
+            border: 2px solid $fontbase-color;
+            border-radius: 5px;
         }
     }
 
