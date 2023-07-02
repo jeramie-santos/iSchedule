@@ -1,3 +1,8 @@
+// TODO
+// LAGAY VALIDATOR SA CASENO PAG ALAM NA KUNG SPECIFICS LIKE ILANG NUMBER BA OR IF MAY SPECIAL CHARACTER OR LETRA
+// LINE 273
+
+// TO TEST FASTER TANGGALIN VALIDATOR SA NEXT BUTTON
 let stepStatus = 0;
 const back = document.querySelector('.btn-back');
 const next = document.querySelector('.btn-next');
@@ -9,6 +14,10 @@ const mobileLabel = document.querySelector('.mobile-label');
 const caseNo = document.querySelector('.caseNo-container');
 const patientType = document.querySelector('#patientType');
 const deptCards = document.querySelectorAll('.form__card');
+const allInput = document.querySelectorAll('input');
+const allSelect = document.querySelectorAll('select');
+
+let formErrorMessage = "";
 
 const patient = {
     'department': '',
@@ -26,9 +35,17 @@ const patient = {
     'caseNo': '',
 }
 
-createScheduleNav();
+scheduleNav();
 addLinkToLogo();
 insertListenerDept();
+
+function isLettersOnly(str) {
+	return /^[A-Za-z ]*$/.test(str);
+}
+
+function isLettersNumsOnly(str) {
+	return /^[A-Za-z 0-9]*$/.test(str);
+}
 
 function insertListenerDept(){
     deptCards.forEach((item)=>{
@@ -62,79 +79,408 @@ function grabFirstForm(){
 
 function grabSecondForm(){
     
-    patient["firstName"] = document.querySelector('#firstName').value;
-    
-    // Bali ang mangyayari is top to bottom checking ng input fields sa unang makitang error yun muna sasabihin kay user then pag nag submit ulit
-    // first match ulit pakita
-    // bigyan code mga error para malinis tingnan
-    if(patient['firstName'] == "") errorHandler('1');
+    // 
+    // FIRST NAME **************************
+    // 
+    patient["firstName"] = document.querySelector('#firstName').value.trim();
+    // Check if firstName is Empty
+    if(patient['firstName'] == ""){
+        errorHandler('00', document.querySelector('#firstName').id);
+        return false;
+    } 
+    // Check if may numero or special character si name
+    if(!isLettersOnly(patient['firstName'])){
+        errorHandler('01', document.querySelector('#firstName').id);
+        return false;
+    } 
+    // Check if more than 30 characters si name or 1 character lang
+    if((patient['firstName']).length > 30 || patient['firstName'].length == 1){
+        errorHandler('02', document.querySelector('#firstName').id);
+        return false;
+    }
 
+    // 
+    // MIDDLE NAME **************************
+    // 
+    patient["middleName"] = document.querySelector('#middleName').value.trim();
+    // Check if middleName is Empty
+    if(patient['middleName'] == ""){
+        errorHandler('10', document.querySelector('#middleName').id);
+        return false;
+    } 
+    // Check if may numero or special character si middleName
+    if(!isLettersOnly(patient['middleName'])){
+        errorHandler('11', document.querySelector('#middleName').id);
+        return false;
+    } 
+    // Check if more than 30 characters si middle name
+    if((patient['middleName']).length > 30){
+        errorHandler('12', document.querySelector('#middleName').id);
+        return false;
+    }
+    // Check if 1 character lang
+    if((patient['middleName']).length == 1){
+        errorHandler('13', document.querySelector('#middleName').id);
+        return false;
+    }
 
-    patient["middleName"] = document.querySelector('#middleName').value;
-    patient["lastName"] = document.querySelector('#lastName').value;
+    // 
+    // LAST NAME **************************
+    // 
+    patient["lastName"] = document.querySelector('#lastName').value.trim();
+    // Check if lastName is Empty
+    if(patient['lastName'] == ""){
+        errorHandler('20', document.querySelector('#lastName').id);
+        return false;
+    } 
+    // Check if may numero or special character si lastName
+    if(!isLettersOnly(patient['lastName'])){
+        errorHandler('21', document.querySelector('#lastName').id);
+        return false;
+    } 
+    // Check if more than 30 characters si lastName
+    if((patient['lastName']).length > 30 || (patient['lastName']).length == 1){
+        errorHandler('22', document.querySelector('#lastName').id);
+        return false;
+    }
+
+    // 
+    // SEX **************************
+    // 
     patient["sex"] = document.querySelector('#sex').value;
+    if(patient['sex'] == ''){
+        errorHandler('30', document.querySelector('#sex').id);
+        return false;
+    }
+
+    // 
+    // BIRTHDATE **************************
+    // 
+    // DI KO PA SURE IF LALAGYAN KO LIMIT LANG ATLEAST 18 YEARS OLD BA OR SOMETHING ******************************************************
     patient["birthdate"] = document.querySelector('#birthdate').value;
-
-    // Lagyan validator para masure na phone
-    let phoneTemp = document.querySelector('#phone').value;
-    phoneTemp = phoneTemp.replaceAll(' ', '');
-
-    if(phoneTemp.length != 11 && !isNaN(phoneTemp)){
-        alert('invalid phone pakita modal chuchu');
-    }else{
-        patient["phone"] = phoneTemp;
+    if(patient['birthdate'] == ''){
+        errorHandler('40', document.querySelector('#birthdate').id);
+        return false;
     }
-     
-    if(document.querySelector('#municipality').value != 'other'){
-        patient["barangay"] = document.querySelector('#barangay').value;
-        patient["municipality"] = document.querySelector('#municipality').value;
-        patient["province"] = 'Bulacan';
+
+    // 
+    // PHONE **************************
+    // 
+    patient["phone"] = document.querySelector('#phone').value.replaceAll(' ', '').trim();
+    if(patient["phone"] == ""){
+        errorHandler('50', document.querySelector('#phone').id);
+        return false;
     }
-    else{
-        // If others young selected kay municipality
-        let other = document.querySelector('#other').value;
-        other = other.split(", ");
-        patient["barangay"] = other[0];
-        patient["municipality"] = other[1];
-        patient["province"] = other[2];
+    else if(patient["phone"].length != 11){
+        alert(patient["phone"].length);
+        errorHandler('51', document.querySelector('#phone').id);
+        return false;
+    }
+    else if(isNaN(patient["phone"])){
+        errorHandler('52', document.querySelector('#phone').id);
+        return false;
+    }
+    else if((patient["phone"]).charAt(0) != '0'){
+        errorHandler('53', document.querySelector('#phone').id);
+        return false;
     }
     
-    patient["typeOfPatient"] = document.querySelector('#patientType').value;
+    // If hindi selected si other kay municipality get yung preset values
+    if(document.querySelector('#municipality').value != 'other'){
+        // 
+        // MUNICIPALITY **************************
+        // 
+        patient["municipality"] = document.querySelector('#municipality').value;
+        if(patient["municipality"] == ""){
+            errorHandler('60', document.querySelector('#municipality').id);
+            return false;
+        }
+        // 
+        // BARANGAY **************************
+        // 
+        patient["barangay"] = document.querySelector('#barangay').value;
+        if(patient["barangay"] == ""){
+            errorHandler('70', document.querySelector('#barangay').id);
+            return false;
+        }
+        // 
+        // PROVINCE **************************
+        // 
+        patient["province"] = 'bulacan';
+    }
+    // if naka select si other kunin yung field na lokasyon
+    else{
+        // 
+        // BARANGAY(OTHER) **************************
+        // 
+        patient['barangay'] = document.querySelector('#barangay-other').value.trim();
+        if(patient['barangay'] == ''){
+            errorHandler('80', document.querySelector('#barangay-other').id);
+            return false;
+        }
+        else if(patient['barangay'] > 30){
+            errorHandler('81', document.querySelector('#barangay-other').id);
+            return false;
+        }
+        else if(!isLettersNumsOnly(patient['barangay'])){
+            errorHandler('82', document.querySelector('#barangay-other').id);
+            return false;
+        }
 
+        // 
+        // MUNICIPALITY(OTHER) **************************
+        // 
+        patient['municipality'] = document.querySelector('#municipality-other').value.trim();
+        if(patient['municipality'] == ''){
+            errorHandler('90', document.querySelector('#municipality-other').id);
+            return false;
+        }
+        else if(patient['municipality'] > 30){
+            errorHandler('91', document.querySelector('#municipality-other').id);
+            return false;
+        }
+        else if(!isLettersNumsOnly(patient['municipality'])){
+            errorHandler('92', document.querySelector('#municipality-other').id);
+            return false;
+        }
+
+        // 
+        // PROVINCE(OTHER) **************************
+        // 
+        patient['province'] = document.querySelector('#province-other').value.trim();
+        if(patient['province'] == ''){
+            errorHandler('100', document.querySelector('#province-other').id);
+            return false;
+        }
+        else if(patient['province'] > 30){
+            errorHandler('101', document.querySelector('#province-other').id);
+            return false;
+        }
+        else if(!isLettersNumsOnly(patient['province'])){
+            errorHandler('102', document.querySelector('#province-other').id);
+            return false;
+        }
+    }
+
+    // 
+    // PATIENT TYPE **************************
+    // 
+    patient["typeOfPatient"] = document.querySelector('#patientType').value;
+    if(patient["typeOfPatient"] == ''){
+        errorHandler('110', document.querySelector('#patientType').id);
+        return false;
+    }
+
+    // 
+    // CASE NO **************************
+    // 
     if(patient["typeOfPatient"] == 'oldPatient'){
-        patient["caseNo"] = document.querySelector('#caseNo').value;
+        patient["caseNo"] = document.querySelector('#caseNo').value.trim();
+        if(patient['caseNo'] == ''){
+            errorHandler('120', document.querySelector('#caseNo').id);
+            return false;
+        }
+        // MAGLAGAY PA VALIDATOR DITO IF ALAM NA NATIN KUNG ILANG NUM BA NEED SA CASENO OR MAY LETRA BA ETC
     }
     else{
         patient["caseNo"] = "";
     }
 
-    if(patient['firstName'] != "" && patient['middleName'] != "" && patient['lastName']
-    && patient['sex'] != "" && patient['birthdate'] != "" && patient['phone'] != "" && patient['barangay'] != ""
-    && patient['municipaliyu'] != "" && patient['province'] != "" && patient['typeOfPatient'] != ""){
-        if(patient[typeOfPatient] == 'newPatient'){
-            return true
-        }
-        else{
-            if(patient['caseNo'] != ""){
-                return true
-            }
-            else{
-                return false
-            }
-        }
-    }    
+    return true;
 }
 
-function errorHandler(code){
-    // eto example ng mangyayari
-    if(code == '1'){
-        alert('First Name is Empty!');
+function errorHandler(code, id){
+    // 
+    // FIRST NAME **************************
+    // 
+    if(code == '00') {
+        formErrorMessage = 'Ang pangalan ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if (code == '01') {
+        formErrorMessage = 'Ang pangalan ay di maaring magkaroon ng numero o special characters.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if (code == '02'){
+        formErrorMessage = 'Ang pangalan ay di maaring magkaroon lamang ng isang(1) letra o higit sa tatlongpung(30) letra.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // MIDDLE NAME **************************
+    // 
+    else if(code == '10'){
+        formErrorMessage = 'Ang gitnang pangalan ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '11'){
+        formErrorMessage = 'Ang gitnang pangalan ay di maaring magkaroon ng numero o special characters.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '12'){
+        formErrorMessage = 'Ang gitnang pangalan ay di maaring magkaroon ng higit sa tatlongpung(30) letra.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '13'){
+        formErrorMessage = 'Ang gitnang pangalan ay di maaring middle initial lamang kailangan ito ay kompleto.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // LAST NAME **************************
+    // 
+    else if(code == '20') {
+        formErrorMessage = 'Ang apelido ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '21') {
+        formErrorMessage = 'Ang apelido ay di maaring magkaroon ng numero o special characters.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '22'){
+        formErrorMessage = 'Ang apelido ay di maaring magkaroon lamang ng isang(1) letra o higit sa tatlongpung(30) letra.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // SEX **************************
+    // 
+    else if(code == '30'){
+        formErrorMessage = 'Ang kasarian ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // BIRTHDATE **************************
+    // 
+    else if(code == '40'){
+        formErrorMessage = 'Ang araw ng kapanganakan ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // PHONE **************************
+    // 
+    else if(code == '50'){
+        formErrorMessage = 'Ang numero ng telepono ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '51'){
+        formErrorMessage = 'Ang numero ng telepono ay kailangan labingisa(11) lamang. Halimbawa: 09XX XXX XXXX';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '52'){
+        formErrorMessage = 'Ang numero ng telepono ay di maaring magkaroon ng letra o special character.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '53'){
+        formErrorMessage = 'Ang numero ng telepono ay kailangang mag simula sa "0". Halimbawa: 09XX XXX XXXX.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // MUNICIPALITY **************************
+    // 
+    else if(code == '60'){
+        formErrorMessage = 'Ang munisipalidad ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // BARANGAY **************************
+    // 
+    else if(code == '70'){
+        formErrorMessage = 'Ang barangay ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // BARANGAY(OTHER) **************************
+    // 
+    else if(code == '80'){
+        formErrorMessage = 'Ang barangay ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '81'){
+        formErrorMessage = 'Ang barangay ay di maaring magkaroon ng higit sa tatlongpung(30) letra.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '82'){
+        formErrorMessage = 'Ang barangay ay di maaring magkaroon ng special characters.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // MUNICIPALITY(OTHER) **************************
+    // 
+    else if(code == '90'){
+        formErrorMessage = 'Ang munisipalidad ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '91'){
+        formErrorMessage = 'Ang munisipalidad ay di maaring magkaroon ng higit sa tatlongpung(30) letra.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '92'){
+        formErrorMessage = 'Ang munisipalidad ay di maaring magkaroon ng special characters.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // PROVINCE(OTHER) **************************
+    // 
+    else if(code == '100'){
+        formErrorMessage = 'Ang probinsya ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '101'){
+        formErrorMessage = 'Ang probinsya ay di maaring magkaroon ng higit sa tatlongpung(30) letra.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '102'){
+        formErrorMessage = 'Ang probinsya ay di maaring magkaroon ng special characters.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // PATIENT TYPE **************************
+    // 
+    else if(code == '110'){
+        formErrorMessage = 'Ang klase ng pasyente ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    // 
+    // CASE NO **************************
+    // 
+    else if(code == '120'){
+        formErrorMessage = 'Ang case number ay di maaring walang laman.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
     }
 }
 
+function scheduleNav(){
 
-function createScheduleNav(){
     back.addEventListener('click', ()=>{
+        // Resets all border. Inshort tinatanggal lahat ng red border after ma click ni next
+        revertAllBorder();
         if(stepStatus > 0) {
             progression[stepStatus].classList.remove('answered');
             progressionTitle[stepStatus].classList.remove('active');
@@ -144,24 +490,29 @@ function createScheduleNav(){
     });
     
     next.addEventListener('click', ()=>{
+        // Resets all border. Inshort tinatanggal lahat ng red border after ma click ni next
+        revertAllBorder();
+
         // Used to increment index for multiform parts
         if(stepStatus < 4) stepStatus++;
         
         if(stepStatus == 1){
-            if(grabFirstForm()){
-                proceed();
-            }else{
-                alert('please choose a department');
-                stepStatus--;
-            }
+            proceed();
+            // if(grabFirstForm()){
+            //     proceed();
+            // }else{
+            //     alert('please choose a department');
+            //     stepStatus--;
+            // }
         }
         else if(stepStatus == 2){
-            if(grabSecondForm()){
-                proceed();
-            }else{
-                alert('show ano mali');
-                stepStatus--;
-            }
+            proceed();
+            // if(grabSecondForm()){
+            //     proceed();
+            // }else{
+            //     alert(formErrorMessage);
+            //     stepStatus--;
+            // }
         }
         else if(stepStatus == 3){
             alert('getting form 3 data');
@@ -212,105 +563,33 @@ function getPatientType(type) {
         temp.setAttribute('type', 'text');
         temp.setAttribute('name', 'caseNo');
         temp.setAttribute('id', 'caseNo');
+        temp.setAttribute('onblur', 'revertBorder(this.id)');
         temp.classList.add('caseNo');
+
         caseNo.appendChild(temp);
 
         caseNo.style.display = 'flex';
-
-        // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-        // if(otherOn && !dummyOn){
-        //     document.querySelector('.dummyElement').style.display = 'flex';
-        //     dummyOn = true;
-        // }
-        // else if(!otherOn && dummyOn){
-        //     document.querySelector('.dummyElement').style.display = 'none';
-        //     dummyOn = false;
-        // }
-
-        // if(dummyOn && !otherOn){
-        //     document.querySelector('.dummyElement').style.display = 'none';
-        //     dummyOn = false;
-        // }
-        // else if(!dummyOn && otherOn){
-        //     document.querySelector('.dummyElement').style.display = 'flex';
-        //     dummyOn = true;
-        // }
-        // else if(!dummyOn && !otherOn){
-        //     document.querySelector('.dummyElement').style.display = 'none';
-        //     dummyOn = false;
-        // }
-        // else if(dummyOn && otherOn){
-        //     document.querySelector('.dummyElement').style.display = 'none';
-        //     dummyOn = false;
-        // }
-
-        // if(caseOn && !otherOn){
-        //     document.querySelector('.dummyElement').style.display = 'none';
-        //     dummyOn = false;
-        // }
-        // else if(!caseOn && otherOn){
-        //     document.querySelector('.dummyElement').style.display = 'none';
-        //     dummyOn = false;
-        // }
-        // else if(!caseOn && !otherOn){
-        //     document.querySelector('.dummyElement').style.display = 'flex';
-        //     dummyOn = true;
-        // }
-        // else if(caseOn && otherOn){
-        //     document.querySelector('.dummyElement').style.display = 'flex';
-        //     dummyOn = none;
-        // }
-
-        // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-        // caseOn = true;
-        
     }
     else{
         try {
-
-            // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
             document.getElementById('caseNo').remove();
             caseNo.style.display = 'none';
-
-            // if(dummyOn && !otherOn){
-            //     document.querySelector('.dummyElement').style.display = 'flex';
-            //     dummyOn = true;
-            // }
-            // else if(!dummyOn && otherOn){
-            //     document.querySelector('.dummyElement').style.display = 'none';
-            //     dummyOn = false;
-            // }
-            // else if(!dummyOn && !otherOn){
-            //     document.querySelector('.dummyElement').style.display = 'flex';
-            //     dummyOn = true;
-            // }
-            // else if(dummyOn && otherOn){
-            //     document.querySelector('.dummyElement').style.display = 'flex';
-            //     dummyOn = true;
-            // }
-            // else if(caseOn && !otherOn){
-            //     document.querySelector('.dummyElement').style.display = 'none';
-            //     dummyOn = false;
-            // }
-            // else if(!caseOn && otherOn){
-            //     document.querySelector('.dummyElement').style.display = 'none';
-            //     dummyOn = false;
-            // }
-            // else if(!caseOn && !otherOn){
-            //     document.querySelector('.dummyElement').style.display = 'flex';
-            //     dummyOn = true;
-            // }
-            // else if(caseOn && otherOn){
-            //     document.querySelector('.dummyElement').style.display = 'flex';
-            //     dummyOn = none;
-            // }
-
-            // Manipulates dummyElement depends if pantay or hindi yung num of columns sa .second
-            // caseOn = false;
-
         } catch (error) {
-            
+            caseNo.style.display = 'none';
         }  
     }
+}
+
+function revertBorder(id){
+    document.getElementById(id).style.borderColor = 'rgb(186, 182, 182)';
+}
+
+function revertAllBorder(){
+    allInput.forEach((item)=>{
+        item.style.borderColor = 'rgb(186, 182, 182)';
+    });
+    allSelect.forEach((item)=>{
+        item.style.borderColor = 'rgb(186, 182, 182)';
+    });
 }
 

@@ -197,16 +197,19 @@ function getBarangayList(municipality){
         newBarangay.setAttribute('id', 'barangay-other');
         newBarangay.setAttribute('input', 'text');
         newBarangay.setAttribute('placeholder', 'Barangay');
+        newBarangay.setAttribute('onblur', 'revertBorder(this.id)');
 
         let newMunicipality = document.createElement('input');
         newMunicipality.setAttribute('id', 'municipality-other');
         newMunicipality.setAttribute('input', 'text');
         newMunicipality.setAttribute('placeholder', 'Munisipalidad');
+        newMunicipality.setAttribute('onblur', 'revertBorder(this.id)');
 
         let newProvince = document.createElement('input');
         newProvince.setAttribute('id', 'province-other');
         newProvince.setAttribute('input', 'text');
         newProvince.setAttribute('placeholder', 'Probinsya');
+        newProvince.setAttribute('onblur', 'revertBorder(this.id)');
         
         document.querySelector('.address-container').appendChild(newBarangay);
         document.querySelector('.address-container').appendChild(newMunicipality);

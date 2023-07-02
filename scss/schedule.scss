@@ -559,6 +559,12 @@ main{
         // align-items: center;
     }
 
+    .address-container{
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 1vw;
+    }
+
     input{
         width: 100%;
         height: 50px;
@@ -572,6 +578,7 @@ main{
         border-radius: 0;
         border-bottom: 2px solid rgb(186, 182, 182);
         // max-width: 600px;   
+        transition-duration: 500ms;
     }
 
     input:focus{
@@ -807,8 +814,7 @@ main{
     }
 
     .date:hover{
-       border: 5px solid $primary-alt;
-    //    box-shadow: 2px 2px rgb(72, 98, 193);
+        border: 5px solid $primary-alt;
         cursor: pointer;
     }
 

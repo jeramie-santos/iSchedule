@@ -8,21 +8,42 @@ const calendarNext = document.querySelector('#calendar__next');
 let nextMonthActive = false;
 
 let date = new Date();
-InitialSetup();
+let selectedMonth = '';
+let selectedYear = '';
+let selectedDate = '';
 
+InitialSetup();
 
 calendarNext.addEventListener('click', nextMonthBtn);
 calendarPrev.addEventListener('click', prevMonthBtn);
+
+function selectDate(){
+    let dateCells = document.querySelectorAll('.date');
+    dateCells.forEach((item)=>{
+        item.addEventListener('click', ()=>{
+            if(!item.classList.contains('block') && item.classList.contains('date')){
+                dateCells.forEach((date)=>{
+                date.style.border = '2px solid rgb(80, 78, 78)';
+                });
+                selectedDate = item.innerHTML;
+                item.style.border = '5px solid rgb(1, 81, 221)'
+            }
+        });
+    });
+}
 
 function nextMonthBtn(){
     if(!nextMonthActive){
         let nextMonth = months[date.getMonth()+1];
         let year = date.getFullYear();
-        if(nextMonth == 'January') year++;
+        if(!nextMonth)
+        {
+            year++;
+            nextMonth='January';
+        } 
         date = new Date(`${nextMonth} 1, ${year}`);
         nextMonthActive = true;
         InitialSetup();
-        console.log('testing' + ' ' + nextMonthActive);
     }
     else{
         alert('TEMPORARY NOTIF TESTING(gawing modal) Maari lamang mag schedule ng appointment ngayong buwan o sa susunod na buwan.');
@@ -31,9 +52,9 @@ function nextMonthBtn(){
 
 function prevMonthBtn(){
     if(nextMonthActive){
-        let nextMonth = months[date.getMonth()-1];
-        let year = date.getFullYear();
-        if(nextMonth == 'December') year--;
+        let temp = new Date();
+        let nextMonth = months[temp.getMonth()];
+        let year = temp.getFullYear();
         date = new Date(`${nextMonth} 1, ${year}`);
         nextMonthActive = false;
         InitialSetup();
@@ -44,14 +65,15 @@ function prevMonthBtn(){
     }
 }
 
-
 function InitialSetup(){
-    let currentMonth = months[date.getMonth()];
-    monthContainer.innerHTML = currentMonth;
+    let selectedMonth = months[date.getMonth()];
+    let selectedYear = date.getFullYear();
+    monthContainer.innerHTML = selectedMonth + ' ' + selectedYear;
     let numOfDays = getDaysOfMonth(date.getFullYear(), date.getMonth());
     let firstDayOfMonth = getDayOfFirstDate(date.getFullYear(), months[date.getMonth()]);
 
     generateDate(numOfDays, firstDayOfMonth);
+    selectDate();
 }
     
 function generateDate(days, NameOfDay1st){
@@ -65,6 +87,7 @@ function generateDate(days, NameOfDay1st){
     // Resetting each calendarCell
     calendarCell.forEach((item)=>{
         item.innerHTML = "";
+        item.classList.remove('date');
     });
 
     for(i = startingPoint; i < numOfIteration; i++ ){
