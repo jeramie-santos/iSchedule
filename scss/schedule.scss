@@ -921,11 +921,28 @@ main{
             justify-content: center;
         }
 
+        .calendar-container{
+            box-shadow: -10px 10px rgba(110, 109, 109, 0.446);
+            transition-duration: 500ms;
+        }
+
+        .calendar-container:hover{
+            transform:  translateY(-15px);
+            box-shadow: -15px 15px rgba(110, 109, 109, 0.446);
+        }
+
         .slot-container{
             width: 100%;
-            height: 50%;
-            border: 2px solid $fontbase-color;
+            height: 55%;
+            border: 3px solid $fontbase-color;
+            box-shadow: 10px 10px rgba(110, 109, 109, 0.446);
             border-radius: 5px;
+            transition-duration: 500ms;
+        }
+
+        .slot-container:hover{
+            transform:  translateY(-15px);
+            box-shadow: 15px 15px rgba(110, 109, 109, 0.446);
         }
     }
 

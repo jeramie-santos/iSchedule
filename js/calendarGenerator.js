@@ -4,6 +4,7 @@
 
 // Pagkanagpalit ng buwan iclear yung slots
 // pagkanagpalit ng date iclear yung slots
+// If walang laman slots mag lagay text na select a date
 const container = document.querySelector('.calendar-container');
 const monthContainer = document.querySelector('.calendar__month');
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
