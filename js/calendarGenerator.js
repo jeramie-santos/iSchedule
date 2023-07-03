@@ -62,8 +62,6 @@ function selectDate(){
                 selectedDate = item.innerHTML;
                 document.getElementById('scheduleDate').value = `${selectedMonth} ${selectedDate}, ${selectedYear}`;
                 console.log(document.getElementById('scheduleDate').value);
-
-                alert('test');
             }
         });
     });

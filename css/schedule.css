@@ -824,7 +824,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-flow: column;
   align-items: center;
-  gap: 2vw;
+  gap: 5vw;
 }
 
 .review .review-field {
@@ -835,8 +835,21 @@ input[type=date]::-webkit-calendar-picker-indicator {
   align-items: flex-start;
   background-color: white;
 }
-.review .review__input {
-  width: 100%;
+.review .info-container {
+  width: unset;
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  align-items: center;
+  gap: 0.5vw;
+}
+.review .info-container .edit {
+  color: blue;
+}
+.review .info-container .edit:hover {
+  cursor: pointer;
+  color: rgb(0, 102, 255);
+}
+.review .info-container .review__input {
   font-size: 1.3rem;
   font-weight: 1000;
 }
@@ -871,12 +884,24 @@ input[type=date]::-webkit-calendar-picker-indicator {
   .review .review-field:nth-child(2n) {
     background-color: rgb(255, 255, 255);
   }
-  .review .review__title {
-    width: 50%;
-    text-align: left;
+  .review .review-field {
+    justify-content: space-between;
+    align-items: center;
   }
-  .review .review__input {
-    width: 50%;
+  .review .review__title {
+    width: unset;
+  }
+  .review .info-container {
+    width: unset;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.5vw;
+  }
+  .review .info-container .edit {
+    color: blue;
+  }
+  .review .info-container .review__input {
     font-size: 1.3rem;
     font-weight: 1000;
     text-align: right;

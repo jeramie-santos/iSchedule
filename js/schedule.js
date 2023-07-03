@@ -63,6 +63,17 @@ function insertListenerDept(){
     });
 }
 
+function properPhoneNum(num){
+    // Adds space to phone num
+    let proper ='';
+    for(i = 0; i < num.length; i++){
+        proper +=num[i];
+        if(i == 3 || i == 6) proper+=' ';
+        console.log(proper);
+    }
+    return proper;
+}
+
 function addLinkToLogo(){
     logo.addEventListener('click', ()=>{
         window.location.href = './../index.html';
@@ -73,9 +84,12 @@ function grabFirstForm(){
 
     // nilalagay laman ni input field department kay patient[department] then returns true pero 
     // if empty return true ibigsabihin di mag proceed next form
-    patient["department"] = document.querySelector('#department').value;
-    if(patient['department'] != "") return true;
-    else return false;
+    patient["department"] = document.querySelector('#department').value.toLowerCase();
+    if(patient['department'] == ""){
+        errorHandler('150', document.querySelector('#department').id);
+        return false;
+    } 
+    else return true;
 }
 
 function grabSecondForm(){
@@ -83,7 +97,7 @@ function grabSecondForm(){
     // 
     // FIRST NAME **************************
     // 
-    patient["firstName"] = document.querySelector('#firstName').value.trim();
+    patient["firstName"] = document.querySelector('#firstName').value.trim().toLowerCase();
     // Check if firstName is Empty
     if(patient['firstName'] == ""){
         errorHandler('00', document.querySelector('#firstName').id);
@@ -103,7 +117,7 @@ function grabSecondForm(){
     // 
     // MIDDLE NAME **************************
     // 
-    patient["middleName"] = document.querySelector('#middleName').value.trim();
+    patient["middleName"] = document.querySelector('#middleName').value.trim().toLowerCase();
     // Check if middleName is Empty
     if(patient['middleName'] == ""){
         errorHandler('10', document.querySelector('#middleName').id);
@@ -128,7 +142,7 @@ function grabSecondForm(){
     // 
     // LAST NAME **************************
     // 
-    patient["lastName"] = document.querySelector('#lastName').value.trim();
+    patient["lastName"] = document.querySelector('#lastName').value.trim().toLowerCase();
     // Check if lastName is Empty
     if(patient['lastName'] == ""){
         errorHandler('20', document.querySelector('#lastName').id);
@@ -167,13 +181,12 @@ function grabSecondForm(){
     // 
     // PHONE **************************
     // 
-    patient["phone"] = document.querySelector('#phone').value.replaceAll(' ', '').trim();
+    patient['phone'] = document.querySelector('#phone').value.replaceAll(' ', '').trim();
     if(patient["phone"] == ""){
         errorHandler('50', document.querySelector('#phone').id);
         return false;
     }
     else if(patient["phone"].length != 11){
-        alert(patient["phone"].length);
         errorHandler('51', document.querySelector('#phone').id);
         return false;
     }
@@ -185,7 +198,10 @@ function grabSecondForm(){
         errorHandler('53', document.querySelector('#phone').id);
         return false;
     }
-    
+
+    // Inserts spaces to phone num
+    patient['phone'] = properPhoneNum(patient['phone']);
+
     // If hindi selected si other kay municipality get yung preset values
     if(document.querySelector('#municipality').value != 'other'){
         // 
@@ -214,7 +230,7 @@ function grabSecondForm(){
         // 
         // BARANGAY(OTHER) **************************
         // 
-        patient['barangay'] = document.querySelector('#barangay-other').value.trim();
+        patient['barangay'] = document.querySelector('#barangay-other').value.trim().toLowerCase();
         if(patient['barangay'] == ''){
             errorHandler('80', document.querySelector('#barangay-other').id);
             return false;
@@ -231,7 +247,7 @@ function grabSecondForm(){
         // 
         // MUNICIPALITY(OTHER) **************************
         // 
-        patient['municipality'] = document.querySelector('#municipality-other').value.trim();
+        patient['municipality'] = document.querySelector('#municipality-other').value.trim().toLowerCase();
         if(patient['municipality'] == ''){
             errorHandler('90', document.querySelector('#municipality-other').id);
             return false;
@@ -248,7 +264,7 @@ function grabSecondForm(){
         // 
         // PROVINCE(OTHER) **************************
         // 
-        patient['province'] = document.querySelector('#province-other').value.trim();
+        patient['province'] = document.querySelector('#province-other').value.trim().toLowerCase();
         if(patient['province'] == ''){
             errorHandler('100', document.querySelector('#province-other').id);
             return false;
@@ -512,6 +528,17 @@ function errorHandler(code, id){
         formErrorMessage = 'Pumili ng oras ng appointment.';
         errorHighlight = document.getElementById(id);
     }
+    // 
+    // DEPARTMENT **************************
+    // 
+    else if(code == '150'){
+        formErrorMessage = 'Pumili ng Department.';
+    }
+}
+
+function editInformation(num){
+    stepStatus = num;
+    proceed();
 }
 
 function scheduleNav(){
@@ -576,20 +603,29 @@ function grabPatient(){
                 item.querySelector('.review__input').innerHTML = `${patient['scheduleDate']} (${selectedSlot})`;
                 break;
             case 1:
-                item.querySelector('.review__input').innerHTML = patient['department'];
-                break;
-            case 2:
-                let fullName = capitalFirstLetter(`${patient['firstName']} ${patient['middleName']} ${patient['lastName']}`)
-                let removedComma = "";
+                // Turn string to proper form then removed comma from function
+                let dept = capitalFirstLetter(patient['department'])
+                let removedCommaDept = "";
 
-                for(i = 0; i < fullName.length; i++){
-                    if(fullName[i] != ',') removedComma += fullName[i];
+                for(i = 0; i < dept.length; i++){
+                    if(dept[i] != ',') removedCommaDept += dept[i];
                 }
 
-                item.querySelector('.review__input').innerHTML = removedComma;
+                item.querySelector('.review__input').innerHTML = removedCommaDept;
+                break;
+            case 2:
+                // Turn string to proper form then removed comma from function
+                let fullName = capitalFirstLetter(`${patient['firstName']} ${patient['middleName']} ${patient['lastName']}`)
+                let removedCommaName = "";
+
+                for(i = 0; i < fullName.length; i++){
+                    if(fullName[i] != ',') removedCommaName += fullName[i];
+                }
+
+                item.querySelector('.review__input').innerHTML = removedCommaName;
                 break;
             case 3:
-                item.querySelector('.review__input').innerHTML = patient['sex'];
+                item.querySelector('.review__input').innerHTML = patient['sex'].charAt(0).toUpperCase() + patient['sex'].substring(1);
                 break;
             case 4:
                 item.querySelector('.review__input').innerHTML = patient['birthdate'];
@@ -598,6 +634,7 @@ function grabPatient(){
                 item.querySelector('.review__input').innerHTML = patient['phone'];
                 break; 
             case 6:
+                // Turn string to proper form
                 let tempAddress = capitalFirstLetter(`${patient['barangay']} ${patient['municipality']} ${patient['province']}`)
                 item.querySelector('.review__input').innerHTML = tempAddress;
                 break;
@@ -606,6 +643,8 @@ function grabPatient(){
                 else item.querySelector('.review__input').innerHTML = 'Bagong Pasyente';
                 break;
             case 8:
+                document.querySelector('.review__case-no').querySelector('.edit').style.display = 'block';
+                if(patient['caseNo'] == '') document.querySelector('.review__case-no').querySelector('.edit').style.display = 'none';
                 item.querySelector('.review__input').innerHTML = patient['caseNo'];
                 break;
         }
@@ -641,11 +680,9 @@ function proceed(){
     }
     else if(stepStatus == 2){
         mobileLabel.innerHTML = 'Schedule ng Appointment';
-        next.value = 'Next'
     } 
     else if(stepStatus == 3){
         mobileLabel.innerHTML = 'Review ng Impormasyon';
-        next.value = 'gawing showOTPModal() na yung function nitong button '
     }
 }
 
