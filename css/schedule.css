@@ -499,11 +499,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border: unset;
   border-radius: 0;
   border-bottom: 2px solid rgb(186, 182, 182);
-  transition-duration: 500ms;
 }
 .second input:focus {
   outline: unset;
-  border-bottom: 3px solid rgb(77, 76, 76);
 }
 .second select {
   outline: none;
@@ -521,7 +519,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 .second select:focus {
   outline: unset;
-  border-bottom: 3px solid rgb(77, 76, 76);
 }
 .second label {
   width: 100%;

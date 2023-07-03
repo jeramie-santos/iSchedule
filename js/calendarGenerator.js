@@ -8,7 +8,6 @@
 const container = document.querySelector('.calendar-container');
 const monthContainer = document.querySelector('.calendar__month');
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const calendarCell = document.querySelectorAll('.key');
 const calendarPrev = document.querySelector('#calendar__prev');
 const calendarNext = document.querySelector('#calendar__next');
 
@@ -30,18 +29,18 @@ function changeSlotContent(){
 }
 
 function selectSlot(){
-    let timeslots = document.querySelectorAll('.slot');
+    let timeSlots = document.querySelectorAll('.slot');
     
-    timeslots.forEach((item)=>{
+    timeSlots.forEach((item)=>{
         item.addEventListener('click',()=>{
 
-            timeslots.forEach((item2)=>{
+            timeSlots.forEach((item2)=>{
                 item2.style.backgroundColor = 'unset';
                 item2.style.color = 'rgb(80, 78, 78)';
             });
 
-            selectedSlot = item.querySelector('.time'.innerHTML);
-            document.querySelector('#timeslot').value = item.id.toUpperCase();
+            selectedSlot = item.querySelector('.time').innerHTML;
+            document.querySelector('#timeSlot').value = item.id.toUpperCase();
             item.style.backgroundColor = 'rgb(7, 62, 157)';
             item.style.color = 'white';
 
@@ -50,26 +49,31 @@ function selectSlot(){
 }
 
 function selectDate(){
+    
     let dateCells = document.querySelectorAll('.date');
     dateCells.forEach((item)=>{
-        item.addEventListener('click', ()=>{
+
+        item.addEventListener('click', () =>{
             if(!item.classList.contains('block') && item.classList.contains('date') && !item.classList.contains('full')){
                 dateCells.forEach((date)=>{
-                date.style.border = '2px solid rgb(80, 78, 78)';
+                    date.style.border = '2px solid rgb(80, 78, 78)';
                 });
-                item.style.border = '5px solid rgb(1, 81, 221)';
+                item.style.border = '5px solid rgb(7, 62, 157)';
                 selectedDate = item.innerHTML;
                 document.getElementById('scheduleDate').value = `${selectedMonth} ${selectedDate}, ${selectedYear}`;
                 console.log(document.getElementById('scheduleDate').value);
 
-                changeSlotContent();
+                alert('test');
             }
         });
     });
 }
 
 function nextMonthBtn(){
+    let calendarCell = document.querySelectorAll('.key');
 
+    // Clears scheduleDate content para pag nag next or prev burado yung salected
+    document.getElementById('scheduleDate').value = "";
     // Clears selected border
     calendarCell.forEach((item)=>{
         item.style.border = '2px solid rgb(80, 78, 78)';
@@ -93,7 +97,10 @@ function nextMonthBtn(){
 }
 
 function prevMonthBtn(){
+    let calendarCell = document.querySelectorAll('.key');
 
+    // Clears scheduleDate content para pag nag next or prev burado yung salected
+    document.getElementById('scheduleDate').value = "";
     // Clears selected border
     calendarCell.forEach((item)=>{
         item.style.border = '2px solid rgb(80, 78, 78)';
@@ -122,6 +129,7 @@ function InitialSetup(){
     let firstDayOfMonth = getDayOfFirstDate(date.getFullYear(), months[date.getMonth()]);
 
     generateDate(numOfDays, firstDayOfMonth);
+
     selectDate();
     selectSlot();
 }
@@ -130,11 +138,21 @@ function generateDate(days, NameOfDay1st){
     let startingPoint = NameOfDay1st; //kinukuha kung anong araw yung 1st ng month para lam natin san mag start
     let numOfIteration = days + NameOfDay1st; //kaya nag add ng NameOfDay1st kasi if ma move konwari ng +2 yung starting point dapat yung end point din
     let date = 1; //counter ng date kasi di pede yung i kasi yun yung posisyon nung cell
-    const sixthRow = document.querySelector('.sixthRow');
 
+    // para kita yung sixthRow by default kasi binubura to pag puro X laman
+    const sixthRow = document.querySelector('.sixthRow');
     sixthRow.style.display = 'flex';
 
+    try {
+        deleteCalendarCells();
+    } catch (error) {
+        
+    }
+
+    generateCalendarCells();
+
     // Resetting each calendarCell
+    let calendarCell = document.querySelectorAll('.key');
     calendarCell.forEach((item)=>{
         item.innerHTML = "";
         item.classList.remove('date');
@@ -183,4 +201,35 @@ function getDayOfFirstDate(year, month){
 
     return tempDate.getDay();
     // 0 = sunday and 6 = saturday
+}
+
+function generateCalendarCells(){
+    let rows = document.querySelectorAll('.date-content');
+
+    rows.forEach((item)=>{
+        for(i = 0; i <7; i++){
+            let temp = document.createElement('div');
+            // lagyan block class?
+            if(i == 0) {
+                temp.setAttribute('id', 'block');
+                temp.classList.add('block');
+            }
+            temp.classList.add('box');
+            temp.classList.add('date');
+            temp.classList.add('key');
+            item.appendChild(temp);
+        }
+    });
+    
+}
+
+function deleteCalendarCells(){
+    let rows = document.querySelectorAll('.date-content');
+
+    rows.forEach((item)=>{
+        while (item.hasChildNodes())
+        {
+            item.removeChild(item.firstChild)
+        }
+    })
 }

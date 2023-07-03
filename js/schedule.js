@@ -21,7 +21,8 @@ let formErrorMessage = "";
 
 const patient = {
     'department': '',
-    'schedule': '',
+    'scheduleDate': '',
+    'timeSlot': '',
     'firstName': '',
     'middleName': '',
     'lastName': '',
@@ -289,6 +290,29 @@ function grabSecondForm(){
     return true;
 }
 
+function grabThirdForm(){
+
+    // 
+    // SCHEDULE DATE **************************
+    // 
+    patient["scheduleDate"] = document.querySelector('#scheduleDate').value;
+    if(patient["scheduleDate"] == ''){
+        errorHandler('130', document.querySelector('#scheduleDate').id);
+        return false;
+    }
+
+    // 
+    // TIME SLOT **************************
+    // 
+    patient["timeSlot"] = document.querySelector('#timeSlot').value;
+    if(patient["timeSlot"] == ''){
+        errorHandler('140', document.querySelector('#timeSlot').id);
+        return false;
+    }
+
+    return true;
+}
+
 function errorHandler(code, id){
     // 
     // FIRST NAME **************************
@@ -474,6 +498,20 @@ function errorHandler(code, id){
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
+    // 
+    // SCHEDULE DATE **************************
+    // 
+    else if(code == '130'){
+        formErrorMessage = 'Pumili ng petsa ng appointment.';
+        errorHighlight = document.getElementById(id);
+    }
+    // 
+    // TIME SLOT **************************
+    // 
+    else if(code == '140'){
+        formErrorMessage = 'Pumili ng oras ng appointment.';
+        errorHighlight = document.getElementById(id);
+    }
 }
 
 function scheduleNav(){
@@ -497,31 +535,93 @@ function scheduleNav(){
         if(stepStatus < 4) stepStatus++;
         
         if(stepStatus == 1){
-            proceed();
-            // if(grabFirstForm()){
-            //     proceed();
-            // }else{
-            //     alert('please choose a department');
-            //     stepStatus--;
-            // }
+            // proceed();
+            if(grabFirstForm()){
+                proceed();
+            }else{
+                alert('please choose a department');
+                stepStatus--;
+            }
         }
         else if(stepStatus == 2){
-            proceed();
-            // if(grabSecondForm()){
-            //     proceed();
-            // }else{
-            //     alert(formErrorMessage);
-            //     stepStatus--;
-            // }
+            // proceed();
+            if(grabSecondForm()){
+                proceed();
+            }else{
+                alert(formErrorMessage);
+                stepStatus--;
+            }
         }
         else if(stepStatus == 3){
-            alert('getting form 3 data');
-            proceed();
+            // proceed();
+            if(grabThirdForm()){
+                proceed();
+            }else{
+                alert(formErrorMessage);
+                stepStatus--;
+            }
+            grabPatient();
         }
         else if(stepStatus == 4){
             alert('show OTP');
         }
     });
+}
+
+function grabPatient(){
+    let reviewFields = document.querySelectorAll('.review-field');
+    reviewFields.forEach((item, index)=>{
+        switch(index){
+            case 0:
+                item.querySelector('.review__input').innerHTML = `${patient['scheduleDate']} (${selectedSlot})`;
+                break;
+            case 1:
+                item.querySelector('.review__input').innerHTML = patient['department'];
+                break;
+            case 2:
+                let fullName = capitalFirstLetter(`${patient['firstName']} ${patient['middleName']} ${patient['lastName']}`)
+                let removedComma = "";
+
+                for(i = 0; i < fullName.length; i++){
+                    if(fullName[i] != ',') removedComma += fullName[i];
+                }
+
+                item.querySelector('.review__input').innerHTML = removedComma;
+                break;
+            case 3:
+                item.querySelector('.review__input').innerHTML = patient['sex'];
+                break;
+            case 4:
+                item.querySelector('.review__input').innerHTML = patient['birthdate'];
+                break;   
+            case 5:
+                item.querySelector('.review__input').innerHTML = patient['phone'];
+                break; 
+            case 6:
+                let tempAddress = capitalFirstLetter(`${patient['barangay']} ${patient['municipality']} ${patient['province']}`)
+                item.querySelector('.review__input').innerHTML = tempAddress;
+                break;
+            case 7:
+                if(patient['typeOfPatient'] == 'oldPatient') item.querySelector('.review__input').innerHTML = 'Dating Pasyente';
+                else item.querySelector('.review__input').innerHTML = 'Bagong Pasyente';
+                break;
+            case 8:
+                item.querySelector('.review__input').innerHTML = patient['caseNo'];
+                break;
+        }
+        
+    });
+}
+
+function capitalFirstLetter(str){
+    str = str.split(' ');
+    let newStr = [];
+
+    str.forEach((item)=>{
+        newStr.push(item.charAt(0).toUpperCase() + item.substring(1));
+    });
+
+    return newStr.join(', ');
 }
 
 function proceed(){
@@ -592,4 +692,3 @@ function revertAllBorder(){
         item.style.borderColor = 'rgb(186, 182, 182)';
     });
 }
-
