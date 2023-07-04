@@ -16,6 +16,7 @@ const patientType = document.querySelector('#patientType');
 const deptCards = document.querySelectorAll('.form__card');
 const allInput = document.querySelectorAll('input');
 const allSelect = document.querySelectorAll('select');
+const modalLauncher = document.querySelector('.modal-launcher');
 
 let formErrorMessage = "";
 
@@ -35,10 +36,61 @@ const patient = {
     'typeOfPatient': '',
     'caseNo': '',
 }
+const departmentDesc = {
+    'internal medicine': 'Kung ikaw ay may mga pangkaraniwang karamdaman tulad ng lagnat, ubo, sakit sa tiyan, o iba pang mga sintomas na pangkalahatan, maaaring magpunta ka sa Internal Medicine Department ng Bulacan Medical Center.<br> <br>Dito ay tutugunan ng mga espesyalistang doktor ang mga pangkaraniwang kondisyon at magbibigay ng pagsusuri at lunas para sa mga pangunahing mga sakit ng katawan.',
+
+    'internal medicine clearance': 'Kung ikaw ay nangangailangan ng Internal Medicine Clearance para sa mga medikal na kahilingan tulad ng operasyon, pagsusuri, o iba pang mga proseso, maaaring magpunta ka sa Internal Medicine Clearance Department ng Bulacan Medical Center. <br> <br>Dito ay tutulungan ka ng mga espesyalistang doktor na magbigay ng kaukulang pagsusuri at pagpapatunay ng iyong kalusugan bago magsagawa ng mga medikal na hakbang.',
+    
+    'pediatric general': 'Kung ikaw ay maghahanap ng serbisyo para sa mga batang pasyente, maaaring magpunta ka sa Pediatric General Department ng Bulacan Medical Center. <br> <br>Dito ay tutugunan ng mga espesyalistang doktor ang mga pangangailangan ng mga bata tulad ng pangkalahatang pangangalaga sa kalusugan, pagbibigay ng bakuna, pagtukoy at paggamot sa mga sakit ng mga bata, pati na rin ang pagbibigay ng payo at gabay sa mga magulang tungkol sa pangangalaga sa kanilang mga anak.',
+
+    'pediatric cardiology': 'Kung ikaw ay may mga alalahanin o pangangailangan para sa puso at mga sakit sa puso ng iyong anak, maaaring magpunta ka sa Pediatric Cardiology Department ng Bulacan Medical Center. <br> <br>Dito ay tutulungan ka ng mga espesyalistang doktor na magbigay ng eksperisyang pangkardiyolohiya para sa mga batang pasyente. Sila ang magbibigay ng pagsusuri, pagdiagnose, at mga rekomendasyon na may kaugnayan sa kalusugan ng puso ng iyong anak, upang maalagaan at mapanatiling malusog ang kanyang puso.',
+
+    'pediatric clearance': 'Kung ikaw ay nangangailangan ng Pediatric Clearance para sa mga medikal na kahilingan ng iyong anak tulad ng pagpapasok sa paaralan, paglahok sa mga aktibidad, o iba pang mga pangangailangan, maaaring magpunta ka sa Pediatric Clearance Department ng Bulacan Medical Center. <br> <br>Dito ay tutulungan ka ng mga espesyalistang doktor na magbigay ng pagsusuri at pagpapatunay ng kalusugan ng iyong anak bago siya makapagpatuloy sa mga aktibidad na kinakailangan ng kanyang edad at kalusugan.',
+
+    'surgery': 'Kung ikaw ay nangangailangan ng operasyon o may mga medikal na pangangailangan na nangangailangan ng interbensyon sa pamamagitan ng operasyon, maaaring magpunta ka sa Surgery Department ng Bulacan Medical Center. <br> <br>Dito ay tutugunan ng mga espesyalistang doktor ang mga medikal na kaso na nangangailangan ng mga operasyon tulad ng pag-alis ng mga bukol, pagtunaw ng mga bato sa bato, o iba pang mga medikal na pangangailangan na nangangailangan ng kahusayan sa larangan ng pag-operahan.',
+
+    'surgery ros': 'Kung ikaw ay nangangailangan ng pagsusuri ng iyong sistema sa katawan bago sumailalim sa operasyon, maaaring magpunta ka sa Surgery Review of System Department ng Bulacan Medical Center. Dito ay tutulungan ka ng mga espesyalistang doktor na suriin ang iyong mga organo at sistema sa katawan upang masiguro ang kalusugan at kakayahang magpatuloy sa isang operasyon. <br> <br>Sila ang magbibigay ng komprehensibong pagsusuri ng mga kondisyon na maaaring makaapekto sa iyong pagbubuting laban sa isang operasyon.',
+
+    'psychiatry (new)': 'Kung ikaw ay isang bagong pasyente na naghahanap ng mga serbisyong pang-psikiyatriya sa Bulacan Medical Center, maaari kang pumunta sa Psychiatry Department. Dito ay tutulungan ka ng mga espesyalistang doktor na may kaalaman sa larangan ng sikolohiya at psychiatry. <br> <br>Sila ay magbibigay ng mga pagsusuri at mga rekomendasyon upang matugunan ang iyong mga pangangailangan sa kalusugan ng pag-iisip. Maaari kang makipag-ugnayan sa kanila upang magsimula sa isang bagong hakbang tungo sa iyong emosyonal na kagalingan at kalusugan.',
+
+    'psychiatry (old)': 'Kung ikaw ay isang dating pasyente na nangangailangan ng mga serbisyo pang-psikiyatriya sa Bulacan Medical Center, maaari kang magpatuloy sa pagpunta sa Psychiatry Department. Ang mga espesyalistang doktor dito ay nakakasama mo na at may kaalaman tungkol sa iyong kasaysayan ng kalusugan ng pag-iisip. <br> <br>Sila ay magpapatuloy na magbigay ng mga pagsusuri, pagsubaybay, at mga rekomendasyon upang patuloy na maalagaan at mapaunlad ang iyong emosyonal na kalusugan. Maaari kang magtuloy sa iyong pag-uusap at pagtanggap ng serbisyo mula sa kanilang mga eksperto upang magpatuloy sa proseso ng iyong paggaling.',
+
+    'nephrology': 'Kung ikaw ay may mga isyu o mga karamdaman sa bato o bato-bato, maaaring magpunta ka sa Nephrology Department ng Bulacan Medical Center. Dito ay tutulungan ka ng mga espesyalistang doktor na may kaalaman at kasanayan sa larangan ng nephrology. <br> <br>Sila ang magbibigay ng mga pagsusuri at mga rekomendasyon para sa mga kondisyon at sakit ng bato, tulad ng kidney stones, chronic kidney disease, o iba pang mga sakit na may kaugnayan sa bato. Sila ay magsisilbi bilang gabay at tagapag-alaga upang pangalagaan ang kalusugan ng iyong mga bato at magbigay ng mga kinakailangang lunas at pangangalaga.',
+
+    'hematology': 'Kung ikaw ay may mga alalahanin o mga kondisyon na nauugnay sa dugo, maaaring magpunta ka sa Hematology Department ng Bulacan Medical Center. Dito ay tutulungan ka ng mga espesyalistang doktor na may sapat na kaalaman sa larangan ng hematology. Sila ang magbibigay ng mga pagsusuri, at mga rekomendasyon para sa mga sakit at mga kondisyon tulad ng anemia, leukemia, pagbabara ng mga dugo, o iba pang mga dugo-related na mga isyu. <br> <br>Sila ay magiging kasama mo sa proseso ng pangangalaga at paggamot upang pangalagaan ang kalusugan ng iyong dugo at maabot ang pinakamahusay na kalagayan ng iyong kalusugan.',
+
+    'oncology': "Kung ikaw ay mayroong mga pangangailangan o mga kondisyon na nauugnay sa kanser, maaaring magpunta ka sa Oncology Department ng Bulacan Medical Center. Dito ay tutulungan ka ng mga espesyalistang doktor na may kasanayan sa larangan ng onkolyo. <br> <br>Sila ang magbibigay ng mga pagsusuri, at mga rekomendasyon para sa mga kondisyon na may kaugnayan sa kanser, tulad ng pag-iimbestiga at paggamot sa iba't ibang uri ng kanser. Sila ay magiging kasama mo sa buong proseso ng pag-aaruga, paggaling, at pangangalaga upang matugunan ang iyong mga pangangailangan at maabot ang pinakamahusay na kalusugan sa gitna ng laban sa kanser.",
+
+    'ob gyne (new)': 'Kung ikaw ay isang bagong pasyente na naghahanap ng mga serbisyo sa larangan ng Obstetrics and Gynecology (OB-Gyne) sa Bulacan Medical Center, maaari kang pumunta sa OB-Gyne Department. Dito, matutulungan ka ng mga espesyalistang doktor na may kaalaman sa pangangalaga sa buntis, pangangalaga sa reproductive health ng kababaihan, at iba pang mga isyu na nauugnay sa ob-gyne. <br> <br>Sila ay magbibigay ng mga pagsusuri, payo, at pag-aaruga upang matugunan ang iyong mga pangangailangan bilang isang bagong pasyente. Maaaring makipag-ugnayan ka sa kanila upang mag-appoint ng isang konsultasyon at magsimula sa pagkalinga sa iyong reproductive health at pangangalaga sa buntis, kung kinakailangan.',
+
+    'ob gyne (old)': 'Kung ikaw ay isang dating pasyente na nangangailangan ng mga serbisyo sa larangan ng Obstetrics and Gynecology (OB-Gyne) sa Bulacan Medical Center, maaari kang magpatuloy sa pagpunta sa OB-Gyne Department. Ang mga espesyalistang doktor dito ay nakakasama mo na at may kaalaman tungkol sa iyong kasaysayan ng pangangalaga sa buntis, reproductive health, at iba pang mga isyu sa ob-gyne. <br> <br>Sila ay magpapatuloy na magbibigay ng mga pagsusuri, payo, at pag-aaruga upang patuloy na maalagaan at mapaunlad ang iyong reproductive health. Maaari kang magtuloy sa iyong regular na mga konsultasyon at pagtanggap ng serbisyo mula sa kanilang mga eksperto upang magpatuloy sa pangangalaga sa iyong reproductive health at pangangalaga sa buntis, kung kinakailangan.',
+
+    'ob gyne ros': 'Kung ikaw ay nangangailangan ng pagsusuri ng iyong reproductive system bago sumailalim sa pagkonsulta sa Obstetrics and Gynecology (OB-Gyne) Department ng Bulacan Medical Center, maaaring magpunta ka sa OB-Gyne Review of System Department. Dito ay tutulungan ka ng mga espesyalistang doktor na suriin ang iyong reproductive system at mga kondisyon na may kaugnayan dito. <br> <br>Sila ang magbibigay ng komprehensibong pagsusuri ng iyong reproductive health upang matukoy ang kalagayan at pangangailangan ng iyong reproductive system bago magsimula sa isang konsultasyon o iba pang mga medikal na hakbang.',
+
+    'ent': 'Kung ikaw ay may mga isyu o mga kondisyon na nauugnay sa tainga, ilong, o lalamunan, maaaring magpunta ka sa Ear, Nose, and Throat (ENT) Department ng Bulacan Medical Center. Dito ay tutulungan ka ng mga espesyalistang doktor na may kaalaman at kasanayan sa larangan ng ENT. Sila ang magbibigay ng mga pagsusuri at mga rekomendasyon para sa mga kondisyon tulad ng impeksyon sa tainga, allergic rhinitis, tonsilitis, o iba pang mga isyu sa tainga, ilong, o lalamunan. <br> <br>Sila ay magiging kasama mo sa proseso ng pangangalaga at paggamot upang pangalagaan ang kalusugan ng iyong ENT system at maabot ang pinakamahusay na kalagayan ng iyong kalusugan.',
+
+    'neurology': 'Kung ikaw ay may mga alalahanin o mga kondisyon na nauugnay sa utak, sistema ng nerbiyos, o mga sakit na neurolohiya, maaaring magpunta ka sa Neurology Department ng Bulacan Medical Center. Dito ay tutulungan ka ng mga espesyalistang doktor na may sapat na kaalaman at kasanayan sa larangan ng neurolohiya. Sila ang magbibigay ng mga pagsusuri at mga rekomendasyon para sa mga kondisyon tulad ng migraine, epilepsy, stroke, o iba pang mga sakit ng utak at sistema ng nerbiyos. <br> <br>Sila ay magsisilbi bilang gabay at tagapag-alaga upang pangalagaan ang kalusugan ng iyong utak at sistema ng nerbiyos, at magbigay ng mga kinakailangang paggamot at pangangalaga upang mapanatiling malusog ang iyong kalusugan.',
+
+}
 
 scheduleNav();
 addLinkToLogo();
 insertListenerDept();
+
+function openModalDepartment(title, body){
+    let modalTitle = document.querySelector('.modal-title');
+    let modalBody = document.querySelector('.modal-body');
+    let modalCloseBtn = document.querySelector('.btn-close');
+    let negativeBtn = document.querySelector('.negative');
+    let positiveBtn = document.querySelector('.positive');
+
+    modalCloseBtn.style.display = 'none';
+    positiveBtn.style.display = 'none';
+
+    modalTitle.innerHTML = title;
+    modalBody.innerHTML = body;
+    modalLauncher.click();
+}
 
 function isLettersOnly(str) {
 	return /^[A-Za-z ]*$/.test(str);
@@ -49,16 +101,18 @@ function isLettersNumsOnly(str) {
 }
 
 function insertListenerDept(){
-    deptCards.forEach((item)=>{
+    deptCards.forEach((item, index)=>{
         item.addEventListener('click', ()=>{
             deptCards.forEach((itemRemove)=>{
                 itemRemove.classList.remove('dept__selected');
             });
-            document.querySelector('#department').value = item.querySelector('.form__dept-title').innerHTML;
+            document.querySelector('#department').value = item.querySelector('.form__dept-title').getAttribute('data-deptName');
             item.classList.add('dept__selected');
 
+            temp = item.querySelector('.form__dept-title').innerHTML.toLowerCase();
+
             // lagay modal info
-            alert('Labas modal na may info nung department');
+            openModalDepartment(document.querySelector('#department').value, '[THIS IS TEMPORARY INFO] ' +departmentDesc[temp]);
         });
     });
 }
@@ -562,31 +616,31 @@ function scheduleNav(){
         if(stepStatus < 4) stepStatus++;
         
         if(stepStatus == 1){
-            // proceed();
-            if(grabFirstForm()){
-                proceed();
-            }else{
-                alert('please choose a department');
-                stepStatus--;
-            }
+            proceed();
+            // if(grabFirstForm()){
+            //     proceed();
+            // }else{
+            //     alert('please choose a department');
+            //     stepStatus--;
+            // }
         }
         else if(stepStatus == 2){
-            // proceed();
-            if(grabSecondForm()){
-                proceed();
-            }else{
-                alert(formErrorMessage);
-                stepStatus--;
-            }
+            proceed();
+            // if(grabSecondForm()){
+            //     proceed();
+            // }else{
+            //     alert(formErrorMessage);
+            //     stepStatus--;
+            // }
         }
         else if(stepStatus == 3){
-            // proceed();
-            if(grabThirdForm()){
-                proceed();
-            }else{
-                alert(formErrorMessage);
-                stepStatus--;
-            }
+            proceed();
+            // if(grabThirdForm()){
+            //     proceed();
+            // }else{
+            //     alert(formErrorMessage);
+            //     stepStatus--;
+            // }
             grabPatient();
         }
         else if(stepStatus == 4){

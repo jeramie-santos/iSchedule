@@ -56,6 +56,9 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
         <div class="form-container">
             <form action="">
                 <div class="form__form-parts">
+                    <button type="button" class="btn btn-primary modal-launcher" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="display:none">
+                        Launch static backdrop modal
+                    </button>
                     <div class="form-part first">
                         <!-- kung ano pindutin na department siya magiging value ni input department
                         bawal mag proceed sa next part ng form hanggat di nakaka pili
@@ -67,102 +70,102 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Internal Medicine</span>
+                            <span class="form__dept-title" data-deptName="Internal Medicine">Internal Medicine</span>
                         </div>
                         <div id="dept_1" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Internal Medicine Clearance</span>
+                            <span class="form__dept-title" data-deptName="Internal Medicine Clearance">Internal Medicine Clearance</span>
                         </div>
                         <div id="dept_2" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Pediatric General</span>
+                            <span class="form__dept-title" data-deptName="Pediatric General">Pediatric General</span>
                         </div>
                         <div id="dept_3" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Pediatric Cardiology</span>
+                            <span class="form__dept-title" data-deptName="Pediatric Cardiology">Pediatric Cardiology</span>
                         </div>
                         <div id="dept_4" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Pediatric Clearance</span>
+                            <span class="form__dept-title" data-deptName="Pediatric Clearance">Pediatric Clearance</span>
                         </div>
                         <div id="dept_5" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Surgery</span>
+                            <span class="form__dept-title" data-deptName="Surgery">Surgery</span>
                         </div>
                         <div id="dept_6" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Surgery ROS</span>
+                            <span class="form__dept-title" data-deptName="Surgery Review Of System">Surgery ROS</span>
                         </div>
                         <div id="dept_7" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Psychiatry (New)</span>
+                            <span class="form__dept-title" data-deptName="Psychiatry (New)">Psychiatry (New)</span>
                         </div>
                         <div id="dept_8" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Psychiatry (Old)</span>
+                            <span class="form__dept-title" data-deptName="Psychiatry (Old)">Psychiatry (Old)</span>
                         </div>
                         <div id="dept_9" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Nephrology</span>
+                            <span class="form__dept-title" data-deptName="Nephrology">Nephrology</span>
                         </div>
                         <div id="dept_10" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Hematology</span>
+                            <span class="form__dept-title" data-deptName="Hematology">Hematology</span>
                         </div>
                         <div id="dept_11" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Oncology</span>
+                            <span class="form__dept-title" data-deptName="Oncology">Oncology</span>
                         </div>
                         <div id="dept_12" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">OB GYNE (New)</span>
+                            <span class="form__dept-title" data-deptName="Obstetrics and Gynecology (New)">OB GYNE (New)</span>
                         </div>
                         <div id="dept_13" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">OB GYNE (Old)</span>
+                            <span class="form__dept-title" data-deptName="Obstetrics and Gynecology (Old)">OB GYNE (Old)</span>
                         </div>
                         <div id="dept_14" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">OB GYNE ROS</span></div>
+                            <span class="form__dept-title" data-deptName="Obstetrics and Gynecology Review Of System">OB GYNE ROS</span></div>
                         <div id="dept_15" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">EMT</span> <!--ENT -->
+                            <span class="form__dept-title" data-deptName="Ear, Nose, and Throat">ENT</span> <!--ENT -->
                         </div> 
                         <div id="dept_16" class="form__card">
                             <div class="form__img-container"> 
                                 <img class="form__dept-img" src="./../imgs/dummyimg.png" alt="" srcset="">
                             </div>
-                            <span class="form__dept-title">Neurology</span>
+                            <span class="form__dept-title" data-deptName="Neurology">Neurology</span>
                         </div> 
                     </div>
                     <div class="form-part second" style="display: none;">
@@ -354,10 +357,6 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                                     <div class="review__input"></div>
                                 </div>
                             </div>
-
-                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                Launch static backdrop modal
-                            </button> -->
                         </div>
                     </div> 
                     
@@ -378,14 +377,14 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
         <div class="modal-content">
             <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
             </div>
             <div class="modal-body">
             ...
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button type="button" class="btn btn-secondary negative" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary positive" data-bs-dismiss="modal">Understood</button>
             </div>
         </div>
         </div>
