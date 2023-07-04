@@ -30,7 +30,7 @@ const patient = {
     'middleName': '',
     'lastName': '',
     'sex': '',
-    'birthdate': '',
+    'dateOfBirth': '',
     'phone': '',
     'barangay': '',
     'municipality': '',
@@ -57,7 +57,7 @@ const departmentDesc = {
 
     'psychiatry (old)': 'Kung ikaw ay isang dating pasyente na nangangailangan ng mga serbisyo pang-psikiyatriya sa Bulacan Medical Center, maaari kang magpatuloy sa pagpunta sa Psychiatry Department. Ang mga espesyalistang doktor dito ay nakakasama mo na at may kaalaman tungkol sa iyong kasaysayan ng kalusugan ng pag-iisip. <br> <br>Sila ay magpapatuloy na magbigay ng mga pagsusuri, pagsubaybay, at mga rekomendasyon upang patuloy na maalagaan at mapaunlad ang iyong emosyonal na kalusugan. Maaari kang magtuloy sa iyong pag-uusap at pagtanggap ng serbisyo mula sa kanilang mga eksperto upang magpatuloy sa proseso ng iyong paggaling.',
 
-    'nephrology': 'Kung ikaw ay may mga isyu o mga karamdaman sa bato o bato-bato, maaaring magpunta ka sa Nephrology Department ng Bulacan Medical Center. Dito ay tutulungan ka ng mga espesyalistang doktor na may kaalaman at kasanayan sa larangan ng nephrology. <br> <br>Sila ang magbibigay ng mga pagsusuri at mga rekomendasyon para sa mga kondisyon at sakit ng bato, tulad ng kidney stones, chronic kidney disease, o iba pang mga sakit na may kaugnayan sa bato. Sila ay magsisilbi bilang gabay at tagapag-alaga upang pangalagaan ang kalusugan ng iyong mga bato at magbigay ng mga kinakailangang lunas at pangangalaga.',
+    'nephrology': 'Kung ikaw ay may mga isyu o mga karamdaman sa kidney, maaaring magpunta ka sa Nephrology Department ng Bulacan Medical Center. Dito ay tutulungan ka ng mga espesyalistang doktor na may kaalaman at kasanayan sa larangan ng nephrology. <br> <br>Sila ang magbibigay ng mga pagsusuri at mga rekomendasyon para sa mga kondisyon at sakit ng bato, tulad ng kidney stones, chronic kidney disease, o iba pang mga sakit na may kaugnayan sa bato. Sila ay magsisilbi bilang gabay at tagapag-alaga upang pangalagaan ang kalusugan ng iyong mga bato at magbigay ng mga kinakailangang lunas at pangangalaga.',
 
     'hematology': 'Kung ikaw ay may mga alalahanin o mga kondisyon na nauugnay sa dugo, maaaring magpunta ka sa Hematology Department ng Bulacan Medical Center. Dito ay tutulungan ka ng mga espesyalistang doktor na may sapat na kaalaman sa larangan ng hematology. Sila ang magbibigay ng mga pagsusuri, at mga rekomendasyon para sa mga sakit at mga kondisyon tulad ng anemia, leukemia, pagbabara ng mga dugo, o iba pang mga dugo-related na mga isyu. <br> <br>Sila ay magiging kasama mo sa proseso ng pangangalaga at paggamot upang pangalagaan ang kalusugan ng iyong dugo at maabot ang pinakamahusay na kalagayan ng iyong kalusugan.',
 
@@ -78,6 +78,24 @@ const departmentDesc = {
 scheduleNav();
 addLinkToLogo();
 insertListenerDept();
+
+function goBlack(id){
+    document.getElementById(id).style.color = 'black';
+}
+
+
+function checkNum(id){
+    let element = document.getElementById(id);
+    let val = element.value;
+    let newVal = '';
+
+    if(val.length != 0){
+        if(isNaN(val[val.length-1])){
+            newVal = val.substring(0, val.length-1);
+            element.value = newVal;
+        }
+    }    
+}
 
 function openModalDepartment(title, body){
     let modalTitle = document.querySelector('.modal-title');
@@ -113,6 +131,10 @@ function openModalUserError(body){
 
 function isLettersOnly(str) {
 	return /^[A-Za-z ]*$/.test(str);
+}
+
+function isNumsOnly(str) {
+	return /^[0-9]*$/.test(str);
 }
 
 function isLettersNumsOnly(str) {
@@ -270,16 +292,60 @@ function grabSecondForm(){
         return false;
     }
 
-    // 
-    // BIRTHDATE **************************
-    // 
     // DI KO PA SURE IF LALAGYAN KO LIMIT LANG ATLEAST 18 YEARS OLD BA OR SOMETHING ******************************************************
-    patient["birthdate"] = document.querySelector('#birthdate').value;
-    if(patient['birthdate'] == ''){
-        errorHandler('40', document.querySelector('#birthdate').id);
+    // 
+    // BIRTHMONTH **************************
+    // 
+    let birthMonth = document.querySelector('#birthMonth').value;
+    if(birthMonth == ''){
+        errorHandler('40', document.querySelector('#birthMonth').id);
         return false;
     }
 
+    // 
+    // BIRTHDATE **************************
+    // 
+    let birthDate = document.querySelector('#birthDate').value.trim();
+    if(birthDate == ''){
+        errorHandler('41', document.querySelector('#birthDate').id);
+        return false;
+    }
+    else if(birthDate.length > 2){
+        errorHandler('42', document.querySelector('#birthDate').id);
+        return false;
+    }
+    else if(isNaN(birthDate)){
+        errorHandler('43', document.querySelector('#birthDate').id);
+        return false;
+    }
+    else if(birthDate > 31 || birthDate < 1){
+        errorHandler('44', document.querySelector('#birthDate').id);
+        return false;
+    }
+    if(birthDate.length == 1){
+        temp = '0' + birthDate;
+        birthDate = temp;
+    }
+
+    // 
+    // BIRTHYEAR **************************
+    // 
+    let checkDate = new Date();
+    let birthYear = document.querySelector('#birthYear').value.trim();
+    if(birthYear == ''){
+        errorHandler('45', document.querySelector('#birthYear').id);
+        return false;
+    }
+    else if(birthYear.length != 4 ||isNaN(birthYear)){
+        errorHandler('46', document.querySelector('#birthYear').id);
+        return false;
+    }
+    else if(birthYear < 1900 || birthYear > checkDate.getFullYear()){
+        errorHandler('47', document.querySelector('#birthYear').id);
+        return false;
+    }
+    patient['dateOfBirth'] = `${birthYear}-${birthMonth}-${birthDate}`;
+    
     // 
     // PHONE **************************
     // 
@@ -467,7 +533,7 @@ function grabPatient(){
                 break;
             case 4:
                 // inserts converted value to birthdateDisplay which is Month date, year
-                htmlDateConverter(patient['birthdate']);
+                htmlDateConverter(patient['dateOfBirth']);
                 item.querySelector('.review__input').innerHTML = birthdateDisplay;
                 break;   
             case 5:
@@ -515,7 +581,7 @@ function errorHandler(code, id){
     // MIDDLE NAME **************************
     // 
     else if(code == '10'){
-        formErrorMessage = 'Ang gitnang pangalan ay di maaring walang laman.';
+        formErrorMessage = 'Ang gitnang pangalan ay kailangan sagutan.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -538,7 +604,7 @@ function errorHandler(code, id){
     // LAST NAME **************************
     // 
     else if(code == '20') {
-        formErrorMessage = 'Ang apelido ay di maaring walang laman.';
+        formErrorMessage = 'Ang apelido ay kailangan sagutan.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -556,7 +622,7 @@ function errorHandler(code, id){
     // SEX **************************
     // 
     else if(code == '30'){
-        formErrorMessage = 'Ang kasarian ay di maaring walang laman.';
+        formErrorMessage = 'Ang kasarian ay kailangan sagutan.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -564,7 +630,42 @@ function errorHandler(code, id){
     // BIRTHDATE **************************
     // 
     else if(code == '40'){
-        formErrorMessage = 'Ang araw ng kapanganakan ay di maaring walang laman.';
+        formErrorMessage = 'Ang buwan ng petsa ng kapanganakan ay kailangan sagutan.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '41'){
+        formErrorMessage = 'Ang araw ng petsa ng kapanganakan ay kailangan sagutan.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '42'){
+        formErrorMessage = 'Ang araw ng petsa ng kapanganakan ay di angkop.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '43'){
+        formErrorMessage = 'Ang araw ng petsa ng kapanganakan ay maari lamang maging numero.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '44'){
+        formErrorMessage = 'Ang araw ng petsa ng kapanganakan ay maari lamang maging isa(1) hanggang tatlongput-isa(31).';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '45'){
+        formErrorMessage = 'Ang taon ng petsa ng kapanganakan ay kailangan sagutan.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '46'){
+        formErrorMessage = 'Ang taon ng petsa ng kapanganakan ay hindi angkop.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '47'){
+        formErrorMessage = 'Ang taon ng petsa ng kapanganakan ay hindi angkop.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -572,7 +673,7 @@ function errorHandler(code, id){
     // PHONE **************************
     // 
     else if(code == '50'){
-        formErrorMessage = 'Ang numero ng telepono ay di maaring walang laman.';
+        formErrorMessage = 'Ang numero ng telepono ay kailangan sagutan.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -595,7 +696,7 @@ function errorHandler(code, id){
     // MUNICIPALITY **************************
     // 
     else if(code == '60'){
-        formErrorMessage = 'Ang munisipalidad ay di maaring walang laman.';
+        formErrorMessage = 'Ang munisipalidad ay kailangan sagutan.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -603,7 +704,7 @@ function errorHandler(code, id){
     // BARANGAY **************************
     // 
     else if(code == '70'){
-        formErrorMessage = 'Ang barangay ay di maaring walang laman.';
+        formErrorMessage = 'Ang barangay ay kailangan sagutan.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -611,7 +712,7 @@ function errorHandler(code, id){
     // BARANGAY(OTHER) **************************
     // 
     else if(code == '80'){
-        formErrorMessage = 'Ang barangay ay di maaring walang laman.';
+        formErrorMessage = 'Ang barangay ay kailangan sagutan.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -629,7 +730,7 @@ function errorHandler(code, id){
     // MUNICIPALITY(OTHER) **************************
     // 
     else if(code == '90'){
-        formErrorMessage = 'Ang munisipalidad ay di maaring walang laman.';
+        formErrorMessage = 'Ang munisipalidad ay kailangan sagutan.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -647,7 +748,7 @@ function errorHandler(code, id){
     // PROVINCE(OTHER) **************************
     // 
     else if(code == '100'){
-        formErrorMessage = 'Ang probinsya ay di maaring walang laman.';
+        formErrorMessage = 'Ang probinsya ay kailangan sagutan.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -665,7 +766,7 @@ function errorHandler(code, id){
     // PATIENT TYPE **************************
     // 
     else if(code == '110'){
-        formErrorMessage = 'Ang klase ng pasyente ay di maaring walang laman.';
+        formErrorMessage = 'Ang klase ng pasyente ay kailangan sagutan.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -673,7 +774,7 @@ function errorHandler(code, id){
     // CASE NO **************************
     // 
     else if(code == '120'){
-        formErrorMessage = 'Ang case number ay di maaring walang laman.';
+        formErrorMessage = 'Ang case number ay kailangan sagutan.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -759,6 +860,7 @@ function scheduleNav(){
         }
         else if(stepStatus == 2){
             // proceed();
+
             if(grabSecondForm()){
                 proceed();
             }else{
@@ -843,6 +945,10 @@ function getPatientType(type) {
 
 function revertBorder(id){
     document.getElementById(id).style.borderColor = 'rgb(186, 182, 182)';
+
+    if(id == 'birthMonth'){
+        goBlack(id);
+    }
 }
 
 function revertAllBorder(){

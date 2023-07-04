@@ -490,6 +490,20 @@ input[type=date]::-webkit-calendar-picker-indicator {
   flex-flow: row nowrap;
   gap: 1vw;
 }
+.second .birthdate-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1vw;
+  align-items: center;
+  justify-content: center;
+}
+.second .birthdate-container #birthMonth {
+  color: gray;
+}
+.second .birthdate-container #birthMonth option {
+  color: black;
+}
 .second input {
   width: 100%;
   height: 50px;

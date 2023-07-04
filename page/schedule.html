@@ -184,14 +184,33 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                         <div class="field-container">
                             <label for="sex">Kasarian / Sex</label>
                             <select name="sex" id="sex" onchange="revertBorder(this.id)">
-                                <option disabled="disabled" selected="selected"></option>
+                                <option disabled="disabled" selected="selected" hidden="hidden"></option>
                                 <option value="male">Lalaki / Male</option>
                                 <option value="female">Babae / Female</option>
                             </select>
                         </div>
                         <div class="field-container">
                             <label for="birthdate">Petsa ng Kapanganakan / Birthdate</label>
-                            <input type="date" name="birthdate" id="birthdate" onchange="revertBorder(this.id)">
+                            <!-- <input type="date" name="birthdate" id="birthdate" onchange="revertBorder(this.id)"> -->
+                            <div class="birthdate-container">
+                                <select name="birthMonth" id="birthMonth" onchange="revertBorder(this.id)">
+                                    <option selected="selected" disabled="disabled" hidden="hidden" value="">Buwan</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <input type="text" name="date" id="birthDate" placeholder="Araw" maxlength="2" size="2" onblur="revertBorder(this.id)">
+                                <input type="text" name="year" id="birthYear" placeholder="Taon" maxlength="4" size="4" onblur="revertBorder(this.id)">
+                            </div>
                         </div>
 
                         <div class="field-container">
@@ -201,7 +220,7 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                         <div class="field-container">
                             <label for="municipality">Munisipalidad / Municipality</label>
                             <select name="municipality" id="municipality" onchange="getBarangayList(this.value)" onchange="revertBorder(this.id)">
-                                <option disabled="disabled" selected="selected"></option>
+                                <option disabled="disabled" selected="selected" hidden="hidden"></option>
                             </select>
                         </div>
                         <div class="field-container">
@@ -217,7 +236,7 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                         <div class="field-container">
                             <label for="patientType">Klase ng Pasyente / Patient Type</label>
                             <select name="patientType" id="patientType" onchange="getPatientType(this.value)" onchange="revertBorder(this.id)">
-                                <option disabled="disabled" selected="selected"></option>
+                                <option disabled="disabled" selected="selected" hidden="hidden"></option>
                                 <option value="oldPatient">Dating Pasyente / Old Patient</option>
                                 <option value="newPatient">Bagong Pasyente / New Patient</option>
                             </select>

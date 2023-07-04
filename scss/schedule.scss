@@ -566,6 +566,31 @@ main{
         gap: 1vw;
     }
 
+    .birthdate-container{
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 1vw;
+        align-items: center;
+        justify-content: center;
+
+        #birthMonth{
+            color: gray ;
+        }
+
+        #birthMonth option{
+            color: black;
+        }
+
+        #date{
+
+        }
+
+        #year{
+
+        }
+    }
+
     input{
         width: 100%;
         height: 50px;
