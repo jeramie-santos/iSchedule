@@ -35,15 +35,12 @@ function selectSlot(){
         item.addEventListener('click',()=>{
 
             timeSlots.forEach((item2)=>{
-                item2.style.backgroundColor = 'unset';
-                item2.style.color = 'rgb(80, 78, 78)';
+                item2.classList.remove('slot-selected');
             });
 
+            item.classList.add('slot-selected');
             selectedSlot = item.querySelector('.time').innerHTML;
-            document.querySelector('#timeSlot').value = item.id.toUpperCase();
-            item.style.backgroundColor = 'rgb(7, 62, 157)';
-            item.style.color = 'white';
-
+            document.querySelector('#timeSlot').value = item.id;
         });
     });
 }
@@ -56,12 +53,11 @@ function selectDate(){
         item.addEventListener('click', () =>{
             if(!item.classList.contains('block') && item.classList.contains('date') && !item.classList.contains('full')){
                 dateCells.forEach((date)=>{
-                    date.style.border = '2px solid rgb(80, 78, 78)';
+                    date.classList.remove('date-selected');
                 });
-                item.style.border = '5px solid rgb(7, 62, 157)';
+                item.classList.add('date-selected');
                 selectedDate = item.innerHTML;
                 document.getElementById('scheduleDate').value = `${selectedMonth} ${selectedDate}, ${selectedYear}`;
-                console.log(document.getElementById('scheduleDate').value);
             }
         });
     });

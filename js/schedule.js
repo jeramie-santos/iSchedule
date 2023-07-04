@@ -19,6 +19,8 @@ const allSelect = document.querySelectorAll('select');
 const modalLauncher = document.querySelector('.modal-launcher');
 
 let formErrorMessage = "";
+let birthdateDisplay = "";
+let scheduleDateDisplay = "";
 
 const patient = {
     'department': '',
@@ -92,6 +94,23 @@ function openModalDepartment(title, body){
     modalLauncher.click();
 }
 
+function openModalUserError(body){
+    let modalTitle = document.querySelector('.modal-title');
+    let modalBody = document.querySelector('.modal-body');
+    let modalCloseBtn = document.querySelector('.btn-close');
+    let negativeBtn = document.querySelector('.negative');
+    let positiveBtn = document.querySelector('.positive');
+
+
+    positiveBtn.style.display = 'none';
+
+    modalTitle.innerHTML = 'Invalid Input';
+    modalBody.innerHTML = body;
+    modalBody.style.fontSize = '1.1rem';
+
+    modalLauncher.click();
+}
+
 function isLettersOnly(str) {
 	return /^[A-Za-z ]*$/.test(str);
 }
@@ -123,7 +142,6 @@ function properPhoneNum(num){
     for(i = 0; i < num.length; i++){
         proper +=num[i];
         if(i == 3 || i == 6) proper+=' ';
-        console.log(proper);
     }
     return proper;
 }
@@ -132,6 +150,36 @@ function addLinkToLogo(){
     logo.addEventListener('click', ()=>{
         window.location.href = './../index.html';
     });
+}
+
+function htmlDateConverter(str){
+    str = str.split('-');
+    tempYear = str[0];
+    tempMonth = str[1];
+    tempDate = str[2]
+    
+    birthdateDisplay = `${months[tempMonth-1]} ${tempDate}, ${tempYear}`;
+}
+
+// Ginagawang html date format yung Month Date, Year
+function htmlDateUnconvert(str){
+    str = str.replaceAll(',', '').split(' ');
+    tempMonth = '';
+
+    months.forEach((item, index)=>{
+        if(item == str[0]){
+            tempMonth = index+1;
+            tempMonth = tempMonth.toString();
+            if(tempMonth.length == 1) tempMonth = '0' + tempMonth;
+        }
+    });
+
+    str[1] = str[1].toString();
+    str[2] = str[2].toString();
+    
+    if(str[1].length == 1) str[1] = '0'+str[1];
+    
+    scheduleDateDisplay = str[2] + '-' + tempMonth + '-' + str[1];
 }
 
 function grabFirstForm(){
@@ -365,7 +413,8 @@ function grabThirdForm(){
     // 
     // SCHEDULE DATE **************************
     // 
-    patient["scheduleDate"] = document.querySelector('#scheduleDate').value;
+    htmlDateUnconvert(document.querySelector('#scheduleDate').value)
+    patient['scheduleDate'] = scheduleDateDisplay;
     if(patient["scheduleDate"] == ''){
         errorHandler('130', document.querySelector('#scheduleDate').id);
         return false;
@@ -411,7 +460,7 @@ function errorHandler(code, id){
         errorHighlight.style.borderColor = 'red';
     }
     else if(code == '11'){
-        formErrorMessage = 'Ang gitnang pangalan ay di maaring magkaroon ng numero o special characters.';
+        formErrorMessage = 'Ang gitnang pangalan ay kailangang kumpleto at di maaring magkaroon ng numero o special characters.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -586,13 +635,37 @@ function errorHandler(code, id){
     // DEPARTMENT **************************
     // 
     else if(code == '150'){
-        formErrorMessage = 'Pumili ng Department.';
+        formErrorMessage = 'Pumili ng department.';
     }
 }
 
+// lipat si form and undo yung answered and active classes sa progression
 function editInformation(num){
     stepStatus = num;
+    
+    for(i = 0; i <=3; i++){
+        progression[i].classList.remove('answered');
+        progressionTitle[i].classList.remove('active');
+    }
+
+    for(i = 0; i <=num; i++){
+        progression[i].classList.add('answered');
+        progressionTitle[i].classList.add('active');
+    }
+
+    if(stepStatus == 0) mobileLabel.innerHTML = 'Pumili ng Department';
+    else if(stepStatus == 1){
+        mobileLabel.innerHTML = 'Personal na Impormasyon';
+    }
+    else if(stepStatus == 2){
+        mobileLabel.innerHTML = 'Schedule ng Appointment';
+    } 
+    else if(stepStatus == 3){
+        mobileLabel.innerHTML = 'Review ng Impormasyon';
+    }
+    
     proceed();
+
 }
 
 function scheduleNav(){
@@ -616,31 +689,31 @@ function scheduleNav(){
         if(stepStatus < 4) stepStatus++;
         
         if(stepStatus == 1){
-            proceed();
-            // if(grabFirstForm()){
-            //     proceed();
-            // }else{
-            //     alert('please choose a department');
-            //     stepStatus--;
-            // }
+            // proceed();
+            if(grabFirstForm()){
+                proceed();
+            }else{
+                openModalUserError(formErrorMessage);
+                stepStatus--;
+            }
         }
         else if(stepStatus == 2){
-            proceed();
-            // if(grabSecondForm()){
-            //     proceed();
-            // }else{
-            //     alert(formErrorMessage);
-            //     stepStatus--;
-            // }
+            // proceed();
+            if(grabSecondForm()){
+                proceed();
+            }else{
+                openModalUserError(formErrorMessage);
+                stepStatus--;
+            }
         }
         else if(stepStatus == 3){
-            proceed();
-            // if(grabThirdForm()){
-            //     proceed();
-            // }else{
-            //     alert(formErrorMessage);
-            //     stepStatus--;
-            // }
+            // proceed();
+            if(grabThirdForm()){
+                proceed();
+            }else{
+                alert(formErrorMessage);
+                stepStatus--;
+            }
             grabPatient();
         }
         else if(stepStatus == 4){
@@ -650,11 +723,12 @@ function scheduleNav(){
 }
 
 function grabPatient(){
+    console.table(patient);
     let reviewFields = document.querySelectorAll('.review-field');
     reviewFields.forEach((item, index)=>{
         switch(index){
             case 0:
-                item.querySelector('.review__input').innerHTML = `${patient['scheduleDate']} (${selectedSlot})`;
+                item.querySelector('.review__input').innerHTML = `${document.querySelector('#scheduleDate').value} (${selectedSlot})`;
                 break;
             case 1:
                 // Turn string to proper form then removed comma from function
@@ -682,7 +756,9 @@ function grabPatient(){
                 item.querySelector('.review__input').innerHTML = patient['sex'].charAt(0).toUpperCase() + patient['sex'].substring(1);
                 break;
             case 4:
-                item.querySelector('.review__input').innerHTML = patient['birthdate'];
+                // inserts converted value to birthdateDisplay which is Month date, year
+                htmlDateConverter(patient['birthdate']);
+                item.querySelector('.review__input').innerHTML = birthdateDisplay;
                 break;   
             case 5:
                 item.querySelector('.review__input').innerHTML = patient['phone'];

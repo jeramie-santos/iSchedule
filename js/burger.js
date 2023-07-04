@@ -23,7 +23,6 @@ document.onclick = (event) => {
       menuBtn.classList.remove('open');
       links.style.display = "none";
       menuOpen = false;
-      console.log(event.target.className);
   }
 }
 

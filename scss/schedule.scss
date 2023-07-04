@@ -814,15 +814,36 @@ main{
     }
 
     .date:hover{
-        border: 5px solid $primary-alt;
+        border: 5px solid $primary-color;
         cursor: pointer;
     }
 
     .block{
-        background-color: rgb(134, 136, 134);
+        border: 2px solid $fontbase-color;
+        width: 9vw;
+        height: 5vh;
+        flex-grow: 1;
+        max-width: 80px;
+        min-width: 30px;
+        max-height: 80px;
+        min-height: 30px;
+        border-radius: 5px;
+        margin: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-weight: 1000;
+
+        background-color: rgb(134, 136, 134) !important;
         user-select: none;
         border: 2px solid black !important;
         cursor: unset !important;
+    }
+
+    .date-selected{
+        background-color: $primary-color !important;
+        color: white !important;
     }
     
     .day{
@@ -860,6 +881,11 @@ main{
     .slot:hover{
         cursor: pointer;
         background-color: rgb(235, 233, 233);
+    }
+
+    .slot-selected{
+        background-color: $primary-color !important;
+        color: white !important;
     }
 
     .time{
@@ -1135,4 +1161,13 @@ main{
         border-width: 10px;
         border-color: $primary-alt;
     }
+}
+
+// 
+// MODAL
+// 
+
+.modal-title{
+    font-weight: 1000 !important;
+    font-size:1.3rem !important;
 }

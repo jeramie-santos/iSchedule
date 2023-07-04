@@ -678,16 +678,35 @@ input[type=date]::-webkit-calendar-picker-indicator {
   font-weight: 1000;
 }
 .calendar-container .date:hover {
-  border: 5px solid rgb(1, 81, 221);
+  border: 5px solid rgb(7, 62, 157);
   cursor: pointer;
 }
 .calendar-container .block {
-  background-color: rgb(134, 136, 134);
+  border: 2px solid rgb(80, 78, 78);
+  width: 9vw;
+  height: 5vh;
+  flex-grow: 1;
+  max-width: 80px;
+  min-width: 30px;
+  max-height: 80px;
+  min-height: 30px;
+  border-radius: 5px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: 1000;
+  background-color: rgb(134, 136, 134) !important;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   border: 2px solid black !important;
   cursor: unset !important;
+}
+.calendar-container .date-selected {
+  background-color: rgb(7, 62, 157) !important;
+  color: white !important;
 }
 .calendar-container .day {
   text-align: center;
@@ -721,6 +740,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .slot-container .slot:hover {
   cursor: pointer;
   background-color: rgb(235, 233, 233);
+}
+.slot-container .slot-selected {
+  background-color: rgb(7, 62, 157) !important;
+  color: white !important;
 }
 .slot-container .time {
   font-style: italic;
@@ -925,4 +948,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
     border-width: 10px;
     border-color: rgb(1, 81, 221);
   }
+}
+.modal-title {
+  font-weight: 1000 !important;
+  font-size: 1.3rem !important;
 }/*# sourceMappingURL=schedule.css.map */
