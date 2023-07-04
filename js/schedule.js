@@ -432,6 +432,66 @@ function grabThirdForm(){
     return true;
 }
 
+function grabPatient(){
+    console.table(patient);
+    let reviewFields = document.querySelectorAll('.review-field');
+    reviewFields.forEach((item, index)=>{
+        switch(index){
+            case 0:
+                item.querySelector('.review__input').innerHTML = `${document.querySelector('#scheduleDate').value} (${selectedSlot})`;
+                break;
+            case 1:
+                // Turn string to proper form then removed comma from function
+                let dept = capitalFirstLetter(patient['department'])
+                let removedCommaDept = "";
+
+                for(i = 0; i < dept.length; i++){
+                    if(dept[i] != ',') removedCommaDept += dept[i];
+                }
+
+                item.querySelector('.review__input').innerHTML = removedCommaDept;
+                break;
+            case 2:
+                // Turn string to proper form then removed comma from function
+                let fullName = capitalFirstLetter(`${patient['firstName']} ${patient['middleName']} ${patient['lastName']}`)
+                let removedCommaName = "";
+
+                for(i = 0; i < fullName.length; i++){
+                    if(fullName[i] != ',') removedCommaName += fullName[i];
+                }
+
+                item.querySelector('.review__input').innerHTML = removedCommaName;
+                break;
+            case 3:
+                item.querySelector('.review__input').innerHTML = patient['sex'].charAt(0).toUpperCase() + patient['sex'].substring(1);
+                break;
+            case 4:
+                // inserts converted value to birthdateDisplay which is Month date, year
+                htmlDateConverter(patient['birthdate']);
+                item.querySelector('.review__input').innerHTML = birthdateDisplay;
+                break;   
+            case 5:
+                item.querySelector('.review__input').innerHTML = patient['phone'];
+                break; 
+            case 6:
+                // Turn string to proper form
+                let tempAddress = capitalFirstLetter(`${patient['barangay']} ${patient['municipality']} ${patient['province']}`)
+                item.querySelector('.review__input').innerHTML = tempAddress;
+                break;
+            case 7:
+                if(patient['typeOfPatient'] == 'oldPatient') item.querySelector('.review__input').innerHTML = 'Dating Pasyente';
+                else item.querySelector('.review__input').innerHTML = 'Bagong Pasyente';
+                break;
+            case 8:
+                document.querySelector('.review__case-no').querySelector('.edit').style.display = 'block';
+                if(patient['caseNo'] == '') document.querySelector('.review__case-no').querySelector('.edit').style.display = 'none';
+                item.querySelector('.review__input').innerHTML = patient['caseNo'];
+                break;
+        }
+        
+    });
+}
+
 function errorHandler(code, id){
     // 
     // FIRST NAME **************************
@@ -722,77 +782,6 @@ function scheduleNav(){
     });
 }
 
-function grabPatient(){
-    console.table(patient);
-    let reviewFields = document.querySelectorAll('.review-field');
-    reviewFields.forEach((item, index)=>{
-        switch(index){
-            case 0:
-                item.querySelector('.review__input').innerHTML = `${document.querySelector('#scheduleDate').value} (${selectedSlot})`;
-                break;
-            case 1:
-                // Turn string to proper form then removed comma from function
-                let dept = capitalFirstLetter(patient['department'])
-                let removedCommaDept = "";
-
-                for(i = 0; i < dept.length; i++){
-                    if(dept[i] != ',') removedCommaDept += dept[i];
-                }
-
-                item.querySelector('.review__input').innerHTML = removedCommaDept;
-                break;
-            case 2:
-                // Turn string to proper form then removed comma from function
-                let fullName = capitalFirstLetter(`${patient['firstName']} ${patient['middleName']} ${patient['lastName']}`)
-                let removedCommaName = "";
-
-                for(i = 0; i < fullName.length; i++){
-                    if(fullName[i] != ',') removedCommaName += fullName[i];
-                }
-
-                item.querySelector('.review__input').innerHTML = removedCommaName;
-                break;
-            case 3:
-                item.querySelector('.review__input').innerHTML = patient['sex'].charAt(0).toUpperCase() + patient['sex'].substring(1);
-                break;
-            case 4:
-                // inserts converted value to birthdateDisplay which is Month date, year
-                htmlDateConverter(patient['birthdate']);
-                item.querySelector('.review__input').innerHTML = birthdateDisplay;
-                break;   
-            case 5:
-                item.querySelector('.review__input').innerHTML = patient['phone'];
-                break; 
-            case 6:
-                // Turn string to proper form
-                let tempAddress = capitalFirstLetter(`${patient['barangay']} ${patient['municipality']} ${patient['province']}`)
-                item.querySelector('.review__input').innerHTML = tempAddress;
-                break;
-            case 7:
-                if(patient['typeOfPatient'] == 'oldPatient') item.querySelector('.review__input').innerHTML = 'Dating Pasyente';
-                else item.querySelector('.review__input').innerHTML = 'Bagong Pasyente';
-                break;
-            case 8:
-                document.querySelector('.review__case-no').querySelector('.edit').style.display = 'block';
-                if(patient['caseNo'] == '') document.querySelector('.review__case-no').querySelector('.edit').style.display = 'none';
-                item.querySelector('.review__input').innerHTML = patient['caseNo'];
-                break;
-        }
-        
-    });
-}
-
-function capitalFirstLetter(str){
-    str = str.split(' ');
-    let newStr = [];
-
-    str.forEach((item)=>{
-        newStr.push(item.charAt(0).toUpperCase() + item.substring(1));
-    });
-
-    return newStr.join(', ');
-}
-
 function proceed(){
     forms.forEach((item)=>{
         item.style.display = 'none'
@@ -816,10 +805,15 @@ function proceed(){
     }
 }
 
-function removeOTPModal(){
-}
+function capitalFirstLetter(str){
+    str = str.split(' ');
+    let newStr = [];
 
-function showOTPModal(){
+    str.forEach((item)=>{
+        newStr.push(item.charAt(0).toUpperCase() + item.substring(1));
+    });
+
+    return newStr.join(', ');
 }
 
 function getPatientType(type) {
