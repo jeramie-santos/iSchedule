@@ -133,10 +133,6 @@ function isLettersOnly(str) {
 	return /^[A-Za-z ]*$/.test(str);
 }
 
-function isNumsOnly(str) {
-	return /^[0-9]*$/.test(str);
-}
-
 function isLettersNumsOnly(str) {
 	return /^[A-Za-z 0-9]*$/.test(str);
 }
@@ -185,23 +181,27 @@ function htmlDateConverter(str){
 
 // Ginagawang html date format yung Month Date, Year
 function htmlDateUnconvert(str){
-    str = str.replaceAll(',', '').split(' ');
-    tempMonth = '';
-
-    months.forEach((item, index)=>{
-        if(item == str[0]){
-            tempMonth = index+1;
-            tempMonth = tempMonth.toString();
-            if(tempMonth.length == 1) tempMonth = '0' + tempMonth;
-        }
-    });
-
-    str[1] = str[1].toString();
-    str[2] = str[2].toString();
+    try {
+        str = str.replaceAll(',', '').split(' ');
+        tempMonth = '';
     
-    if(str[1].length == 1) str[1] = '0'+str[1];
+        months.forEach((item, index)=>{
+            if(item == str[0]){
+                tempMonth = index+1;
+                tempMonth = tempMonth.toString();
+                if(tempMonth.length == 1) tempMonth = '0' + tempMonth;
+            }
+        });
     
-    scheduleDateDisplay = str[2] + '-' + tempMonth + '-' + str[1];
+        str[1] = str[1].toString();
+        str[2] = str[2].toString();
+        
+        if(str[1].length == 1) str[1] = '0'+str[1];
+        
+        scheduleDateDisplay = str[2] + '-' + tempMonth + '-' + str[1];
+    } catch (error) {
+        
+    }
 }
 
 function grabFirstForm(){
@@ -481,7 +481,7 @@ function grabThirdForm(){
     // 
     htmlDateUnconvert(document.querySelector('#scheduleDate').value)
     patient['scheduleDate'] = scheduleDateDisplay;
-    if(patient["scheduleDate"] == ''){
+    if(document.querySelector('#scheduleDate').value == ''){
         errorHandler('130', document.querySelector('#scheduleDate').id);
         return false;
     }
@@ -495,6 +495,8 @@ function grabThirdForm(){
         return false;
     }
 
+    console.log(patient["timeSlot"]);
+    console.log(patient['scheduleDate']);
     return true;
 }
 
@@ -860,7 +862,6 @@ function scheduleNav(){
         }
         else if(stepStatus == 2){
             // proceed();
-
             if(grabSecondForm()){
                 proceed();
             }else{
@@ -873,7 +874,7 @@ function scheduleNav(){
             if(grabThirdForm()){
                 proceed();
             }else{
-                alert(formErrorMessage);
+                openModalUserError(formErrorMessage);
                 stepStatus--;
             }
             grabPatient();
