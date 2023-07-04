@@ -344,7 +344,7 @@ main{
     // display: flex;
     // flex-flow: row wrap;
     // gap: 5vw;
-    padding: 5vw 0;
+    padding: 3vw 0;
     // align-items: flex-start ;
     // justify-content:center;
     // overflow-y: auto;
@@ -473,7 +473,7 @@ main{
     .first{
         grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
         gap: 3vw;
-        padding: 5vw;
+        padding: 3vw;
         align-content:flex-start;
 
         .form__card{
