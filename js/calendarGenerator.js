@@ -65,15 +65,14 @@ function selectDate(){
 
 function nextMonthBtn(){
     let calendarCell = document.querySelectorAll('.key');
-
-    // Clears scheduleDate content para pag nag next or prev burado yung salected
-    document.getElementById('scheduleDate').value = "";
     // Clears selected border
     calendarCell.forEach((item)=>{
         item.style.border = '2px solid rgb(80, 78, 78)';
     });
 
     if(!nextMonthActive){
+        // Clears scheduleDate content para pag nag next or prev burado yung salected
+        document.getElementById('scheduleDate').value = "";
         let nextMonth = months[date.getMonth()+1];
         let year = date.getFullYear();
         if(!nextMonth)
@@ -86,21 +85,21 @@ function nextMonthBtn(){
         InitialSetup();
     }
     else{
-        alert('TEMPORARY NOTIF TESTING(gawing modal) Maari lamang mag schedule ng appointment ngayong buwan o sa susunod na buwan.');
+        openModalUserError("Paalala",'Maari lamang mag schedule ng appointment sa kasalukuyang buwan o sa susunod na buwan.');
     }
 }
 
 function prevMonthBtn(){
     let calendarCell = document.querySelectorAll('.key');
 
-    // Clears scheduleDate content para pag nag next or prev burado yung salected
-    document.getElementById('scheduleDate').value = "";
     // Clears selected border
     calendarCell.forEach((item)=>{
         item.style.border = '2px solid rgb(80, 78, 78)';
     });
 
     if(nextMonthActive){
+        // Clears scheduleDate content para pag nag next or prev burado yung salected
+        document.getElementById('scheduleDate').value = "";
         let temp = new Date();
         let nextMonth = months[temp.getMonth()];
         let year = temp.getFullYear();
@@ -110,7 +109,7 @@ function prevMonthBtn(){
         console.log('testing' + ' ' + nextMonthActive);
     }
     else{ 
-        alert('TEMPORARY NOTIF TESTING(gawing modal) Hindi maaring mag schedule ng appointment sa nakaraang buwan.');
+        openModalUserError("Paalala",'Maari lamang mag schedule ng appointment sa kasalukuyang buwan o sa susunod na buwan.');
     }
 }
 
