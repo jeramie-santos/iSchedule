@@ -859,8 +859,9 @@ main{
         justify-content: center;
         color: black;
         font-weight: 1000;
-
-        background-color: rgb(134, 136, 134) !important;
+        
+        color: rgb(148, 145, 145);
+        background-color: rgb(218, 213, 213) !important;
         user-select: none;
         border: 2px solid black !important;
         cursor: unset !important;
@@ -927,7 +928,7 @@ main{
         display: flex;
         font-size: 0.8rem;
         align-items: center;
-        gap: 5px;
+        gap: 3px;
     }
 
     .green{
@@ -939,6 +940,13 @@ main{
 
     .red{
         background-color: $unavail-color;
+        width: 12px;
+        height: 12px;
+        border: 1px solid $fontbase-color;
+    }
+
+    .gray{
+        background-color: rgb(218, 213, 213);
         width: 12px;
         height: 12px;
         border: 1px solid $fontbase-color;

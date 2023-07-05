@@ -711,7 +711,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
   justify-content: center;
   color: black;
   font-weight: 1000;
-  background-color: rgb(134, 136, 134) !important;
+  color: rgb(148, 145, 145);
+  background-color: rgb(218, 213, 213) !important;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -770,7 +771,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   display: flex;
   font-size: 0.8rem;
   align-items: center;
-  gap: 5px;
+  gap: 3px;
 }
 .calendar__color-indicator .green {
   background-color: white;
@@ -780,6 +781,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 .calendar__color-indicator .red {
   background-color: rgb(255, 0, 0);
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgb(80, 78, 78);
+}
+.calendar__color-indicator .gray {
+  background-color: rgb(218, 213, 213);
   width: 12px;
   height: 12px;
   border: 1px solid rgb(80, 78, 78);

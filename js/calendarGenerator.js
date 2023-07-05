@@ -163,11 +163,20 @@ function generateDate(days, NameOfDay1st){
     }
 
     calendarCell.forEach((item)=>{
+
+        let tempDate = new Date();
+
+        if(item.innerHTML <= tempDate.getDate()){
+            item.classList.remove('date');
+            item.classList.add('block');
+        }
         if(item.innerHTML == "") {
             item.classList.remove('date');
             // item.classList.add('block');
+            item.classList.add('block');
             item.innerHTML = 'X';
         }
+
 
         // Checks if the sixth row contains a date if none hide it
         let sixthRowChildren = sixthRow.children;
