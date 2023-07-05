@@ -18,6 +18,8 @@ const allInput = document.querySelectorAll('input');
 const allSelect = document.querySelectorAll('select');
 const modalLauncher = document.querySelector('.modal-launcher');
 
+let errorShow = true;
+let isResendAvail = false;
 let formErrorMessage = "";
 let birthdateDisplay = "";
 let scheduleDateDisplay = "";
@@ -75,6 +77,10 @@ const departmentDesc = {
 
 }
 
+setInterval(()=>{
+    errorShow = true;
+},3000)
+
 scheduleNav();
 addLinkToLogo();
 insertListenerDept();
@@ -103,7 +109,12 @@ function openModalDepartment(title, body){
     let modalCloseBtn = document.querySelector('.btn-close');
     let negativeBtn = document.querySelector('.negative');
     let positiveBtn = document.querySelector('.positive');
+    let modalHeader = document.querySelector('.modal-header');
 
+    modalHeader.style.display = 'flex';
+    let modal = document.querySelector('.modal-dialog');
+    modal.classList.add('modal-lg');
+    
     modalCloseBtn.style.display = 'none';
     positiveBtn.style.display = 'none';
 
@@ -118,7 +129,12 @@ function openModalUserError(body){
     let modalCloseBtn = document.querySelector('.btn-close');
     let negativeBtn = document.querySelector('.negative');
     let positiveBtn = document.querySelector('.positive');
+    let modalHeader = document.querySelector('.modal-header');
 
+    modalHeader.style.display = 'flex';
+
+    let modal = document.querySelector('.modal-dialog');
+    modal.classList.remove('modal-lg');
 
     positiveBtn.style.display = 'none';
 
@@ -127,6 +143,87 @@ function openModalUserError(body){
     modalBody.style.fontSize = '1.1rem';
 
     modalLauncher.click();
+}
+
+function openModalOTP(){
+    let modalTitle = document.querySelector('.modal-title');
+    let modalBody = document.querySelector('.modal-body');
+    let modalCloseBtn = document.querySelector('.btn-close');
+    let negativeBtn = document.querySelector('.negative');
+    let positiveBtn = document.querySelector('.positive');
+    let modal = document.querySelector('.modal-dialog');
+    let modalHeader = document.querySelector('.modal-header');
+    let modalFooter = document.querySelector('.modal-footer');
+    
+    modal.classList.add('modal-lg');
+
+    modalHeader.style.display = 'none';
+    modalFooter.style.display = 'none';
+
+    modalBody.style.minHeight = '400px';
+
+    let htmlCode = '<div class="OTP-container"><div class="textInfo-container"><span class="mainText">Ibigay ang iyong One-Time Password upang i-confirm ang iyong appointment.</span><span class="subText">Ang One-Time Password ay sinend sa numero ng teleponong <span class="phoneDisplay">09XX XXX XXXX</span></span></div><div class="OTP-body"><div class="OTP-field"><input type="text" name="OTP1" id="OTP1" maxlength="5"><button class="resend-btn">Re-Send</button></div><div class="error-msg"></div></div><button class="OTP-btn">Submit</button></div>'
+    modalBody.innerHTML = htmlCode;
+    document.querySelector('.phoneDisplay').innerHTML = patient['phone'];
+    document.querySelector('.OTP-btn').addEventListener('click', ()=>{
+        checkOTP();
+    });
+    modalLauncher.click();
+    resetCD();
+
+    document.querySelector('.resend-btn').addEventListener('click', ()=>{
+        if(isResendAvail){
+            resendOTP();
+            resetCD();
+            isResendAvail = false;
+        } 
+    });
+}
+
+function checkOTP(){
+    let error = document.querySelector('.error-msg');
+
+    // DITO NAKALAGAY YUNG CHECKING TAPOS IF MALI BAGSAK DITO SA BABA
+    
+
+    // Pag mali input ni user ere labas
+    // second time na mali mag shake si error msg
+    if(error.innerHTML != ""){
+        error.classList.add('error-animate');
+        setTimeout(()=>{
+            error.classList.remove('error-animate');
+        },500);
+    }
+    error.innerHTML = 'Mali ang iyong ibinigay na OTP.';
+}
+function sendOTP(){
+    // magsend otp
+
+    openModalOTP();
+}
+
+function resendOTP(){
+    // di na magopen panibago modal kaya nakahiwalay tong function na to
+}
+
+function resetCD(){
+    let time = 30;
+    let resend = document.querySelector('.resend-btn');
+    resend.classList.add('cd');
+    resend.innerHTML = time + 's';
+
+    let timer = setInterval(()=>{
+        time--;
+        resend.innerHTML = time + 's';
+        
+        if(time == 0){
+            time = 30;
+            clearInterval(timer);
+            resend.innerHTML = 'Re-send';
+            isResendAvail = true;
+            resend.classList.remove('cd');
+        }
+    },1000);
 }
 
 function isLettersOnly(str) {
@@ -880,7 +977,7 @@ function scheduleNav(){
             grabPatient();
         }
         else if(stepStatus == 4){
-            alert('show OTP');
+            sendOTP();
         }
     });
 }
