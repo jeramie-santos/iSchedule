@@ -1058,28 +1058,31 @@ main{
         display: flex;
         flex-flow: column;
         align-items: center;
-        gap: 5vw;
+        // gap: 5vw;
     }
 }
 
 .review{
-
     .review-field{
         width: 100%;
         display: flex;
         flex-flow: column;
         justify-content: flex-start;
         align-items: flex-start;
-        background-color: white;
+        padding: 3vw 2vw;
     }
 
+    .review-field:nth-child(odd){
+        background-color: rgb(237, 236, 236);
+    }
 
     .info-container{
-        width: unset;
+        width: 100%;
         display: flex;
         flex-flow: row-reverse nowrap;
         align-items: center;
-        gap: 0.5vw;
+        justify-content: space-between;
+        min-height: 50px;
 
         .edit{
             color: blue;

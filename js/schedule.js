@@ -112,18 +112,19 @@ function openModalDepartment(title, body){
     let modalHeader = document.querySelector('.modal-header');
     let modalFooter = document.querySelector('.modal-footer');
     let modal = document.querySelector('.modal-dialog');
-    
+
     modalHeader.style.display = 'flex';
     modalFooter.style.display = 'flex';
     modal.classList.add('modal-lg');
-    modal.setAttribute('data-bs-backdrop', 'exampleModal');
-    modalCloseBtn.style.display = 'none';
+
+    // modalCloseBtn.style.display = 'none';
     positiveBtn.style.display = 'none';
 
     modalTitle.innerHTML = title;
     modalBody.innerHTML = body;
     modalBody.style.fontSize = '1.3rem';
     modalLauncher.click();
+
 }
 
 function openModalUserError(title, body){
@@ -139,10 +140,9 @@ function openModalUserError(title, body){
     modalHeader.style.display = 'flex';
     modalFooter.style.display = 'flex';
     modal.classList.remove('modal-lg');
-    modal.setAttribute('data-bs-backdrop', 'exampleModal');
     
     positiveBtn.style.display = 'none';
-    modalCloseBtn.style.display = 'none';
+    // modalCloseBtn.style.display = 'none';
 
     modalTitle.innerHTML = title;
     modalBody.innerHTML = body;
@@ -158,6 +158,7 @@ function openModalOTP(){
     let negativeBtn = document.querySelector('.negative');
     let positiveBtn = document.querySelector('.positive');
     let modal = document.querySelector('.modal-dialog');
+    let modalItself = document.querySelector('.modal');
     let modalHeader = document.querySelector('.modal-header');
     let modalFooter = document.querySelector('.modal-footer');
     
@@ -166,7 +167,6 @@ function openModalOTP(){
     modalFooter.style.display = 'none';
     
     modalBody.style.minHeight = '400px';
-    modal.setAttribute('data-bs-backdrop', 'static');
 
     let htmlCode = '<div class="OTP-container"><div class="textInfo-container"><span class="mainText">Ibigay ang iyong One-Time Password upang i-confirm ang iyong appointment.</span><span class="subText">Ang One-Time Password ay sinend sa numero ng teleponong <span class="phoneDisplay">09XX XXX XXXX</span></span></div><div class="OTP-body"><div class="OTP-field"><input type="text" name="OTP1" id="OTP1" maxlength="5"><button class="resend-btn">Re-Send</button></div><div class="error-msg"></div></div><button class="OTP-btn">Submit</button></div>'
     modalBody.innerHTML = htmlCode;
@@ -202,6 +202,7 @@ function checkOTP(){
     }
     error.innerHTML = 'Mali ang iyong ibinigay na OTP.';
 }
+
 function sendOTP(){
     // magsend otp
 
@@ -999,12 +1000,17 @@ function proceed(){
     else forms[stepStatus].style.display = 'flex';
     progressionTitle[stepStatus].classList.add('active');
 
-    if(stepStatus == 0) mobileLabel.innerHTML = 'Pumili ng Department';
+    if(stepStatus == 0){
+        mobileLabel.innerHTML ='Pumili ng Department';
+        document.querySelector('.first').scrollTo(0,0); 
+    } 
     else if(stepStatus == 1){
         mobileLabel.innerHTML = 'Personal na Impormasyon';
+        document.querySelector('.second').scrollTo(0,0); 
     }
     else if(stepStatus == 2){
         mobileLabel.innerHTML = 'Schedule ng Appointment';
+        document.querySelector('.third').scrollTo(0,0); 
     } 
     else if(stepStatus == 3){
         mobileLabel.innerHTML = 'Review ng Impormasyon';
