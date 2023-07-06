@@ -103,10 +103,10 @@ function prevMonthBtn(){
         let temp = new Date();
         let nextMonth = months[temp.getMonth()];
         let year = temp.getFullYear();
-        date = new Date(`${nextMonth} 1, ${year}`);
+        let currentDate = temp.getDate();
+        date = new Date(`${nextMonth} ${currentDate}, ${year}`);
         nextMonthActive = false;
         InitialSetup();
-        console.log('testing' + ' ' + nextMonthActive);
     }
     else{ 
         openModalUserError("Paalala",'Maari lamang mag schedule ng appointment sa kasalukuyang buwan o sa susunod na buwan.');
@@ -128,9 +128,10 @@ function InitialSetup(){
 }
     
 function generateDate(days, NameOfDay1st){
+
     let startingPoint = NameOfDay1st; //kinukuha kung anong araw yung 1st ng month para lam natin san mag start
     let numOfIteration = days + NameOfDay1st; //kaya nag add ng NameOfDay1st kasi if ma move konwari ng +2 yung starting point dapat yung end point din
-    let date = 1; //counter ng date kasi di pede yung i kasi yun yung posisyon nung cell
+    let dateCounter = 1; //counter ng date kasi di pede yung i kasi yun yung posisyon nung cell
 
     // para kita yung sixthRow by default kasi binubura to pag puro X laman
     const sixthRow = document.querySelector('.sixthRow');
@@ -153,7 +154,7 @@ function generateDate(days, NameOfDay1st){
 
     for(i = startingPoint; i < numOfIteration; i++ ){
         //gives value of date then increment, di kasama increment sa ibibigay
-        calendarCell[i].innerHTML = date++;
+        calendarCell[i].innerHTML = dateCounter++;
         calendarCell[i].classList.add('date');
         calendarCell[i].classList.remove('block');
 
@@ -161,15 +162,21 @@ function generateDate(days, NameOfDay1st){
             calendarCell[i].classList.add('block');
         }
     }
-
     calendarCell.forEach((item)=>{
-
-        let tempDate = new Date();
-
-        if(item.innerHTML <= tempDate.getDate()){
-            item.classList.remove('date');
-            item.classList.add('block');
+        if(!nextMonthActive){
+            if(item.innerHTML <= date.getDate()){
+                item.classList.remove('date');
+                item.classList.add('block');
+            }
         }
+        // else{
+        //     let tempDate = new Date();
+        //     if(item.innerHTML <= tempDate.getDate()){
+        //         item.classList.remove('date');
+        //         item.classList.add('block');
+        //     }
+        // }
+
         if(item.innerHTML == "") {
             item.classList.remove('date');
             // item.classList.add('block');
