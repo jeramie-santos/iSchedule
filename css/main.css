@@ -168,7 +168,7 @@ main {
   font-weight: 700;
   color: rgb(7, 62, 157);
   text-align: center;
-  margin: 5vw 0 2vw 0;
+  margin: 5vw 0 1vw 0;
 }
 .landing-page .landing-page__text {
   font-size: 1.2rem;
@@ -225,13 +225,16 @@ main {
   line-height: 0;
   transform: rotate(180deg);
   z-index: -1 !important;
+  min-width: 70vw;
+  max-height: 50vw;
+  min-height: 600px !important;
 }
 
 .landing-page__wave svg {
   position: relative;
   display: block;
   width: calc(156% + 1.3px);
-  height: 450px;
+  height: 900px;
 }
 
 .landing-page__wave .shape-fill {
@@ -290,7 +293,7 @@ main {
   .landing-page .landing-page__content .landing-page__text {
     color: white;
     font-size: 1rem;
-    width: 80%;
+    width: 70%;
   }
   .landing-page .landing-page__content .landing-page__buttons {
     flex-flow: row nowrap;
@@ -830,4 +833,14 @@ footer .about .about__content {
   .announcement .announcement__logo {
     width: 40px;
   }
+}
+.custom-shape-divider-top-1688629077 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  z-index: -1;
 }/*# sourceMappingURL=main.css.map */

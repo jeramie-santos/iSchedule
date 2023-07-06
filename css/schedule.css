@@ -198,7 +198,7 @@ main {
 }
 
 .form-container {
-  width: 90vw;
+  width: 95vw;
   height: 75vh;
   display: flex;
   flex-flow: column;
@@ -227,7 +227,7 @@ main {
 }
 
 .progression {
-  width: 90vw;
+  width: 95vw;
   height: 50px;
   display: flex;
   flex-flow: row nowrap;
@@ -315,7 +315,7 @@ main {
   width: 100%;
   padding: 3vw 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
   row-gap: 3vw;
   justify-items: center;
   overflow-y: auto;
@@ -365,12 +365,12 @@ main {
   color: rgb(1, 81, 221);
 }
 
-@media only screen and (min-width: 370px) {
+@media only screen and (min-width: 350px) {
   .first {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
   .first .form__card {
-    width: 150px;
+    width: 160px;
     height: 200px;
   }
 }
@@ -437,7 +437,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   }
   .progression {
     gap: 0.3vw;
-    margin-bottom: 1vw;
+    margin-bottom: 0.5vw;
   }
   .progression .progression__title {
     display: flex;
