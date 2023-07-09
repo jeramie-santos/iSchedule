@@ -189,7 +189,7 @@ function openModalOTP(){
 // If 5 na yung length ni OTP input mag blur siya para di niya maexceed yung 5 na input
 function inputLimiter(id, max){
     let element = document.getElementById(id);
-    if (element.value.laength > max-1){
+    if (element.value.length > max-1){
         element.blur();
         alert('pasok');
     }
