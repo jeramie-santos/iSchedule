@@ -77,34 +77,6 @@ const departmentDesc = {
 
 }
 
-// window.addEventListener('touchstart', ()=>{
-//     document.querySelector('#birthDate').removeAttribute('onkeypress');
-//     document.querySelector('#birthDate').setAttribute('onkeyup', 'inputLimiter(this.id,2)');
-//     document.querySelector('#birthYear').removeAttribute('onkeypress');
-//     document.querySelector('#birthYear').setAttribute('onkeyup', 'inputLimiter(this.id,4)');
-
-//     try {
-//         document.querySelector('#OTP1').removeAttribute('onkeypress');
-//         document.querySelector('#OTP1').setAttribute('onkeyup', 'inputLimiter(this.id,5)');
-//     } catch (error) {
-        
-//     }
-// });
-
-// window.addEventListener('mouseup', ()=>{
-//     document.querySelector('#birthDate').removeAttribute('onkeyup');
-//     document.querySelector('#birthDate').setAttribute('onkeypress', 'inputLimiter(this.id,2)');
-//     document.querySelector('#birthYear').removeAttribute('onkeyup');
-//     document.querySelector('#birthYear').setAttribute('onkeypress', 'inputLimiter(this.id,4)');
-
-//     try {
-//         document.querySelector('#OTP1').removeAttribute('onkeyup');
-//         document.querySelector('#OTP1').setAttribute('onkeypress', 'inputLimiter(this.id,5)');
-//     } catch (error) {
-        
-//     } 
-// });
-
 setInterval(()=>{
     errorShow = true;
 },3000)
@@ -196,7 +168,7 @@ function openModalOTP(){
     
     modalBody.style.minHeight = '400px';
 
-    let htmlCode = '<div class="OTP-container"><div class="textInfo-container"><span class="mainText">Ibigay ang iyong One-Time Password upang i-confirm ang iyong appointment.</span><span class="subText">Ang One-Time Password ay sinend sa numero ng teleponong <span class="phoneDisplay">09XX XXX XXXX</span></span></div><div class="OTP-body"><div class="OTP-field"><input type="text" name="OTP1" id="OTP1" onkeypress="inputLimiter(this.id, 5)"><button class="resend-btn">Re-Send</button></div><div class="error-msg"></div></div><button class="OTP-btn">Submit</button></div>'
+    let htmlCode = '<div class="OTP-container"><div class="textInfo-container"><span class="mainText">Ibigay ang iyong One-Time Password upang i-confirm ang iyong appointment.</span><span class="subText">Ang One-Time Password ay sinend sa numero ng teleponong <span class="phoneDisplay">09XX XXX XXXX</span></span></div><div class="OTP-body"><div class="OTP-field"><input type="text" name="OTP1" id="OTP1" oninput="inputLimiter(this.id, 5)" onblur="inputLimiterBlur(this.id, 5)"><button class="resend-btn">Re-Send</button></div><div class="error-msg"></div></div><button class="OTP-btn">Submit</button></div>'
     modalBody.innerHTML = htmlCode;
     document.querySelector('.phoneDisplay').innerHTML = patient['phone'];
     document.querySelector('.OTP-btn').addEventListener('click', ()=>{
@@ -218,10 +190,20 @@ function openModalOTP(){
 function inputLimiter(id, max){
     let element = document.getElementById(id);
     if (element.value.length > max){
-        element.value = element.value.substring(0, element.value.length-1);
+        element.value = element.value.slice(0, -1);
         // alert('test');
     }
+}
 
+function inputLimiterBlur(id, max){
+    let element = document.getElementById(id);
+    let newVal = "";
+    if(element.value.length > max){
+        for(i=0; i < max; i++){
+            newVal += element.value[i];
+        }
+        element.value = newVal;
+    }
 }
 
 function checkOTP(){

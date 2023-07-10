@@ -208,8 +208,8 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                                     <option value="11">November</option>
                                     <option value="12">December</option>
                                 </select>
-                                <input type="text" name="date" id="birthDate" placeholder="Araw" onblur="revertBorder(this.id)" oninput="inputLimiter(this.id, 2)">
-                                <input type="text" name="year" id="birthYear" placeholder="Taon" onblur="revertBorder(this.id)" oninput="inputLimiter(this.id, 4)">
+                                <input type="text" name="date" id="birthDate" placeholder="Araw" onblur="revertBorder(this.id); inputLimiterBlur(this.id, 2)" oninput="inputLimiter(this.id, 2)">
+                                <input type="text" name="year" id="birthYear" placeholder="Taon" onblur="revertBorder(this.id);  inputLimiterBlur(this.id, 4)" oninput="inputLimiter(this.id, 4)">
                             </div>
                         </div>
 
