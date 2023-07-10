@@ -77,6 +77,10 @@ const departmentDesc = {
 
 }
 
+window.addEventListener('ontouchstart', ()=>{
+    alert('touched');
+});
+
 setInterval(()=>{
     errorShow = true;
 },3000)
