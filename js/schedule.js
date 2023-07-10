@@ -89,7 +89,6 @@ function goBlack(id){
     document.getElementById(id).style.color = 'black';
 }
 
-
 function checkNum(id){
     let element = document.getElementById(id);
     let val = element.value;
@@ -185,6 +184,11 @@ function openModalOTP(){
             isResendAvail = false;
         } 
     });
+}
+
+function filterPhoneInput(id){
+    let element = document.getElementById(id);
+    element.value = element.value.replace(/^[A-Za-z]*$/, "");
 }
 
 // If 5 na yung length ni OTP input mag blur siya para di niya maexceed yung 5 na input
