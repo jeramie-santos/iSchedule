@@ -168,7 +168,7 @@ function openModalOTP(){
     
     modalBody.style.minHeight = '400px';
 
-    let htmlCode = '<div class="OTP-container"><div class="textInfo-container"><span class="mainText">Ibigay ang iyong One-Time Password upang i-confirm ang iyong appointment.</span><span class="subText">Ang One-Time Password ay sinend sa numero ng teleponong <span class="phoneDisplay">09XX XXX XXXX</span></span></div><div class="OTP-body"><div class="OTP-field"><input type="text" name="OTP1" id="OTP1" onkeypress="inputLimiter(this.id, 5)"><button class="resend-btn">Re-Send</button></div><div class="error-msg"></div></div><button class="OTP-btn">Submit</button></div>'
+    let htmlCode = '<div class="OTP-container"><div class="textInfo-container"><span class="mainText">Ibigay ang iyong One-Time Password upang i-confirm ang iyong appointment.</span><span class="subText">Ang One-Time Password ay sinend sa numero ng teleponong <span class="phoneDisplay">09XX XXX XXXX</span></span></div><div class="OTP-body"><div class="OTP-field"><input type="text" name="OTP1" id="OTP1" onkeypress="inputLimiter(this.id, 5)" onkeyup="inputLimiter(this.id, 5)"><button class="resend-btn">Re-Send</button></div><div class="error-msg"></div></div><button class="OTP-btn">Submit</button></div>'
     modalBody.innerHTML = htmlCode;
     document.querySelector('.phoneDisplay').innerHTML = patient['phone'];
     document.querySelector('.OTP-btn').addEventListener('click', ()=>{
@@ -191,7 +191,6 @@ function inputLimiter(id, max){
     let element = document.getElementById(id);
     if (element.value.length > max-1){
         element.blur();
-        console('pasok');
     }
 }
 
