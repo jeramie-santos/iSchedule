@@ -192,6 +192,8 @@ function inputLimiter(id, max){
     if (element.value.length > max-1){
         element.blur();
     }
+
+    element.value = element.value.replace(/\D+/g, '');
 }
 
 function checkOTP(){
