@@ -315,8 +315,8 @@ main {
   width: 100%;
   padding: 3vw 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
-  gap: 10vw;
+  grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+  row-gap: 10vw;
   justify-items: center;
   overflow-y: auto;
 }
@@ -370,7 +370,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
   .first .form__card {
-    width: 160px;
+    width: 140px;
     height: 200px;
   }
 }
