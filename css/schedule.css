@@ -855,7 +855,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 5vw;
+  padding: 3vw 5vw;
   gap: 5vw;
 }
 .fourth span {
@@ -923,7 +923,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    padding: 1%;
+    padding: 0.2vw;
   }
   .review .review-field:nth-child(1n) {
     background-color: rgb(237, 236, 236);
@@ -944,6 +944,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     flex-flow: row nowrap;
     align-items: center;
     gap: 0.5vw;
+    min-width: none;
   }
   .review .info-container .edit {
     color: blue;

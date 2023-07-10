@@ -116,7 +116,7 @@ function openModalDepartment(title, body){
     modalHeader.style.display = 'flex';
     modalFooter.style.display = 'flex';
     modal.classList.add('modal-lg');
-
+    modalTitle.style.color = 'unset';
     // modalCloseBtn.style.display = 'none';
     positiveBtn.style.display = 'none';
 
@@ -144,6 +144,7 @@ function openModalUserError(title, body){
     positiveBtn.style.display = 'none';
     // modalCloseBtn.style.display = 'none';
 
+    modalTitle.style.color = "red";
     modalTitle.innerHTML = title;
     modalBody.innerHTML = body;
     modalBody.style.fontSize = '1.3rem';
@@ -165,7 +166,7 @@ function openModalOTP(){
     modal.classList.add('modal-lg');
     modalHeader.style.display = 'none';
     modalFooter.style.display = 'none';
-    
+    modalTitle.style.color = 'unset';
     modalBody.style.minHeight = '400px';
 
     let htmlCode = '<div class="OTP-container"><div class="textInfo-container"><span class="mainText">Ibigay ang iyong One-Time Password upang i-confirm ang iyong appointment.</span><span class="subText">Ang One-Time Password ay sinend sa numero ng teleponong <span class="phoneDisplay">09XX XXX XXXX</span></span></div><div class="OTP-body"><div class="OTP-field"><input type="text" name="OTP1" id="OTP1" oninput="inputLimiter(this.id, 5)" onblur="inputLimiterBlur(this.id, 5)"><button class="resend-btn">Re-Send</button></div><div class="error-msg"></div></div><button class="OTP-btn">Submit</button></div>'
@@ -197,6 +198,7 @@ function inputLimiter(id, max){
     element.value = element.value.replace(/\D+/g, '');
 }
 
+// If konwari nag copypaste si user tapos nag blur tanggalin yung sobra
 function inputLimiterBlur(id, max){
     let element = document.getElementById(id);
     let newVal = "";

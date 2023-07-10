@@ -1036,7 +1036,7 @@ main{
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 5vw;
+    padding: 3vw 5vw;
     gap: 5vw;
 
     span{
@@ -1122,7 +1122,7 @@ main{
             flex-flow: row nowrap;
             justify-content: space-between;
             align-items: center;
-            padding: 1%;
+            padding: 0.2vw;
         }
 
         .review-field:nth-child(1n) {
@@ -1149,6 +1149,7 @@ main{
             flex-flow: row nowrap;
             align-items: center;
             gap: 0.5vw;
+            min-width: none;
 
             .edit{
                 color: blue;
