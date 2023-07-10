@@ -77,33 +77,33 @@ const departmentDesc = {
 
 }
 
-window.addEventListener('touchstart', ()=>{
-    document.querySelector('#birthDate').removeAttribute('onkeypress');
-    document.querySelector('#birthDate').setAttribute('onkeyup', 'inputLimiter(this.id,2)');
-    document.querySelector('#birthYear').removeAttribute('onkeypress');
-    document.querySelector('#birthYear').setAttribute('onkeyup', 'inputLimiter(this.id,4)');
+// window.addEventListener('touchstart', ()=>{
+//     document.querySelector('#birthDate').removeAttribute('onkeypress');
+//     document.querySelector('#birthDate').setAttribute('onkeyup', 'inputLimiter(this.id,2)');
+//     document.querySelector('#birthYear').removeAttribute('onkeypress');
+//     document.querySelector('#birthYear').setAttribute('onkeyup', 'inputLimiter(this.id,4)');
 
-    try {
-        document.querySelector('#OTP1').removeAttribute('onkeypress');
-        document.querySelector('#OTP1').setAttribute('onkeyup', 'inputLimiter(this.id,5)');
-    } catch (error) {
+//     try {
+//         document.querySelector('#OTP1').removeAttribute('onkeypress');
+//         document.querySelector('#OTP1').setAttribute('onkeyup', 'inputLimiter(this.id,5)');
+//     } catch (error) {
         
-    }
-});
+//     }
+// });
 
-window.addEventListener('mouseup', ()=>{
-    document.querySelector('#birthDate').removeAttribute('onkeyup');
-    document.querySelector('#birthDate').setAttribute('onkeypress', 'inputLimiter(this.id,2)');
-    document.querySelector('#birthYear').removeAttribute('onkeyup');
-    document.querySelector('#birthYear').setAttribute('onkeypress', 'inputLimiter(this.id,4)');
+// window.addEventListener('mouseup', ()=>{
+//     document.querySelector('#birthDate').removeAttribute('onkeyup');
+//     document.querySelector('#birthDate').setAttribute('onkeypress', 'inputLimiter(this.id,2)');
+//     document.querySelector('#birthYear').removeAttribute('onkeyup');
+//     document.querySelector('#birthYear').setAttribute('onkeypress', 'inputLimiter(this.id,4)');
 
-    try {
-        document.querySelector('#OTP1').removeAttribute('onkeyup');
-        document.querySelector('#OTP1').setAttribute('onkeypress', 'inputLimiter(this.id,5)');
-    } catch (error) {
+//     try {
+//         document.querySelector('#OTP1').removeAttribute('onkeyup');
+//         document.querySelector('#OTP1').setAttribute('onkeypress', 'inputLimiter(this.id,5)');
+//     } catch (error) {
         
-    } 
-});
+//     } 
+// });
 
 setInterval(()=>{
     errorShow = true;
@@ -217,8 +217,9 @@ function openModalOTP(){
 // If 5 na yung length ni OTP input mag blur siya para di niya maexceed yung 5 na input
 function inputLimiter(id, max){
     let element = document.getElementById(id);
-    if (element.value.length > max-1){
-        element.blur();
+    if (element.value.length > max){
+        element.value = element.value.substring(0, element.value.length-1);
+        // alert('test');
     }
 
 }
