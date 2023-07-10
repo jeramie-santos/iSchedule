@@ -91,7 +91,7 @@ window.addEventListener('touchstart', ()=>{
     }
 });
 
-window.addEventListener('click', ()=>{
+window.addEventListener('mouseup', ()=>{
     document.querySelector('#birthDate').removeAttribute('onkeyup');
     document.querySelector('#birthDate').setAttribute('onkeypress', 'inputLimiter(this.id,2)');
     document.querySelector('#birthYear').removeAttribute('onkeyup');
@@ -228,7 +228,7 @@ function checkOTP(){
 
     // DITO NAKALAGAY YUNG CHECKING TAPOS IF MALI BAGSAK DITO SA BABA
     
-    
+
     // Pag mali input ni user ere labas
     // second time na mali mag shake si error msg
     if(error.innerHTML != ""){
