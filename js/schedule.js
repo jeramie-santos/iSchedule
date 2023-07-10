@@ -228,7 +228,7 @@ function checkOTP(){
 
     // DITO NAKALAGAY YUNG CHECKING TAPOS IF MALI BAGSAK DITO SA BABA
     
-
+    
     // Pag mali input ni user ere labas
     // second time na mali mag shake si error msg
     if(error.innerHTML != ""){
