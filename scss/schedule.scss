@@ -343,11 +343,10 @@ main{
     width: 100%;
     padding: 3vw 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(145px,1fr));
-    row-gap: 3vw;
+    grid-template-columns: repeat(auto-fit,minmax(45%,1fr));
+    gap: 5vw;
     justify-items: center;
     overflow-y: auto;
-    gap: 1vw;
 
     .form__card{
         display: flex;
