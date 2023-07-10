@@ -78,6 +78,7 @@ const departmentDesc = {
 }
 
 window.addEventListener('touchstart', ()=>{
+    alert('test');
     document.querySelector('#birthDate').removeAttribute('onkeypress');
     document.querySelector('#birthDate').setAttribute('onkeyup', 'inputLimiter(this.id,2)');
     document.querySelector('#birthYear').removeAttribute('onkeypress');
