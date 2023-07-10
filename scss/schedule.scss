@@ -830,11 +830,6 @@ main{
         font-weight: 1000;
     }
 
-    .date:hover{
-        border: 5px solid $primary-color;
-        cursor: pointer;
-    }
-
     .block{
         border: 2px solid $fontbase-color;
         width: 9vw;
@@ -975,6 +970,11 @@ main{
         .calendar-container{
             box-shadow: -10px 10px rgba(110, 109, 109, 0.446);
             transition-duration: 500ms;
+
+            .date:hover{
+                border: 5px solid $primary-color;
+                cursor: pointer;
+            }
         }
 
         .calendar-container:hover{

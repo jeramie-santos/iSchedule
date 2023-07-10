@@ -169,17 +169,9 @@ function generateDate(days, NameOfDay1st){
                 item.classList.add('block');
             }
         }
-        // else{
-        //     let tempDate = new Date();
-        //     if(item.innerHTML <= tempDate.getDate()){
-        //         item.classList.remove('date');
-        //         item.classList.add('block');
-        //     }
-        // }
 
         if(item.innerHTML == "") {
             item.classList.remove('date');
-            // item.classList.add('block');
             item.classList.add('block');
             item.innerHTML = 'X';
         }

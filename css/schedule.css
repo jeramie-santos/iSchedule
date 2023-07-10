@@ -691,10 +691,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
   color: black;
   font-weight: 1000;
 }
-.calendar-container .date:hover {
-  border: 5px solid rgb(7, 62, 157);
-  cursor: pointer;
-}
 .calendar-container .block {
   border: 2px solid rgb(80, 78, 78);
   width: 9vw;
@@ -814,6 +810,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
   .third .calendar-container {
     box-shadow: -10px 10px rgba(110, 109, 109, 0.446);
     transition-duration: 500ms;
+  }
+  .third .calendar-container .date:hover {
+    border: 5px solid rgb(7, 62, 157);
+    cursor: pointer;
   }
   .third .calendar-container:hover {
     transform: translateY(-15px);
