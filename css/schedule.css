@@ -923,7 +923,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    padding: 0.2vw;
+    padding: 0.2vw 1.5vw;
   }
   .review .review-field:nth-child(1n) {
     background-color: rgb(237, 236, 236);
