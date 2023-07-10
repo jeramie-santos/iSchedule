@@ -319,6 +319,7 @@ main {
   row-gap: 3vw;
   justify-items: center;
   overflow-y: auto;
+  gap: 1vw;
 }
 .first .form__card {
   display: flex;
