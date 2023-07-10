@@ -193,6 +193,8 @@ function inputLimiter(id, max){
         element.value = element.value.slice(0, -1);
         // alert('test');
     }
+
+    element.value = element.value.replace(/\D+/g, '');
 }
 
 function inputLimiterBlur(id, max){
