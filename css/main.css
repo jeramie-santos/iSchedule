@@ -260,13 +260,13 @@ main {
   }
   @keyframes floating {
     0% {
-      height: 0px;
+      transform: translate(0, 0px);
     }
     50% {
-      height: 0px;
+      transform: translate(0, 50px);
     }
     100% {
-      height: 0px;
+      transform: translate(0, 0px);
     }
   }
   .landing-page .landing-page__img-container {
