@@ -125,7 +125,7 @@ body {
   text-decoration: none;
   color: rgb(7, 62, 157);
   width: 100%;
-  padding: 7px;
+  padding: clamp(30px, 10%, 50px) 7px;
   background: transparent;
   border: none;
   text-align: left;
