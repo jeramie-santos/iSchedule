@@ -92,24 +92,23 @@ body {
   align-self: flex-end;
 }
 .header__nav-mobile .header__nav-mobile--links {
-  width: 320px;
+  width: 300px;
   background-color: #fff;
   display: flex;
   flex-flow: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 20px;
   position: absolute;
-  top: 80px;
+  top: 60px;
   right: 0;
   z-index: 1;
   border-radius: 5px;
-  padding: 2vw;
-  box-shadow: 0 0 3px 3px rgba(22, 94, 237, 0.347);
+  box-shadow: 0 0 2px 2px rgba(22, 94, 237, 0.205);
   text-transform: uppercase;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  padding: 1vw;
 }
 .header__nav-mobile .header__nav-mobile--links .header__links-logo {
   width: 30px;
@@ -117,21 +116,22 @@ body {
 .header__nav-mobile .header__nav-mobile--links .header__dropdown-item {
   display: flex;
   flex-flow: row nowrap;
-  gap: 2vw;
+  gap: 1vw;
   justify-content: flex-start;
   align-items: center;
   font-size: 1rem;
   font-weight: 1000;
   text-decoration: none;
-  color: #4687f7;
+  color: rgb(7, 62, 157);
   width: 100%;
-  padding: 7px;
+  padding: clamp(30px, 10%, 50px) 7px;
   background: transparent;
   border: none;
   text-align: left;
+  height: 40px;
 }
 .header__nav-mobile .header__nav-mobile--links .header__dropdown-item:hover {
-  color: #77a7f9;
+  color: #0a5be6;
   cursor: pointer !important;
 }
 
@@ -562,7 +562,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
     height: 40px;
   }
   .header__nav-mobile .header__nav-mobile--links {
-    width: 200px;
+    top: 70px;
+    width: 240px;
   }
   .first .form__card {
     width: 100px;
