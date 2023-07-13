@@ -422,16 +422,28 @@ main{
 }
 
 .announcement{
-    margin: 10vw 5vw 5vw 5vw;
+    margin: 7vw 5vw 5vw 5vw;
     padding: 3vw;
     background-color: white;
-    max-height: 600px;
-    max-width: 1200px;
-    width: 85%;
+    max-width: 1920px;
+    width: 90%;
     z-index: 2;
-    border-radius: 15px;
-    box-shadow: 0px 0px 5px rgba(81, 84, 90, 0.539);
-    overflow-y: scroll;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: max(30px, 2vw);
+    // box-shadow: 0px 0px 5px rgba(81, 84, 90, 0.539);
+
+    .announcement__content-container{
+        width: 100%;
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+        grid-template-columns: repeat(autofill,minmax(max(300px,50%),1fr));
+        row-gap: 10px;
+    }
 
     .announcement__header{
         display: flex;
@@ -459,16 +471,34 @@ main{
         font-weight: 700;
         //margin:5vw 0 2vw 0;
     }
+
+    .announcement__button--see-more{
+        background-color: transparent;
+        border: unset;
+        color: $fontbase-color;
+    }
+
+    .announcement__button--see-more:hover{
+        color: $primary-alt;
+    }
 }
 
 .announcement__content{
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 4vw 2vw;
-    border-top: 2px solid $fontbase-color;
+    // display: flex;
+    // flex-flow: column;
+    // justify-content: center;
+    // align-items: flex-start;
+    // gap: 10px;
+    // padding: 4vw 2vw;
+    // border-top: 2px solid $fontbase-color;
+    border-radius: 10px;
+    padding: max(2vw, 15px);
+    min-width: 250px;
+    height: fit-content;
+    overflow: hidden;
+    margin: 1vw;
+    box-shadow: 0 0 2px 2px rgba(143, 142, 142, 0.418);
+    background-color: white;
 
     .announcement__news-header{
         display: flex;
@@ -489,15 +519,44 @@ main{
             color: rgb(120, 119, 119);
             font-style: italic;
             font-size: 0.8rem;
+            margin-bottom: max(15px, 1vw);
         }
+    }
+
+    .announcement__news-body{
+        color: $fontbase-color;
+        // display: none;
     }
 }
 
-@media only screen and (min-width: 1200px){
-    .announcement{
-        max-height: 800px;
-    }
-}
+
+// @media only screen and (min-width: 1200px){
+//     .announcement{
+//         max-height: 800px;
+//     }
+// }
+
+// Gawin sanang pa cards si announcement pero hindi na?
+// .announcement{
+//     display: grid;
+//     grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );  
+//     justify-items: center;
+//     justify-content: center;
+//     row-gap: 2vw;
+//     margin-top:10vw;
+//     padding: 0 5vw 5vw 5vw ;
+//     width: 100%;
+    
+//         .news-card{
+//             width: 300px;
+//             height: 250px;
+//             background-color: whitesmoke;
+//             border-radius: 10px;
+//             margin: 10px;
+//             overflow-y: auto;
+            
+//         }
+// }
 
 .benefit{
     width: 100%;
