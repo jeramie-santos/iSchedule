@@ -3,7 +3,10 @@ const announcement = document.querySelector('#announcement');
 const landingImg = document.querySelector('.landing-page__img');
 const tutorialStep = document.querySelectorAll('.tutorial__step');
 const circles = document.querySelectorAll('.circle');
-let landingImgUp = false;
+
+
+// ALSO CALL THIS FUNCTION WHEN ANNOUNCEMENT SEE MORE IS CLICKED
+addAOSToAnnouncement();
 
 //Initializes AOS
 AOS.init();
@@ -49,6 +52,23 @@ tutorialStep.forEach((item, index) => {
     });
 });
 
+function addAOSToAnnouncement(){
+    let announcementOdd = document.querySelectorAll('.announcement__content:nth-child(odd)');
+    let announcementEven = document.querySelectorAll('.announcement__content:nth-child(even)');
+
+    // data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"
+    announcementOdd.forEach((item)=>{
+        item.setAttribute('data-aos', 'fade-right');
+        item.setAttribute('data-aos-duration', '1000');
+        item.setAttribute('data-aos-delay', '200');
+    });
+
+    announcementEven.forEach((item)=>{
+        item.setAttribute('data-aos', 'fade-left');
+        item.setAttribute('data-aos-duration', '1000');
+        item.setAttribute('data-aos-delay', '200');
+    });
+}
 
 
 
