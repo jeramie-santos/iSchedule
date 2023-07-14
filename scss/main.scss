@@ -196,7 +196,7 @@ main{
             border: 1px solid $primary-color;
             background-color: $primary-alt;
             color: white;
-            box-shadow: 5px 5px rgb(186, 185, 185);
+            // box-shadow: 5px 5px rgba(99, 98, 98, 0.473);
             width: 90vw;
             height:70px;
             font-size: 1.1rem;
@@ -530,7 +530,6 @@ main{
     }
 }
 
-
 // @media only screen and (min-width: 1200px){
 //     .announcement{
 //         max-height: 800px;
@@ -733,6 +732,7 @@ main{
             iframe{
                 border-radius: 20px;
                 //border: 3px solid $primary-color;
+                box-shadow: 5px 5px 15px rgb(186, 185, 185);
             }
         }
     
@@ -846,11 +846,12 @@ main{
         }
     }
 
-    .tutorial__video-container{
-        iframe{
-            box-shadow: 10px 10px rgb(186, 185, 185);
-        }
-    }
+    // .tutorial__video-container{
+    //     iframe{
+    //         box-shadow: 5px 5px 15px rgb(186, 185, 185);
+    //         transition-duration: 500ms;
+    //     }
+    // }
   
 }
 
@@ -873,6 +874,108 @@ main{
     .tutorial__circle-container{
         gap: 1vw !important;
     }
+}
+
+.track{
+    margin: max(50px, 5vw);
+    background-color: whitesmoke;
+    height: max(250px,25vw);
+    width: max(300px, 80%);
+    max-width: 1920px;
+    border-radius: 20px;
+    // box-shadow: 0 0 10px rgba(67, 67, 67, 0.402);
+    box-shadow: 0px 0px 5px rgba(143, 142, 142, 0.832);
+    padding: max(15px,3vw);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 500ms;
+    gap: max(10px, 2vw);
+}
+
+.track__header{
+    h1{
+        color: $primary-color;
+        font-size: 1.5rem;
+        text-align: center;
+        font-weight: 700;
+    }
+}
+
+.track__form{
+    display: flex;
+    flex-flow: row nowrap;
+    width: max(280px, 70%);
+    // box-shadow: 0 0 4px black;
+    border-radius: max(5px, 1vw);
+    margin-top: max(15px, 2vw);
+    margin-bottom: max(5px, 0.8vw);
+    height: max(50px, 10%);
+    .track__input{
+        background-color: white;
+        border-radius: max(15px, 1vw) 0 0 max(15px, 1vw);    
+        // border: 1px solid $fontbase-color;
+        border: unset;
+        width: 75%;
+        padding: max(10px, 1vw);
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 500;
+        border: 2px solid $fontbase-color;
+        border-right: unset;
+        height: 100%;
+    }
+    
+    .track__input:focus{
+        outline: unset;
+    }
+
+    .track__submit{
+        border-radius: 0 max(15px, 1vw) max(15px, 1vw) 0;    
+        width: 25%;
+        border: unset;
+        background-color: $primary-alt;
+        color: white;
+        font-size: 1.2rem;
+        height: 100%;
+    }
+
+    .track__submit:hover{
+        background-color: darken($primary-alt, 5);
+    }
+}
+
+@media only screen and (min-width: 1200px){
+
+    .track{
+        box-shadow: 10px 10px rgb(186, 185, 185);
+        gap: unset;
+        
+        .track__form{
+            height: max(50px, 20%);
+        }
+    }
+
+    .track:hover{
+        box-shadow: 20px 20px rgb(186, 185, 185);
+        transform: translateY(-20px);
+        transform: translateY(-10px);
+        cursor: pointer;
+    }
+
+    .track__header{
+        h1{
+            font-size: 2rem;
+        }
+    }
+
+}
+
+.track__instruction{
+    text-align: center;
+    font-size: 0.9rem;
+    color: gray;
 }
 
 footer{

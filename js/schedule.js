@@ -188,7 +188,15 @@ function openModalOTP(){
 
 function filterPhoneInput(id){
     let element = document.getElementById(id);
-    element.value = element.value.replace(/^[A-Za-z]*$/, "");
+    let newVal = "";
+
+    for(i =0; i< element.value.length; i++){
+
+        if(!isNaN(element.value[i])){
+            newVal+= element.value[i];
+        }
+    };
+    element.value = newVal;
 }
 
 // If 5 na yung length ni OTP input mag blur siya para di niya maexceed yung 5 na input
@@ -812,7 +820,7 @@ function errorHandler(code, id){
         errorHighlight.style.borderColor = 'red';
     }
     else if(code == '51'){
-        formErrorMessage = 'Ang numero ng telepono ay kailangan labingisa(11) lamang. Halimbawa: 09XX XXX XXXX';
+        formErrorMessage = 'Ang numero ng telepono ay kailangan labingisa(11). Halimbawa: 09XX XXX XXXX';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }

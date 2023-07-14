@@ -150,7 +150,7 @@
               </svg>
             </div>
             <div class="benefit__header">
-                Why use iSchedule?
+                Why Use iSchedule?
             </div>
             <div class="benefit__card-container">
               <div class="benefit__card">
@@ -211,6 +211,18 @@
                 </div>
               </div>
           </section>
+          <section class="track">
+            <div class="track__header">
+              <h1>Tingnan ang Iyong Active Appointment</h1>
+            </div>
+            <div class="track__form">
+              <input class="track__input" type="text" placeholder="09XX XXX XXXX" id="phone-number" oninput="filterPhoneInput(this.id)">
+              <button class="track__submit" onclick="submitTrack()">Submit</button>
+            </div>
+            <div class="track__instruction">
+              Ibigay ang ginamit mong numero ng telepono sa iyong pag gawa ng appointment.
+            </div>
+          </section>
     </main>
     <footer id="footer">
         <div class="footer__svg-upper">
@@ -241,5 +253,26 @@
           <div class="contact__social contact__social-landline"><img class="contact__img" src="./imgs/phonelogo.png" alt="Phone Logo" srcset="" draggable="false">(044)-482-4207</div>
         </section>
     </footer>
+    <button type="button" class="btn btn-primary modal-launcher" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="display:none">
+      Launch static backdrop modal
+  </button>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
+          </div>
+          <div class="modal-body">
+          ...
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary negative" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary positive" data-bs-dismiss="modal">Understood</button>
+          </div>
+      </div>
+      </div>
+  </div>
 </body>
 </html>

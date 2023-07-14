@@ -187,7 +187,6 @@ main {
   border: 1px solid rgb(7, 62, 157);
   background-color: rgb(1, 81, 221);
   color: white;
-  box-shadow: 5px 5px rgb(186, 185, 185);
   width: 90vw;
   height: 70px;
   font-size: 1.1rem;
@@ -382,6 +381,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: max(30px, 2vw);
+  overflow-x: hidden;
 }
 .announcement .announcement__content-container {
   width: 100%;
@@ -604,6 +604,7 @@ main {
 }
 .tutorial .tutorial__content .tutorial__video-container iframe {
   border-radius: 20px;
+  box-shadow: 5px 5px 15px rgb(186, 185, 185);
 }
 .tutorial .tutorial__content .tutorial__procedure {
   display: flex;
@@ -694,9 +695,6 @@ main {
   .tutorial__procedure .tutorial__circle-container {
     gap: 3vw;
   }
-  .tutorial__video-container iframe {
-    box-shadow: 10px 10px rgb(186, 185, 185);
-  }
 }
 @media only screen and (min-width: 1600px) {
   .tutorial {
@@ -715,6 +713,92 @@ main {
     gap: 1vw !important;
   }
 }
+.track {
+  margin: max(50px, 5vw);
+  background-color: whitesmoke;
+  height: max(250px, 25vw);
+  width: max(300px, 80%);
+  max-width: 1920px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px rgba(143, 142, 142, 0.832);
+  padding: max(15px, 3vw);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 500ms;
+  gap: max(10px, 2vw);
+}
+
+.track__header h1 {
+  color: rgb(7, 62, 157);
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.track__form {
+  display: flex;
+  flex-flow: row nowrap;
+  width: max(280px, 70%);
+  border-radius: max(5px, 1vw);
+  margin-top: max(15px, 2vw);
+  margin-bottom: max(5px, 0.8vw);
+  height: max(50px, 10%);
+}
+.track__form .track__input {
+  background-color: white;
+  border-radius: max(15px, 1vw) 0 0 max(15px, 1vw);
+  border: unset;
+  width: 75%;
+  padding: max(10px, 1vw);
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: 2px solid rgb(80, 78, 78);
+  border-right: unset;
+  height: 100%;
+}
+.track__form .track__input:focus {
+  outline: unset;
+}
+.track__form .track__submit {
+  border-radius: 0 max(15px, 1vw) max(15px, 1vw) 0;
+  width: 25%;
+  border: unset;
+  background-color: rgb(1, 81, 221);
+  color: white;
+  font-size: 1.2rem;
+  height: 100%;
+}
+.track__form .track__submit:hover {
+  background-color: #0148c4;
+}
+
+@media only screen and (min-width: 1200px) {
+  .track {
+    box-shadow: 10px 10px rgb(186, 185, 185);
+    gap: unset;
+  }
+  .track .track__form {
+    height: max(50px, 20%);
+  }
+  .track:hover {
+    box-shadow: 20px 20px rgb(186, 185, 185);
+    transform: translateY(-20px);
+    transform: translateY(-10px);
+    cursor: pointer;
+  }
+  .track__header h1 {
+    font-size: 2rem;
+  }
+}
+.track__instruction {
+  text-align: center;
+  font-size: 0.9rem;
+  color: gray;
+}
+
 footer {
   padding: 5vw;
   background-color: rgb(7, 62, 157);
