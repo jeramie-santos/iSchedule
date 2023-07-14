@@ -728,6 +728,7 @@ main {
   align-items: center;
   transition-duration: 500ms;
   gap: max(10px, 2vw);
+  overflow-x: hidden;
 }
 
 .track__header h1 {
