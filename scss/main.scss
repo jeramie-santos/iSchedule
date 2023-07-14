@@ -876,6 +876,13 @@ main{
     }
 }
 
+.track__wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .track{
     margin: max(50px, 5vw);
     background-color: whitesmoke;
@@ -952,6 +959,7 @@ main{
     .track{
         box-shadow: 10px 10px rgb(186, 185, 185);
         gap: unset;
+        transition-duration: 500ms;
         
         .track__form{
             height: max(50px, 20%);
@@ -959,9 +967,9 @@ main{
     }
 
     .track:hover{
-        box-shadow: 20px 20px rgb(186, 185, 185);
-        transform: translateY(-20px);
-        transform: translateY(-10px);
+        box-shadow: 20px 20px rgb(186, 185, 185) !important;
+        transform: translate(-5px, -15px) !important;
+        transform:rotate(90deg);
         cursor: pointer;
     }
 
@@ -1171,4 +1179,22 @@ footer{
 .modal-title{
     font-weight: 1000 !important;
     font-size:1.3rem !important;
+}
+
+.back-top{
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding: 1vw;
+    margin-top: max(15px, 2vw);
+    transition-duration: 500ms;
+}
+
+
+.back-top:hover{
+    color: whitesmoke;
+    cursor: pointer;
+    background-color: white;
+    color: $primary-alt;
 }
