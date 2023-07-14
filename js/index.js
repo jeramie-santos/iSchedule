@@ -79,17 +79,21 @@ function submitTrack(){
         const modalTitle = document.querySelector('.modal-title');
         const modalBody = document.querySelector('.modal-body');
         const modalPositive = document.querySelector('.positive');
-        modalTitle.innerHTML =  "Active Appointment";
+        modalBody.style.fontSize = '1.3rem';
         modalPositive.style.display = 'none';
 
     if(evaluatePhoneNum(val)){
         let phoneNum = properPhoneNum(val);
 
         checkExistingAppointment(phoneNum);
+        modalTitle.innerHTML =  "Active Appointment";
+        modalTitle.style.color = 'unset';
         modalBody.innerHTML = "Ikaw ay walang kasalukuyang active appointment.";
         // modalBody.innerHTML = "July 21, 2023 (1:00 PM - 2:00 PM) @ Pediatric Cardiology";
     }
     else{
+        modalTitle.innerHTML =  "Invalid Input";
+        modalTitle.style.color = 'red';
         modalBody.innerHTML = formErrorMessage;
     }
     

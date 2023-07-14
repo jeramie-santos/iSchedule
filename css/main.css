@@ -948,4 +948,9 @@ footer .about .about__content {
   line-height: 0;
   transform: rotate(180deg);
   z-index: -1;
+}
+
+.modal-title {
+  font-weight: 1000 !important;
+  font-size: 1.3rem !important;
 }/*# sourceMappingURL=main.css.map */
