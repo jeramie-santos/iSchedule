@@ -85,7 +85,8 @@ function submitTrack(){
         let phoneNum = properPhoneNum(val);
 
         checkExistingAppointment(phoneNum);
-        modalBody.innerHTML = "July 21, 2023 (1:00 PM - 2:00 PM) @ Pediatric Cardiology"
+        modalBody.innerHTML = "Ikaw ay walang kasalukuyang active appointment.";
+        // modalBody.innerHTML = "July 21, 2023 (1:00 PM - 2:00 PM) @ Pediatric Cardiology";
     }
     else{
         modalBody.innerHTML = formErrorMessage;
