@@ -152,7 +152,7 @@ main {
   margin: 0 auto;
   width: 100%;
   min-width: 320px;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .landing-page {
@@ -728,7 +728,7 @@ main {
   align-items: center;
   transition-duration: 500ms;
   gap: max(10px, 2vw);
-  overflow-x: hidden;
+  overflow: hidden !important;
 }
 
 .track__header h1 {
