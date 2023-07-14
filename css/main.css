@@ -724,7 +724,8 @@ main {
   margin: max(50px, 5vw);
   background-color: whitesmoke;
   height: max(250px, 25vw);
-  width: max(300px, 80%);
+  width: 80%;
+  min-width: 300px;
   max-width: 1920px;
   border-radius: 20px;
   box-shadow: 0px 0px 5px rgba(143, 142, 142, 0.832);
@@ -748,7 +749,8 @@ main {
 .track__form {
   display: flex;
   flex-flow: row nowrap;
-  width: max(280px, 70%);
+  width: 100%;
+  max-width: 900px;
   border-radius: max(5px, 1vw);
   margin-top: max(15px, 2vw);
   margin-bottom: max(5px, 0.8vw);
@@ -758,7 +760,7 @@ main {
   background-color: white;
   border-radius: max(15px, 1vw) 0 0 max(15px, 1vw);
   border: unset;
-  width: 75%;
+  width: 70%;
   padding: max(10px, 1vw);
   text-align: center;
   font-size: 1.2rem;
@@ -772,7 +774,7 @@ main {
 }
 .track__form .track__submit {
   border-radius: 0 max(15px, 1vw) max(15px, 1vw) 0;
-  width: 25%;
+  width: 30%;
   border: unset;
   background-color: rgb(1, 81, 221);
   color: white;
@@ -968,7 +970,7 @@ footer .about .about__content {
   font-weight: 700;
   border-radius: 10px;
   border: 1px solid white;
-  padding: 1vw;
+  padding: max(10px, 1vw);
   margin-top: max(15px, 2vw);
   transition-duration: 500ms;
 }
