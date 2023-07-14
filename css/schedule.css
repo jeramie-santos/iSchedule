@@ -740,6 +740,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .slot-container {
   overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .slot-container .slot {
   padding: 1vw;
@@ -761,6 +764,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   font-style: italic;
 }
 .slot-container .slotAvail {
+  font-weight: 700;
+}
+.slot-container .calendar__instruction {
   font-weight: 700;
 }
 

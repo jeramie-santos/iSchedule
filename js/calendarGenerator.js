@@ -24,6 +24,35 @@ InitialSetup();
 calendarNext.addEventListener('click', nextMonthBtn);
 calendarPrev.addEventListener('click', prevMonthBtn);
 
+function loadSlots(selectedDateVal){
+    let slotContainer = document.querySelector('.slot-container');
+    // retrieve dapat yung mga slots nung selectedDate from db pero for now eto hardcoded
+    let tempSlotId = ['a', 'b', 'c', 'd'];
+    let tempSlotInfo = ['8:00 AM - 10:00 AM', '10:00 AM - 11:00 AM', '1:00 PM - 2:00 PM', '2:00 PM - 4:00 PM'];
+    let tempSlotAvail = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]
+
+    slotContainer.style.justifyContent = 'flex-start';
+    slotContainer.innerHTML = "";
+
+    tempSlotId.forEach((item, index)=>{
+        let newSlot = document.createElement('div');
+        newSlot.classList.add('slot');
+        newSlot.setAttribute('id',item);
+
+        let newInfo = document.createElement('div');
+        newInfo.innerHTML = tempSlotInfo[index];
+        newInfo.classList.add('time');
+        newSlot.appendChild(newInfo);
+
+        let newSlotAvail = document.createElement('div');
+        newSlotAvail.innerHTML = tempSlotAvail[index]+ ' Slot(s) Available';
+        newInfo.classList.add('slotAvail');
+        newSlot.appendChild(newSlotAvail);
+
+        slotContainer.appendChild(newSlot);
+    });
+}
+
 function changeSlotContent(){
     alert('function na walang laman');
 }
@@ -58,6 +87,7 @@ function selectDate(){
                 item.classList.add('date-selected');
                 selectedDate = item.innerHTML;
                 document.getElementById('scheduleDate').value = `${selectedMonth} ${selectedDate}, ${selectedYear}`;
+                loadSlots(document.getElementById('scheduleDate').value);
             }
         });
     });

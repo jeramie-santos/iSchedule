@@ -886,6 +886,9 @@ main{
 
 .slot-container{
     overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .slot{
         padding: 1vw;
@@ -911,6 +914,10 @@ main{
     }
 
     .slotAvail{
+        font-weight: 700;
+    }
+
+    .calendar__instruction{
         font-weight: 700;
     }
 }
