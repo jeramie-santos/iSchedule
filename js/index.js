@@ -6,6 +6,7 @@ const circles = document.querySelectorAll('.circle');
 let formErrorMessage = '';
 
 // ALSO CALL THIS FUNCTION WHEN ANNOUNCEMENT SEE MORE IS CLICKED
+// NAKIKITA LANG YUNG SEE MORE BUTTON IF THERE IS MORE THAN 4 ANNOUNCEMENT NA SA DATABASE
 addAOSToAnnouncement();
 
 //Initializes AOS
