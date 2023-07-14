@@ -819,7 +819,6 @@ footer {
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
   margin-top: 5vw;
   min-width: 320px;
 }
@@ -971,7 +970,7 @@ footer .about .about__content {
   border-radius: 10px;
   border: 1px solid white;
   padding: max(10px, 1vw);
-  margin-top: max(15px, 2vw);
+  margin-top: max(50px, 2vw);
   transition-duration: 500ms;
 }
 
