@@ -541,7 +541,7 @@ main {
   position: relative;
   display: block;
   width: calc(168% + 1.3px);
-  height: 327px !important;
+  height: 300px !important;
 }
 
 .benefit__svg-lower .shape-fill {
@@ -888,7 +888,7 @@ footer .about .about__content {
   position: relative;
   display: block;
   width: calc(168% + 1.3px);
-  height: 327px !important;
+  height: 300px !important;
 }
 
 .footer__svg-upper .shape-fill {
