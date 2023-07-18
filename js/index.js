@@ -42,7 +42,6 @@ document.querySelectorAll('.btn-link').forEach((item)=>{
     });
 });
 
-
 tutorialStep.forEach((item, index) => {
     item.addEventListener('mouseover', () => {
         circles[index].style.transform = 'rotate(360deg)';

@@ -49,8 +49,11 @@ function loadSlots(selectedDateVal){
         newInfo.classList.add('slotAvail');
         newSlot.appendChild(newSlotAvail);
 
+        console.log(newSlot);
         slotContainer.appendChild(newSlot);
     });
+
+    selectSlot();
 }
 
 function changeSlotContent(){
@@ -154,7 +157,6 @@ function InitialSetup(){
     generateDate(numOfDays, firstDayOfMonth);
 
     selectDate();
-    selectSlot();
 }
     
 function generateDate(days, NameOfDay1st){
