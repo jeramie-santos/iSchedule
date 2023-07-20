@@ -820,7 +820,7 @@ function errorHandler(code, id){
         errorHighlight.style.borderColor = 'red';
     }
     else if(code == '51'){
-        formErrorMessage = 'Ang numero ng telepono ay kailangan labingisa(11). Halimbawa: 09XX XXX XXXX';
+        formErrorMessage = 'Ang numero ng telepono ay kailangan labingisa(11). Halimbawa: 09XX XXX XXXX.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
