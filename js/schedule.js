@@ -728,7 +728,7 @@ function errorHandler(code, id){
         errorHighlight.style.borderColor = 'red';
     }
     else if(code == '11'){
-        formErrorMessage = 'Ang gitnang pangalan ay kailangang kumpleto at di maaring magkaroon ng numero o special characters.';
+        formErrorMessage = 'Ang gitnang pangalan ay di maaring magkaroon ng numero o special characters.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
