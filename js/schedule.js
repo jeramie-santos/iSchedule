@@ -199,7 +199,7 @@ function filterPhoneInput(id){
     element.value = newVal;
 }
 
-// If 5 na yung length ni OTP input mag blur siya para di niya maexceed yung 5 na input
+// gets the value of given sa id param and then ilimit siya gamit yung max
 function inputLimiter(id, max){
     let element = document.getElementById(id);
     if (element.value.length > max){
