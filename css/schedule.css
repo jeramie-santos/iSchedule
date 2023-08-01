@@ -222,8 +222,7 @@ main {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  height: 60vh;
-  min-height: 500px;
+  height: 85%;
 }
 
 .progression {
