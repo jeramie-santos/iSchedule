@@ -346,8 +346,9 @@ main{
     padding: 3vw 0;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(35%,1fr));
-    row-gap: 10vw;
+    row-gap: max(70px, 3vw);
     justify-items: center;
+    align-items: center;
     overflow-y: auto;
 
     .form__card{
@@ -422,6 +423,11 @@ main{
 }
 
 @media only screen and (min-width: 900px){
+
+    .first{
+        row-gap: 3vw;
+    }
+
     .form__btn-container{
         flex-flow: row-reverse nowrap;
         justify-content: flex-start;
@@ -466,7 +472,6 @@ main{
 
     .first{
         grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
-        gap: 3vw;
         padding: 3vw;
         align-content:flex-start;
 
