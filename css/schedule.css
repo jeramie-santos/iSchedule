@@ -315,7 +315,7 @@ main {
   padding: 3vw 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
-  row-gap: max(70px, 3vw);
+  row-gap: max(50px, 3vw);
   justify-items: center;
   align-items: center;
   overflow-y: auto;
@@ -326,7 +326,7 @@ main {
   justify-content: space-between;
   align-items: center;
   width: 140px;
-  height: 150px;
+  height: 160px;
   border-radius: 20px;
   background-color: white;
   box-shadow: 5px 5px rgb(186, 185, 185);
@@ -375,9 +375,6 @@ main {
   }
 }
 @media only screen and (min-width: 900px) {
-  .first {
-    row-gap: 3vw;
-  }
   .form__btn-container {
     flex-flow: row-reverse nowrap;
     justify-content: flex-start;
@@ -458,7 +455,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     max-height: unset;
   }
   .first .form__card {
-    width: 270px;
+    width: 250px;
     height: 400px;
   }
   .first .form__dept-title {
@@ -552,6 +549,18 @@ input[type=date]::-webkit-calendar-picker-indicator {
     margin-bottom: unset;
   }
 }
+@media only screen and (max-width: 390px) {
+  .first .form__card {
+    width: 100px;
+    height: 130px;
+  }
+  .first .form__card .form__dept-img {
+    width: 80px;
+  }
+  .first .form__card .form__dept-title {
+    font-size: 0.7rem;
+  }
+}
 @media only screen and (max-width: 350px) {
   html {
     font-size: 13px;
@@ -572,22 +581,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
     height: 130px;
   }
   .first .form__card .form__dept-img {
-    width: 80px;
+    width: 50px;
   }
   .first .form__card .form__dept-title {
     font-size: 0.9rem;
-  }
-}
-@media only screen and (max-width: 390px) {
-  .first .form__card {
-    width: 100px;
-    height: 130px;
-  }
-  .first .form__card .form__dept-img {
-    width: 80px;
-  }
-  .first .form__card .form__dept-title {
-    font-size: 0.7rem;
   }
 }
 .third {
