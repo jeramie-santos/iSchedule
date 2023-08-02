@@ -18,7 +18,7 @@ const allInput = document.querySelectorAll('input');
 const allSelect = document.querySelectorAll('select');
 const modalLauncher = document.querySelector('.modal-launcher');
 
-let errorShow = true;
+// let errorShow = true;
 let isResendAvail = false;
 let formErrorMessage = "";
 let birthdateDisplay = "";
@@ -77,9 +77,9 @@ const departmentDesc = {
 
 }
 
-setInterval(()=>{
-    errorShow = true;
-},3000)
+// setInterval(()=>{
+//     errorShow = true;
+// },3000)
 
 scheduleNav();
 addLinkToLogo();
@@ -683,7 +683,7 @@ function grabPatient(){
                 break; 
             case 6:
                 // Turn string to proper form
-                let tempAddress = capitalFirstLetter(`${patient['barangay']} ${patient['municipality']} ${patient['province']}`)
+                let tempAddress = capitalAddress(patient['barangay'], patient['municipality'], patient['province']);
                 item.querySelector('.review__input').innerHTML = tempAddress;
                 break;
             case 7:
@@ -696,7 +696,6 @@ function grabPatient(){
                 item.querySelector('.review__input').innerHTML = patient['caseNo'];
                 break;
         }
-        
     });
 }
 
@@ -1051,6 +1050,56 @@ function proceed(){
     else if(stepStatus == 3){
         mobileLabel.innerHTML = 'Review ng Impormasyon';
     }
+}
+
+function capitalAddress(barangay, municipality, province){
+
+    //Barangay
+    try {
+        barangay = barangay.split(' ');
+        let newBarangay = [];
+
+        barangay.forEach((item)=>{
+            newBarangay.push(item[0].toString().toUpperCase() + item.substring(1, item.length));
+        })
+
+        barangay = newBarangay.join(' ');
+    } catch (error) {
+        let newBarangay = barangay[0].toString().toUpperCase() + barangay.substring(1, barangay.length);
+        barangay = newBarangay;
+    }
+    
+    //Municipality
+    try {
+        municipality = municipality.split(' ');
+        let newMunicipality = [];
+
+        municipality.forEach((item)=>{
+            newMunicipality.push(item[0].toString().toUpperCase() + item.substring(1, item.length));
+        })
+
+        municipality = newMunicipality.join(' ');
+    } catch (error) {
+        let newMunicipality = municipality[0].toString().toUpperCase() + municipality.substring(1, municipality.length);
+        municipality = newMunicipality;
+    }
+    
+    // Province
+    try {
+        province = province.split(' ');
+        let newProvince = [];
+
+        province.forEach((item)=>{
+            newProvince.push(item[0].toString().toUpperCase() + item.substring(1, item.length));
+        })
+
+        province = newProvince.join(' ');
+    } catch (error) {
+        let newProvince = province[0].toString().toUpperCase() + province.substring(1, province.length);
+        province = newProvince;
+    }
+
+    return `${barangay}, ${municipality}, ${province}`;
 }
 
 function capitalFirstLetter(str){
