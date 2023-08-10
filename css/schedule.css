@@ -315,7 +315,7 @@ main {
   padding: 3vw 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
-  row-gap: max(50px, 3vw);
+  gap: max(20px, 3vw);
   justify-items: center;
   align-items: center;
   overflow-y: auto;
