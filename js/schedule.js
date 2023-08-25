@@ -1113,30 +1113,30 @@ function capitalFirstLetter(str){
     return newStr.join(', ');
 }
 
-function getPatientType(type) {
-    if(type == 'oldPatient'){
-        caseOn = true;
+// function getPatientType(type) {
+//     if(type == 'oldPatient'){
+//         caseOn = true;
 
-        let temp = document.createElement('input');
-        temp.setAttribute('type', 'text');
-        temp.setAttribute('name', 'caseNo');
-        temp.setAttribute('id', 'caseNo');
-        temp.setAttribute('onblur', 'revertBorder(this.id)');
-        temp.classList.add('caseNo');
+//         let temp = document.createElement('input');
+//         temp.setAttribute('type', 'text');
+//         temp.setAttribute('name', 'caseNo');
+//         temp.setAttribute('id', 'caseNo');
+//         temp.setAttribute('onblur', 'revertBorder(this.id)');
+//         temp.classList.add('caseNo');
 
-        caseNo.appendChild(temp);
+//         caseNo.appendChild(temp);
 
-        caseNo.style.display = 'flex';
-    }
-    else{
-        try {
-            document.getElementById('caseNo').remove();
-            caseNo.style.display = 'none';
-        } catch (error) {
-            caseNo.style.display = 'none';
-        }  
-    }
-}
+//         caseNo.style.display = 'flex';
+//     }
+//     else{
+//         try {
+//             document.getElementById('caseNo').remove();
+//             caseNo.style.display = 'none';
+//         } catch (error) {
+//             caseNo.style.display = 'none';
+//         }  
+//     }
+// }
 
 function revertBorder(id){
     document.getElementById(id).style.borderColor = 'rgb(186, 182, 182)';
