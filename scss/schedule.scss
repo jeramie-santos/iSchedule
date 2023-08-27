@@ -800,29 +800,8 @@ main{
 
 @media only screen and (min-width: 900px){
     .followup-container{
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        width: 100%;
-        // background-color: red;
-    
         button{
-            // height: 5vh;
             font-size: 1.3rem;
-            color: red;
-            background-color: transparent;
-            font-weight: 1000;
-            border: 2px solid red;
-            // background-color: red;
-            border-radius: max(0.5vw, 5px);
-            padding: max(0.2vw, 4px) max(0.5vw, 7px);
-            margin: max(2vw, 20px);
-            // text-decoration: underline;
-        }
-    
-        button:hover{
-            background-color: lighten($color: red, $amount: 10);
-            color: white;
         }
     }
 }
