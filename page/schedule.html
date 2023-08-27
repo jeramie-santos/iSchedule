@@ -244,8 +244,16 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                             </select>
                         </div>
                         <div class="field-container caseNo-container">
-                            <label for="caseNo">Case # (Kung Meron)</label>
+                            <label for="caseNo">Case # (Kung Mayroon)</label>
                             <input type="text" name="caseNo" id="caseNo" value="">
+                        </div>
+                        <div class="field-container">
+                            <label for="patientType">Klase ng Pasyente / Patient Type</label>
+                            <select name="patientType" id="patientType" onchange="revertBorder(this.id)">
+                                <option disabled="disabled" selected="selected" hidden="hidden"></option>
+                                <option value="oldPatient">Dating Pasyente / Old Patient</option>
+                                <option value="newPatient">Bagong Pasyente / New Patient</option>
+                            </select>
                         </div>
                         <!-- <div class="field-container dummyElement" style="visibility: hidden;">
                         </div> -->
@@ -318,6 +326,9 @@ AYUSIN DESKTOP MODE NG SECOND FORM -->
                                 <!-- <div class="calendar__instruction">Select a Date</div> -->
                             </div>
                         </div>
+                    </div>
+                    <div class="followup-container" style="display:none">
+                        <button type="button">Full slot ang araw ng SCHEDULED FOLLOW UP mo? Pindutin ito.</button>
                     </div>
                     <div class="form-part fourth" style="display: none;">
                         <span>PAALALA: Suriin ng mabuti ang impormasyon at palitan kung merong maling impormasyon.</span>
