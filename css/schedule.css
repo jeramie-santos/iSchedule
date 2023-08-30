@@ -643,6 +643,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   flex-flow: row nowrap;
   justify-content: center;
   width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .followup-container button {
   font-size: 0.8rem;
@@ -660,25 +663,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 @media only screen and (min-width: 900px) {
-  .followup-container {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    width: 100%;
-  }
   .followup-container button {
     font-size: 1.3rem;
-    color: red;
-    background-color: transparent;
-    font-weight: 1000;
-    border: 2px solid red;
-    border-radius: max(0.5vw, 5px);
-    padding: max(0.2vw, 4px) max(0.5vw, 7px);
-    margin: max(2vw, 20px);
-  }
-  .followup-container button:hover {
-    background-color: #ff3333;
-    color: white;
   }
 }
 .calendar-container .calendar__header {

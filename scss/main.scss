@@ -905,7 +905,7 @@ main{
 
 .track__header{
     h1{
-        color: $primary-color;
+        color: $fontbase-color;
         font-size: 1.5rem;
         text-align: center;
         font-weight: 700;
@@ -1199,4 +1199,43 @@ footer{
     cursor: pointer;
     background-color: white;
     color: $primary-alt;
+}
+
+
+.track-highlight{
+    color: $primary-color;
+    font-size: 2rem;
+}
+
+.feedback__wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .feedback{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        width: max(70%, 300px);
+        overflow: hidden !important;
+    }
+
+    h1{ 
+        width: 100%;
+        text-align: center;
+        font-weight: 1000;
+        color: $primary-color;
+    }
+
+    h2{
+        color: $fontbase-color;
+        font-size: 1.5rem;
+        text-align: centerz;
+    }
+
+    textarea{
+        width: 100%;
+    }
 }
