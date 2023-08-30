@@ -1212,6 +1212,8 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: max(20px, 5vw);
+    margin-bottom: max(10px, 1vw);
     
     .feedback{
         display: flex;
@@ -1220,6 +1222,16 @@ footer{
         align-items: center;
         width: max(70%, 300px);
         overflow: hidden !important;
+        gap: max(1vw, 10px);
+    }
+
+    .feedback__ctr-container{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .feedback__ctr{
     }
 
     h1{ 
@@ -1231,11 +1243,43 @@ footer{
 
     h2{
         color: $fontbase-color;
-        font-size: 1.5rem;
-        text-align: centerz;
+        font-size: 1.3rem;
+        font-style: italic;
+        text-align: center;
     }
 
     textarea{
+        width:100%;
+        resize: none;
+        padding: max(10px, 1vw);
+        border-radius: max(10px, 1vw);
+    }
+
+    textarea:focus{
+        outline: none !important;
+        border-width: 1px !important;
+        border-color: rgb(80, 78, 78);
+    }
+
+    button{
+        border: none;
+        background-color: $primary-alt;
+        color: white;
+        padding: max(1rem, 15px) max(0.7rem, 10px);
         width: 100%;
+        border-radius: max(0.7vw, 5px);
+    }
+
+    button:hover{
+        background-color: darken($color: $primary-alt, $amount: 5);
+    }
+}
+
+
+@media only screen and (min-width: 900px){
+    .feedback__wrapper{
+        button{
+            width: max(20%,200px);
+        }
     }
 }

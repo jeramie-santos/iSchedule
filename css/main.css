@@ -991,6 +991,8 @@ footer .about .about__content {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: max(20px, 5vw);
+  margin-bottom: max(10px, 1vw);
 }
 .feedback__wrapper .feedback {
   display: flex;
@@ -999,6 +1001,12 @@ footer .about .about__content {
   align-items: center;
   width: max(70%, 300px);
   overflow: hidden !important;
+  gap: max(1vw, 10px);
+}
+.feedback__wrapper .feedback__ctr-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 .feedback__wrapper h1 {
   width: 100%;
@@ -1008,9 +1016,35 @@ footer .about .about__content {
 }
 .feedback__wrapper h2 {
   color: rgb(80, 78, 78);
-  font-size: 1.5rem;
-  text-align: centerz;
+  font-size: 1.3rem;
+  font-style: italic;
+  text-align: center;
 }
 .feedback__wrapper textarea {
   width: 100%;
+  resize: none;
+  padding: max(10px, 1vw);
+  border-radius: max(10px, 1vw);
+}
+.feedback__wrapper textarea:focus {
+  outline: none !important;
+  border-width: 1px !important;
+  border-color: rgb(80, 78, 78);
+}
+.feedback__wrapper button {
+  border: none;
+  background-color: rgb(1, 81, 221);
+  color: white;
+  padding: max(1rem, 15px) max(0.7rem, 10px);
+  width: 100%;
+  border-radius: max(0.7vw, 5px);
+}
+.feedback__wrapper button:hover {
+  background-color: #0148c4;
+}
+
+@media only screen and (min-width: 900px) {
+  .feedback__wrapper button {
+    width: max(20%, 200px);
+  }
 }/*# sourceMappingURL=main.css.map */
