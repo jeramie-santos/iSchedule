@@ -998,34 +998,34 @@ function scheduleNav(){
         if(stepStatus < 4) stepStatus++;
         
         if(stepStatus == 1){
-            proceed();
-            // if(grabFirstForm()){
-            //     proceed();
-            // }else{
-            //     openModalUserError('Invalid Input',formErrorMessage);
-            //     stepStatus--;
-            // }
+            // proceed();
+            if(grabFirstForm()){
+                proceed();
+            }else{
+                openModalUserError('Invalid Input',formErrorMessage);
+                stepStatus--;
+            }
             document.querySelector('.followup-container').style.display = 'none';
         }
         else if(stepStatus == 2){
-            proceed();
-            // if(grabSecondForm()){
-            //     proceed();
-            // }else{
-            //     openModalUserError('Invalid Input', formErrorMessage);
-            //     stepStatus--;
-            // }
+            // proceed();
+            if(grabSecondForm()){
+                proceed();
+            }else{
+                openModalUserError('Invalid Input', formErrorMessage);
+                stepStatus--;
+            }
             document.querySelector('.followup-container').style.display = 'flex';
         }
         else if(stepStatus == 3){
-            proceed();
-            // if(grabThirdForm()){
-            //     proceed();
-            // }else{
-            //     openModalUserError('Invalid Input', formErrorMessage);
-            //     stepStatus--;
-            // }
-            // grabPatient();
+            // proceed();
+            if(grabThirdForm()){
+                proceed();
+            }else{
+                openModalUserError('Invalid Input', formErrorMessage);
+                stepStatus--;
+            }
+            grabPatient();
             document.querySelector('.followup-container').style.display = 'none';
         }
         else if(stepStatus == 4){
