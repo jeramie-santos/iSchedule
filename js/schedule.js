@@ -1001,32 +1001,32 @@ function scheduleNav(){
             // proceed();
             if(grabFirstForm()){
                 proceed();
+                document.querySelector('.followup-container').style.display = 'none';
             }else{
                 openModalUserError('Invalid Input',formErrorMessage);
                 stepStatus--;
             }
-            document.querySelector('.followup-container').style.display = 'none';
         }
         else if(stepStatus == 2){
             // proceed();
             if(grabSecondForm()){
                 proceed();
+                document.querySelector('.followup-container').style.display = 'flex';
             }else{
                 openModalUserError('Invalid Input', formErrorMessage);
                 stepStatus--;
             }
-            document.querySelector('.followup-container').style.display = 'flex';
         }
         else if(stepStatus == 3){
             // proceed();
             if(grabThirdForm()){
                 proceed();
+                document.querySelector('.followup-container').style.display = 'none';
             }else{
                 openModalUserError('Invalid Input', formErrorMessage);
                 stepStatus--;
             }
             grabPatient();
-            document.querySelector('.followup-container').style.display = 'none';
         }
         else if(stepStatus == 4){
             sendOTP();
