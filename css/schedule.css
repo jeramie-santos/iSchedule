@@ -648,18 +648,20 @@ input[type=date]::-webkit-calendar-picker-indicator {
           user-select: none;
 }
 .followup-container button {
-  font-size: 0.8rem;
-  color: red;
+  font-size: 1rem;
+  color: rgb(1, 81, 221);
   background-color: transparent;
-  font-weight: 1000;
-  border: 2px solid red;
-  border-radius: max(0.5vw, 5px);
-  padding: max(0.2vw, 4px) max(0.5vw, 7px);
+  font-weight: 500;
+  border: none;
   margin: max(2vw, 20px);
+  transition-duration: 200ms;
+  text-decoration: underline;
+}
+.followup-container button .followup-highlight {
+  color: red;
 }
 .followup-container button:hover {
-  background-color: #ff3333;
-  color: white;
+  transform: scale(1.05);
 }
 
 @media only screen and (min-width: 900px) {

@@ -781,21 +781,29 @@ main{
 
     button{
         // height: 5vh;
-        font-size: 0.8rem;
-        color: red;
+        font-size: 1rem;
+        color: $primary-alt;
         background-color: transparent;
-        font-weight: 1000;
-        border: 2px solid red;
+        font-weight: 500;
+        // border: 2px solid red;
+        border: none;
         // background-color: red;
-        border-radius: max(0.5vw, 5px);
-        padding: max(0.2vw, 4px) max(0.5vw, 7px);
+        // border-radius: max(0.5vw, 5px);
+        // padding: max(0.2vw, 4px) max(0.5vw, 7px);
         margin: max(2vw, 20px);
-        // text-decoration: underline;
+        // opacity: 0.1;
+        transition-duration: 200ms;
+
+        text-decoration: underline;
+        // border-bottom: 2px solid $primary-color;
+
+        .followup-highlight{
+            color: red;
+        }
     }
 
     button:hover{
-        background-color: lighten($color: red, $amount: 10);
-        color: white;
+        transform: scale(1.05);
     }
 }
 
