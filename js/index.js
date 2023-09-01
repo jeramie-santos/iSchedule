@@ -172,7 +172,9 @@ function feedbackStars(){
     stars.forEach((item, index)=>{
         if(index == 0){
             item.addEventListener('mouseover', ()=>{
-                stars[0].style.opacity = '1';
+                if(stars[0].getAttribute('data-status') == 'disabled'){
+                    stars[0].style.opacity = '0.5';
+                }
             })
             item.addEventListener('mouseout', ()=>{
                 if(stars[0].getAttribute('data-status') == 'disabled'){
@@ -197,8 +199,12 @@ function feedbackStars(){
         }
         if(index == 1){
             item.addEventListener('mouseover', ()=>{
-                stars[0].style.opacity = '1';
-                stars[1].style.opacity = '1';
+                if(stars[0].getAttribute('data-status') == 'disabled'){
+                    stars[0].style.opacity = '0.5';
+                }
+                if(stars[1].getAttribute('data-status') == 'disabled'){
+                    stars[1].style.opacity = '0.5';
+                }
             })
             item.addEventListener('mouseout', ()=>{
                 if(stars[0].getAttribute('data-status') == 'disabled'){
@@ -226,9 +232,15 @@ function feedbackStars(){
         }
         if(index == 2){
             item.addEventListener('mouseover', ()=>{
-                stars[0].style.opacity = '1';
-                stars[1].style.opacity = '1';
-                stars[2].style.opacity = '1';
+                if(stars[0].getAttribute('data-status') == 'disabled'){
+                    stars[0].style.opacity = '0.5';
+                }
+                if(stars[1].getAttribute('data-status') == 'disabled'){
+                    stars[1].style.opacity = '0.5';
+                }
+                if(stars[2].getAttribute('data-status') == 'disabled'){
+                    stars[2].style.opacity = '0.5';
+                }
             })
             item.addEventListener('mouseout', ()=>{
                 if(stars[0].getAttribute('data-status') == 'disabled'){
@@ -259,10 +271,18 @@ function feedbackStars(){
         }
         else if(index == 3){
             item.addEventListener('mouseover', ()=>{
-                stars[0].style.opacity = '1';
-                stars[1].style.opacity = '1';
-                stars[2].style.opacity = '1';
-                stars[3].style.opacity = '1';
+                if(stars[0].getAttribute('data-status') == 'disabled'){
+                    stars[0].style.opacity = '0.5';
+                }
+                if(stars[1].getAttribute('data-status') == 'disabled'){
+                    stars[1].style.opacity = '0.5';
+                }
+                if(stars[2].getAttribute('data-status') == 'disabled'){
+                    stars[2].style.opacity = '0.5';
+                }
+                if(stars[3].getAttribute('data-status') == 'disabled'){
+                    stars[3].style.opacity = '0.5';
+                }
             })
             item.addEventListener('mouseout', ()=>{
                 if(stars[0].getAttribute('data-status') == 'disabled'){
@@ -296,11 +316,21 @@ function feedbackStars(){
         }
         else if(index == 4){
             item.addEventListener('mouseover', ()=>{
-                stars[0].style.opacity = '1';
-                stars[1].style.opacity = '1';
-                stars[2].style.opacity = '1';
-                stars[3].style.opacity = '1';
-                stars[4].style.opacity = '1';
+                if(stars[0].getAttribute('data-status') == 'disabled'){
+                    stars[0].style.opacity = '0.5';
+                }
+                if(stars[1].getAttribute('data-status') == 'disabled'){
+                    stars[1].style.opacity = '0.5';
+                }
+                if(stars[2].getAttribute('data-status') == 'disabled'){
+                    stars[2].style.opacity = '0.5';
+                }
+                if(stars[3].getAttribute('data-status') == 'disabled'){
+                    stars[3].style.opacity = '0.5';
+                }
+                if(stars[4].getAttribute('data-status') == 'disabled'){
+                    stars[4].style.opacity = '0.5';
+                }
             })
             item.addEventListener('mouseout', ()=>{
                 if(stars[0].getAttribute('data-status') == 'disabled'){
