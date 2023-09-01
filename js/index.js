@@ -166,3 +166,177 @@ function errorHandler(code,){
     }
 }
 
+function feedbackStars(){
+    const stars = document.querySelectorAll('.star');
+
+    stars.forEach((item, index)=>{
+        if(index == 0){
+            item.addEventListener('mouseover', ()=>{
+                stars[0].style.opacity = '1';
+            })
+            item.addEventListener('mouseout', ()=>{
+                if(stars[0].getAttribute('data-status') == 'disabled'){
+                    stars[0].style.opacity = '0.3';
+                }
+            })
+            item.addEventListener('click', ()=>{
+                stars[0].setAttribute('data-status', 'enabled');
+                stars[1].setAttribute('data-status', 'disabled');
+                stars[2].setAttribute('data-status', 'disabled');
+                stars[3].setAttribute('data-status', 'disabled');
+                stars[4].setAttribute('data-status', 'disabled');
+
+                stars[0].style.opacity = '1';
+                stars[1].style.opacity = '0.3';
+                stars[2].style.opacity = '0.3';
+                stars[3].style.opacity = '0.3';
+                stars[4].style.opacity = '0.3';
+
+                document.querySelector('#fbRating').value = '1';
+            })
+        }
+        if(index == 1){
+            item.addEventListener('mouseover', ()=>{
+                stars[0].style.opacity = '1';
+                stars[1].style.opacity = '1';
+            })
+            item.addEventListener('mouseout', ()=>{
+                if(stars[0].getAttribute('data-status') == 'disabled'){
+                    stars[0].style.opacity = '0.3';
+                }
+                if(stars[1].getAttribute('data-status') == 'disabled'){
+                    stars[1].style.opacity = '0.3';
+                }
+            })
+            item.addEventListener('click', ()=>{
+                stars[0].setAttribute('data-status', 'enabled');
+                stars[1].setAttribute('data-status', 'enabled');
+                stars[2].setAttribute('data-status', 'disabled');
+                stars[3].setAttribute('data-status', 'disabled');
+                stars[4].setAttribute('data-status', 'disabled');
+
+                stars[0].style.opacity = '1';
+                stars[1].style.opacity = '1';
+                stars[2].style.opacity = '0.3';
+                stars[3].style.opacity = '0.3';
+                stars[4].style.opacity = '0.3';
+
+                document.querySelector('#fbRating').value = '2';
+            })
+        }
+        if(index == 2){
+            item.addEventListener('mouseover', ()=>{
+                stars[0].style.opacity = '1';
+                stars[1].style.opacity = '1';
+                stars[2].style.opacity = '1';
+            })
+            item.addEventListener('mouseout', ()=>{
+                if(stars[0].getAttribute('data-status') == 'disabled'){
+                    stars[0].style.opacity = '0.3';
+                }
+                if(stars[1].getAttribute('data-status') == 'disabled'){
+                    stars[1].style.opacity = '0.3';
+                }
+                if(stars[2].getAttribute('data-status') == 'disabled'){
+                    stars[2].style.opacity = '0.3';
+                }
+            })
+            item.addEventListener('click', ()=>{
+                stars[0].setAttribute('data-status', 'enabled');
+                stars[1].setAttribute('data-status', 'enabled');
+                stars[2].setAttribute('data-status', 'enabled');
+                stars[3].setAttribute('data-status', 'disabled');
+                stars[4].setAttribute('data-status', 'disabled');
+
+                stars[0].style.opacity = '1';
+                stars[1].style.opacity = '1';
+                stars[2].style.opacity = '1';
+                stars[3].style.opacity = '0.3';
+                stars[4].style.opacity = '0.3';
+
+                document.querySelector('#fbRating').value = '3';
+            })
+        }
+        else if(index == 3){
+            item.addEventListener('mouseover', ()=>{
+                stars[0].style.opacity = '1';
+                stars[1].style.opacity = '1';
+                stars[2].style.opacity = '1';
+                stars[3].style.opacity = '1';
+            })
+            item.addEventListener('mouseout', ()=>{
+                if(stars[0].getAttribute('data-status') == 'disabled'){
+                    stars[0].style.opacity = '0.3';
+                }
+                if(stars[1].getAttribute('data-status') == 'disabled'){
+                    stars[1].style.opacity = '0.3';
+                }
+                if(stars[2].getAttribute('data-status') == 'disabled'){
+                    stars[2].style.opacity = '0.3';
+                }
+                if(stars[3].getAttribute('data-status') == 'disabled'){
+                    stars[3].style.opacity = '0.3';
+                }
+            })
+            item.addEventListener('click', ()=>{
+                stars[0].setAttribute('data-status', 'enabled');
+                stars[1].setAttribute('data-status', 'enabled');
+                stars[2].setAttribute('data-status', 'enabled');
+                stars[3].setAttribute('data-status', 'enabled');
+                stars[4].setAttribute('data-status', 'disabled');
+
+                stars[0].style.opacity = '1';
+                stars[1].style.opacity = '1';
+                stars[2].style.opacity = '1';
+                stars[3].style.opacity = '1';
+                stars[4].style.opacity = '0.3';
+
+                document.querySelector('#fbRating').value = '4';
+            })
+        }
+        else if(index == 4){
+            item.addEventListener('mouseover', ()=>{
+                stars[0].style.opacity = '1';
+                stars[1].style.opacity = '1';
+                stars[2].style.opacity = '1';
+                stars[3].style.opacity = '1';
+                stars[4].style.opacity = '1';
+            })
+            item.addEventListener('mouseout', ()=>{
+                if(stars[0].getAttribute('data-status') == 'disabled'){
+                    stars[0].style.opacity = '0.3';
+                }
+                if(stars[1].getAttribute('data-status') == 'disabled'){
+                    stars[1].style.opacity = '0.3';
+                }
+                if(stars[2].getAttribute('data-status') == 'disabled'){
+                    stars[2].style.opacity = '0.3';
+                }
+                if(stars[3].getAttribute('data-status') == 'disabled'){
+                    stars[3].style.opacity = '0.3';
+                }
+                if(stars[4].getAttribute('data-status') == 'disabled'){
+                    stars[4].style.opacity = '0.3';
+                }
+            })
+            item.addEventListener('click', ()=>{
+                stars[0].setAttribute('data-status', 'enabled');
+                stars[1].setAttribute('data-status', 'enabled');
+                stars[2].setAttribute('data-status', 'enabled');
+                stars[3].setAttribute('data-status', 'enabled');
+                stars[4].setAttribute('data-status', 'enabled');
+
+                stars[0].style.opacity = '1';
+                stars[1].style.opacity = '1';
+                stars[2].style.opacity = '1';
+                stars[3].style.opacity = '1';
+                stars[4].style.opacity = '1';
+
+                document.querySelector('#fbRating').value = '5';
+            })
+        }
+    });
+}
+
+feedbackStars();
+

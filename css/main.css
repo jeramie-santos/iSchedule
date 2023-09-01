@@ -1042,6 +1042,13 @@ footer .about .about__content {
 .feedback__wrapper button:hover {
   background-color: #0148c4;
 }
+.feedback__wrapper .feedback__star-container .star {
+  color: gold;
+  text-shadow: 0px 0px 10px rgba(90, 91, 92, 0.701);
+  font-size: 3rem;
+  opacity: 0.3;
+  transition-duration: 300ms;
+}
 
 @media only screen and (min-width: 900px) {
   .feedback__wrapper button {
