@@ -1049,6 +1049,9 @@ footer .about .about__content {
   opacity: 0.2;
   transition-duration: 300ms;
 }
+.feedback__wrapper .feedback__star-container .star:hover {
+  cursor: pointer;
+}
 
 @media only screen and (min-width: 900px) {
   .feedback__wrapper button {
