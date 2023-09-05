@@ -12,8 +12,6 @@ const calendarPrev = document.querySelector('#calendar__prev');
 const calendarNext = document.querySelector('#calendar__next');
 
 let nextCounter = 0;
-let currentMonthNav = null;
-
 
 let date = new Date();
 let selectedMonth = '';
@@ -112,10 +110,8 @@ function nextMonthBtn(){
         // Clears scheduleDate content para pag nag next or prev burado yung salected
         document.getElementById('scheduleDate').value = "";
         let nextMonth = months[date.getMonth()+1];
-        currentMonthNav = date.getMonth()+1;
 
         oldMonth = currentMonth;
-        
         currentMonth = date.getMonth()+1;
 
         if(currentMonth == 12){
