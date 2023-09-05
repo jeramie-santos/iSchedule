@@ -1008,14 +1008,14 @@ function scheduleNav(){
             }
         }
         else if(stepStatus == 2){
-            // proceed();
-            if(grabSecondForm()){
-                proceed();
-                document.querySelector('.followup-container').style.display = 'flex';
-            }else{
-                openModalUserError('Invalid Input', formErrorMessage);
-                stepStatus--;
-            }
+            proceed();
+            // if(grabSecondForm()){
+            //     proceed();
+            //     document.querySelector('.followup-container').style.display = 'flex';
+            // }else{
+            //     openModalUserError('Invalid Input', formErrorMessage);
+            //     stepStatus--;
+            // }
         }
         else if(stepStatus == 3){
             // proceed();
