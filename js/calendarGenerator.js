@@ -120,7 +120,6 @@ function nextMonthBtn(){
 
         if(currentMonth == 12){
             currentMonth = 0;
-            alert(currentMonth)
         }
 
         console.log('old month: ' + oldMonth);
@@ -163,8 +162,8 @@ function prevMonthBtn(){
             oldMonth = 11;
         }
         
-        console.log('TESTING ' + oldMonth);
-        console.log('TESTING ' + currentMonth);
+        // console.log('TESTING ' + oldMonth);
+        // console.log('TESTING ' + currentMonth);
         // alert(currentMonthNav-1);
 
         if(temp.getMonth() == currentMonth){
