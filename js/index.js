@@ -7,7 +7,7 @@ let formErrorMessage = '';
 
 // ALSO CALL THIS FUNCTION WHEN ANNOUNCEMENT SEE MORE IS CLICKED
 // NAKIKITA LANG YUNG SEE MORE BUTTON IF THERE IS MORE THAN 4 ANNOUNCEMENT NA SA DATABASE
-addAOSToAnnouncement();
+// addAOSToAnnouncement(); no need na kasi tawagin to pag generate
 
 //Initializes AOS
 AOS.init();
@@ -27,7 +27,7 @@ try {
     }, 100);
     
 } catch (error) {
-    alert('errur');
+    alert('error');
 }
 
 document.querySelectorAll('.btn-link').forEach((item)=>{
@@ -62,7 +62,7 @@ function addAOSToAnnouncement(){
     let announcementOdd = document.querySelectorAll('.announcement__content:nth-child(odd)');
     let announcementEven = document.querySelectorAll('.announcement__content:nth-child(even)');
 
-    // data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"
+    // data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"
     announcementOdd.forEach((item)=>{
         item.setAttribute('data-aos', 'fade-right');
         item.setAttribute('data-aos-duration', '1000');
@@ -376,8 +376,12 @@ function feedbackStars(){
 
 function getAnnouncement(){
     const container = document.querySelector('.announcement__content-container');
-
+    const seeMoreBtn = document.querySelector('.announcement__button--see-more');
+    let annCtr = 4;
     let xhr = new XMLHttpRequest();
+    let rightAOS = 'data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"';
+    let leftAOS = 'data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200"';
+    let aos = null;
 
     xhr.onreadystatechange = function(){
         if(xhr.readyState == 4){
@@ -388,13 +392,17 @@ function getAnnouncement(){
                     const objLength = arrayOfObjects.length-1;
 
                     arrayOfObjects.forEach((item, index)=>{
+                        
                         let title = item.title;
                         let body = item.body;
                         let datePosted = item.datePosted;
                         let timePosted = item.timePosted;
                         
+                        if(index % 2 == 0) aos = rightAOS;
+                        else aos = leftAOS;
+
                         let htmlTemplate =`
-                            <div class="announcement__content">
+                            <div class="announcement__content" ${aos}>
                                 <div class="announcement__news-header">
                                 <h3 class="announcement__news-title">${title}</h3>
                                 <div class="announcement__news-metadata">
@@ -405,6 +413,29 @@ function getAnnouncement(){
                             </div>
                         `;
                         container.innerHTML += htmlTemplate;
+                    })
+
+                    let annContent = document.querySelectorAll('.announcement__content');
+
+                    // console.table(annContent)
+
+                    annContent.forEach((item, index)=>{
+                        if(index >= 5){
+                            item.style.display = 'none';
+                        }
+                    })
+
+                    seeMoreBtn.addEventListener('click', ()=>{
+
+                        if(annCtr < 20){
+                            annCtr++;
+                            annContent[annCtr].style.display = 'block';
+                        }
+                        if(annContent.length-1 == annCtr){
+                            seeMoreBtn.innerHTML = 'No Announcements Left...'
+                        }
+                        
+                        
                     })
 
                 } catch (error) {
