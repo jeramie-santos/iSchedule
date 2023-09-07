@@ -30,6 +30,9 @@ try {
     alert('error');
 }
 
+
+
+
 document.querySelectorAll('.btn-link').forEach((item)=>{
     item.addEventListener('click', ()=>{
         let topPosition = document.getElementById(item.dataset.page).offsetTop - 100;
@@ -52,10 +55,38 @@ tutorialStep.forEach((item, index) => {
     });
 });
 
-feedbackStars();
-
 function initialize(){
+    feedbackStars();
     getAnnouncement();
+    getTutorialVid();
+}
+
+function getTutorialVid(){
+    let deviceType = null;
+    const videoTutorial = document.querySelector('#tutorial__video');
+
+    if (window.innerWidth <= 768) {
+        // User is on a mobile device (adjust the threshold as needed)
+        deviceType = 'mobile';
+    } else {
+        // User is on a desktop device
+        deviceType = 'desktop';
+    }
+    
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+            if(xhr.status == 200){
+                videoTutorial.removeAttribute('src');
+                videoTutorial.setAttribute('src', xhr.responseText);
+            }
+        }
+    }
+
+    xhr.open("POST", "./php/getVideoTutorial.php");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("deviceType=" + deviceType);
 }
 
 function addAOSToAnnouncement(){
@@ -435,7 +466,7 @@ function getAnnouncement(){
 
                     seeMoreBtn.addEventListener('click', ()=>{
                         annCtr++;
-                        
+
                         if(annCtr < 20){
                             container.innerHTML += announcements[annCtr];
                         }
