@@ -383,13 +383,13 @@ function getAnnouncement(){
     let leftAOS = 'data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200"';
     let aos = null;
 
+    let announcements = [];
+
     xhr.onreadystatechange = function(){
         if(xhr.readyState == 4){
             if(xhr.status == 200){
                 try {
                     let arrayOfObjects = JSON.parse(xhr.responseText);
-
-                    const objLength = arrayOfObjects.length-1;
 
                     arrayOfObjects.forEach((item, index)=>{
                         
@@ -412,29 +412,36 @@ function getAnnouncement(){
                                 <div class="announcement__news-body">${body}</div>
                             </div>
                         `;
-                        container.innerHTML += htmlTemplate;
+
+                        announcements.push(htmlTemplate)
                     })
 
-                    let annContent = document.querySelectorAll('.announcement__content');
+
+                    announcements.forEach((item, index)=>{
+                        if(index < 5){
+                            container.innerHTML += item;
+                        }
+                    });
+
+                    // let annContent = document.querySelectorAll('.announcement__content');
 
                     // console.table(annContent)
 
-                    annContent.forEach((item, index)=>{
-                        if(index >= 5){
-                            item.style.display = 'none';
-                        }
-                    })
+                    // annContent.forEach((item, index)=>{
+                    //     if(index >= 5){
+                    //         console.log(annContent)
+                    //     }
+                    // })
 
                     seeMoreBtn.addEventListener('click', ()=>{
-
+                        annCtr++;
+                        
                         if(annCtr < 20){
-                            annCtr++;
-                            annContent[annCtr].style.display = 'block';
+                            container.innerHTML += announcements[annCtr];
                         }
-                        if(annContent.length-1 == annCtr){
+                        if(annCtr == 19){
                             seeMoreBtn.innerHTML = 'No Announcements Left...'
                         }
-                        
                         
                     })
 
