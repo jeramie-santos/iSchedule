@@ -1057,4 +1057,9 @@ footer .about .about__content {
   .feedback__wrapper button {
     width: max(20%, 200px);
   }
+}
+#emptyAnn {
+  font-size: 2rem;
+  color: rgb(80, 78, 78);
+  font-weight: 700;
 }/*# sourceMappingURL=main.css.map */

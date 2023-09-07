@@ -28,7 +28,7 @@
     <script defer src="./js/index.js"></script>
     <title>iSchedule</title>
 </head>
-<body>
+<body onload="initialize()">
     <header class="header">
         <div class="header__wrapper">
             <div class="header__logo-container btn-link" data-page="home">
@@ -82,15 +82,6 @@
               <h2 class="announcement__title">Announcements</h2>
             </div>
             <div class="announcement__content-container">
-              <div class="announcement__content">
-                <div class="announcement__news-header">
-                  <h3 class="announcement__news-title">Oncology Department will be closed until further noticed.</h3>
-                  <div class="announcement__news-metadata">
-                    <div class="announcement__news-datetime">June 17, 2023 @ 6:59 pm</div>
-                  </div>
-                </div>
-                <div class="announcement__news-body">Because of the recent surge of etc Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni distinctio recusandae sint, totam officiis deserunt ea iste inventore aperiam. Accusamus ad velit consequatur hic quidem voluptatem suscipit sapiente odio quasi.</div>
-              </div>
             </div>
             <button class="announcement__button--see-more">See More...</button>
             <!-- <div class="news-card">

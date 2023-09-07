@@ -52,6 +52,12 @@ tutorialStep.forEach((item, index) => {
     });
 });
 
+feedbackStars();
+
+function initialize(){
+    getAnnouncement();
+}
+
 function addAOSToAnnouncement(){
     let announcementOdd = document.querySelectorAll('.announcement__content:nth-child(odd)');
     let announcementEven = document.querySelectorAll('.announcement__content:nth-child(even)');
@@ -368,5 +374,48 @@ function feedbackStars(){
     });
 }
 
-feedbackStars();
+function getAnnouncement(){
+    const container = document.querySelector('.announcement__content-container');
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+            if(xhr.status == 200){
+                try {
+                    let arrayOfObjects = JSON.parse(xhr.responseText);
+
+                    const objLength = arrayOfObjects.length-1;
+
+                    arrayOfObjects.forEach((item, index)=>{
+                        let title = item.title;
+                        let body = item.body;
+                        let datePosted = item.datePosted;
+                        let timePosted = item.timePosted;
+                        
+                        let htmlTemplate =`
+                            <div class="announcement__content">
+                                <div class="announcement__news-header">
+                                <h3 class="announcement__news-title">${title}</h3>
+                                <div class="announcement__news-metadata">
+                                    <div class="announcement__news-datetime">${datePosted} @ ${timePosted}</div>
+                                </div>
+                                </div>
+                                <div class="announcement__news-body">${body}</div>
+                            </div>
+                        `;
+                        container.innerHTML += htmlTemplate;
+                    })
+
+                } catch (error) {
+                    container.innerHTML = xhr.responseText;
+                }
+            }
+        }     
+    }
+
+    xhr.open('GET', './php/getAnnouncement.php', true);
+    xhr.send();
+}
+
 
