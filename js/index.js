@@ -65,10 +65,11 @@ function getTutorialVid(){
     let deviceType = null;
     const videoTutorial = document.querySelector('#tutorial__video');
 
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth < window.innerHeight) {
         // User is on a mobile device (adjust the threshold as needed)
         deviceType = 'mobile';
-    } else {
+    } 
+    else {
         // User is on a desktop device
         deviceType = 'desktop';
     }
