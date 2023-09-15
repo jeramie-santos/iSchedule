@@ -30,9 +30,6 @@ try {
     alert('error');
 }
 
-
-
-
 document.querySelectorAll('.btn-link').forEach((item)=>{
     item.addEventListener('click', ()=>{
         let topPosition = document.getElementById(item.dataset.page).offsetTop - 100;

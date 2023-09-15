@@ -502,7 +502,7 @@ function grabSecondForm(){
         errorHandler('52', document.querySelector('#phone').id);
         return false;
     }
-    else if((patient["phone"]).charAt(0) != '0'){
+    else if((patient["phone"]).slice(0, 2) != '09'){
         errorHandler('53', document.querySelector('#phone').id);
         return false;
     }
@@ -829,7 +829,7 @@ function errorHandler(code, id){
         errorHighlight.style.borderColor = 'red';
     }
     else if(code == '53'){
-        formErrorMessage = 'Ang numero ng telepono ay kailangang mag simula sa "0". Halimbawa: 09XX XXX XXXX.';
+        formErrorMessage = 'Ang numero ng telepono ay kailangang mag simula sa "09". Halimbawa: 09XX XXX XXXX.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -1110,17 +1110,6 @@ function capitalAddress(barangay, municipality, province){
     }
 
     return `${barangay}, ${municipality}, ${province}`;
-}
-
-function capitalFirstLetter(str){
-    str = str.split(' ');
-    let newStr = [];
-
-    str.forEach((item)=>{
-        newStr.push(item.charAt(0).toUpperCase() + item.substring(1));
-    });
-
-    return newStr.join(', ');
 }
 
 // function getPatientType(type) {
