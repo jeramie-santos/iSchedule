@@ -383,14 +383,6 @@ main {
   gap: max(30px, 2vw);
   overflow-x: hidden;
 }
-.announcement .announcement__content-container {
-  width: 100%;
-  display: grid;
-  justify-content: center;
-  justify-items: center;
-  grid-template-columns: repeat(autofill, minmax(max(300px, 50%), 1fr));
-  row-gap: 10px;
-}
 .announcement .announcement__header {
   display: flex;
   flex-flow: row nowrap;
@@ -421,7 +413,7 @@ main {
 .announcement__content {
   border-radius: 10px;
   padding: max(2vw, 15px);
-  min-width: 100%;
+  min-width: 80vw;
   height: -moz-fit-content;
   height: fit-content;
   overflow: hidden;

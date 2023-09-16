@@ -437,14 +437,14 @@ main{
     overflow-x: hidden;
     // box-shadow: 0px 0px 5px rgba(81, 84, 90, 0.539);
 
-    .announcement__content-container{
-        width: 100%;
-        display: grid;
-        justify-content: center;
-        justify-items: center;
-        grid-template-columns: repeat(autofill,minmax(max(300px,50%),1fr));
-        row-gap: 10px;
-    }
+    // .announcement__content-container{
+    //     width: 100%;
+    //     display: grid;
+    //     justify-content: center;
+    //     justify-items: center;
+    //     grid-template-columns: repeat(autofill,minmax(max(300px,50%),1fr));
+    //     row-gap: 10px;
+    // }
 
     .announcement__header{
         display: flex;
@@ -494,7 +494,8 @@ main{
     // border-top: 2px solid $fontbase-color;
     border-radius: 10px;
     padding: max(2vw, 15px);
-    min-width: 100%;
+    min-width: 80vw;
+    // min-width: 100%;
     height: fit-content;
     overflow: hidden;
     margin: 1vw;
