@@ -494,7 +494,7 @@ main{
     // border-top: 2px solid $fontbase-color;
     border-radius: 10px;
     padding: max(2vw, 15px);
-    min-width: 80vw;
+    width: 80vw;
     // min-width: 100%;
     height: fit-content;
     overflow: hidden;
@@ -512,6 +512,8 @@ main{
 
         .announcement__news-title{
             font-weight: 500;
+            width: 100%;
+            overflow-wrap:break-word; 
         }
 
         .announcement__news-metadata{
@@ -528,7 +530,8 @@ main{
 
     .announcement__news-body{
         color: $fontbase-color;
-        // display: none;
+        width:100%;
+        overflow-wrap:break-word;
     }
 }
 

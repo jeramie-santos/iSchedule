@@ -413,7 +413,7 @@ main {
 .announcement__content {
   border-radius: 10px;
   padding: max(2vw, 15px);
-  min-width: 80vw;
+  width: 80vw;
   height: -moz-fit-content;
   height: fit-content;
   overflow: hidden;
@@ -430,6 +430,8 @@ main {
 }
 .announcement__content .announcement__news-header .announcement__news-title {
   font-weight: 500;
+  width: 100%;
+  overflow-wrap: break-word;
 }
 .announcement__content .announcement__news-header .announcement__news-metadata {
   display: flex;
@@ -443,6 +445,8 @@ main {
 }
 .announcement__content .announcement__news-body {
   color: rgb(80, 78, 78);
+  width: 100%;
+  overflow-wrap: break-word;
 }
 
 .benefit {
