@@ -465,10 +465,10 @@ function getAnnouncement(){
                     seeMoreBtn.addEventListener('click', ()=>{
                         annCtr++;
 
-                        if(annCtr < 20){
+                        if(annCtr < 20 && annCtr < announcements.length){
                             container.innerHTML += announcements[annCtr];
                         }
-                        if(annCtr == 19){
+                        if(annCtr == announcements.length-1){
                             seeMoreBtn.innerHTML = 'No Announcements Left...'
                         }
                         
