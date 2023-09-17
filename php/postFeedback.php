@@ -5,7 +5,7 @@
     $requestPayload = file_get_contents("php://input");
     $object = json_decode($requestPayload);
 
-    $convertedSpeChar = $object->content;
+    $convertedSpeChar = htmlspecialchars($object->content);
 
     $query = "INSERT INTO `feedback`(`rate`, `feedbackContent`) VALUES ('$object->rate','$convertedSpeChar')";
 
