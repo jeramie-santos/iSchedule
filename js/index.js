@@ -53,9 +53,28 @@ tutorialStep.forEach((item, index) => {
 });
 
 function initialize(){
+    checkFbSubmission();
     feedbackStars();
     getAnnouncement();
     getTutorialVid();
+    addFeedback();
+}
+
+// Check if nakapag submit na ba si patient within 24hrs ng feedback if di pa gawin flex yung feedback
+function checkFbSubmission(){
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+            if(xhr.status == 200){
+                if(xhr.responseText == 0){
+                    document.querySelector('.feedback__wrapper').style.display = 'flex';
+                }
+            }
+        }
+    }
+
+    xhr.open('GET', './php/checkHasSubmitFb.php', true);
+    xhr.send();
 }
 
 function getTutorialVid(){
@@ -485,4 +504,154 @@ function getAnnouncement(){
     xhr.send();
 }
 
+function statusMsgCounter(inputFieldId, counterId, max){
+    let textArea = document.getElementById(inputFieldId);
+    let statusMsgCtr = document.getElementById(counterId);
+    let remainingChar = max - textArea.value.length;
 
+    if(remainingChar <= 10){
+        statusMsgCtr.style.color = 'red';
+    }
+    else{
+        statusMsgCtr.style.color = 'unset';
+    }
+
+    statusMsgCtr.innerHTML = `${remainingChar}`;
+}
+
+function inputLimiter(id, max){
+    let element = document.getElementById(id);
+    if (element.value.length > max){
+        element.value = element.value.slice(0, -1);
+        // alert('test');
+    }
+
+    // element.value = element.value.replace(/\D+/g, '');
+}
+
+// If konwari nag copypaste si user tapos nag blur tanggalin yung sobra
+function inputLimiterBlur(id, max){
+    let element = document.getElementById(id);
+    let newVal = "";
+    if(element.value.length > max){
+        for(i=0; i < max; i++){
+            newVal += element.value[i];
+        }
+        element.value = newVal;
+    }
+}
+
+function addFeedback(){
+    const fbBtn = document.querySelector('#feedbackSubmit');
+
+    fbBtn.addEventListener('click', ()=>{
+
+        let fbRate = document.querySelector('#fbRating');
+        let fbInput = document.querySelector('#feedbackInput');
+
+        if(fbRate.value == ""){
+            const starContainer = document.querySelector('.feedback__star-container');
+            showError("Pumili ng rating");
+            starContainer.classList.add('error-animate');
+            setTimeout(()=>{
+                starContainer.classList.remove('error-animate');
+            },500);
+            return;
+        }
+        if(fbInput.value == "") fbInput.value = "None";
+
+        const fbObj = {
+            'rate': fbRate.value,
+            'content': fbInput.value
+        }
+
+        const jsonString = JSON.stringify(fbObj);
+
+        const xhr = new XMLHttpRequest();
+        
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                    if(xhr.responseText == 1){
+                        showResModal('Salamat sa iyong pag sagot');
+                        document.querySelector('.feedback__wrapper').style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        xhr.open("POST", "./php/postFeedback.php");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(jsonString);
+    });
+}
+
+function showError(str = ""){
+    let msg = document.querySelector('.msg');
+
+    if(msg.innerText != ""){
+        msg.classList.add('error-animate');
+        setTimeout(()=>{
+            msg.classList.remove('error-animate');
+        },500);
+    } 
+    msg.innerText = str;
+}
+
+function showResModal(str = '', currentModalisUp = false, type = 'Success'){
+    resetModal();
+    let modalTitle = document.querySelector('.modal-title');
+    let modalBody = document.querySelector('.modal-body');
+    let modalCloseBtn = document.querySelector('.btn-close');
+    let negativeBtn = document.querySelector('.negative');
+    let positiveBtn = document.querySelector('.positive');
+    let modal = document.querySelector('.modal-dialog');
+    let modalItself = document.querySelector('.modal');
+    let modalHeader = document.querySelector('.modal-header');
+    let modalFooter = document.querySelector('.modal-footer');
+
+
+    modalTitle.innerText = type;
+    positiveBtn.style.display = 'none';
+    negativeBtn.innerText = 'Close';
+    modalBody.innerText = str;
+
+    if(type == 'Success'){
+        modalTitle.style.color = 'rgb(10, 204, 10)';
+    }
+    else{
+        modalTitle.style.color = 'red';
+    }
+
+    if(!currentModalisUp){
+        modalLauncher();
+    }
+}
+
+
+function modalLauncher(){
+    // let positive = document.querySelector('.positive');
+
+    // positive.removeAttribute('onclick');
+    let modalLauncher = document.querySelector('.modal-launcher');
+    modalLauncher.click();
+}
+
+function resetModal(){
+    let header = document.querySelector('.modal-header');
+    let footer = document.querySelector('.modal-footer');
+    let title = document.querySelector('.modal-title');
+    let headerClose = document.querySelector('.btn-close');
+    let positive = document.querySelector('.positive');
+    let negative = document.querySelector('.negative');
+
+    header.style.display = 'flex';
+    footer.style.display = 'flex';
+    title.innerText = 'Modal Title';
+    title.style.color = 'unset';
+    headerClose.style.display = 'block'
+    positive.style.display = 'block';
+    negative.style.display = 'block';
+    positive.innerText = 'Understood';
+    negative.innerText = 'Cancel';
+}

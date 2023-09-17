@@ -3,6 +3,11 @@
 *Bootstrap(sa admin level gagamitin none sa user lvl)
  -->
 
+ <?php
+  // for testing feedback
+  // session_start();
+  // session_destroy();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,7 +175,7 @@
               </div>
             </section>
           </div>
-          <div class="feedback__wrapper">
+          <div class="feedback__wrapper" style="display: none;">
             <section class="feedback">
               <h1>Kamusta ang iyong experience sa iSchedule?</h1>
               <h2>Sabihin mo samin</h2>
@@ -181,12 +186,15 @@
                 <span class="material-icons-outlined star star3" data-status="disabled">star</span>
                 <span class="material-icons-outlined star star4" data-status="disabled">star</span>
                 <span class="material-icons-outlined star star5" data-status="disabled">star</span>
-              </div>
-              <textarea name="" id="" cols="30" rows="10"></textarea>
+              </div>                                                                                                                                                                                                      
+              <textarea placeholder="Maaring ipaliwanag dito ang iyong karanasan..." id="feedbackInput" cols="30" rows="5" onblur="inputLimiterBlur(this.id, 500); statusMsgCounter(this.id, 'feedbackCtr', 500);" oninput="inputLimiter(this.id, 500); statusMsgCounter(this.id, 'feedbackCtr', 500);"></textarea>
               <div class="feedback__ctr-container">
-                <span class="feedback__ctr">100</span>
+                <span class="feedback__ctr" id="feedbackCtr">200</span>
               </div>
-              <button>Send</button>
+              <div class="error-container">
+                <span class="msg" id="test"></span>
+              </div>
+              <button id="feedbackSubmit">Send</button>
             </section>
           </div>
     </main>

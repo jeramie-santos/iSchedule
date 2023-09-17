@@ -1001,4 +1001,44 @@ footer .about .about__content {
   font-size: 2rem;
   color: rgb(80, 78, 78);
   font-weight: 700;
+}
+
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(2px);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.error-animate {
+  animation: horizontal-shaking 0.35s infinite;
+}
+
+.error-container {
+  width: 100%;
+  height: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.msg {
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: red;
+  transition-duration: 500ms;
+  position: absolute;
+  left: 0;
 }/*# sourceMappingURL=main.css.map */
