@@ -13,7 +13,7 @@
 	$count = mysqli_num_rows($result);
 
     while($row = mysqli_fetch_array($result)){
-        echo $row['link'];
+        echo htmlspecialchars_decode($row['link']);
     }
     
 ?>
