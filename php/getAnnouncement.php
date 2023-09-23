@@ -79,8 +79,6 @@
         }
         else{
             return "{$seperated[0]}:{$seperated[1]} AM";
-        }
-
-        
+        }  
     }
 ?>
