@@ -4,9 +4,20 @@
  -->
 
  <?php
-  // for testing feedback
-  // session_start();
-  // session_destroy();
+    require './php/connect.php';
+    session_start();
+    
+    $query = "SELECT `status` FROM `website_status` WHERE `isActive` = true;";
+
+    $result = mysqli_query($conn, $query);
+
+    while($row = mysqli_fetch_array($result)){
+            $_SESSION['status'] = $row['status'];
+    }
+    
+    if($_SESSION['status'] == 2){
+      header("Location: ./page/down.php");
+    }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,14 +57,14 @@
                 </div>
                 <div class="header__nav-mobile--links" id="links" style="display: none;">
                     <button class="header__dropdown-item btn-link" data-page="home"><span class="material-icons-outlined">home</span>Home</button>
-                    <button class="header__dropdown-item btn-link" onClick="parent.location='./page/schedule.html'"><span class="material-icons-outlined">calendar_month</span>Schedule An Appointment</button>
+                    <button class="header__dropdown-item btn-link" onClick="parent.location='./page/schedule.php'"><span class="material-icons-outlined">calendar_month</span>Schedule An Appointment</button>
                     <button class="header__dropdown-item btn-link" data-page="announcement"><span class="material-icons-outlined">campaign</span>Announcement</button>
                     <button class="header__dropdown-item btn-link" data-page="footer"><span class="material-icons-outlined">info</span>About Us</button>
                 </div>
             </nav>
             <nav class="header__nav-desktop">
                 <button class="header__nav-desktop--links btn-link" data-page="home">Home</button>
-                <button class="header__nav-desktop--links btn-link" onClick="parent.location='./page/schedule.html'">Schedule An Appointment</button>
+                <button class="header__nav-desktop--links btn-link" onClick="parent.location='./page/schedule.php'">Schedule An Appointment</button>
                 <button class="header__nav-desktop--links btn-link" data-page="announcement">Announcement</button>
                 <button class="header__nav-desktop--links btn-link" data-page="footer">About Us</button>
             </nav> 

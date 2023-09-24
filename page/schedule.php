@@ -1,3 +1,21 @@
+<?php
+    require '../php/connect.php';
+    session_start();
+    
+    $query = "SELECT `status` FROM `website_status` WHERE `isActive` = true;";
+
+    $result = mysqli_query($conn, $query);
+
+    while($row = mysqli_fetch_array($result)){
+            $_SESSION['status'] = $row['status'];
+    }
+    
+    if($_SESSION['status'] == 2 || $_SESSION['status'] == 3){
+      header("Location: down.php");
+    }
+ ?>
+
+
 <!-- TODO
 AYUSIN BIRTHDATE GAWA CUSTOM FROM YOUTUBE
 AYUSIN DESKTOP MODE NG SECOND FORM -->

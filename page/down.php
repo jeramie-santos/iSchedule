@@ -1,9 +1,27 @@
+<?php
+    require '../php/connect.php';
+    session_start();
+    
+    $query = "SELECT `status` FROM `website_status` WHERE `isActive` = true;";
+
+    $result = mysqli_query($conn, $query);
+
+    while($row = mysqli_fetch_array($result)){
+            $_SESSION['status'] = $row['status'];
+    }
+    
+    if($_SESSION['status'] == 1){
+      header("Location: ./../index.php");
+    }
+?>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iSchedule</title>
+    <script defer src="./../js/down.js"></script>
     <link rel="stylesheet" href="./../css/down.css">
     <link rel="icon" type="image/x-icon" href="./../imgs/mediclogo.png">
 </head>

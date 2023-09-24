@@ -53,6 +53,7 @@ tutorialStep.forEach((item, index) => {
 });
 
 function initialize(){
+    setInterval(checkWebStatus, 30000);
     checkFbSubmission();
     feedbackStars();
     getAnnouncement();
@@ -654,4 +655,22 @@ function resetModal(){
     negative.style.display = 'block';
     positive.innerText = 'Understood';
     negative.innerText = 'Cancel';
+}
+
+function checkWebStatus(){
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function(){
+        if(this.readyState ==4){
+            if(this.status == 200){
+                if(this.responseText == 2){
+                    window.location.replace("./page/down.php");
+                }
+            }
+        }
+    }
+
+    console.assert('checking');
+    xhr.open("GET", "./php/checkWebStatus.php", false);
+    xhr.send();
 }

@@ -84,6 +84,8 @@ const departmentDesc = {
 scheduleNav();
 addLinkToLogo();
 insertListenerDept();
+setInterval(checkWebStatus, 10000);
+
 
 function goBlack(id){
     document.getElementById(id).style.color = 'black';
@@ -1152,4 +1154,22 @@ function revertAllBorder(){
     allSelect.forEach((item)=>{
         item.style.borderColor = 'rgb(186, 182, 182)';
     });
+}
+
+function checkWebStatus(){
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function(){
+        if(this.readyState ==4){
+            if(this.status == 200){
+                if(this.responseText == 3 || this.responseText == 2){
+                    window.location.replace("down.php");
+                }
+            }
+        }
+    }
+
+    console.assert('checking');
+    xhr.open("GET", "./../php/checkWebStatus.php", false);
+    xhr.send();
 }
