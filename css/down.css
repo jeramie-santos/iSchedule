@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 0.5rem;
+  margin-right: 20px !important;
+}
+
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(82, 111, 189, 0);
+  background-color: rgb(225, 222, 222);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(7, 62, 157);
+  outline: 1px solid rgba(204, 202, 202, 0.69);
+  border-radius: 50px !important;
+}
+
+body {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.msg-container {
+  margin-top: 8%;
+  background-color: whitesmoke;
+  border-radius: max(10px, 0.5vw);
+  box-shadow: 0px 0px 3px rgb(80, 78, 78);
+  width: 90%;
+  padding: max(20px, 1vw);
+  max-width: 1200px;
+  min-height: 300px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+  gap: max(20px, 1vh);
+}
+.msg-container h1 {
+  color: rgb(7, 62, 157);
+  font-weight: 1000;
+  font-size: 2rem;
+}
+.msg-container p {
+  color: rgb(80, 78, 78);
+  font-size: 1.3rem;
+  text-align: justify;
+}
+.msg-container a, .msg-container a:link, .msg-container a:visited, .msg-container a:active {
+  text-decoration: none;
+  background-color: rgb(7, 62, 157);
+  color: white;
+  padding: max(15px, 1vw);
+  border-radius: max(10px, 0.5vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.msg-container a:hover {
+  transform: translateY(-5px);
+}
+
+@media only screen and (max-width: 900px) {
+  .msg-container {
+    background-color: white;
+    box-shadow: unset;
+  }
+}/*# sourceMappingURL=down.css.map */

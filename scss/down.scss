@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import "./variables";
+@import "./resets";
+
+body{
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.msg-container{
+    margin-top: 8%;
+    background-color: whitesmoke;
+    border-radius: max(10px, 0.5vw);
+    box-shadow: 0px 0px 3px $fontbase-color;
+    width: 90%;
+    padding: max(20px, 1vw);
+    max-width: 1200px;
+    min-height: 300px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 10;
+    gap: max(20px, 1vh);
+
+    h1{
+        color: $primary-color;
+        font-weight: 1000;
+        font-size: 2rem;
+    }
+
+    p{
+        color: $fontbase-color;
+        font-size: 1.3rem;
+        text-align: justify;
+    }
+
+    a,a:link, a:visited, a:active{
+        text-decoration: none;
+        background-color: $primary-color;
+        color: white;
+        padding: max(15px, 1vw);
+        border-radius: max(10px, 0.5vw);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    a:hover{
+        transform: translateY(-5px);
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+    .msg-container{
+        background-color: white;
+        box-shadow: unset;
+    }
+}
