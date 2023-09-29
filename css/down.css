@@ -69,6 +69,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
 }
 .msg-container a:hover {
   transform: translateY(-5px);

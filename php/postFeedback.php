@@ -6,7 +6,7 @@
 
     $convertedSpeChar = htmlspecialchars($object->content);
 
-    $query = "INSERT INTO `feedback`(`rate`, `feedbackContent`) VALUES ('$object->rate','$convertedSpeChar')";
+    $query = "INSERT INTO `feedbacks`(`rate`, `feedbackContent`) VALUES ('$object->rate','$convertedSpeChar')";
 
     if(mysqli_query($conn, $query)){
             // Set session cookie attributes

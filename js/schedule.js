@@ -24,6 +24,8 @@ let formErrorMessage = "";
 let birthdateDisplay = "";
 let scheduleDateDisplay = "";
 
+const fakeOTP = '12345';
+
 const patient = {
     'department': '',
     'scheduleDate': '',
@@ -163,20 +165,37 @@ function openModalOTP(){
     let modalItself = document.querySelector('.modal');
     let modalHeader = document.querySelector('.modal-header');
     let modalFooter = document.querySelector('.modal-footer');
-    
+    let main = document.querySelector('main');
+
     modal.classList.add('modal-lg');
     modalHeader.style.display = 'none';
     modalFooter.style.display = 'none';
     modalTitle.style.color = 'unset';
     modalBody.style.minHeight = '400px';
 
-    let htmlCode = '<div class="OTP-container"><div class="textInfo-container"><span class="mainText">Ibigay ang iyong One-Time Password upang i-confirm ang iyong appointment.</span><span class="subText">Ang One-Time Password ay sinend sa numero ng teleponong <span class="phoneDisplay">09XX XXX XXXX</span></span></div><div class="OTP-body"><div class="OTP-field"><input type="text" name="OTP1" id="OTP1" oninput="inputLimiter(this.id, 5)" onblur="inputLimiterBlur(this.id, 5)"><button class="resend-btn">Re-Send</button></div><div class="error-msg"></div></div><button class="OTP-btn">Submit</button></div>'
-    modalBody.innerHTML = htmlCode;
+    let htmlCode = `
+    <div class="new-wrapper">
+        <div class="OTP-container">
+            <div class="textInfo-container">
+                <span class="mainText">Ibigay ang iyong One-Time Password upang i-confirm ang iyong appointment.</span>
+                <span class="subText">Ang One-Time Password ay sinend sa numero ng teleponong <span class="phoneDisplay">09XX XXX XXXX</span></span>
+            </div>
+            <div class="OTP-body">
+                <div class="OTP-field">
+                    <input type="text" name="OTP1" id="OTP1" oninput="inputLimiter(this.id, 5)" onblur="inputLimiterBlur(this.id, 5)">
+                    <button class="resend-btn">Re-Send</button>
+                </div>
+                <div class="error-msg"></div>
+            </div>
+            <button class="OTP-btn">Submit</button>
+        </div>
+    </div>`
+    main.innerHTML = htmlCode;
     document.querySelector('.phoneDisplay').innerHTML = patient['phone'];
     document.querySelector('.OTP-btn').addEventListener('click', ()=>{
         checkOTP();
     });
-    modalLauncher.click();
+    // modalLauncher.click();
     resetCD();
 
     document.querySelector('.resend-btn').addEventListener('click', ()=>{
@@ -285,13 +304,13 @@ function insertListenerDept(){
             deptCards.forEach((itemRemove)=>{
                 itemRemove.classList.remove('dept__selected');
             });
-            document.querySelector('#department').value = item.querySelector('.form__dept-title').getAttribute('data-deptName');
+            document.querySelector('#department').value = item.querySelector('.form__dept-title').dataset.dept;
             item.classList.add('dept__selected');
 
             temp = item.querySelector('.form__dept-title').innerHTML.toLowerCase();
 
             // lagay modal info
-            openModalDepartment(document.querySelector('#department').value, '[TEMPORARY TEXT] ' +departmentDesc[temp]);
+            openModalDepartment(item.querySelector('.form__dept-title').dataset.deptname, '[TEMPORARY TEXT] ' +departmentDesc[temp]);
         });
     });
 }
@@ -460,10 +479,10 @@ function grabSecondForm(){
         errorHandler('43', document.querySelector('#birthDate').id);
         return false;
     }
-    else if(birthDate > 31 || birthDate < 1){
-        errorHandler('44', document.querySelector('#birthDate').id);
-        return false;
-    }
+    // else if(birthDate > 31 || birthDate < 1){
+    //     errorHandler('44', document.querySelector('#birthDate').id);
+    //     return false;
+    // }
     if(birthDate.length == 1){
         temp = '0' + birthDate;
         birthDate = temp;
@@ -473,6 +492,7 @@ function grabSecondForm(){
     // BIRTHYEAR **************************
     // 
     let checkDate = new Date();
+    
     let birthYear = document.querySelector('#birthYear').value.trim();
     if(birthYear == ''){
         errorHandler('45', document.querySelector('#birthYear').id);
@@ -484,6 +504,10 @@ function grabSecondForm(){
     }
     else if(birthYear < 1900 || birthYear > checkDate.getFullYear()){
         errorHandler('47', document.querySelector('#birthYear').id);
+        return false;
+    }
+    else if(!isDateValid(`${birthYear}-${birthMonth}-${birthDate}`)){
+        errorHandler('48', document.querySelector('#birthDate').id);
         return false;
     }
     patient['dateOfBirth'] = `${birthYear}-${birthMonth}-${birthDate}`;
@@ -601,17 +625,22 @@ function grabSecondForm(){
     // 
     // CASE NO **************************
     // 
-    if(patient["typeOfPatient"] == 'oldPatient'){
-        patient["caseNo"] = document.querySelector('#caseNo').value.trim();
-        if(patient['caseNo'] == ''){
-            errorHandler('120', document.querySelector('#caseNo').id);
-            return false;
-        }
-        // MAGLAGAY PA VALIDATOR DITO IF ALAM NA NATIN KUNG ILANG NUM BA NEED SA CASENO OR MAY LETRA BA ETC
-    }
-    else{
-        patient["caseNo"] = "";
-    }
+    // if(patient["typeOfPatient"] == 'oldPatient'){
+    //     patient["caseNo"] = document.querySelector('#caseNo').value.trim();
+    //     if(patient['caseNo'] == ''){
+    //         errorHandler('120', document.querySelector('#caseNo').id);
+    //         return false;
+    //     }
+    //     // MAGLAGAY PA VALIDATOR DITO IF ALAM NA NATIN KUNG ILANG NUM BA NEED SA CASENO OR MAY LETRA BA ETC
+    // }
+
+    // if(patient['caseNo'] == ''){
+    //     errorHandler('120', document.querySelector('#caseNo').id);
+    //     return false;
+    // }
+    // else{
+    patient["caseNo"] = "";
+    // }
 
     return true;
 }
@@ -651,15 +680,16 @@ function grabPatient(){
                 item.querySelector('.review__input').innerHTML = `${document.querySelector('#scheduleDate').value} (${selectedSlot})`;
                 break;
             case 1:
+                const dept = ['ENT', 'Hematology', 'Internal Medicine', 'Internal Medicine Clearance', 'Nephrology', 'Neurology', 'OB GYNE New', 'OB GYNE Old', 'OB GYNE ROS', 'Oncology', 'Pediatric Cardiology', 'Pediatric Clearance', 'Pediatric General', 'Psychiatry New', 'Psychiatry Old', 'Surgery', 'Surgery ROS'];
                 // Turn string to proper form then removed comma from function
-                let dept = capitalFirstLetter(patient['department'])
-                let removedCommaDept = "";
+                let deptName = dept[patient['department']-1];
+                // let removedCommaDept = "";
 
-                for(i = 0; i < dept.length; i++){
-                    if(dept[i] != ',') removedCommaDept += dept[i];
-                }
+                // for(i = 0; i < dept.length; i++){
+                //     if(dept[i] != ',') removedCommaDept += dept[i];
+                // }
 
-                item.querySelector('.review__input').innerHTML = removedCommaDept;
+                item.querySelector('.review__input').innerHTML = deptName;
                 break;
             case 2:
                 // Turn string to proper form then removed comma from function
@@ -809,6 +839,11 @@ function errorHandler(code, id){
     }
     else if(code == '47'){
         formErrorMessage = 'Ang taon ng petsa ng kapanganakan ay hindi angkop.';
+        errorHighlight = document.getElementById(id);
+        errorHighlight.style.borderColor = 'red';
+    }
+    else if(code == '48'){
+        formErrorMessage = 'Ang petsa ng kapanganakan ay hindi angkop.';
         errorHighlight = document.getElementById(id);
         errorHighlight.style.borderColor = 'red';
     }
@@ -1172,4 +1207,46 @@ function checkWebStatus(){
     console.assert('checking');
     xhr.open("GET", "./../php/checkWebStatus.php", false);
     xhr.send();
+}
+
+function capitalFirstLetter(str){
+    str = str.split(' ');
+    let newStr = [];
+
+    str.forEach((item)=>{
+        newStr.push(item.charAt(0).toUpperCase() + item.substring(1));
+    });
+
+    return newStr.join(' ');
+}
+
+function isDateValid(dateString) {
+    // Try to create a Date object with the provided date string
+    const date = new Date(dateString);
+    
+    // Check if the created Date object is not "Invalid Date"
+    // and the year, month, and day match the input values
+    if (
+      date.toString() !== "Invalid Date" &&
+      date.getFullYear() === parseInt(dateString.split('-')[0], 10) &&
+      date.getMonth() === parseInt(dateString.split('-')[1], 10) - 1 && // Month is 0-based
+      date.getDate() === parseInt(dateString.split('-')[2], 10)
+    ){
+      return true; // Valid date
+    } else {
+      return false; // Invalid date
+    }
+}
+
+function filterCaseNo(id){
+    let element = document.getElementById(id);
+    let newVal = "";
+
+    for(i =0; i< element.value.length; i++){
+
+        if(!isNaN(element.value[i]) || element.value[i] == '-'){
+            newVal+= element.value[i];
+        }
+    };
+    element.value = newVal;
 }
